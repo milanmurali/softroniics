@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profiles</title>
+  </head>
+  <style>
+    .heading {
+      display: flex;
+      justify-content: center;
+    }
+
+    img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .child {
+      flex: 33%;
+      text-align: center;
+      border-radius: 8px;
+    }
+
+    .child:hover {
+      background-color: lightgray;
+    }
+
+    @media screen and (max-width: 1000px) {
+      .child {
+        flex: 50%;
+      }
+    }
+
+    @media screen and (max-width: 700px) {
+      .child {
+        flex: 100%;
+      }
+    }
+  </style>
+
+  <body>
+    <div class="heading">
+      <h1>JDM</h1>
+    </div>
+    <div class="container">
+      <div class="child">
+        <img src="/HTMLCSS/IMG/911targa.jpg" alt="IMAGE NOT FOUND" />
+        <h2>Porsche</h2>
+        <h3>911 Targa</h3>
+      </div>
+
+      <div class="child">
+        <img src="/HTMLCSS/IMG/rx7.jpg" alt="IMAGE NOT FOUND" />
+        <h2>Mazda</h2>
+        <h3>Rx7</h3>
+      </div>
+
+      <div class="child">
+        <img src="/HTMLCSS/IMG/s14.jpg" alt="IMAGE NOT FO  UND" />
+        <h2>Nissan</h2>
+        <h3>S14</h3>
+      </div>
+
+      <div class="child">
+        <img src="/HTMLCSS/IMG/supra.jpg" alt="IMAGE NOT FOUND" />
+        <h2>Toyota</h2>
+        <h3>Supra</h3>
+      </div>
+
+      <div class="child">
+        <img src="/HTMLCSS/IMG/r32.jpg" alt="IMAGE NOT FOUND" />
+        <h2>Nissan</h2>
+        <h3>R34 Skyline</h3>
+      </div>
+
+      <div class="child">
+        <img src="/HTMLCSS/IMG/evo.jpg" alt="IMAGE NOT FOUND" />
+        <h2>Mitsubishi</h2>
+        <h3>Lancer</h3>
+      </div>
+    </div>
+  </body>
+</html>

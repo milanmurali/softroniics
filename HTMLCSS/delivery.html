@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delivery Landing Page</title>
+  </head>
+
+  <style>
+    body {
+      padding: 0% 5%;
+      font-family: "Merriweather Sans", sans-serif;
+    }
+    
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+    }
+    .navbaricon > a > img {
+      height: 100%;
+      width: auto;
+      padding-left: 10%;
+    }
+    .navbarcontent {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .navbarcontent > a {
+      display: block;
+      text-decoration: none;
+      padding: 15px 15px;
+      text-align: center;
+      border-radius: 4px;
+      color: gray;
+    }
+    .navbarcontent > a:hover {
+      background-color: lightgray;
+      color: white;
+    }
+
+    .main {
+      margin-top: 50px;
+      display: flex;
+      padding: 10px;
+    }
+    .maintext {
+      flex: 50%;
+      padding-left: 2%;
+    }
+    .mainimg {
+      flex: 50%;
+    }
+    .mainimg > img {
+      width: 85%;
+    }
+    h1 {
+      font-size: 64px;
+      font-weight: lighter;
+    }
+    p {
+      font-size: 21px;
+      color: gray;
+    }
+
+    .button {
+      background-color: #e8505b;
+      width: 160px;
+      height: auto;
+      text-decoration: none;
+      font-size: large;
+      text-align: center;
+      color: white;
+      padding: 2%;
+      border: 0px solid white;
+      border-radius: 8px;
+    }
+    @media screen and (max-width: 900px){
+      .navbar, .main {
+      display: block;
+    }
+    .mainimg{
+      display: block;
+      justify-content: center;
+      align-items: center ;
+      padding: 23px;
+    }
+    }
+  </style>
+
+  <body>
+    <div class="navbar">
+      <div class="navbaricon">
+        <a href="#home">
+          <img class="icon" src="/HTMLCSS/IMG/testicon.png" />
+        </a>
+      </div>
+      <div class="navbarcontent">
+        <a href="#Home">Home</a>
+        <a href="#Services">Services</a>
+        <a href="#About">About</a>
+        <a href="#hiw">How It Works</a>
+        <a href="#Testimonials">Testimonials</a>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="maintext">
+
+        <h1><b>Home Delivery</b> From Stores Near You</h1>
+
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed <br />
+          diam nonumy eirmod tempor invidunt ut labore et dolore <br />
+          magna aliquyam erat. sed diam voluptua.
+        </p>
+        <br />
+        <a href="#downloadapp" class="button">Download App</a>
+      </div>
+      <div class="mainimg">
+        <img class="icon" src="/HTMLCSS/IMG/deliverylandingpage.png">
+      </div>
+    </div>
+  </body>
+</html>

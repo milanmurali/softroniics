@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+</head>
+<style>
+    ul{
+        list-style-type:none;
+        margin: 0;
+        padding: 0;
+        background-color: #6f2df5;
+        overflow: hidden;
+    }
+    li{
+        float: left;
+    }
+    li a,button{
+        display:block;
+        text-align: center;
+        text-decoration: none;
+        padding: 15px 15px;
+        color: white;
+    }
+    li a:hover{
+        background-color: #5f27d1;
+    }
+    
+    .dropdown{
+        float: right;
+        padding-right: 10px;
+    }
+    .dropdown:hover .content{
+        display: block;
+
+    }
+    .content{
+        display:none;
+        position: absolute;
+        background-color: #f9f9f9;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        margin-right: 20px;
+    }
+    .content a{
+        color: black;
+    }
+    .content a:hover{
+        background-color: #d6d6d6;
+    }
+
+    .search{
+        margin-left: 15%;
+    }
+    .searchbar{
+        margin-top: 10px;
+        height: 28px;
+        width: 200px;
+        background: url("https://img.icons8.com/?size=100&id=132&format=png&color=FFFFFF");
+        background-repeat: no-repeat;
+        background-size: 18px;
+        background-position: 4px 6px;
+        border-radius: 4px;
+        border: 1px solid white;
+        background-color: #5f27d1;
+        color: white;
+        padding-left: 30px;
+    }
+    ::placeholder {
+        color: white;
+    }
+    .booticon{
+        width: auto;
+        height: 18px;
+    }
+
+    .Ricon1{
+        float: right;
+        padding-left: 250px;
+        width: auto;
+        height: 22px;
+        padding-top: 14px;
+    }
+    .Ricon2{
+        float: right;
+        padding-left: 30px;
+        width: auto;
+        height: 22px;
+        padding-top: 14px;
+    } 
+    .Ricon3{
+        float: right;
+        padding-left: 30px;
+        width: auto;
+        height: 22px;
+        padding-top: 14px;
+    }
+</style>
+<body>
+    <ul>
+        <li>
+            <a href="#home" style="margin-left: 50px;">
+                <img class="booticon" src="https://getbootstrap.com/docs/5.0/assets/brand/bootstrap-logo-white.svg">
+            </a>
+        </li>
+
+        <li><a href="#news">Docs</a></li>
+        <li><a href="#examples">Examples</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li><a href="#blog">Blog</a></li>
+        
+        <li class="search">
+            <input type=text placeholder="Search" class="searchbar">
+        </li>
+
+        <li>
+            <img class="Ricon1" src="https://img.icons8.com/?size=100&id=12599&format=png&color=FFFFFF">
+        </li>
+        <li>
+            <img class="Ricon2" src="https://img.icons8.com/?size=100&id=8824&format=png&color=FFFFFF">
+        </li>
+        <li>
+            <img class="Ricon3" src="https://www.vectorlogo.zone/logos/opencollective/opencollective-icon.svg">
+        </li>
+
+        <li class="dropdown">
+            <a class="#button" href="#more">Light &#9662</a>
+            <div class="content">
+                <a href="#darktheme">Dark</a>
+                <a href="#fs">Follow System</a>  
+            </div>
+        </li>
+
+        <li class="dropdown">
+            <a class="#button" href="#more">v5.3 &#9662</a>
+            <div class="content">
+                <a href="#beta">v5.4(beta)</a>
+                <a href="#5.2">v5.2</a>  
+            </div>
+        </li>
+    </ul>
+</body>
+</html>

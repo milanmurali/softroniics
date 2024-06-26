@@ -1,0 +1,227 @@
+body {
+  background-color: #ffa4a3;
+	font-family: 'Roboto';
+  padding: 1%;
+}
+
+.navbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.navname {
+  padding: 5px 40px 5px 60px;
+  background-color: #ed4c5c;
+  border-radius: 10px 0px 0px 0px;
+}
+.name {
+  text-decoration: none;
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+  font-family: "Roboto";
+}
+
+.navsearch {
+  display: flex;
+}
+
+.searchbar {
+  width: 500px;
+  padding: 0px 0px 0px 10px;
+  color: black;
+  border: 0px solid black;
+  background-image: url("https://img.icons8.com/?size=100&id=7695&format=png&color=000000");
+  background-repeat: no-repeat;
+  background-size: 24px auto;
+  background-position: 480px center;
+  background-color: whitesmoke;
+  margin: 10px 0px 10px 0px;
+}
+.searchbar:focus {
+  outline: none;
+}
+.navitems {
+  display: flex;
+  padding: 0px 50px 0px 0px;
+  justify-content: space-around;
+  align-items: center;
+}
+.button {
+  padding: 5px;
+  color: white;
+  background-color: #ed4c5c;
+  border: 0px;
+  cursor: pointer;
+}
+.notif {
+  padding: 5px 40px;
+  width: 30px;
+  height: auto;
+}
+.propic {
+  padding: 5px;
+  width: 30px;
+  height: auto;
+  border-radius: 100%;
+}
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  border: 0px;
+  background-color: #ed4c5c;
+  border-radius: 0px 0px 0px 10px;
+}
+.options {
+  display: flex;
+  align-items: center;
+  padding: 0px 43px 0px 30px;
+  color: white;
+  background-color: #ed4c5c;
+}
+.options:hover {
+  color: #ed4c5c;
+  background-color: white;
+}
+.licons {
+  padding: 0px 10px 0px 0px;
+  width: 30px;
+  height: auto;
+}
+.right{
+  width: 100%;
+  background-color: whitesmoke;
+  padding: 25px 30px;
+  border-radius: 0px 0px 10px 0px;
+}
+
+.top{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0px 0px 20px 0px;
+
+}
+.topbox1, .topbox2, .topbox3,.topbox4{
+  width: 220px;
+  height: 120px;
+  padding: 0px 10px 0px 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
+}
+.topbox1{
+background-image: url("https://img.icons8.com/?size=100&id=38833&format=png&color=ed4c5c");
+background-repeat: no-repeat;
+background-size: 80px auto;
+background-position: 140px center;
+
+}
+.topbox2{
+  background-image: url("https://img.icons8.com/?size=100&id=38HJBFwphJ3I&format=png&color=ed4c5c");
+  background-repeat: no-repeat;
+  background-size: 80px auto;
+  background-position: 140px center;
+  
+  }
+.topbox3{
+  background-image: url("https://img.icons8.com/?size=100&id=ADK0QQTpkS9U&format=png&color=ed4c5c");
+  background-repeat: no-repeat;
+  background-size: 80px auto;
+  background-position: 140px center;
+  
+  }
+.topbox4{
+  background-image: url("https://img.icons8.com/?size=100&id=7607&format=png&color=ed4c5c");
+  background-repeat: no-repeat;
+  background-size: 80px auto;
+  background-position: 140px center;
+  
+  }
+  .bottom{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .b1{
+    background-color: white;
+    padding: 0px 50px 20px 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .b1head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 5px solid whitesmoke;
+  }
+  .b2{
+    background-color: white;
+    padding: 0px 30px 0px 0px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+  .b2head{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-bottom: 5px solid whitesmoke;
+  }
+  .pictab, .picinfo{
+    width: 40px;
+    height: auto;
+    border-radius: 100%;
+  }
+  th,td{
+    text-align: left;
+    padding: 10px 10px 5px 50px;
+  }
+
+  @media screen and (max-width: 1400px) {
+.top{
+}
+    .topbox1, .topbox2, .topbox3,.topbox4{
+      flex: 50%;
+    }
+    .bottom{
+      flex-direction: column;
+    }
+} 
+
+
+
+
+  @media screen and (max-width: 800px) {
+    
+  ::placeholder{
+    color: rgba(255, 0, 0, 0);
+
+  }.searchbar {
+      width: 50px;
+      padding: 5px 5px;
+      color: black;
+      border: 0px solid black;
+      background-image: url("https://img.icons8.com/?size=100&id=7695&format=png&color=000000");
+      background-repeat: no-repeat;
+      background-size: 24px auto;
+      background-position: center center;
+      background-color: white;
+      margin: 10px 0px 10px 0px;
+  }
+  .top{
+    flex-direction: column;
+  }
+  .topbox1, .topbox2, .topbox3,.topbox4{
+    width: 80%;
+    height: 120px;
+    margin: 10px;
+  }
+  .bottom{
+    display: none;
+  }
+}

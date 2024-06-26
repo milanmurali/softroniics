@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .a{
+        position: relative;
+    }
+    .w{
+        position: absolute;
+        top: 200px;
+        left: 500px;
+    }
+    .g{
+        position: absolute;
+        top: 250px;
+        left: 250px;
+        z-index: 1;
+    }
+    .text1{
+        position: absolute;
+        color: blue;
+        top: 125px;
+        left: 250px;
+        z-index: 2;
+        font-size: x-large;
+    }
+    .text2{
+        position: absolute;
+        color: blue;
+        top: 850px;
+        left: 250px;
+        z-index: 2;
+        font-size: x-large;
+
+
+    }
+</style>
+<body>
+    <div class="a">
+        <div class="w">
+            <img src="/HTML/IMG/waves.jpeg" alt="">
+        </div>
+        <div class="g">
+            <img src="/HTML/IMG/girl.jpg" alt="" width="auto" height="600">
+        </div>
+        <div class="text1">
+            <p>Don't do this, don't you dare. You will not like it</p>
+        </div>
+        <div class="text2">
+            <p>The text is above the image because we have taken the background image, which is taller than the top <br>
+                image out of the document flow and now the only content height that is recognized is the top image that <br>
+                is still statically positioned.</p>
+        </div>
+    </div>
+</body>
+</html>

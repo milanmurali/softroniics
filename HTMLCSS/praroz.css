@@ -1,0 +1,214 @@
+body {
+	background-image: url(/HTMLCSS/IMG/prarozbg.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+
+}
+::placeholder {
+	color: white;
+	font-weight: 500;
+	font-size: 14px;
+	font-family: 'Roboto';
+
+}
+.navbar {
+	display: flex;
+	justify-content: space-between;
+	font-family: 'Roboto';
+	flex-wrap: wrap;
+	padding: 10px 40px;
+}
+
+.navname > a {
+	padding: 5px 5px;
+	text-decoration: none;
+	text-align: center;
+	font-size: 40px;
+	font-weight: bold;
+	color: #ff7101;
+	font-family: 'Roboto';
+}
+
+.navbarlinks {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.navbarlinks > a {
+	text-decoration: none;
+	padding: 10px 35px;
+	text-align: center;
+	font-size: 15px;
+	color: white;
+	font-weight: bold;
+}
+
+.navsearch {
+	display: flex;
+}
+
+.searchbar{
+	width: 205px;
+	height: 40px;
+	color: white;
+	border: 2px solid #ff7101;
+	border-radius: 8px 0px 0px 8px;
+	background-color: #00000000;
+	padding-left: 10px;
+}
+.searchbar:focus, .user:focus, .pswd:focus {
+	outline: none;
+}
+
+.navsearch > button {
+	width: 120px;
+	height: 45px;
+	text-decoration: none;
+	color: white;
+	background-color: #ff7101;
+	border: 0px solid white;
+	border-radius: 0px 8px 8px 0px;
+	transition-duration: 0.4s;
+	cursor:pointer;
+}
+.navsearch > button:hover {
+	color: #ff7101;
+	background-color: white;
+}
+
+.main {
+	margin-top: 80px;
+	display: flex;
+	flex-wrap: wrap;
+	padding: 0px 40px;
+
+}
+
+.maintext {
+	flex: 75%;
+}
+
+.w {
+	color: white;
+	font-size: 60px;
+	margin: 15px 0px 0px 0px;
+}
+
+.d {
+	color: #ff7101;
+	font-size: 60px;
+	margin: 10px 0px 0px 0px;
+}
+.c {
+	color: white;
+	font-size: 60px;
+	margin: 10px 0px 0px 0px;
+}
+.para {
+	font-size: 24px;
+	font-weight: lighter;
+	line-height: 1.5;
+	color: white;
+	margin: 10px 0px 0px 0px;
+	font-family: 'Roboto';
+}
+.joinus {
+	display: flex;
+	width: 150px;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	text-decoration: none;
+	font-size: large;
+	color: black;
+	background-color: #ff7101;
+	border: 0px solid orange;
+	border-radius: 8px;
+	margin: 20px 0px 0px 0px;
+}
+
+.mainform {
+	display: flex;
+	flex-direction: column;
+	flex: 25%;
+	align-items: center;
+	background-color: rgba(0, 0, 0, 0.85);
+	border-radius: 10px;
+	padding: 0px 0px 0px 0px;
+	margin: 0px 0px 0px 0px;
+
+}
+.loginhere {
+	display: flex;
+	width: 250px;
+	height: 40px;
+	align-items: center;
+	justify-content: center;
+	font-size: large;
+	font-weight: bold;
+	font-family: 'Roboto';
+	color: #ff7101;
+	background-color: white;
+	border-radius: 10px;
+	margin: 30px 25px 0px 30px;
+}
+.user,
+.pswd {
+	display: block;
+	background-color: #00000000;
+	color: white;
+	width: 80%;
+	padding: 0px 0px 5px 0px;
+	margin: 30px 25px 0px 25px;
+	border: 0px solid white;
+	border-bottom: 1px solid #ff7101;
+}
+input[type="submit"] {
+	display: flex;
+	width: 250px;
+	justify-content: center;
+	font-size: 18px;
+	font-weight: bold;
+	font-family: 'Roboto';
+	color: black;
+	background-color: #ff7101;
+	border: 0px solid white;
+	padding: 10px 0px 10px 0px;
+	margin: 30px 0px 0px 0px;
+	border-radius: 10px;
+	cursor:pointer
+}
+.acc {
+	margin: 20px 0px 0px 0px;
+	color: white;
+	font-size: 20px;
+	font-family: 'Roboto';
+}
+.signup {
+	margin: 0px 0px 0px 0px;
+	font-size: 20px;
+	color: white;
+	font-family: 'Roboto';
+
+}
+.signupa {
+	text-decoration: none;
+	color: #ff7101;
+}
+.loginwith{
+	color: white;
+}
+.loginicons > a{
+	text-decoration: none;
+}
+.icons {
+	width: 30px;
+	height: auto;
+	padding: 0px 5px;
+	margin: 0px 0px 10px 0px;
+}
+
+@media screen (max-width: 800px;)
+	
+}

@@ -1,0 +1,79 @@
+.all{
+	display: flex;
+}
+
+.left{
+	background-color: brown;
+	padding: 15px;
+	z-index: 0;
+}
+.bean{
+	width: 180px;
+	border-radius: 8px;
+	margin: 5px;
+	background-color: #3457f9;
+	padding: 15px 15px;
+	z-index: 1;
+}
+.pic{
+	border-radius:100%;
+	width: 100px;
+	height: auto;
+}
+.report{
+	color: white;	
+}
+.name{
+	color: white;
+}
+
+.beancon{
+	position: absolute;
+	width: 180px;
+	padding: 15px 15px;
+	border-radius: 8px;
+	margin: 5px;
+	background-color: #04034e;
+	z-index: 2;
+	
+}
+.beancon > h3{
+	color: rgb(206, 206, 206);
+}
+.beancon > h3:hover{
+	color: white;
+	cursor: pointer;
+}
+
+
+.right{
+	background-color: gold;
+	padding: 15px;	
+}
+.colors1, .colors2{
+	display: flex;
+}
+.colors1 > div, .colors2 >div {
+	width: 200px;
+	height: 100px;
+	border-radius: 8px;
+	margin: 0px 30px 50px 0px;
+}
+.orange{
+	background-color: orange;
+}
+.blue{
+	background-color: blue;
+}
+.red{
+	background-color: red;
+}
+.green{
+	background-color: green;
+}
+.violet{
+	background-color: violet;
+}
+.yellow{
+	background-color: yellow;
+}
