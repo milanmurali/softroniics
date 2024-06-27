@@ -59,6 +59,7 @@ body {
 .burger {
   width: 30px;
   height: auto;
+  cursor: pointer;
 }
 
 .row1 {
