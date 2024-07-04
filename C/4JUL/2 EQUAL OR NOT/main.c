@@ -8,11 +8,11 @@ int main()
     scanf("%d", &b);
     if (a==b)
     {
-        printf("Numbers are Equal");
+        printf("%d & %d are Equal",a,b);
     }
     else
     {
-        printf("Numbers are Not Equal");
+        printf("%d & %d are Not Equal",a,b);
     }
 
     return 0;

@@ -1,33 +1,25 @@
 #include <stdio.h>
 int main()
 {
-    int c;
-    printf("Enter the Temparature in C : ");
+    int a, b, c;
+    printf("Enter the First Number : ");
+    scanf("%d", &a);
+    printf("Enter the Second Number : ");
+    scanf("%d", &b);
+    printf("Enter the Third Number : ");
     scanf("%d", &c);
 
-    if (c > 40)
+    if (a > b && a > c)
     {
-        printf("%d is Very Hot", c);
+        printf("Largest Number : %d", a);
     }
-    else if (c > 30)
+    else if (b > a && b > c)
     {
-        printf("%d is Hot", c);
+        printf("Largest Number : %d", b);
     }
-    else if (c > 20)
+    else
     {
-        printf("%d is Normal", c);
-    }
-    else if (c > 10)
-    {
-        printf("%d is Cold", c);
-    }
-    else if (c > 0)
-    {
-        printf("%d is Very Cold", c);
-    }
-    else if (c < 0)
-    {
-        printf("%d is Freezing", c);
+        printf("Largest Number : %d", c);
     }
 
     return 0;
