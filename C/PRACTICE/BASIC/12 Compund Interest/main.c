@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(){
-    int amt, rate, time, si;
+    int amt, rate, time, ci;
 
     printf("Enter the Amount : ");
     scanf("%d",&amt);
@@ -10,8 +10,8 @@ int main(){
     printf("Enter the Time : ");
     scanf("%d",&time);
 
-    si=(amt*rate*time)/100;
-    printf("Simple Interest = %d",si);
+    ci=(amt*rate*time)/100;
+    printf("cimple Interest = %d",ci);
 }
 
 
