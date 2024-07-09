@@ -1,57 +1,17 @@
 #include <stdio.h>
+#include <math.h>
+int main()
+{
+    float amt, rate, time, ci;
+    printf("Enter Principal Amount :");
+    scanf("%f", &amt);
+    printf("Enter Rate of Interest:");
+    scanf("%f", &rate);
+    printf("Enter Time in Years:");
+    scanf("%f",&time);
 
-int main(){
-    int amt, rate, time, ci;
+    ci = amt * pow((1 + rate / 100), time) - amt;
+    printf("compound interest is %f:", ci);
 
-    printf("Enter the Amount : ");
-    scanf("%d",&amt);
-    printf("Enter the Interest Rate : ");
-    scanf("%d",&rate);
-    printf("Enter the Time : ");
-    scanf("%d",&time);
-
-    ci=(amt*rate*time)/100;
-    printf("cimple Interest = %d",ci);
+    return 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

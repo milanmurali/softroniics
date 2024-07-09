@@ -17,7 +17,7 @@ int main()
         printf("4. Division \n");
         printf("5. Exit \n");
 
-        printf("Enter your choice : ");
+        printf("Enter your Choice : ");
         scanf("%d", &c1);
 
         switch (c1)
@@ -43,7 +43,8 @@ int main()
             getch();
             break;
         default:
-            printf("Invalid Choice \n");
+            printf("Invalid Choice! \n");
+            getch();
             break;
         }
     } while (c1 != 5);
