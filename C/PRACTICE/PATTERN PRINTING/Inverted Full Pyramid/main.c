@@ -1,4 +1,4 @@
-//inverted left half triangle
+//inverted full pyramid
 #include <stdio.h>
 
 int main()
@@ -16,7 +16,7 @@ int main()
         }
             for (j = n; j >= i; j--)
             {
-                printf("*");
+                printf("* ");
             }
 
         printf("\n");
