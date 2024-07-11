@@ -1,4 +1,4 @@
-//inverted full pyramid
+// inverted full pyramid
 #include <stdio.h>
 
 int main()
@@ -8,16 +8,16 @@ int main()
     printf("Enter number of rows: ");
     scanf("%d", &n);
 
-    for (i = 0; i <= n; i++)
+    for (i = 1; i <= n; i++)
     {
         for (s = 0; s <= i; s++)
         {
             printf(" ");
         }
-            for (j = n; j >= i; j--)
-            {
-                printf("* ");
-            }
+        for (j = n; j >= i; j--)
+        {
+            printf("* ");
+        }
 
         printf("\n");
     }
