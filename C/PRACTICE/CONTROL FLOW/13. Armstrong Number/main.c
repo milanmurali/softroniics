@@ -1,6 +1,6 @@
 #include <stdio.h>
 void main(){
-    int n,rev,r;
+    int n,og,sum;
     printf("Enter a Number : ");
     scanf ("%d",&n);
     while (n>0)
