@@ -1,11 +1,11 @@
-//right angle tirangle increment 1
+//right angle trangle increment 1
 #include <stdio.h>
 
 int main()
 {
     int rows, i, j;
 
-    printf("Enter number of rows: ");
+    printf("Enter number of Rows : ");
     scanf("%d", &rows);
 
     for (i = 1; i <= rows; ++i)
@@ -17,5 +17,5 @@ int main()
 
         printf("\n");
     }
-    return 0;
+    return 0    ;
 }
