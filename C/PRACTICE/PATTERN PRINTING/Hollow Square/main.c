@@ -8,28 +8,28 @@ int main()
     scanf("%d", &n);
 
     // first line
-    for (j = 0; j <= n; j++)
+    for (j = 0; j < n; j++)
     {
         printf("* ");
     }
     printf("\n");
 
     // mid
-    for (i = 0; i <= n - 1; i++)
+    for (i = 0; i < n - 2; i++)
     {
-        for (j = 0; j <= n; i++)
+        for (j = 1; j <= n; j++)
         {
-            if (j == 0 || j == n)
+            if (j == 1 || j == n)
                 printf("* ");
             else
-                printf(" ");
+                printf("  ");
         }
             printf("\n");
     }
 
 
     // last line
-    for (j = 0; j <= n; j++)
+    for (j = 0; j < n; j++)
     {
         printf("* ");
     }
