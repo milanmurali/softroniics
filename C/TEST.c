@@ -10,5 +10,6 @@ int main() {
     count(); // Output: Function called 1 times.
     count(); // Output: Function called 2 times.
     count(); // Output: Function called 3 times.
+    ///
     return 0;
 }
