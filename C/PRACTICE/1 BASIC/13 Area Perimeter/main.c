@@ -9,7 +9,7 @@ int main() {
     scanf("%d", &width);
     
     area = length * width;
-    peri = 2 * (length + width);
+    peri = 2 * (length + width);    
 
     printf("The area of the rectangle is: %d\n", area);
     printf("The perimeter of the rectangle is: %d\n", peri);
