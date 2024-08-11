@@ -1,0 +1,2982 @@
+ Volume in drive D is New Volume
+ Volume Serial Number is 588E-FADF
+
+ Directory of D:\Softroniics
+
+11-08-2024  17:06    <DIR>          .
+03-07-2024  18:40    <DIR>          .vscode
+22-07-2024  13:08    <DIR>          BOOTSTRAP
+09-08-2024  11:09    <DIR>          C
+11-08-2024  17:07                 0 filename.txt
+26-06-2024  10:31    <DIR>          HTMLCSS
+22-07-2024  13:12    <DIR>          IMG
+09-08-2024  12:35    <DIR>          Logical Test 1
+22-07-2024  15:45    <DIR>          Machine Test 1
+05-08-2024  12:06    <DIR>          Notes
+               1 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git
+
+11-08-2024  17:06    <DIR>          ..
+09-08-2024  11:10                24 COMMIT_EDITMSG
+05-07-2024  15:29               365 config
+26-06-2024  10:02                73 description
+11-08-2024  16:57                 0 FETCH_HEAD
+05-07-2024  15:28               831 gitk.cache
+26-06-2024  10:29                21 HEAD
+26-06-2024  10:02    <DIR>          hooks
+09-08-2024  11:09            24,480 index
+26-06-2024  10:02    <DIR>          info
+26-06-2024  10:06    <DIR>          logs
+09-08-2024  13:16    <DIR>          objects
+09-08-2024  11:10                41 ORIG_HEAD
+26-06-2024  10:08    <DIR>          refs
+               8 File(s)         25,835 bytes
+
+ Directory of D:\Softroniics\.git\hooks
+
+26-06-2024  10:02    <DIR>          .
+26-06-2024  10:02               478 applypatch-msg.sample
+26-06-2024  10:02               896 commit-msg.sample
+26-06-2024  10:02             4,726 fsmonitor-watchman.sample
+26-06-2024  10:02               189 post-update.sample
+26-06-2024  10:02               424 pre-applypatch.sample
+26-06-2024  10:02             1,649 pre-commit.sample
+26-06-2024  10:02               416 pre-merge-commit.sample
+26-06-2024  10:02             1,374 pre-push.sample
+26-06-2024  10:02             4,898 pre-rebase.sample
+26-06-2024  10:02               544 pre-receive.sample
+26-06-2024  10:02             1,492 prepare-commit-msg.sample
+26-06-2024  10:02             2,783 push-to-checkout.sample
+26-06-2024  10:02             2,308 sendemail-validate.sample
+26-06-2024  10:02             3,650 update.sample
+              14 File(s)         25,827 bytes
+
+ Directory of D:\Softroniics\.git\info
+
+26-06-2024  10:02    <DIR>          .
+26-06-2024  10:02               240 exclude
+               1 File(s)            240 bytes
+
+ Directory of D:\Softroniics\.git\logs
+
+26-06-2024  10:06    <DIR>          .
+09-08-2024  11:10             6,954 HEAD
+26-06-2024  10:29    <DIR>          refs
+               1 File(s)          6,954 bytes
+
+ Directory of D:\Softroniics\.git\logs\refs
+
+26-06-2024  10:29    <DIR>          .
+26-06-2024  10:06    <DIR>          ..
+26-06-2024  10:29    <DIR>          heads
+26-06-2024  10:08    <DIR>          remotes
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git\logs\refs\heads
+
+26-06-2024  10:29    <DIR>          .
+26-06-2024  10:29    <DIR>          ..
+09-08-2024  11:10             6,576 main
+               1 File(s)          6,576 bytes
+
+ Directory of D:\Softroniics\.git\logs\refs\remotes
+
+26-06-2024  10:08    <DIR>          .
+26-06-2024  10:29    <DIR>          ..
+26-06-2024  10:08    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git\logs\refs\remotes\origin
+
+26-06-2024  10:08    <DIR>          .
+26-06-2024  10:08    <DIR>          ..
+09-08-2024  11:10             5,780 main
+               1 File(s)          5,780 bytes
+
+ Directory of D:\Softroniics\.git\objects
+
+09-08-2024  13:16    <DIR>          .
+12-07-2024  12:33    <DIR>          00
+19-07-2024  20:01    <DIR>          01
+05-07-2024  11:50    <DIR>          02
+08-08-2024  12:19    <DIR>          03
+11-07-2024  14:50    <DIR>          05
+08-07-2024  11:20    <DIR>          06
+08-08-2024  12:19    <DIR>          07
+11-07-2024  11:31    <DIR>          08
+08-08-2024  12:19    <DIR>          09
+30-06-2024  21:22    <DIR>          0a
+09-07-2024  11:52    <DIR>          0b
+26-07-2024  12:44    <DIR>          0c
+12-07-2024  12:33    <DIR>          0d
+26-06-2024  10:29    <DIR>          0f
+04-07-2024  12:39    <DIR>          10
+11-07-2024  15:56    <DIR>          11
+05-08-2024  10:57    <DIR>          12
+12-07-2024  12:44    <DIR>          13
+08-08-2024  12:19    <DIR>          14
+23-07-2024  12:07    <DIR>          15
+04-07-2024  12:05    <DIR>          17
+05-08-2024  10:55    <DIR>          19
+05-08-2024  10:55    <DIR>          1a
+08-08-2024  12:19    <DIR>          1b
+05-08-2024  10:55    <DIR>          1c
+25-07-2024  12:58    <DIR>          1e
+19-07-2024  20:01    <DIR>          1f
+25-07-2024  12:11    <DIR>          20
+08-08-2024  12:19    <DIR>          21
+25-07-2024  12:12    <DIR>          22
+05-08-2024  10:57    <DIR>          23
+05-08-2024  10:55    <DIR>          24
+25-07-2024  12:11    <DIR>          25
+30-06-2024  21:22    <DIR>          26
+12-07-2024  12:44    <DIR>          27
+26-07-2024  12:44    <DIR>          28
+12-07-2024  12:33    <DIR>          29
+19-07-2024  20:01    <DIR>          2a
+08-07-2024  11:20    <DIR>          2b
+23-07-2024  12:07    <DIR>          2c
+27-06-2024  20:22    <DIR>          2d
+11-07-2024  12:24    <DIR>          2e
+25-07-2024  12:11    <DIR>          2f
+29-06-2024  18:32    <DIR>          30
+08-08-2024  12:19    <DIR>          31
+11-07-2024  14:50    <DIR>          32
+29-06-2024  18:32    <DIR>          33
+05-08-2024  10:55    <DIR>          34
+08-08-2024  12:19    <DIR>          35
+11-07-2024  12:24    <DIR>          36
+08-08-2024  12:19    <DIR>          37
+23-07-2024  12:07    <DIR>          38
+11-07-2024  12:24    <DIR>          39
+04-07-2024  12:59    <DIR>          3a
+09-07-2024  11:52    <DIR>          3b
+04-07-2024  12:05    <DIR>          3c
+25-07-2024  12:12    <DIR>          3d
+08-07-2024  11:20    <DIR>          3e
+21-07-2024  19:59    <DIR>          40
+21-07-2024  20:29    <DIR>          42
+08-08-2024  12:19    <DIR>          43
+08-08-2024  12:19    <DIR>          45
+09-08-2024  11:09    <DIR>          46
+08-08-2024  12:19    <DIR>          47
+19-07-2024  20:01    <DIR>          48
+25-07-2024  12:11    <DIR>          4a
+09-07-2024  11:52    <DIR>          4b
+08-07-2024  11:20    <DIR>          4c
+26-06-2024  10:19    <DIR>          4d
+08-08-2024  12:19    <DIR>          4e
+21-07-2024  19:59    <DIR>          4f
+09-07-2024  11:54    <DIR>          50
+29-06-2024  18:32    <DIR>          51
+26-07-2024  12:44    <DIR>          52
+25-07-2024  12:11    <DIR>          53
+26-07-2024  12:44    <DIR>          54
+11-07-2024  11:31    <DIR>          55
+11-07-2024  15:56    <DIR>          56
+23-07-2024  12:07    <DIR>          57
+05-08-2024  10:55    <DIR>          58
+25-07-2024  12:11    <DIR>          59
+08-08-2024  12:19    <DIR>          5a
+04-07-2024  12:39    <DIR>          5b
+26-06-2024  20:37    <DIR>          5d
+05-08-2024  10:57    <DIR>          5e
+21-07-2024  20:29    <DIR>          5f
+08-08-2024  12:19    <DIR>          60
+25-07-2024  12:58    <DIR>          61
+11-07-2024  14:50    <DIR>          62
+21-07-2024  20:29    <DIR>          63
+26-07-2024  12:44    <DIR>          64
+12-07-2024  12:44    <DIR>          66
+25-07-2024  12:11    <DIR>          68
+25-07-2024  12:58    <DIR>          69
+26-07-2024  12:44    <DIR>          6a
+08-08-2024  12:19    <DIR>          6b
+05-08-2024  10:57    <DIR>          6c
+08-07-2024  11:20    <DIR>          6d
+12-07-2024  12:44    <DIR>          6e
+11-07-2024  11:31    <DIR>          6f
+08-08-2024  12:19    <DIR>          70
+23-07-2024  12:07    <DIR>          71
+08-07-2024  11:20    <DIR>          73
+21-07-2024  19:59    <DIR>          74
+25-07-2024  12:11    <DIR>          75
+21-07-2024  19:59    <DIR>          77
+08-08-2024  12:19    <DIR>          78
+11-07-2024  15:56    <DIR>          7c
+11-07-2024  15:56    <DIR>          7d
+08-07-2024  11:20    <DIR>          7e
+12-07-2024  12:33    <DIR>          80
+11-07-2024  14:50    <DIR>          81
+08-07-2024  11:20    <DIR>          82
+26-07-2024  12:44    <DIR>          83
+05-08-2024  10:55    <DIR>          84
+25-07-2024  12:11    <DIR>          85
+11-07-2024  15:56    <DIR>          86
+04-07-2024  12:05    <DIR>          87
+11-07-2024  15:56    <DIR>          89
+09-07-2024  11:52    <DIR>          8a
+08-08-2024  12:19    <DIR>          8b
+11-07-2024  12:24    <DIR>          8c
+26-07-2024  12:44    <DIR>          8d
+05-08-2024  10:55    <DIR>          8e
+11-07-2024  11:31    <DIR>          8f
+23-07-2024  12:07    <DIR>          90
+08-07-2024  11:20    <DIR>          91
+12-07-2024  12:33    <DIR>          92
+03-07-2024  13:00    <DIR>          93
+08-08-2024  12:19    <DIR>          94
+09-07-2024  11:52    <DIR>          95
+08-08-2024  12:19    <DIR>          96
+03-07-2024  13:00    <DIR>          97
+26-06-2024  10:06    <DIR>          99
+19-07-2024  20:01    <DIR>          9c
+25-07-2024  12:11    <DIR>          9e
+12-07-2024  12:33    <DIR>          9f
+11-07-2024  12:24    <DIR>          a0
+25-07-2024  12:11    <DIR>          a1
+11-07-2024  11:31    <DIR>          a2
+23-07-2024  12:07    <DIR>          a3
+05-07-2024  11:50    <DIR>          a4
+05-07-2024  11:50    <DIR>          a5
+08-07-2024  11:20    <DIR>          a6
+11-07-2024  14:50    <DIR>          a7
+11-07-2024  14:50    <DIR>          a8
+08-07-2024  11:20    <DIR>          a9
+11-07-2024  15:56    <DIR>          aa
+04-07-2024  12:39    <DIR>          ab
+26-07-2024  12:44    <DIR>          ac
+25-07-2024  12:58    <DIR>          ad
+04-07-2024  12:05    <DIR>          ae
+04-07-2024  12:59    <DIR>          af
+04-07-2024  12:05    <DIR>          b0
+25-07-2024  12:58    <DIR>          b1
+11-07-2024  12:24    <DIR>          b2
+21-07-2024  19:59    <DIR>          b3
+25-07-2024  12:11    <DIR>          b4
+11-07-2024  12:24    <DIR>          b5
+04-07-2024  12:59    <DIR>          b6
+08-08-2024  12:19    <DIR>          b7
+08-08-2024  12:19    <DIR>          b8
+08-08-2024  12:19    <DIR>          b9
+08-07-2024  11:20    <DIR>          bb
+05-07-2024  11:51    <DIR>          bc
+11-07-2024  12:24    <DIR>          bd
+26-06-2024  10:32    <DIR>          be
+26-07-2024  12:44    <DIR>          c0
+26-07-2024  12:44    <DIR>          c2
+09-07-2024  11:52    <DIR>          c3
+11-07-2024  15:56    <DIR>          c4
+12-07-2024  12:44    <DIR>          c5
+23-07-2024  12:07    <DIR>          c6
+08-07-2024  11:20    <DIR>          c7
+27-06-2024  19:54    <DIR>          c9
+08-07-2024  11:20    <DIR>          ca
+23-07-2024  12:07    <DIR>          cb
+11-07-2024  12:24    <DIR>          cc
+26-07-2024  12:44    <DIR>          cd
+11-07-2024  11:31    <DIR>          ce
+11-07-2024  15:56    <DIR>          cf
+25-07-2024  12:11    <DIR>          d0
+11-07-2024  12:24    <DIR>          d1
+21-07-2024  20:29    <DIR>          d2
+25-07-2024  12:58    <DIR>          d3
+26-07-2024  12:44    <DIR>          d4
+03-07-2024  13:00    <DIR>          d5
+26-06-2024  10:14    <DIR>          d6
+11-07-2024  12:24    <DIR>          d7
+04-07-2024  12:05    <DIR>          d8
+05-07-2024  11:50    <DIR>          d9
+09-08-2024  11:10    <DIR>          da
+26-06-2024  10:18    <DIR>          dc
+03-07-2024  13:00    <DIR>          dd
+25-07-2024  12:12    <DIR>          de
+11-07-2024  11:31    <DIR>          df
+21-07-2024  20:29    <DIR>          e0
+25-07-2024  12:11    <DIR>          e1
+08-08-2024  12:19    <DIR>          e2
+04-07-2024  12:59    <DIR>          e3
+25-07-2024  12:11    <DIR>          e5
+08-07-2024  11:20    <DIR>          e6
+25-07-2024  12:11    <DIR>          e7
+19-07-2024  20:02    <DIR>          e8
+04-07-2024  12:39    <DIR>          e9
+04-07-2024  12:59    <DIR>          ea
+25-07-2024  12:58    <DIR>          eb
+26-06-2024  10:32    <DIR>          ec
+11-07-2024  11:31    <DIR>          ed
+09-08-2024  11:09    <DIR>          ef
+09-07-2024  11:52    <DIR>          f0
+26-07-2024  12:44    <DIR>          f1
+04-07-2024  12:39    <DIR>          f2
+09-07-2024  11:52    <DIR>          f4
+25-07-2024  12:11    <DIR>          f5
+25-07-2024  12:11    <DIR>          f6
+30-06-2024  21:23    <DIR>          f9
+03-07-2024  13:00    <DIR>          fa
+08-07-2024  11:20    <DIR>          fc
+12-07-2024  12:33    <DIR>          fd
+03-07-2024  13:00    <DIR>          fe
+26-06-2024  10:02    <DIR>          info
+26-06-2024  10:08    <DIR>          pack
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git\objects\00
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:33                78 006a2a4e049951e69b77254c20c29094748935
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\01
+
+19-07-2024  20:01    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               206 580c5c1b09f0779d24b25c9691c7370acda958
+05-08-2024  10:55            49,507 7dc28b58fd28fd5d4417781e7a030cc83c8880
+05-08-2024  10:55               153 9e6771a2d4bcf6cd5849e9e21185100ba46cfa
+05-08-2024  10:55                68 9edaf17816de1bffb10e4c5976956ead150f4b
+26-06-2024  10:06                80 f6077ed9f2a1ce2deb697ac5f904b5daf15ba0
+               5 File(s)         50,014 bytes
+
+ Directory of D:\Softroniics\.git\objects\02
+
+05-07-2024  11:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 711dcf5454795cafa72610a666c827cd68e48c
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\03
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:06               586 117423466cc12ba2f47256bde77d7b59a3f332
+05-08-2024  10:55                78 d2c70b4a82b0a61ed2098e9406dcf89a63e9a0
+08-08-2024  12:19                81 eb15953d7abe7191506680237a1b43a2cc9ff8
+               3 File(s)            745 bytes
+
+ Directory of D:\Softroniics\.git\objects\05
+
+11-07-2024  14:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32            27,548 7eea270708e62120e84a58370568a8b36168ee
+11-07-2024  14:50                78 8ebbb750dfbfa2e2af926030b0df0fb64dd183
+               2 File(s)         27,626 bytes
+
+ Directory of D:\Softroniics\.git\objects\06
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,454 ddde154a7bf00f23ee4fc604bda910cf7b05d6
+               1 File(s)         49,454 bytes
+
+ Directory of D:\Softroniics\.git\objects\07
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24            49,538 36ae24e3a06b915aa257301f3313b9016cac5b
+08-08-2024  12:19           365,879 d8f0683203ef9a3e0f0547da31003421e5cd43
+               2 File(s)        415,417 bytes
+
+ Directory of D:\Softroniics\.git\objects\08
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                50 369b2399d8267a8f3ce6927c3c5e2cb75deb81
+04-07-2024  12:59               152 7479960aa837d0d7827b986ffc014338f72d58
+11-07-2024  11:31               175 7be9da9610f335929e9380c4e03d9347ba5d08
+11-07-2024  11:31               153 93f8c17dc85526428fffb90d37c159e012d4c1
+04-07-2024  12:39            49,352 9860da11040fd44c12fe8bca0545cbbf27618c
+26-06-2024  10:14               114 d926eab5f9ca486a23397180d80b6e77b9eefc
+               6 File(s)         49,996 bytes
+
+ Directory of D:\Softroniics\.git\objects\09
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19               285 66132a91675a2cf1348b2fde850476832ddeca
+11-07-2024  14:50               125 cdcd780dc22f8e49363f5ccdab3186bd6e4b0e
+26-06-2024  10:19               627 fa3c9a51c0c172d1254f55ebba37c521bab1e4
+               3 File(s)          1,037 bytes
+
+ Directory of D:\Softroniics\.git\objects\0a
+
+30-06-2024  21:22    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:22               431 00b66f8e15e0e5dc81871281088eabdc0f9624
+               1 File(s)            431 bytes
+
+ Directory of D:\Softroniics\.git\objects\0b
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               203 e7281bd8fd219129219fc0b2cf3308d20004fd
+               1 File(s)            203 bytes
+
+ Directory of D:\Softroniics\.git\objects\0c
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05               202 086fbaa463febbf97fe578a293a25b85f82ca2
+05-08-2024  10:55               183 50ad756edeeedcc18c9915e493cfd4007fde95
+26-06-2024  10:28                29 be16f331aba5292ccec29108d3e2224593e852
+               3 File(s)            414 bytes
+
+ Directory of D:\Softroniics\.git\objects\0d
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:33               124 27053fe5251593b7fdfe76c04c13542ef3e817
+05-08-2024  10:55            49,550 789b4d78329bbf97d62789af2f03e9b228fab1
+               2 File(s)         49,674 bytes
+
+ Directory of D:\Softroniics\.git\objects\0f
+
+26-06-2024  10:29    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:29               151 c01d92d4490881388156e14afad9a9a291511f
+               1 File(s)            151 bytes
+
+ Directory of D:\Softroniics\.git\objects\10
+
+04-07-2024  12:39    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:39               175 26a33e94d385627da2bbab49c369fcef03d64e
+               1 File(s)            175 bytes
+
+ Directory of D:\Softroniics\.git\objects\11
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:22           125,665 4864a75dec82bf5a398b03189e71e6b20fd72d
+05-08-2024  10:55            49,302 8ebb15ca8a7cb5a64b7271acbb0b05560926d5
+05-08-2024  10:55                78 ece8278a98ea6d13b8d12f35c163c232dea8b6
+               3 File(s)        175,045 bytes
+
+ Directory of D:\Softroniics\.git\objects\12
+
+05-08-2024  10:57    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+19-07-2024  20:01               174 6d181cef2be268718626786db21c0312cf383f
+05-08-2024  10:57               152 ba46751773bf25271c752a8704bbab819e8303
+               2 File(s)            326 bytes
+
+ Directory of D:\Softroniics\.git\objects\13
+
+12-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               236 795712a7d69d7a8a6a3b828e02c4c76ddb527b
+               1 File(s)            236 bytes
+
+ Directory of D:\Softroniics\.git\objects\14
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-07-2024  11:20            49,923 024e4b72e9d1e013c3516c8ff38912a0ce3bca
+08-08-2024  12:19            94,329 0d0c76660b5bd85d6a37137325bc0af9f4760d
+23-07-2024  12:07                77 c954ef70a52a357aca73a1a108b2a1b0afe27b
+12-07-2024  12:44                68 f108863aa3ca8f380df534ae368ac2e295d9df
+08-08-2024  12:19            49,735 fd379cf0b31d27c5ec37e388306685ebbb9b02
+               5 File(s)        194,132 bytes
+
+ Directory of D:\Softroniics\.git\objects\15
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07             1,616 4e5a6109f61192b632af8d96efcde4431d279d
+23-07-2024  12:07             1,319 d4efb57781247d1be601b01d6664b7f0211cb9
+               2 File(s)          2,935 bytes
+
+ Directory of D:\Softroniics\.git\objects\17
+
+04-07-2024  12:05    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05            49,378 6ab74b6a67f98c11e0b719171591531d08c9f8
+05-08-2024  10:55            49,397 c3e2520fcb2f84114aa72cb3427966d0751474
+               2 File(s)         98,775 bytes
+
+ Directory of D:\Softroniics\.git\objects\19
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:23             1,161 135d898adfcebac19f1995c8a6c6a378ac7aa0
+30-06-2024  21:22           784,666 1e9c55f4090019b95e37263b2cdd90adabdbb7
+05-08-2024  10:55               194 59e61a3e5ff9f8e8d63c9a3814baf2f678c6d1
+               3 File(s)        786,021 bytes
+
+ Directory of D:\Softroniics\.git\objects\1a
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               169 ac7b82a25dcf13f6c64c59089553b10ecee0b7
+               1 File(s)            169 bytes
+
+ Directory of D:\Softroniics\.git\objects\1b
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32             4,701 811ebebb20ab3095b712a5b7b26246c1adf7b9
+08-08-2024  12:19         4,292,999 8544b74cf4800079f9e8592b17a216efb143ae
+               2 File(s)      4,297,700 bytes
+
+ Directory of D:\Softroniics\.git\objects\1c
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               169 9f1b1dc60b25e0974b5f89c464d6eb6c1a8c0d
+23-07-2024  12:07               212 dfcfd7a1e1addf0f1f9718019dea8fe27387dc
+               2 File(s)            381 bytes
+
+ Directory of D:\Softroniics\.git\objects\1e
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 52e151cffe1b439e7cddbbc597170e4a88ac10
+05-08-2024  10:55               233 61d53d4ddd031d6781f5011bb7d609819efa68
+05-08-2024  10:55               212 f1506238d4fa85ccfbedff4b770b92eb39e858
+               3 File(s)            523 bytes
+
+ Directory of D:\Softroniics\.git\objects\1f
+
+19-07-2024  20:01    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07           149,818 7a0f61a43168f838631ede3a7e8ff1936bd049
+04-07-2024  12:39               261 8017530ce896b128eeb7a341088735c24f0ef5
+19-07-2024  20:01                77 fd6e0e5c5887aafe5b544ba5f78100735c2824
+               3 File(s)        150,156 bytes
+
+ Directory of D:\Softroniics\.git\objects\20
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 28d40a95972420132e944178546534e80f89a0
+26-06-2024  20:37               928 92ba24a187d48093ff1776aeea3368a5a8ec11
+               2 File(s)          1,006 bytes
+
+ Directory of D:\Softroniics\.git\objects\21
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,515 15d653e8924bb4277f0de463a6d201d6a40e2c
+08-08-2024  12:19                78 4ec0c7efcb520e798256b7d8e7c8e75f0c4720
+05-08-2024  10:55            49,394 b49bd004f7af26e477f01e8df09ee57c4440de
+29-06-2024  18:32             1,076 f10f9e815674fa465d68bc21879d90b49a6733
+               4 File(s)        100,063 bytes
+
+ Directory of D:\Softroniics\.git\objects\22
+
+25-07-2024  12:12    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:12               188 22268b7eeff34dae52b2de19300ac013c4ea70
+05-08-2024  10:55                78 32ed173ba796f459b077120ed7e0263f874aaf
+               2 File(s)            266 bytes
+
+ Directory of D:\Softroniics\.git\objects\23
+
+05-08-2024  10:57    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,548 6ad113fc0a6b1e35bd0b04a71f6676cd29eefa
+05-08-2024  10:57               140 a35d687f349bc2efdb30b2ba2a0536f6ce384c
+21-07-2024  20:29               150 a9d6a5866ea5500aeaa41896ad82e17cababab
+               3 File(s)         49,838 bytes
+
+ Directory of D:\Softroniics\.git\objects\24
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-07-2024  11:20                83 a2420132d5559810edc8cf5267141fb62825e4
+05-08-2024  10:55               269 a83c1af3ec1bdf6636253199c40856218591c8
+09-07-2024  11:52                77 b6e8681506118f36b038988db26fa5847a28d1
+26-06-2024  10:06               129 bb4de3776ba05a4e0eaea7ce4e674a72e950af
+               4 File(s)            558 bytes
+
+ Directory of D:\Softroniics\.git\objects\25
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,702 a4e80288245e91d346150860a12ad1483fbfd2
+               1 File(s)         49,702 bytes
+
+ Directory of D:\Softroniics\.git\objects\26
+
+30-06-2024  21:22    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:22               156 50a6f4d3e644971d8a98fea8c43b3a0ba9b339
+30-06-2024  21:22            47,233 aa346c9317dd19c248146b2bf5503e224f9bec
+27-06-2024  20:22               137 ddb537d7e8aa5a99fd0ee5254ab5b0ea0e4743
+               3 File(s)         47,526 bytes
+
+ Directory of D:\Softroniics\.git\objects\27
+
+12-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            48,595 2abc5c3c99af774bcaec21725f8dab859e9bbb
+12-07-2024  12:44               175 5092bbdd4b8265b7df33913efa7cfdf60da102
+03-07-2024  13:00                51 7e4ff554ced331974bbeb9741c848c7d5e9b7c
+               3 File(s)         48,821 bytes
+
+ Directory of D:\Softroniics\.git\objects\28
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,812 6848c15496701c66fd116041c516a744108dd7
+               1 File(s)         49,812 bytes
+
+ Directory of D:\Softroniics\.git\objects\29
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:33            49,589 20d67638a139fd7dfae35b0aa97316c19eaba7
+               1 File(s)         49,589 bytes
+
+ Directory of D:\Softroniics\.git\objects\2a
+
+19-07-2024  20:01    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 012147aa22a1ec1f4c57f6c86e49ed3f58e990
+12-07-2024  12:44                78 a7e1d32f58ca230f12d2af7b0375bb8ddb28db
+05-08-2024  10:55            49,919 ea3bb248ef52795f47bdec7cf6a4fe50cab443
+               3 File(s)         50,075 bytes
+
+ Directory of D:\Softroniics\.git\objects\2b
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+27-06-2024  19:54               127 2976111c8468ed6342705d587c8a0f12020719
+05-08-2024  10:55            48,664 2f8c3adf0abd62af6efca6e3da612da9292804
+05-08-2024  10:55            49,428 c5f8b708594a721acc98d62e37e5dea65b06ad
+               3 File(s)         98,219 bytes
+
+ Directory of D:\Softroniics\.git\objects\2c
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07             1,336 e55b128b8f1a44a418c7ee04004c5dde8d81d1
+               1 File(s)          1,336 bytes
+
+ Directory of D:\Softroniics\.git\objects\2d
+
+27-06-2024  20:22    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:19               178 40f58fc59507ccfaab0c310e5339b1bfc878ff
+27-06-2024  20:22               141 8f4878d3a2b9e5812c4a284e7901a049fb1a00
+               2 File(s)            319 bytes
+
+ Directory of D:\Softroniics\.git\objects\2e
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24                78 5fbf78ed8dd3c79edc8f024176d467eaa18be3
+08-07-2024  11:20               165 79cb26f9d8580ad16f99576a2842d234f4a11e
+04-07-2024  12:05               112 efa0195bec3b13fde1c0b4536710cbbcc9e39d
+               3 File(s)            355 bytes
+
+ Directory of D:\Softroniics\.git\objects\2f
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 1e7ce8a110066da5d348498ee596c154e2b8fc
+25-07-2024  12:11               154 d3ea864a2bd8e0c24466f00cd95676cec57bcf
+               2 File(s)            232 bytes
+
+ Directory of D:\Softroniics\.git\objects\30
+
+29-06-2024  18:32    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32           808,449 00314bb6ba03f44016a809dbdfc2b63fe1d7d2
+               1 File(s)        808,449 bytes
+
+ Directory of D:\Softroniics\.git\objects\31
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:23               420 09e267aeaeff3cd46cffe73c753d6573a3fd92
+08-08-2024  12:19           115,216 ba7cbfe04db20ac9cb7bf76c49c84a8be22009
+               2 File(s)        115,636 bytes
+
+ Directory of D:\Softroniics\.git\objects\32
+
+11-07-2024  14:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:59            49,394 85f0ea5b502f270217f347f77365251e51b1d6
+11-07-2024  14:50                76 dab4accca2d422bb10d63bda019188fbeea420
+               2 File(s)         49,470 bytes
+
+ Directory of D:\Softroniics\.git\objects\33
+
+29-06-2024  18:32    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32             1,165 c105ab5f72f4de86f7a790c65fdf2ad89c4d16
+               1 File(s)          1,165 bytes
+
+ Directory of D:\Softroniics\.git\objects\34
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:44            49,588 059eba4cdd22b92343f7c7607674d8dc102771
+05-08-2024  10:55               227 404db976d988c14ce59c59b0ce078a8a6bd1a5
+               2 File(s)         49,815 bytes
+
+ Directory of D:\Softroniics\.git\objects\35
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52               520 1c1dc616bfd5ca6993a3afc93c16f8048bd6ce
+04-07-2024  12:39               179 24fa9930c9a24a575ac93edc077c70c5095639
+08-08-2024  12:19           606,520 aa443b6ad59bdeff11177d9e9f6075f1908261
+05-08-2024  10:55                78 e942a79bd2cf266ce9f6c68fd78391740ed189
+               4 File(s)        607,297 bytes
+
+ Directory of D:\Softroniics\.git\objects\36
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24            49,539 91a9b6732376d07e130c5b68bd2cbfed1caeb8
+05-08-2024  10:55                51 95a2b8b1fc10a8f82267577b9d674edd84abae
+               2 File(s)         49,590 bytes
+
+ Directory of D:\Softroniics\.git\objects\37
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05               172 d9325019e6a5c9dab64b8ee8db5bed2058588d
+08-08-2024  12:19               157 eaffbc4eff7a0553816028707232045d470d4b
+               2 File(s)            329 bytes
+
+ Directory of D:\Softroniics\.git\objects\38
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07               301 7614ad3f4a768dec3b5d0511b8d6f06e01a909
+26-06-2024  20:37               139 d33ecc2c9e603e32466ff17bcc864e36617972
+               2 File(s)            440 bytes
+
+ Directory of D:\Softroniics\.git\objects\39
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               178 093689bd60260ef71bf79b1e97dd7178f6b2e8
+05-08-2024  10:55            49,518 e47f1e61454773d48b3ba62b78f29dd43af826
+               2 File(s)         49,696 bytes
+
+ Directory of D:\Softroniics\.git\objects\3a
+
+04-07-2024  12:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:59               110 581604253d08d3d44dcfdbdaba84a339f7d035
+               1 File(s)            110 bytes
+
+ Directory of D:\Softroniics\.git\objects\3b
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 534c12155a005dc3afe826ffbec519b8ef9b81
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\3c
+
+04-07-2024  12:05    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                84 e2eda15f8b06f3a5c7d0168f6bb9fa69a744cc
+               1 File(s)             84 bytes
+
+ Directory of D:\Softroniics\.git\objects\3d
+
+25-07-2024  12:12    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                51 a5d4831a0d2ecbc1ea3805870277e99ce8d4f3
+25-07-2024  12:12                77 d3bd37c1e62c59cf04caeca2c882c4b6e14dfb
+               2 File(s)            128 bytes
+
+ Directory of D:\Softroniics\.git\objects\3e
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:39               213 447b0f992fc6a207e0add65fc50ef58932380a
+08-07-2024  11:20                51 fec6e9ad23c387b1d8d7f3602d65f0f08a3903
+               2 File(s)            264 bytes
+
+ Directory of D:\Softroniics\.git\objects\40
+
+21-07-2024  19:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:59               145 e1c07bd058d3b2c69dff9ebef66fff2bf7a465
+05-08-2024  10:55                78 eb8b71ce33542035025fff3198ed647572ecd3
+               2 File(s)            223 bytes
+
+ Directory of D:\Softroniics\.git\objects\42
+
+21-07-2024  20:29    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               259 6efbcf3c15f25329ec5b8006e66c18c5a36614
+               1 File(s)            259 bytes
+
+ Directory of D:\Softroniics\.git\objects\43
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19           147,360 03a61d07581c31aba48b6a1305a32ba9316acf
+08-07-2024  11:20               150 a2b1fdc26af8a5696b027f49c9d45da8d58d3e
+               2 File(s)        147,510 bytes
+
+ Directory of D:\Softroniics\.git\objects\45
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+19-07-2024  20:01            49,539 0b086097e82728e9e67d5985e102c6d05b7213
+26-06-2024  10:10               116 46a81a828d43b9c7f31b309392706e24607d5e
+04-07-2024  12:59               269 a5f64051d99d2c36b213f7ec8fabc9428a14d5
+30-06-2024  21:23             1,463 e9d9a125a183d45a3aaf98067f207828905104
+08-08-2024  12:19           428,019 f4458300052e31711ba9a710cd631155c58196
+               5 File(s)        479,406 bytes
+
+ Directory of D:\Softroniics\.git\objects\46
+
+09-08-2024  11:09    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24                78 149a7aad2eea270048ba0774bc04a9dae40514
+29-06-2024  18:32           184,575 558a182980ce1acf2ba8ee06bd6f77ab75a539
+09-08-2024  11:09                77 bec09924f3c2a3e9e956092daeb66155b31a42
+               3 File(s)        184,730 bytes
+
+ Directory of D:\Softroniics\.git\objects\47
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+27-06-2024  20:22               150 87a25450ecedeea0ee86d4d3bb2a57aff2d721
+08-08-2024  12:19           454,509 d0c4319454b651748100e0568b1d0b0237f59a
+               2 File(s)        454,659 bytes
+
+ Directory of D:\Softroniics\.git\objects\48
+
+19-07-2024  20:01    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               210 cd8daa6c48ebe30c8f4f7c2b42213a6f25f973
+               1 File(s)            210 bytes
+
+ Directory of D:\Softroniics\.git\objects\4a
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                77 016757d96090f1586db45cb21c6c57abe357b8
+05-08-2024  10:55            49,703 8dcbd1f0253b5b2c2f30a7d2e10d53346fb704
+               2 File(s)         49,780 bytes
+
+ Directory of D:\Softroniics\.git\objects\4b
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52               489 5e219176e5d898f543cf27869c4aa58a63a4a8
+               1 File(s)            489 bytes
+
+ Directory of D:\Softroniics\.git\objects\4c
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-07-2024  11:20                78 5426f1f6dce9a2cf3107fe15f65df0b86e2681
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\4d
+
+26-06-2024  10:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:19               524 440e12c9b25ec5f6700b396f042e5ffc54b28a
+               1 File(s)            524 bytes
+
+ Directory of D:\Softroniics\.git\objects\4e
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:11                77 0d90ccfcaa59efe3509c0bb053da0545aec61f
+08-08-2024  12:19               194 8b9d8c2d9ffa99d441ed32b9f4126b55a1adca
+               2 File(s)            271 bytes
+
+ Directory of D:\Softroniics\.git\objects\4f
+
+21-07-2024  19:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+21-07-2024  19:59             1,100 5d043b15615411f9f027e35f69fc990db873ee
+               1 File(s)          1,100 bytes
+
+ Directory of D:\Softroniics\.git\objects\50
+
+09-07-2024  11:54    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32               614 54dd14942e1f89ca594156ae6bcb665c443702
+09-07-2024  11:54               150 b2cb14b45843a5008a0a6199ef47d4b00e9326
+               2 File(s)            764 bytes
+
+ Directory of D:\Softroniics\.git\objects\51
+
+29-06-2024  18:32    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+27-06-2024  20:22             1,955 96f1f92d430796322de4b010ccc5d3dc7c83b9
+23-07-2024  12:07            44,874 ed869787576dd88aaecb09dc4865e5539c332c
+               2 File(s)         46,829 bytes
+
+ Directory of D:\Softroniics\.git\objects\52
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               172 2a37a4e0af615e4d845d7625faa1e3d3c471c4
+19-07-2024  20:01               377 3a37a41d1f18e3b5be49749c9051aec1666957
+04-07-2024  12:05                57 4069c93d84e21ac55855068ac433833fa51e85
+               3 File(s)            606 bytes
+
+ Directory of D:\Softroniics\.git\objects\53
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,402 03bd7a00ea32be919afa237a949d1d65a07d4b
+08-07-2024  11:20               458 125dae5d17bc314fdebcc27be49322823657e4
+05-08-2024  10:55                78 49d0ae63d793da6146a3b2c3c09c5d7d7d414c
+05-08-2024  10:55                78 9064dd2c1be74a270d510027e2ef099ebdd3bd
+23-07-2024  12:07               166 97d13e4d33923029009ad6ce236764447c49a5
+11-07-2024  14:50               243 ca1b4d594a916449ef81ce81e99c51df05beba
+05-08-2024  10:55            49,429 f066cd86a7c320866ce4fa365195f182c283f8
+               7 File(s)         99,854 bytes
+
+ Directory of D:\Softroniics\.git\objects\54
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:11               152 15de3da4c7369f6b27d16145088bf32da5799c
+26-07-2024  12:44               159 1c3380a89d34dd8d9de1e18f48d48b857a07b6
+               2 File(s)            311 bytes
+
+ Directory of D:\Softroniics\.git\objects\55
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24                78 12459e592d2baf93fb775a795b773d08701983
+05-08-2024  10:55                78 3c0f0d050d086404f1de1a4e46c1f2136c18b7
+               2 File(s)            156 bytes
+
+ Directory of D:\Softroniics\.git\objects\56
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  15:56                77 7dbdace3b984aeeb35cf15305b486df3de8eef
+               1 File(s)             77 bytes
+
+ Directory of D:\Softroniics\.git\objects\57
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07               448 526e8d2051f5218d8d9e72fab32cd0ed2b192f
+05-08-2024  10:55                77 811bdbe824378d17ae65e24fecbb75e0f06f17
+29-06-2024  18:32               139 876d5f45526b0502a790c63f09f9770eb4eaac
+30-06-2024  21:22               732 93912a270b045ea361815d707a313122d89bb9
+04-07-2024  12:05                78 9fa42d0a5da3198cd05396dc7ed5ef50461721
+               5 File(s)          1,474 bytes
+
+ Directory of D:\Softroniics\.git\objects\58
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 1fa16dcb57b09f3c65f1dc51a604f385df6194
+05-08-2024  10:55            49,582 46552b5126545c0c68ed26307473daabd8d7ed
+04-07-2024  12:05               151 6fae52a5e88d545b8932718a8b5da153c90609
+               3 File(s)         49,811 bytes
+
+ Directory of D:\Softroniics\.git\objects\59
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               296 1756c9385b6f52b646b91d232cd95b38eddb1e
+05-08-2024  10:55               165 9ad93875999a21861fd8dbb9c79da49d06f2b2
+               2 File(s)            461 bytes
+
+ Directory of D:\Softroniics\.git\objects\5a
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:33                78 45068e4fc7d9679af6f96fcd6fc68b2d2630d8
+21-07-2024  19:59               251 6537a1a1b3a21324cefcb4599044fce3293746
+08-08-2024  12:19               551 788920fc2a3ca033c34d13b8953aaaac8f744d
+               3 File(s)            880 bytes
+
+ Directory of D:\Softroniics\.git\objects\5b
+
+04-07-2024  12:39    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+27-06-2024  20:22               733 37527bd9cddd3896ef1e13ca8f8aefcb663411
+04-07-2024  12:59               239 4368c5883ead3d421e96dc398979eaaf6ffddc
+04-07-2024  12:39                78 ed5471ec4f0151b91f3a99e93b5f7783ba013c
+               3 File(s)          1,050 bytes
+
+ Directory of D:\Softroniics\.git\objects\5d
+
+26-06-2024  20:37    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:19               652 8bbc2ea4b840254c8137d7f472e4f9d29ea010
+30-06-2024  21:23               863 eb60b771885690f4b20809e0567d44d2fac1b1
+               2 File(s)          1,515 bytes
+
+ Directory of D:\Softroniics\.git\objects\5e
+
+05-08-2024  10:57    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+19-07-2024  20:01               254 76ac4dc84befaa7b55161d15804ee9c1b670af
+05-08-2024  10:57               173 91bba93758863d3e4e5816749e7f573b0f29a8
+               2 File(s)            427 bytes
+
+ Directory of D:\Softroniics\.git\objects\5f
+
+21-07-2024  20:29    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 1e883be07a8f66716c384674737081fede1b13
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\60
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19           616,891 6bd443f30ed60e044d3943c3c73c0089544f9d
+08-07-2024  11:20               397 e9a1f437569c50d96be47d003e3c5db3dd4361
+               2 File(s)        617,288 bytes
+
+ Directory of D:\Softroniics\.git\objects\61
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-07-2024  11:20                50 1f235a0de780f3a0aec6f1d73b14c9d8745347
+25-07-2024  12:58                77 3d81bec9be5cb54e92e60747455a5541179ddc
+11-07-2024  14:50               157 e55ab0dd454eeb32cc09ce901e0bec72d2df5f
+               3 File(s)            284 bytes
+
+ Directory of D:\Softroniics\.git\objects\62
+
+11-07-2024  14:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 6f78c603a7a191c7d0b32824207ca918e028e6
+05-08-2024  10:55               121 757db982c573e7376f013427ec1eb2f56e0745
+11-07-2024  14:50            49,555 f44ae5ee8d2db7a7d9285082b00a67247be898
+               3 File(s)         49,754 bytes
+
+ Directory of D:\Softroniics\.git\objects\63
+
+21-07-2024  20:29    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+21-07-2024  20:29                77 071e5bba81fde3de24765936dea8012a64ee44
+               1 File(s)             77 bytes
+
+ Directory of D:\Softroniics\.git\objects\64
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               192 0dfe4a6997a775d669e378ba16d075855f01d2
+               1 File(s)            192 bytes
+
+ Directory of D:\Softroniics\.git\objects\66
+
+12-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               226 411f58186a93f7578576b31acc00ea5c4fc3d6
+09-07-2024  11:52               124 8d97833d4ee9d68c6abcf27762c19e3ff22513
+12-07-2024  12:44                77 f344d34a355f4dcc55ce382caa207c04f9918e
+               3 File(s)            427 bytes
+
+ Directory of D:\Softroniics\.git\objects\68
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:11               137 875ad2f9403526ff88ac14993dc51809e35c4b
+30-06-2024  21:22            96,419 e00d9f95222cebd5dda093acc340d72ae08ad9
+               2 File(s)         96,556 bytes
+
+ Directory of D:\Softroniics\.git\objects\69
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               209 df4b72778c79a61dfecbd8d147659179993112
+26-06-2024  10:14               701 fe17bbb1c11a8a3739fd7fe8c78fb4c42c070a
+               2 File(s)            910 bytes
+
+ Directory of D:\Softroniics\.git\objects\6a
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,481 3766455c5b2564b9ff3542320ef98e225019de
+12-07-2024  12:33               175 5cc6a6495fcfed5c979cfbd4259dbb331a3702
+05-08-2024  10:55               228 f3bb039034b9f3a3bd7e312f6a507c95b78d80
+               3 File(s)         49,884 bytes
+
+ Directory of D:\Softroniics\.git\objects\6b
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32               158 44619f693a354dc3319ba9a852bb28bd87ac5b
+08-08-2024  12:19           774,441 61f7daa54189d43fd05dca2dc359b7a40db4a5
+05-08-2024  10:55               152 66c6462837179976d6ca9b58f3532249a1282e
+               3 File(s)        774,751 bytes
+
+ Directory of D:\Softroniics\.git\objects\6c
+
+05-08-2024  10:57    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+19-07-2024  20:01                78 5a98a4fb36bbf33b972d85bceb91e88f8e16e7
+05-08-2024  10:57               212 b02a1d70477b73bb4466f017eb12664def7fef
+05-08-2024  10:55               258 c1fbc062eacdf3ff47d9317f9895103cfe8237
+11-07-2024  15:56               175 f3cc6bab01ed8284d8c348b0486a6ec5250857
+               4 File(s)            723 bytes
+
+ Directory of D:\Softroniics\.git\objects\6d
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                77 0fcbcf3d88c5b5015af81679865aaee2567819
+05-08-2024  10:55               169 32702d7523cda6746f8bae6192559d63fbeea5
+26-06-2024  10:19             1,479 f0999a1f1d1eab52bf49f85b8cb8078570a5d8
+               3 File(s)          1,725 bytes
+
+ Directory of D:\Softroniics\.git\objects\6e
+
+12-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,532 84374e6f0aac7d1aa865f6b4236c2ca703a9d8
+12-07-2024  12:44               151 8d5e1f2031656a2b91c6f94186b3294084e9e6
+               2 File(s)         49,683 bytes
+
+ Directory of D:\Softroniics\.git\objects\6f
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+29-06-2024  18:32               185 444ba3d2152fbc0de34ac6ad1c0206b2a18ce4
+11-07-2024  11:31                66 b59efb76cfeab03e9c2cf5fe2cd5611a928b52
+04-07-2024  12:39               151 d55696fbea94a757ef437833afc8f8d599e4fb
+               3 File(s)            402 bytes
+
+ Directory of D:\Softroniics\.git\objects\70
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:11               237 16babb1b263bf9c8fa78c216ae072c919ccdb6
+08-08-2024  12:19               206 a0c82fb0aecfba1d779b8382f787e3f0496eec
+               2 File(s)            443 bytes
+
+ Directory of D:\Softroniics\.git\objects\71
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05               418 026f508cd6d8847b2142686b664084d082b5e1
+05-08-2024  10:55                78 7eaeccb15a2b2244a74d64af6cb370a1103f71
+21-07-2024  19:59                77 9ade290dd119cbb9fd6e6d1a51f7671a5774d3
+21-07-2024  19:59               376 afbd42f39e041feac6ec8743eb6268d0ddbe36
+               4 File(s)            949 bytes
+
+ Directory of D:\Softroniics\.git\objects\73
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+03-07-2024  13:00               150 1f35b3525de35e0ad659e0513f313acab7d49d
+30-06-2024  21:22            44,290 2920d2864a5d724f1aa569afbbe78cc43ff4bf
+05-08-2024  10:55                78 7e043f8bec90d62b8155f4390713386a1b9db3
+               3 File(s)         44,518 bytes
+
+ Directory of D:\Softroniics\.git\objects\74
+
+21-07-2024  19:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               314 2d6fe643c105fe9a26e4a84ed93c133050e228
+21-07-2024  19:59               175 7a231fb2682ba6980d52f682eecf8ef5eca13e
+30-06-2024  21:22               523 e0fd97b1f60a5a44fb21b46fd23bbd550e2394
+               3 File(s)          1,012 bytes
+
+ Directory of D:\Softroniics\.git\objects\75
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-07-2024  11:50                83 0e239a54f08bbfc2f73be5a16b8146529a5e65
+05-08-2024  10:55               295 48757f366f6a7d57938d99e0fbb8d4224dc2a8
+05-08-2024  10:55            49,576 60bb5669c8eeb1837e12fe2c145864e5323286
+12-07-2024  12:33               158 e9889928fee06b34aa1cb151cbe4a8150ad804
+               4 File(s)         50,112 bytes
+
+ Directory of D:\Softroniics\.git\objects\77
+
+21-07-2024  19:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+03-07-2024  13:00               202 e2f983dedc51343c744233d31424c00c1f23f8
+21-07-2024  19:59               732 e77c0bf26ce5584ed24d8e9add88f4734d176e
+               2 File(s)            934 bytes
+
+ Directory of D:\Softroniics\.git\objects\78
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19           555,297 f77be3758868a7e95a6dbe0389081a16683717
+04-07-2024  12:59               320 fe0227a287dbb1172960067d0f0a7aeb602500
+               2 File(s)        555,617 bytes
+
+ Directory of D:\Softroniics\.git\objects\7c
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               177 21964b4850b54bd7a59a2648da122ddd9d598a
+05-08-2024  10:55                78 fb485e69debbabb151709dab65aa5e11c4105e
+               2 File(s)            255 bytes
+
+ Directory of D:\Softroniics\.git\objects\7d
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,384 363b114769f9c97fa42dd5403b0d18ac8e54c5
+05-08-2024  10:55               227 44646aa3c0c9045521dad6480cca939878d03c
+05-08-2024  10:55                78 64cd47f3edf57222551fff16cf57b2c11ae163
+26-06-2024  10:19               970 ae7a9b8989092909f688bc5cc1b500d71368f3
+               4 File(s)         50,659 bytes
+
+ Directory of D:\Softroniics\.git\objects\7e
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               161 3789e9c6d2692cb21025caa3d7a18afecd665f
+               1 File(s)            161 bytes
+
+ Directory of D:\Softroniics\.git\objects\80
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:33               230 82349df346cb16d8c8b9842085befe970ffe94
+               1 File(s)            230 bytes
+
+ Directory of D:\Softroniics\.git\objects\81
+
+11-07-2024  14:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  14:50               175 acbc26103d87c1d3c13f1516c3165f01b2978e
+               1 File(s)            175 bytes
+
+ Directory of D:\Softroniics\.git\objects\82
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,367 a2fba9a3568266136869e0a77d0ed47a57f5ed
+               1 File(s)         49,367 bytes
+
+ Directory of D:\Softroniics\.git\objects\83
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05                78 a2c59a284bc94d11a1c537a0c92ec6c44e9776
+26-06-2024  10:19               625 d93be252b540c26927fecc0aee1adc78cbb23d
+05-08-2024  10:55               181 e5cea001bfa795568ff890439f5030f326c2b0
+23-07-2024  12:07             1,252 f3b502155aac7f5a76c54bd3f84e437f048b7d
+               4 File(s)          2,136 bytes
+
+ Directory of D:\Softroniics\.git\objects\84
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-07-2024  11:20                77 67557e56a0e4146e69e337f2f759d1a174214a
+05-08-2024  10:55               141 815ca357872d13e2497692a422514d41d65579
+26-06-2024  10:19               468 92b11cf4d25b9ff218316581c9ea53fdd30725
+               3 File(s)            686 bytes
+
+ Directory of D:\Softroniics\.git\objects\85
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,836 6007157e643975e91e0c609e312dd6969f0e5b
+26-06-2024  10:29               112 b581ab745584971939f3ba6b9987223bdb7668
+               2 File(s)         49,948 bytes
+
+ Directory of D:\Softroniics\.git\objects\86
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-07-2024  11:20               187 3545601b83601bcc6c690eb17d9ab2619885bb
+11-07-2024  15:56               125 da2d5c829bc0d528eeb685c406a302ec44bd0f
+               2 File(s)            312 bytes
+
+ Directory of D:\Softroniics\.git\objects\87
+
+04-07-2024  12:05    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               154 995dd5ba9e5a751e2ca04da630372c2fec4917
+30-06-2024  21:23               209 d305c4a6362aeb70d70c29938bbf8ff53eced0
+               2 File(s)            363 bytes
+
+ Directory of D:\Softroniics\.git\objects\89
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               236 78c40a1e027408184ba99c36de82352954966f
+05-08-2024  10:55               152 be034db88c67e2485483a0a3995b44c7811fb1
+26-06-2024  10:14                23 f1e468e4f2884a76b4013f3c8e2fdde758d556
+               3 File(s)            411 bytes
+
+ Directory of D:\Softroniics\.git\objects\8a
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52                78 f181bf1c66b15b44b36b15bee45d385b19471c
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\8b
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19           122,381 08083d139eb52a310f6a91b1f6b8d5ed3cfbbf
+26-06-2024  20:37                97 13e412b534b93e2fbebbc469c7bfd6cc3646b6
+08-07-2024  11:20               175 3318f31cae45c7288ed6dabb1db0b0523da500
+29-06-2024  18:32               733 a7b9aa9a2417e2c17f2638f8438d3147ec0940
+05-08-2024  10:55               233 f1c3d8965db0d538608f386196dc829fd894d0
+               5 File(s)        123,619 bytes
+
+ Directory of D:\Softroniics\.git\objects\8c
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               211 96ab0bbc9725320b8ecabc5f410c4847a0efa5
+05-08-2024  10:55                78 f3aea2425f77f19b14ac6a650bc55d2eb4bee4
+               2 File(s)            289 bytes
+
+ Directory of D:\Softroniics\.git\objects\8d
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               170 0765c38b3620c91ffca7b2a0b15337a869e27c
+05-08-2024  10:55               234 18cc8483f553aa1761020a74384608815db0ec
+26-06-2024  10:32               152 63a43fb12bd81d1b3e287c7de16d4f40dea8b1
+26-07-2024  12:44               212 a4183a210bad0eeeb30e21916dfd085df82ccc
+05-08-2024  10:55                77 f4693923ff7f7682e32691c482ce019869ce20
+               5 File(s)            845 bytes
+
+ Directory of D:\Softroniics\.git\objects\8e
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               130 47eea3e83524118c584b58f52ad6dd24aa0d13
+04-07-2024  12:39               112 9bd96cb01c78c4de4961d820abec5fed66e0fa
+05-08-2024  10:55               212 c835464eb90a149edd7ff5de5e565280c5048b
+05-07-2024  11:50               175 dc7a1b11c2ef995b1b3b74277a20f148ddeef2
+               4 File(s)            629 bytes
+
+ Directory of D:\Softroniics\.git\objects\8f
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  11:31               125 eb6dc0c963254e6c31b79fea9f377d5b790c3a
+               1 File(s)            125 bytes
+
+ Directory of D:\Softroniics\.git\objects\90
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-07-2024  11:50                51 0017338bc8475be41207242d3269ab77068d37
+05-08-2024  10:55               265 1092cb3e01a6a89058c5a0f5efa02f46866314
+               2 File(s)            316 bytes
+
+ Directory of D:\Softroniics\.git\objects\91
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                79 79949a2ccc61cb50cbc2b6ba52cfaf6721a8ae
+               1 File(s)             79 bytes
+
+ Directory of D:\Softroniics\.git\objects\92
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:10                53 0512d27e4df0c79ca4a929bc5d4254b3d05c4c
+04-07-2024  12:39            49,473 12c876e2e48ec22d73e385a0eda8593c1aa4c5
+12-07-2024  12:33               394 e981372be4f0ff0d52543a2c1a807165bef53f
+               3 File(s)         49,920 bytes
+
+ Directory of D:\Softroniics\.git\objects\93
+
+03-07-2024  13:00    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,419 30584049efd143c32608c4a7db1ad094e57789
+               1 File(s)         49,419 bytes
+
+ Directory of D:\Softroniics\.git\objects\94
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19                78 ff8da597e3492a7aa04818dc2a4d57b58d5de3
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\95
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:29                53 44382e14f5e72267297da6d75ef39de1653f1b
+09-07-2024  11:52                78 47378b73387d3d8db8721962a8741c1d463bbe
+               2 File(s)            131 bytes
+
+ Directory of D:\Softroniics\.git\objects\96
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52            49,425 05cbfbe4ccd575b91b4933d8586d2bc7cc1f47
+05-08-2024  10:55            48,746 40762ec3a058ddde71c82abc00fee55acc8a48
+08-08-2024  12:19               221 7ac1cf10266a5e483f3f060f5027720c9f48bd
+05-08-2024  10:55                78 7db00b473f5eca638813eafaaa2d6c32409039
+               4 File(s)         98,470 bytes
+
+ Directory of D:\Softroniics\.git\objects\97
+
+03-07-2024  13:00    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:19               149 6ca8c4da2f3faf6c7aa1330b1c3b42667b2f59
+05-08-2024  10:55                78 dabc54e9ddcd7af0904534edf32bccd0f42175
+               2 File(s)            227 bytes
+
+ Directory of D:\Softroniics\.git\objects\99
+
+26-06-2024  10:06    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:06                80 9222e1ab9111fc29c41c27d4108d9dce9cc1c3
+               1 File(s)             80 bytes
+
+ Directory of D:\Softroniics\.git\objects\9c
+
+19-07-2024  20:01    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 191ecd33f8e96a5ee02216b1d129123005d24e
+05-08-2024  10:55               230 1a7c3581ebfc1a5c8e03a1f8658f617461f32e
+11-07-2024  15:56               310 7692de6609c9338159d0c98be3ba9d611e6697
+19-07-2024  20:01               124 7a5cccc3834a059b778bbf1d14d0b13bcb4370
+               4 File(s)            742 bytes
+
+ Directory of D:\Softroniics\.git\objects\9e
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,549 1bf71faefb8407ecaa6a19c8e27030b6828fc8
+05-08-2024  10:55            48,907 c56bea96872f817d5c087a16c801dd1516a1b7
+               2 File(s)         98,456 bytes
+
+ Directory of D:\Softroniics\.git\objects\9f
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:33            49,344 960b0c58a1d677f86215b69807cf384a12858a
+04-07-2024  12:59            49,381 ab2e01f62e741b7dcc6ce2ba034b5c80971ea1
+               2 File(s)         98,725 bytes
+
+ Directory of D:\Softroniics\.git\objects\a0
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                51 2515481ffbc48da410b6e213dc454faffbb0e4
+04-07-2024  12:39               179 9c1f301d94a1f14d4a6720b95809493e6e7404
+11-07-2024  12:24               175 9e63b28d0a01432bd2922b332c5da530639076
+04-07-2024  12:39                78 d4fd7e9c94ba4163ff82cda1ac3d8440229b46
+               4 File(s)            483 bytes
+
+ Directory of D:\Softroniics\.git\objects\a1
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,457 071b9471e54e8b4cfe6276c446c408fe66fea8
+21-07-2024  20:29               390 14299173941718194471ddf24c2c3f487a2318
+05-08-2024  10:55               169 20cb2534e53492be7504f0ce298aeac6d38aed
+05-08-2024  10:55               291 400527fad67564615d0965106876d305b11aa8
+05-08-2024  10:55            49,481 91d5d7679512c911ceac63b5e787ba417154cb
+               5 File(s)         99,788 bytes
+
+ Directory of D:\Softroniics\.git\objects\a2
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 8f8cb09675869be3335238d935f6c636f026fc
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\a3
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07           671,384 257e75c8f380532873b7788db6050812b06b5e
+05-08-2024  10:55               422 442914ca43ca6fdf45f3d31982eb2dbdd526a7
+               2 File(s)        671,806 bytes
+
+ Directory of D:\Softroniics\.git\objects\a4
+
+05-07-2024  11:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:22               464 2cc61a24de90c53b057937cc0384f3658404a7
+05-07-2024  11:50               186 43d5fca55cc52fa41a6cf2d402b903ae64e51a
+               2 File(s)            650 bytes
+
+ Directory of D:\Softroniics\.git\objects\a5
+
+05-07-2024  11:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:06               699 c9171c8b1d1a2ddf7156bbb15ada92f6efe1b5
+05-08-2024  10:55               182 ee4949361604aa7a47a9f4861029c7afc4f4b4
+               2 File(s)            881 bytes
+
+ Directory of D:\Softroniics\.git\objects\a6
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 f50d08ad3d9a38157f9511e8411ef2e7f8f17b
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\a7
+
+11-07-2024  14:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  14:50               230 09bcde74eca39a106fc9746ed2935721bd1255
+05-08-2024  10:55                78 2ab03fc9db7c19ee47f8034e0986448e4d860d
+30-06-2024  21:22           136,731 8bc67aec8f1eea1bf02c873dc0b741fdf9f818
+               3 File(s)        137,039 bytes
+
+ Directory of D:\Softroniics\.git\objects\a8
+
+11-07-2024  14:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,536 53a2749f5117ebc23f35562ebc965e3b114379
+               1 File(s)         49,536 bytes
+
+ Directory of D:\Softroniics\.git\objects\a9
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:19               762 23ae275a9133e17f475f2f0f09f2b3d630d034
+05-08-2024  10:55            49,389 3fa389a44bf6982da0f73a453af6a9ea7787d0
+               2 File(s)         50,151 bytes
+
+ Directory of D:\Softroniics\.git\objects\aa
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,564 12b8ec3dca1a2b079e08ed57c4e9f9531345d5
+26-06-2024  10:10               161 bb7eac8b9f7f32f7f73ab2777b8017528afa34
+               2 File(s)         49,725 bytes
+
+ Directory of D:\Softroniics\.git\objects\ab
+
+04-07-2024  12:39    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                77 ad2bf93cf67a315579ef31ed3bcee68fd312c1
+04-07-2024  12:39            49,365 c2d5df96980fb85e1258b959378e9a6546f7da
+               2 File(s)         49,442 bytes
+
+ Directory of D:\Softroniics\.git\objects\ac
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 1667b226cd784a49214aa6e5abe1602d09ae4d
+23-07-2024  12:07               154 36462d5d1f5ec89e6ab44819479af97cc107bf
+05-08-2024  10:55                51 420dfe70236cff241041563a11773427b065b0
+               3 File(s)            283 bytes
+
+ Directory of D:\Softroniics\.git\objects\ad
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:39                85 ae39fe546822721d94f6b401c64d222a1ab1e4
+25-07-2024  12:58               183 dcc4ef739e27013954eb40d231a4b63f4f118f
+               2 File(s)            268 bytes
+
+ Directory of D:\Softroniics\.git\objects\ae
+
+04-07-2024  12:05    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-07-2024  11:50                78 c504876a89544f53bdc66cf52fa3342aeac2e2
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\af
+
+04-07-2024  12:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:22             1,268 2353074350ec65c928208de8dd90d4616bc1b6
+04-07-2024  12:59               175 3e95ccef12613663330af4850071021bdf2351
+               2 File(s)          1,443 bytes
+
+ Directory of D:\Softroniics\.git\objects\b0
+
+04-07-2024  12:05    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05               111 182fce3e2e866e9e4208e3a8558a39de1ceb65
+               1 File(s)            111 bytes
+
+ Directory of D:\Softroniics\.git\objects\b1
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:58               212 121e04996fe77ce8947bc403e9a72964527367
+05-08-2024  10:55                51 49932d5f765e2f22938ccdc33918c5ee38f923
+26-06-2024  10:18               151 bf049a4ff94d80dba3d21bd9cfcba5f3a176f0
+               3 File(s)            414 bytes
+
+ Directory of D:\Softroniics\.git\objects\b2
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24                77 7dc12315f1274ffd10e4e10f541ec686c1b1c4
+               1 File(s)             77 bytes
+
+ Directory of D:\Softroniics\.git\objects\b3
+
+21-07-2024  19:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+21-07-2024  19:59               125 19f0d9b2e83493f8d008d7d6c10ec9d377159d
+04-07-2024  12:39                78 5d80073735792e2b89781fd4f0f93e587c37d3
+04-07-2024  12:08               112 b8bb8377986073ba7d6c1d59b8703be95c9b9d
+               3 File(s)            315 bytes
+
+ Directory of D:\Softroniics\.git\objects\b4
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:23             1,409 0772eb46b49c93fb4046456f32ca3997a3a0af
+25-07-2024  12:11                78 2ba569902bcf1afd296fbef89ed630219618e0
+05-08-2024  10:55                51 38356fa7007e198f684e42abafc0532c4dfa4c
+               3 File(s)          1,538 bytes
+
+ Directory of D:\Softroniics\.git\objects\b5
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,536 f97d1fb091a50077fdb4d3ffb0e76c588548f7
+               1 File(s)         49,536 bytes
+
+ Directory of D:\Softroniics\.git\objects\b6
+
+04-07-2024  12:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:08               202 607b4aafa1ea12794ab978e34a5b1139151ee1
+04-07-2024  12:59               190 d64ab1ac0bf12a94d12b8cf7f93676e231690e
+               2 File(s)            392 bytes
+
+ Directory of D:\Softroniics\.git\objects\b7
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52               170 2ba840bc83bae9017d433af7b7e277117f38d6
+05-08-2024  10:55               156 a8f6cc34147dce38361a311012c048c4d806f7
+08-08-2024  12:19               140 cc92d5b6485a9cdb0b902133b76c7e36b6ff12
+               3 File(s)            466 bytes
+
+ Directory of D:\Softroniics\.git\objects\b8
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19               364 4639d3ee494f583bba0c14a29b0002133f936e
+               1 File(s)            364 bytes
+
+ Directory of D:\Softroniics\.git\objects\b9
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+08-08-2024  12:19            26,473 7f8b45312a9ab424360fd3e68fe312462e016d
+               1 File(s)         26,473 bytes
+
+ Directory of D:\Softroniics\.git\objects\bb
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               204 809d282ad899fec8e959a173d77c163853a68e
+               1 File(s)            204 bytes
+
+ Directory of D:\Softroniics\.git\objects\bc
+
+05-07-2024  11:51    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-07-2024  11:51               150 adf4cb49091134f5ac1c83281e8db8e99d3dc5
+               1 File(s)            150 bytes
+
+ Directory of D:\Softroniics\.git\objects\bd
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05            49,422 93d9c8739ef2d9e6187f498171da0c29dbc09d
+11-07-2024  12:24               205 a0b4742927fdc09d634078d1e9129290c221ea
+05-08-2024  10:55               552 d66bb1601a7a31a27c05b2bed079fd029d284c
+               3 File(s)         50,179 bytes
+
+ Directory of D:\Softroniics\.git\objects\be
+
+26-06-2024  10:32    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:32               733 b55a0dc61f4c434c3d563f7e32097309e3dd91
+               1 File(s)            733 bytes
+
+ Directory of D:\Softroniics\.git\objects\c0
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52                78 00cc0c1881dab43c731d994ee1f503ea8b55eb
+05-08-2024  10:55                78 5fbd2e538d52067f11900a95d9067610ef237c
+25-07-2024  12:58               237 e8ebdc8f307379797cb4c47c5c0ea62c39c90e
+               3 File(s)            393 bytes
+
+ Directory of D:\Softroniics\.git\objects\c2
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                51 113015bfb58b1c48a13cf7067af7818841e122
+05-07-2024  11:50                82 cb97747e00eef17855567ccff1ab3dd7166d74
+               2 File(s)            133 bytes
+
+ Directory of D:\Softroniics\.git\objects\c3
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52                66 54093bd46f1022a9ad181b866c8eef1451a146
+               1 File(s)             66 bytes
+
+ Directory of D:\Softroniics\.git\objects\c4
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52            49,457 6b5eb0a3904ab88602cdd4187c2aad68438c81
+05-08-2024  10:55               394 9d8256a558fdd56abe23194257098542b5eb4c
+05-07-2024  11:50                51 b8b270325fe427a8a0637a155150dcd74358be
+11-07-2024  15:56               150 f00f84406481c978ee0a68472a45303afe495c
+               4 File(s)         50,052 bytes
+
+ Directory of D:\Softroniics\.git\objects\c5
+
+12-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:44               376 d045be17a4efee67af3db41cba702f0a91ed13
+04-07-2024  12:05               162 fc6478ef8873dbea8330d5ab6059ab61736563
+               2 File(s)            538 bytes
+
+ Directory of D:\Softroniics\.git\objects\c6
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05                51 0ea8b1b989d1e0c1fefa28c5212ba93b230ae8
+23-07-2024  12:07            57,530 1e7725901e83d94221a34d3f8a4ea8bad47a98
+04-07-2024  12:05                78 741cc2c9282fc9db21b6cff7a447a8f7e90411
+12-07-2024  12:33               126 83508774fe065dbcbbcc792684b568019e4f90
+               4 File(s)         57,785 bytes
+
+ Directory of D:\Softroniics\.git\objects\c7
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               122 bd553e33d7a1fe679b216b90f899d130ad0664
+               1 File(s)            122 bytes
+
+ Directory of D:\Softroniics\.git\objects\c9
+
+27-06-2024  19:54    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+27-06-2024  20:22             1,479 e69c094fcf3ad31b07dbcdeff3331eedfdf7b8
+               1 File(s)          1,479 bytes
+
+ Directory of D:\Softroniics\.git\objects\ca
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05               182 71870a91d0826dc28e5c232aecd8f46ca6185a
+03-07-2024  13:00               343 7ea7a3e6da178f03db735bcd95202d58865d0d
+05-08-2024  10:55                78 b3b93355230f8c078e0c2a97cb5f5c731bf0d4
+               3 File(s)            603 bytes
+
+ Directory of D:\Softroniics\.git\objects\cb
+
+23-07-2024  12:07    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+23-07-2024  12:07               125 cfb3ad6b3a70f155f0cd33d23b3f55a2cb8540
+               1 File(s)            125 bytes
+
+ Directory of D:\Softroniics\.git\objects\cc
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24               187 9ed6d805f254de4cd3df328d0753fb1293bca3
+05-08-2024  10:55            49,405 ec0fc7c27a73f297b40a9255d751f9aca81e9f
+               2 File(s)         49,592 bytes
+
+ Directory of D:\Softroniics\.git\objects\cd
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            48,828 1b6369ae415f45a6f70e1064ccdc6884a58070
+26-07-2024  12:44               183 2c7383e57a6e2156e980ecb67b3d752b14cc81
+05-07-2024  11:50            49,418 37467e10cbfbae9d786fbdb23f7f6a36aab687
+26-07-2024  12:44                76 683bd7fc8c00cc39903e96ed97b4b088ed0635
+05-08-2024  10:55                78 ab6e89b307bc714f6805d616027ebce21eabad
+11-07-2024  12:24               157 d5089717108a840e102502edaf19a4884b8b29
+               6 File(s)         98,740 bytes
+
+ Directory of D:\Softroniics\.git\objects\ce
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:10                21 013625030ba8dba906f756967f9e9ca394464a
+30-06-2024  21:23               138 4d8a9543ed052c0ec909bd75039a3ad2087435
+11-07-2024  11:31                77 7f7ef6b4cfe77f6a7edaef30ab2e5ea18ca5be
+               3 File(s)            236 bytes
+
+ Directory of D:\Softroniics\.git\objects\cf
+
+11-07-2024  15:56    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               253 095e80a81c1f6f23137eaab2b1df09d2d42725
+05-08-2024  10:55               226 6160c4d3685224e3c2c863454b585334308f49
+26-06-2024  10:19               439 af7db2d472e5f680867ca8c6ec83f2c4a75923
+               3 File(s)            918 bytes
+
+ Directory of D:\Softroniics\.git\objects\d0
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               225 da07fcf448466881f70979c9922e4184ff3d3a
+25-07-2024  12:11               389 df3f998e7c9a5ff64d302236b4e9b556ae6bcd
+               2 File(s)            614 bytes
+
+ Directory of D:\Softroniics\.git\objects\d1
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24               232 6dc418783dc42184b95f4bc1ec087c613f1bbd
+26-06-2024  10:19             1,285 cba32d70695c10a7a51bfdec89a704f0199021
+05-08-2024  10:55            49,442 fb139c594f0c077fc0ceab46743a7d28e6cce3
+               3 File(s)         50,959 bytes
+
+ Directory of D:\Softroniics\.git\objects\d2
+
+21-07-2024  20:29    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,584 cb241985dee6df05067abae3aacdb2a01d2332
+21-07-2024  20:29               124 d98d4bfb6b23fac05c319ffd7935c654b4cd0f
+               2 File(s)         49,708 bytes
+
+ Directory of D:\Softroniics\.git\objects\d3
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:58                46 889a4072fe741ea91008258efe577116a0c391
+26-06-2024  10:19               112 fddcd0af7017e7fe777cacbc9fdca112f20875
+               2 File(s)            158 bytes
+
+ Directory of D:\Softroniics\.git\objects\d4
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 1284e85ccb083531422e87b8d2427c17da1ee4
+05-07-2024  11:50               452 325cf9aa9969b553b90978de0df7358c02ce77
+05-08-2024  10:55               287 9fb4e9d674cba8aaa57b56cc7cb8957974797b
+04-07-2024  12:59                78 f19335b1b30b3858bef25046db15c2ffeaaddd
+               4 File(s)            895 bytes
+
+ Directory of D:\Softroniics\.git\objects\d5
+
+03-07-2024  13:00    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                51 4ae6f46272630dfc4623904855b834677727b6
+               1 File(s)             51 bytes
+
+ Directory of D:\Softroniics\.git\objects\d6
+
+26-06-2024  10:14    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:14                80 4363e330068880785a8412ffac21079d01bbf3
+               1 File(s)             80 bytes
+
+ Directory of D:\Softroniics\.git\objects\d7
+
+11-07-2024  12:24    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+11-07-2024  12:24            49,483 b0bea4081608657a0c55be8548ea73b8d881b7
+04-07-2024  12:08               151 f6f7d242e0b5db24dfac5f6059e72331eb1ad9
+               2 File(s)         49,634 bytes
+
+ Directory of D:\Softroniics\.git\objects\d8
+
+04-07-2024  12:05    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 46c61c58abea877dcae91a3bf190c56b712a60
+27-06-2024  19:54               153 5486971dab1b1af5e12e6f008436f18a9ecd2d
+               2 File(s)            231 bytes
+
+ Directory of D:\Softroniics\.git\objects\d9
+
+05-07-2024  11:50    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-07-2024  11:50                77 6514f44f450249a2695ad510eaa734e3ccba24
+               1 File(s)             77 bytes
+
+ Directory of D:\Softroniics\.git\objects\da
+
+09-08-2024  11:10    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:39            49,365 434bbe690104cec729d20c3c9418a3f07428b1
+09-08-2024  11:10               162 61ff65b84082214ec874a1e5b3585fb8fcd1ac
+               2 File(s)         49,527 bytes
+
+ Directory of D:\Softroniics\.git\objects\dc
+
+26-06-2024  10:18    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:18                80 249b508e48e5038dfe4115fdaa40c9b70fe8b0
+               1 File(s)             80 bytes
+
+ Directory of D:\Softroniics\.git\objects\dd
+
+03-07-2024  13:00    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               151 72893f8f7fb0e936fe1766e5d21e286347d999
+30-06-2024  21:22            37,090 a35ae728300e18e7d385947dfaabad58e1db1c
+               2 File(s)         37,241 bytes
+
+ Directory of D:\Softroniics\.git\objects\de
+
+25-07-2024  12:12    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                51 18f3f4b3820c9bafce9f89adb3b9fe193817e3
+25-07-2024  12:12               213 60d83f9aa6dbf0ecdc61f9b6a14584461a14a4
+26-06-2024  10:19             1,926 6bae789f30387f8027cfe908570d4043eedac7
+               3 File(s)          2,190 bytes
+
+ Directory of D:\Softroniics\.git\objects\df
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  20:37            31,912 aead6ca35bce5eb2fdbf9841c43ce82dbc51d6
+05-08-2024  10:55               528 bf1709360a8ac4c1d22ba817adb6722ddca925
+               2 File(s)         32,440 bytes
+
+ Directory of D:\Softroniics\.git\objects\e0
+
+21-07-2024  20:29    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,427 30c9b7e7b9dc8850ee41614f14d6a57912213f
+05-08-2024  10:55            49,564 72fd9a57be700ceacb5e59831b9273e5662014
+               2 File(s)         98,991 bytes
+
+ Directory of D:\Softroniics\.git\objects\e1
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+12-07-2024  12:44               125 0d615eaefa5798963651ac26a7795a1dbba0a9
+05-08-2024  10:55               199 40c1ad51274df988924f563c3f6552901a7eb1
+03-07-2024  13:00               123 66b18c3120e1446f2afcee4e55afbf28ecbee3
+11-07-2024  12:24               125 75ab2fd9b779e11ad6d20e4dea1de1af2582ed
+               4 File(s)            572 bytes
+
+ Directory of D:\Softroniics\.git\objects\e2
+
+08-08-2024  12:19    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:39                78 1321ff48e953d9ae7fb283429237d9ebb7d418
+23-07-2024  12:07             1,633 2e00e548e2beec6370d3ca6c1e2269c519543a
+08-08-2024  12:19               241 6810f9c3584808c8d21176a450fbcb45becd4b
+25-07-2024  12:58               151 7a63d41aa182a199260dd998d75a6f4501e6b5
+               4 File(s)          2,103 bytes
+
+ Directory of D:\Softroniics\.git\objects\e3
+
+04-07-2024  12:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:59               168 9683b0860b4412ef8a2516de3fc634ec9868d6
+               1 File(s)            168 bytes
+
+ Directory of D:\Softroniics\.git\objects\e5
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               307 bc5a6f3f447fa6a989c85b5030bd75ea0a9c34
+               1 File(s)            307 bytes
+
+ Directory of D:\Softroniics\.git\objects\e6
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                79 a691b9a7b8be248000fc6cdfa794c1adcc065b
+               1 File(s)             79 bytes
+
+ Directory of D:\Softroniics\.git\objects\e7
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,712 40d007a16e7a882389e15bf937fe062d741c76
+08-07-2024  11:20               492 5db803b27c809d4553208d13d4758482057217
+               2 File(s)         50,204 bytes
+
+ Directory of D:\Softroniics\.git\objects\e8
+
+19-07-2024  20:02    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,389 e370f226fed0bedde997a425dfd5a80375b12a
+19-07-2024  20:02               150 f0db16e90b493a69f59045d8619d5e3b26f2b0
+05-08-2024  10:55                78 fd3cb352fd0ce3213359bf18bc65631ab8526f
+               3 File(s)         49,617 bytes
+
+ Directory of D:\Softroniics\.git\objects\e9
+
+04-07-2024  12:39    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+27-06-2024  19:54               137 40d82190c3e899f9c6ec80fef5edef1c0f20aa
+04-07-2024  12:39               156 e94b5c51c9cd0ba82875c4b58318598d839323
+               2 File(s)            293 bytes
+
+ Directory of D:\Softroniics\.git\objects\ea
+
+04-07-2024  12:59    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:14               152 7268e8baab1fea5c77859e9c6ae3633feae624
+04-07-2024  12:59                78 7ddaf59d47a82277539329b853aa277f9e8cef
+               2 File(s)            230 bytes
+
+ Directory of D:\Softroniics\.git\objects\eb
+
+25-07-2024  12:58    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55               391 7ba6233fc3b4f979e4d806571cd53ccb6b0f5a
+               1 File(s)            391 bytes
+
+ Directory of D:\Softroniics\.git\objects\ec
+
+26-06-2024  10:32    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:32               139 2d89bf406fd49d8cdabd33358a09f73e502be6
+               1 File(s)            139 bytes
+
+ Directory of D:\Softroniics\.git\objects\ed
+
+11-07-2024  11:31    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55            49,490 80b55f8b9e3b8ccac811443f975f6951a1b8d9
+               1 File(s)         49,490 bytes
+
+ Directory of D:\Softroniics\.git\objects\ef
+
+09-08-2024  11:09    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-08-2024  11:09               241 0886e095ed5bb644f5b60c3c9919bcf1d76c2e
+               1 File(s)            241 bytes
+
+ Directory of D:\Softroniics\.git\objects\f0
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+09-07-2024  11:52            49,538 234774a134967fe4175281fb34b02b2d85fe3a
+26-06-2024  10:14                53 5efa4a6c85407e82575764e478238663352bc2
+05-08-2024  10:55               158 8108c02c66b99bdef2cf661aa9473f2214a174
+               3 File(s)         49,749 bytes
+
+ Directory of D:\Softroniics\.git\objects\f1
+
+26-07-2024  12:44    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+21-07-2024  20:29               175 4f9a52312323f2f5f77db9bd5a5c5d903865c4
+05-08-2024  10:55                77 770e964866f44c0d6c56a4084d1e035aff8673
+               2 File(s)            252 bytes
+
+ Directory of D:\Softroniics\.git\objects\f2
+
+04-07-2024  12:39    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  20:37               158 13a40c7884f6f0f84f25da6c310fbd35d5df80
+04-07-2024  12:39                78 4b9764c7a73f3ec4e803811fc8b8e683e82676
+               2 File(s)            236 bytes
+
+ Directory of D:\Softroniics\.git\objects\f4
+
+09-07-2024  11:52    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:05            49,435 69d6447a8302acac7ea8c0d8bba07399e2becb
+09-07-2024  11:52               175 869ccbf641dae3d9ee6f3d184859d07b467f38
+               2 File(s)         49,610 bytes
+
+ Directory of D:\Softroniics\.git\objects\f5
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:11               212 c4ccdac4f3f1a4d33f3cf335ade0ac25c662f5
+               1 File(s)            212 bytes
+
+ Directory of D:\Softroniics\.git\objects\f6
+
+25-07-2024  12:11    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+25-07-2024  12:11            48,571 2c5530e57d4bb2617f5b5ba52b49f04a7e8df3
+               1 File(s)         48,571 bytes
+
+ Directory of D:\Softroniics\.git\objects\f9
+
+30-06-2024  21:23    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:23               154 4560a172a676f8bf9717e67d51509672b16a0e
+               1 File(s)            154 bytes
+
+ Directory of D:\Softroniics\.git\objects\fa
+
+03-07-2024  13:00    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+03-07-2024  13:00               111 1b6821b1586ad34596e5c782c86c64938d08cf
+               1 File(s)            111 bytes
+
+ Directory of D:\Softroniics\.git\objects\fc
+
+08-07-2024  11:20    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+05-08-2024  10:55                78 01338badd1dd35210a9f074adb6bfff3d8c549
+               1 File(s)             78 bytes
+
+ Directory of D:\Softroniics\.git\objects\fd
+
+12-07-2024  12:33    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+04-07-2024  12:59            49,570 075f313ef92e57de092640c0356e0cd7fa348b
+12-07-2024  12:33                77 b886603622303568ff07a29ef47a59132ecb34
+               2 File(s)         49,647 bytes
+
+ Directory of D:\Softroniics\.git\objects\fe
+
+03-07-2024  13:00    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+30-06-2024  21:22               139 0317b4baf95f9a3a18dc69572881c43ae102a5
+05-08-2024  10:55               119 8c589b5c55d352fa96624d20aa8e208b906101
+               2 File(s)            258 bytes
+
+ Directory of D:\Softroniics\.git\objects\info
+
+26-06-2024  10:02    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git\objects\pack
+
+26-06-2024  10:08    <DIR>          .
+09-08-2024  13:16    <DIR>          ..
+26-06-2024  10:08             5,076 pack-35b5a26dac09d984953d1261b20d2498022295cc.idx
+05-07-2024  11:50         4,210,302 pack-35b5a26dac09d984953d1261b20d2498022295cc.pack
+26-06-2024  10:08               624 pack-35b5a26dac09d984953d1261b20d2498022295cc.rev
+               3 File(s)      4,216,002 bytes
+
+ Directory of D:\Softroniics\.git\refs
+
+26-06-2024  10:08    <DIR>          .
+09-08-2024  11:10    <DIR>          heads
+26-06-2024  10:08    <DIR>          remotes
+26-06-2024  10:02    <DIR>          tags
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git\refs\heads
+
+09-08-2024  11:10    <DIR>          .
+26-06-2024  10:08    <DIR>          ..
+09-08-2024  11:10                41 main
+               1 File(s)             41 bytes
+
+ Directory of D:\Softroniics\.git\refs\remotes
+
+26-06-2024  10:08    <DIR>          .
+26-06-2024  10:08    <DIR>          ..
+09-08-2024  11:10    <DIR>          origin
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.git\refs\remotes\origin
+
+09-08-2024  11:10    <DIR>          .
+26-06-2024  10:08    <DIR>          ..
+09-08-2024  11:10                41 main
+               1 File(s)             41 bytes
+
+ Directory of D:\Softroniics\.git\refs\tags
+
+26-06-2024  10:02    <DIR>          .
+26-06-2024  10:08    <DIR>          ..
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\.vscode
+
+03-07-2024  18:40    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+03-07-2024  11:50               259 launch.json
+26-07-2024  11:29               279 settings.json
+03-07-2024  18:26             1,329 tasks.json
+               3 File(s)          1,867 bytes
+
+ Directory of D:\Softroniics\BOOTSTRAP
+
+22-07-2024  13:08    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+30-06-2024  21:22             4,760 coffee.html
+27-06-2024  20:22               665 luxurym4.html
+22-07-2024  15:42             5,861 machinetest car.html
+22-07-2024  13:08             4,664 machinetest.html
+22-07-2024  12:03             3,708 powerdesign.html
+27-06-2024  10:05             2,390 profilesbtstrp5.html
+22-07-2024  11:54               698 sda.html
+27-06-2024  10:09               665 template.html
+27-06-2024  19:54             5,881 yt144p.html
+               9 File(s)         29,292 bytes
+
+ Directory of D:\Softroniics\C
+
+09-08-2024  11:09    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+03-07-2024  12:10    <DIR>          .vscode
+04-07-2024  12:49    <DIR>          4JUL
+05-08-2024  10:55    <DIR>          PRACTICE
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\.vscode
+
+03-07-2024  12:10    <DIR>          .
+09-08-2024  11:09    <DIR>          ..
+03-07-2024  12:10               742 tasks.json
+               1 File(s)            742 bytes
+
+ Directory of D:\Softroniics\C\4JUL
+
+04-07-2024  12:49    <DIR>          .
+09-08-2024  11:09    <DIR>          ..
+04-07-2024  12:01    <DIR>          1 ODD EVEN
+04-07-2024  12:12    <DIR>          2 EQUAL OR NOT
+04-07-2024  12:20    <DIR>          3 LEAP YEAR OR NOT
+04-07-2024  12:24    <DIR>          4 VOTE OR NOT
+04-07-2024  12:46    <DIR>          5
+04-07-2024  12:57    <DIR>          6 HEIGHT
+04-07-2024  11:59    <DIR>          7 Greatest of 3
+04-07-2024  11:48    <DIR>          8 TEMP
+04-07-2024  12:59    <DIR>          Switch EG
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\4JUL\1 ODD EVEN
+
+04-07-2024  12:01    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:03               248 main.c
+               1 File(s)            248 bytes
+
+ Directory of D:\Softroniics\C\4JUL\2 EQUAL OR NOT
+
+04-07-2024  12:12    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:12               326 main.c
+04-07-2024  12:12           140,883 main.exe
+               2 File(s)        141,209 bytes
+
+ Directory of D:\Softroniics\C\4JUL\3 LEAP YEAR OR NOT
+
+04-07-2024  12:20    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:18               256 main.c
+04-07-2024  12:20           140,883 main.exe
+               2 File(s)        141,139 bytes
+
+ Directory of D:\Softroniics\C\4JUL\4 VOTE OR NOT
+
+04-07-2024  12:24    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:33               289 main.c
+04-07-2024  12:24           140,883 main.exe
+               2 File(s)        141,172 bytes
+
+ Directory of D:\Softroniics\C\4JUL\5
+
+04-07-2024  12:46    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:46               356 main.c
+04-07-2024  12:46           140,883 main.exe
+               2 File(s)        141,239 bytes
+
+ Directory of D:\Softroniics\C\4JUL\6 HEIGHT
+
+04-07-2024  12:57    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:57               369 main.c
+04-07-2024  12:57           141,056 main.exe
+               2 File(s)        141,425 bytes
+
+ Directory of D:\Softroniics\C\4JUL\7 Greatest of 3
+
+04-07-2024  11:59    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:18               502 main.c
+04-07-2024  11:59           140,883 main.exe
+               2 File(s)        141,385 bytes
+
+ Directory of D:\Softroniics\C\4JUL\8 TEMP
+
+04-07-2024  11:48    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:18               562 main.c
+04-07-2024  11:26           140,883 main.exe
+               2 File(s)        141,445 bytes
+
+ Directory of D:\Softroniics\C\4JUL\Switch EG
+
+04-07-2024  12:59    <DIR>          .
+04-07-2024  12:49    <DIR>          ..
+04-07-2024  12:59               806 daysinaweek dowhile.c
+04-07-2024  12:59           141,078 daysinaweek dowhile.exe
+04-07-2024  12:39               730 daysinaweek.c
+04-07-2024  12:32           141,056 daysinaweek.exe
+               4 File(s)        283,670 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE
+
+05-08-2024  10:55    <DIR>          .
+09-08-2024  11:09    <DIR>          ..
+10-07-2024  11:16    <DIR>          1 BASIC
+10-07-2024  12:33    <DIR>          2 CONTROL FLOW
+21-07-2024  21:06    <DIR>          3 PATTERN PRINTING
+26-07-2024  12:51    <DIR>          5 ARRAY
+07-08-2024  12:44    <DIR>          6 STRINGS
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC
+
+10-07-2024  11:16    <DIR>          .
+05-08-2024  10:55    <DIR>          ..
+03-07-2024  19:26    <DIR>          1 Hello World
+10-07-2024  12:25    <DIR>          10 Prime N to N
+05-07-2024  11:39    <DIR>          11 Simple Interest
+05-07-2024  11:35    <DIR>          12 Compund Interest
+07-07-2024  14:41    <DIR>          13 Area Perimeter
+03-07-2024  12:16    <DIR>          2 Biodata
+03-07-2024  18:38    <DIR>          3 Integer Display
+03-07-2024  12:16    <DIR>          4 Add Two Numbers
+10-07-2024  11:03    <DIR>          5 Prime
+03-07-2024  12:18    <DIR>          6 Float Multiplication
+03-07-2024  12:48    <DIR>          7 Swap 2 Numbers
+03-07-2024  12:23    <DIR>          8 F to C
+03-07-2024  12:16    <DIR>          Cube
+03-07-2024  12:16    <DIR>          Float Cube
+03-07-2024  12:16    <DIR>          Positive Negative
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\1 Hello World
+
+03-07-2024  19:26    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  19:26                78 main.c
+03-07-2024  19:26           137,027 main.exe
+               2 File(s)        137,105 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\10 Prime N to N
+
+10-07-2024  12:25    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+10-07-2024  12:28               698 main.c
+10-07-2024  12:25           140,883 main.exe
+               2 File(s)        141,581 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\11 Simple Interest
+
+05-07-2024  11:39    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+05-07-2024  11:50               325 main.c
+05-07-2024  11:39           140,883 main.exe
+               2 File(s)        141,208 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\12 Compund Interest
+
+05-07-2024  11:35    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+08-07-2024  11:31               393 main.c
+               1 File(s)            393 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\13 Area Perimeter
+
+07-07-2024  14:41    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+05-08-2024  12:11               444 main.c
+07-07-2024  14:41           140,883 main.exe
+               2 File(s)        141,327 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\2 Biodata
+
+03-07-2024  12:16    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:16               131 cube
+03-07-2024  12:16               359 main.c
+               2 File(s)            490 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\3 Integer Display
+
+03-07-2024  18:38    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  18:38               145 main.c
+03-07-2024  18:38           140,883 main.exe
+               2 File(s)        141,028 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\4 Add Two Numbers
+
+03-07-2024  12:16    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:16               226 main.c
+               1 File(s)            226 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\5 Prime
+
+10-07-2024  11:03    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+09-07-2024  11:49               534 main.c
+10-07-2024  11:03           140,883 main.exe
+               2 File(s)        141,417 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\6 Float Multiplication
+
+03-07-2024  12:18    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:16               214 main.c
+03-07-2024  12:18           140,883 main.exe
+               2 File(s)        141,097 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\7 Swap 2 Numbers
+
+03-07-2024  12:48    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:48               292 main.c
+03-07-2024  12:48           140,883 main.exe
+               2 File(s)        141,175 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\8 F to C
+
+03-07-2024  12:23    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:23               194 main.c
+03-07-2024  12:23           140,883 main.exe
+               2 File(s)        141,077 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\Cube
+
+03-07-2024  12:16    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:16               148 main.c
+               1 File(s)            148 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\Float Cube
+
+03-07-2024  12:16    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:16               187 main.c
+               1 File(s)            187 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\1 BASIC\Positive Negative
+
+03-07-2024  12:16    <DIR>          .
+10-07-2024  11:16    <DIR>          ..
+03-07-2024  12:16               257 main.c
+               1 File(s)            257 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW
+
+10-07-2024  12:33    <DIR>          .
+05-08-2024  10:55    <DIR>          ..
+07-07-2024  14:53    <DIR>          1 Positive Negative Zero
+07-07-2024  18:54    <DIR>          10 Multiplication Table
+09-07-2024  11:28    <DIR>          11 Fibonacci
+10-07-2024  12:33    <DIR>          13. Armstrong Number
+10-07-2024  12:32    <DIR>          16 Reverse
+07-07-2024  18:56    <DIR>          2 ODD EVEN
+07-07-2024  19:43    <DIR>          3 Vowel or Constant
+07-07-2024  17:34    <DIR>          4 Greatest of 3
+07-07-2024  19:47    <DIR>          5 Sum of Natural Numbers
+07-07-2024  17:35    <DIR>          6 Alphabet Loop
+07-07-2024  18:55    <DIR>          7 LEAP YEAR
+08-07-2024  11:16    <DIR>          8 Factorial
+08-07-2024  11:38    <DIR>          9 Simple Calculator
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\1 Positive Negative Zero
+
+07-07-2024  14:53    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  14:52               304 main.c
+07-07-2024  14:53           140,883 main.exe
+               2 File(s)        141,187 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\10 Multiplication Table
+
+07-07-2024  18:54    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  18:52               216 main.c
+07-07-2024  18:54           140,883 main.exe
+               2 File(s)        141,099 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\11 Fibonacci
+
+09-07-2024  11:28    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+09-07-2024  11:29               367 main.c
+09-07-2024  11:28           141,056 main.exe
+               2 File(s)        141,423 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\13. Armstrong Number
+
+10-07-2024  12:33    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+11-07-2024  11:26               236 main.c
+               1 File(s)            236 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\16 Reverse
+
+10-07-2024  12:32    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+10-07-2024  12:32               235 main.c
+10-07-2024  12:32           140,883 main.exe
+               2 File(s)        141,118 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\2 ODD EVEN
+
+07-07-2024  18:56    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+04-07-2024  12:03               248 main.c
+07-07-2024  18:56           140,883 main.exe
+               2 File(s)        141,131 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\3 Vowel or Constant
+
+07-07-2024  19:43    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  19:43               400 main.c
+07-07-2024  19:43           140,883 main.exe
+               2 File(s)        141,283 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\4 Greatest of 3
+
+07-07-2024  17:34    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+04-07-2024  11:26               502 main.c
+07-07-2024  17:34           140,883 main.exe
+               2 File(s)        141,385 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\5 Sum of Natural Numbers
+
+07-07-2024  19:47    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  19:47               203 main.c
+07-07-2024  19:47           140,883 main.exe
+               2 File(s)        141,086 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\6 Alphabet Loop
+
+07-07-2024  17:35    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  17:33               145 main.c
+07-07-2024  17:35           137,027 main.exe
+               2 File(s)        137,172 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\7 LEAP YEAR
+
+07-07-2024  18:55    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  18:55               258 main.c
+07-07-2024  18:55           140,883 main.exe
+               2 File(s)        141,141 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\8 Factorial
+
+08-07-2024  11:16    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+07-07-2024  17:54               264 main.c
+08-07-2024  11:16           140,883 main.exe
+               2 File(s)        141,147 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\2 CONTROL FLOW\9 Simple Calculator
+
+08-07-2024  11:38    <DIR>          .
+10-07-2024  12:33    <DIR>          ..
+08-07-2024  11:38             1,250 main.c
+08-07-2024  11:38           142,886 main.exe
+               2 File(s)        144,136 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING
+
+21-07-2024  21:06    <DIR>          .
+05-08-2024  10:55    <DIR>          ..
+11-07-2024  15:01    <DIR>          Diamond
+11-07-2024  14:53    <DIR>          Full Pyramid
+21-07-2024  21:06    <DIR>          Hollow Diamond
+21-07-2024  20:05    <DIR>          Hollow Full Pyramid
+21-07-2024  19:58    <DIR>          Hollow Square
+11-07-2024  15:56    <DIR>          Hourglass
+11-07-2024  14:53    <DIR>          Inverted Full Pyramid
+21-07-2024  21:06    <DIR>          Inverted Hollow Full Pyramid
+11-07-2024  12:28    <DIR>          Inverted Left Half Pyramid
+11-07-2024  12:04    <DIR>          Inverted Right Half Pyramid
+11-07-2024  11:56    <DIR>          Left Half Pyramid
+12-07-2024  12:43    <DIR>          LETTERS
+11-07-2024  14:49    <DIR>          Rhombus
+13-07-2024  11:20    <DIR>          Right Half Pyramid
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Diamond
+
+11-07-2024  15:01    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  15:00               624 main.c
+11-07-2024  15:01           141,059 main.exe
+               2 File(s)        141,683 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Full Pyramid
+
+11-07-2024  14:53    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  14:53               399 main.c
+11-07-2024  14:53           141,059 main.exe
+               2 File(s)        141,458 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Hollow Diamond
+
+21-07-2024  21:06    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+21-07-2024  20:05               646 main.c
+21-07-2024  20:05           141,059 main.exe
+               2 File(s)        141,705 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Hollow Full Pyramid
+
+21-07-2024  20:05    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+21-07-2024  20:05               646 main.c
+21-07-2024  20:05           141,059 main.exe
+               2 File(s)        141,705 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Hollow Square
+
+21-07-2024  19:58    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+21-07-2024  19:58               589 main.c
+21-07-2024  19:58           141,059 main.exe
+               2 File(s)        141,648 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Hourglass
+
+11-07-2024  15:56    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  15:56               617 main.c
+11-07-2024  15:56           141,059 main.exe
+               2 File(s)        141,676 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Inverted Full Pyramid
+
+11-07-2024  14:53    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  14:53               401 main.c
+11-07-2024  14:53           141,059 main.exe
+               2 File(s)        141,460 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Inverted Hollow Full Pyramid
+
+21-07-2024  21:06    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+21-07-2024  21:06               652 main.c
+21-07-2024  21:06           141,059 main.exe
+               2 File(s)        141,711 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Inverted Left Half Pyramid
+
+11-07-2024  12:28    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  12:28               421 main.c
+11-07-2024  12:28           141,059 main.exe
+               2 File(s)        141,480 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Inverted Right Half Pyramid
+
+11-07-2024  12:04    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  12:04               337 main.c
+11-07-2024  12:04           141,059 main.exe
+               2 File(s)        141,396 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Left Half Pyramid
+
+11-07-2024  11:56    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  11:56               415 main.c
+11-07-2024  11:56           141,059 main.exe
+               2 File(s)        141,474 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\LETTERS
+
+12-07-2024  12:43    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+12-07-2024  12:28    <DIR>          I
+12-07-2024  13:06    <DIR>          Z
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\LETTERS\I
+
+12-07-2024  12:28    <DIR>          .
+12-07-2024  12:43    <DIR>          ..
+12-07-2024  12:28               520 main.c
+               1 File(s)            520 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\LETTERS\Z
+
+12-07-2024  13:06    <DIR>          .
+12-07-2024  12:43    <DIR>          ..
+12-07-2024  13:07               524 main.c
+12-07-2024  13:06           141,232 main.exe
+               2 File(s)        141,756 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Rhombus
+
+11-07-2024  14:49    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+11-07-2024  14:49               422 main.c
+11-07-2024  14:49           141,059 main.exe
+               2 File(s)        141,481 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\3 PATTERN PRINTING\Right Half Pyramid
+
+13-07-2024  11:20    <DIR>          .
+21-07-2024  21:06    <DIR>          ..
+15-07-2024  11:28               338 main.c
+13-07-2024  11:20           141,059 main.exe
+               2 File(s)        141,397 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY
+
+26-07-2024  12:51    <DIR>          .
+05-08-2024  10:55    <DIR>          ..
+25-07-2024  11:52    <DIR>          1 2D ARRAY
+24-07-2024  12:33    <DIR>          2 Largest Element
+24-07-2024  12:37    <DIR>          3 Max Min
+26-07-2024  12:51    <DIR>          4 Binary Search
+26-07-2024  13:00    <DIR>          5 Avg Elements
+24-07-2024  12:18    <DIR>          8 SELECTION SORT
+24-07-2024  12:34    <DIR>          Smallest Element
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\1 2D ARRAY
+
+25-07-2024  11:52    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+25-07-2024  11:52               326 main.c
+25-07-2024  11:52           137,715 main.exe
+               2 File(s)        138,041 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\2 Largest Element
+
+24-07-2024  12:33    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+24-07-2024  12:33               712 main.c
+24-07-2024  12:33           141,059 main.exe
+               2 File(s)        141,771 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\3 Max Min
+
+24-07-2024  12:37    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+24-07-2024  12:38               776 main.c
+               1 File(s)            776 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\4 Binary Search
+
+26-07-2024  12:51    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+25-07-2024  12:36             1,016 main.c
+25-07-2024  12:04           141,571 main.exe
+               2 File(s)        142,587 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\5 Avg Elements
+
+26-07-2024  13:00    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+29-07-2024  11:23               407 main.c
+26-07-2024  13:00           140,883 main.exe
+               2 File(s)        141,290 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\8 SELECTION SORT
+
+24-07-2024  12:18    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+24-07-2024  12:26               755 main.c
+24-07-2024  12:18           141,059 main.exe
+               2 File(s)        141,814 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\5 ARRAY\Smallest Element
+
+24-07-2024  12:34    <DIR>          .
+26-07-2024  12:51    <DIR>          ..
+24-07-2024  12:34               711 main.c
+24-07-2024  12:34           141,059 main.exe
+               2 File(s)        141,770 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS
+
+07-08-2024  12:44    <DIR>          .
+05-08-2024  10:55    <DIR>          ..
+26-07-2024  12:41    <DIR>          1 CONCAT
+26-07-2024  12:36    <DIR>          12 CMP
+26-07-2024  12:36    <DIR>          7 Length
+26-07-2024  12:00    <DIR>          NULL
+07-08-2024  12:53    <DIR>          PALINDROME
+26-07-2024  12:34    <DIR>          STRING EX
+               0 File(s)              0 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS\1 CONCAT
+
+26-07-2024  12:41    <DIR>          .
+07-08-2024  12:44    <DIR>          ..
+26-07-2024  12:42               323 main.c
+               1 File(s)            323 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS\12 CMP
+
+26-07-2024  12:36    <DIR>          .
+07-08-2024  12:44    <DIR>          ..
+26-07-2024  12:36               363 main.c
+26-07-2024  12:36           141,058 main.exe
+               2 File(s)        141,421 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS\7 Length
+
+26-07-2024  12:36    <DIR>          .
+07-08-2024  12:44    <DIR>          ..
+26-07-2024  12:37               327 main.c
+               1 File(s)            327 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS\NULL
+
+26-07-2024  12:00    <DIR>          .
+07-08-2024  12:44    <DIR>          ..
+25-07-2024  12:50               354 main.c
+25-07-2024  12:50           137,539 main.exe
+               2 File(s)        137,893 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS\PALINDROME
+
+07-08-2024  12:53    <DIR>          .
+07-08-2024  12:44    <DIR>          ..
+08-08-2024  12:18               508 main.C
+07-08-2024  12:53           141,231 main.exe
+               2 File(s)        141,739 bytes
+
+ Directory of D:\Softroniics\C\PRACTICE\6 STRINGS\STRING EX
+
+26-07-2024  12:34    <DIR>          .
+07-08-2024  12:44    <DIR>          ..
+26-07-2024  12:34               635 main.C
+26-07-2024  12:34           142,095 main.exe
+               2 File(s)        142,730 bytes
+
+ Directory of D:\Softroniics\HTMLCSS
+
+26-06-2024  10:31    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+30-06-2024  12:55             1,020 biodata.html
+09-06-2024  18:50             2,253 bomb.html
+20-06-2024  21:56             1,068 dashboard.css
+20-06-2024  21:56             1,210 dashboard.html
+27-06-2024  19:54             5,930 deck.css
+27-06-2024  19:54            13,484 deck.html
+15-06-2024  17:27             2,845 delivery.html
+10-06-2024  20:09             1,492 dropdownnavbar.html
+14-06-2024  22:53             1,553 imglogin.html
+13-06-2024  10:00               421 mediaquery.html
+09-06-2024  18:50             1,497 piclogin.html
+25-06-2024  11:38             4,832 pinkbrand.css
+20-06-2024  10:28             5,740 pinkbrand.html
+30-06-2024  12:55             1,527 position.html
+19-07-2024  20:43             3,638 praroz.css
+18-06-2024  10:03             2,836 praroz.html
+28-06-2024  09:39             1,762 profiles.html
+13-06-2024  14:29             1,912 profiles_flex.html
+30-06-2024  12:55             1,030 responsive.html
+09-06-2024  18:50             2,473 tablecalendar.html
+26-06-2024  10:14               235 TEST.html
+11-06-2024  18:03             3,682 violetnavbar.html
+09-06-2024  18:50             1,512 zindex.html
+              23 File(s)         63,952 bytes
+
+ Directory of D:\Softroniics\IMG
+
+22-07-2024  13:12    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+09-06-2024  18:50           429,245 911targa.jpg
+24-06-2024  12:15            15,219 applewatch.jpg
+24-06-2024  23:33            14,242 applewatch169.jpg
+09-06-2024  18:50             3,326 audi.png
+18-06-2024  12:15            37,078 bean.jpg
+09-06-2024  18:50             4,537 benz.jpg
+09-06-2024  18:50             6,447 bmw.jpg
+09-06-2024  18:50            81,418 bomb.jpg
+30-06-2024  20:43            96,694 cappucino1.jpg
+30-06-2024  13:13            52,495 coffee1.jpg
+30-06-2024  21:00           788,613 coffee2.jpg
+30-06-2024  16:48            37,227 coffeebeans.jpg
+30-06-2024  21:01           139,358 coffeesmoke.jpg
+30-06-2024  21:03           148,483 coffeesmoke2.jpg
+28-06-2024  09:41            46,960 deer916.jpg
+14-06-2024  09:16            76,154 deliverylandingpage.png
+09-06-2024  18:50            21,971 evo.jpg
+29-06-2024  17:36           814,816 gene.png
+09-06-2024  18:50            86,994 girl.jpg
+09-06-2024  18:50             9,998 gtr.jpg
+09-06-2024  18:50             8,229 img_avatar.png
+09-06-2024  18:50             8,314 img_avatar2.png
+09-06-2024  18:50             5,582 lamborgini.jpg
+29-06-2024  17:21           155,985 lighthouse.jpg
+24-06-2024  12:17           142,019 mercedesconsole.jpg
+09-06-2024  18:50            22,096 mk4.jpg
+22-07-2024  12:12           674,567 mtp1.png
+29-06-2024  18:27            35,318 nightdesert.jpg
+22-07-2024  13:11            79,697 nightdesert916.jpg
+09-06-2024  18:50            40,535 nucleus.avif
+09-06-2024  18:50           328,170 peru.jpg
+29-06-2024  17:32             5,047 porsche.jpg
+14-06-2024  18:47         2,263,531 prarozbg.png
+09-06-2024  18:50            17,469 r32.jpg
+09-06-2024  18:50           257,947 rx7.jpg
+09-06-2024  18:50           150,209 s14.jpg
+09-06-2024  18:50             6,563 s2000.jpg
+29-06-2024  17:58           186,747 sunset.jpg
+26-06-2024  20:36            33,232 supra.jpg
+30-06-2024  13:12            46,475 tea1.jpg
+14-06-2024  09:24             4,556 testicon.png
+09-06-2024  18:50             5,817 volkswagen.jpg
+09-06-2024  18:50           173,513 waves.jpeg
+              43 File(s)      7,562,893 bytes
+
+ Directory of D:\Softroniics\Logical Test 1
+
+09-08-2024  12:35    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+09-08-2024  12:35               445 1.c
+09-08-2024  12:35           141,059 1.exe
+09-08-2024  12:48               481 2.c
+09-08-2024  12:18           140,883 2.exe
+               4 File(s)        282,868 bytes
+
+ Directory of D:\Softroniics\Machine Test 1
+
+22-07-2024  15:45    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+28-06-2024  09:41            46,960 deer916.jpg
+29-06-2024  17:21           155,985 lighthouse.jpg
+22-07-2024  16:07             5,869 machinetest.html
+22-07-2024  13:11            79,697 nightdesert916.jpg
+               4 File(s)        288,511 bytes
+
+ Directory of D:\Softroniics\Notes
+
+05-08-2024  12:06    <DIR>          .
+11-08-2024  17:06    <DIR>          ..
+08-08-2024  11:24    <DIR>          mysql
+01-08-2024  12:31         4,296,934 mysql.zip
+               1 File(s)      4,296,934 bytes
+
+ Directory of D:\Softroniics\Notes\mysql
+
+08-08-2024  11:24    <DIR>          .
+05-08-2024  12:06    <DIR>          ..
+29-07-2023  11:36           144,126 DBMS 1.pptx
+29-07-2023  11:36           166,220 DBMS 2.pptx
+29-07-2023  11:36           649,251 DBMS 5.pptx
+29-07-2023  11:36           823,897 DBMS notes 2.pdf
+29-07-2023  11:36           589,060 DBMS notes 3.pdf
+29-07-2023  11:36           467,997 DBMS notes 4.pdf
+29-07-2023  11:36           386,227 DBMS notes 6.pdf
+29-07-2023  11:36           483,688 DSA ppt 1.pptx
+29-07-2023  11:36           141,147 DSA ppt 2.pptx
+29-07-2023  11:36           660,508 DSA ppt 3.pptx
+29-07-2023  11:36           126,791 MySqL02.pptx
+29-07-2023  11:36            35,347 sql.pptx
+              12 File(s)      4,674,259 bytes
+
+     Total Files Listed:
+             738 File(s)     44,476,753 bytes
+             954 Dir(s)  132,934,410,240 bytes free
