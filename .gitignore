@@ -1,8 +1,16 @@
+#GIT IGNORE
+
+#files
+
+#folders
 .vscode/*
 TEST/*
 TEST/
 C/.vscode
 C/.vscode/*
+/Logical Test 1/
+/Machine Test 1/
+
 
 
 # Local History for Visual Studio Code
