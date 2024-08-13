@@ -3,9 +3,8 @@
 
 int main()
 {
-    char s[100];
+    char s[100],ch;
     int len,rep=0;
-    char ch;
     printf("\n Enter the String : ");
     scanf("%[^\n]%*c", s);
     

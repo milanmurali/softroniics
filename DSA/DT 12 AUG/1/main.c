@@ -1,15 +1,24 @@
 #include <stdio.h>
-#include <string.h>
 
-int main()
-{
-    int arr[5];
-    int i, j = 0, k;
-    printf("Enter the 5 Elements of Array : \n ");
+int main() {
+    int array[] = {64, 34, 25, 12, 22, 11, 90};
+    int size = sizeof(array) / sizeof(array[0]);
 
-    for (i = 0; i < 5; i++)
-    {
-        scanf("%d", &arr[i]);
+    for (int i = 0; i < size - 1; i++) {
+        for (int j = 0; j < size - i - 1; j++) {
+            if (array[j] > array[j + 1]) {
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
     }
-        return 0;
+
+    printf("Sorted array: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", array[i]);
+    }
+    printf("\n");
+
+    return 0;
 }

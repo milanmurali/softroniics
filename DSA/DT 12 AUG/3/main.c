@@ -13,6 +13,7 @@ int main()
 
     printf("Enter Element to Search: \n ");
     scanf("%d", &s);
+    
     for (i = 0; i < 5; i++) {
         if (arr[i] == s) {
             printf("%d is present at Index %d\n", s, i);
