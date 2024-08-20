@@ -8,9 +8,8 @@ struct vehicle
     char vehiclename[100];
     char model[100];
     int tyre;
-};
-// array of struct vehicle
-struct vehicle vehicles[100];
+} vehicles[100];
+
 int count = 0;
 
 void create()
@@ -27,21 +26,28 @@ void create()
     count++;
     printf("New Vehicle Added.\n");
 };
-void display(int tyre) {
-     printf("Vehicles with %d tyres:\n", tyre);
-     int dispcount=0;
-     for (int i=0; i<count;i++){
-        if (vehicles[i].tyre == tyre){
-            printf("Owner Name : %s \n",vehicles[i].ownername);
-            printf("Vehicle Name : %s \n",vehicles[i].vehiclename);
-            printf("Vehicle Model : %s \n",vehicles[i].model);
-            printf("Tyres %d \n",vehicles[i].tyre);
+void display(int tyre)
+{
+    printf("Vehicles with %d tyres:\n", tyre);
+    int dispcount = 0;
+    for (int i = 0; i < count; i++)
+    {
+        if (vehicles[i].tyre == tyre)
+        {
+            printf("\t---%d---\n",i+1);
+            printf("Owner Name : %s \n", vehicles[i].ownername);
+            printf("Vehicle Name : %s \n", vehicles[i].vehiclename);
+            printf("Vehicle Model : %s \n", vehicles[i].model);
+            printf("Tyres %d \n", vehicles[i].tyre);
+            printf("\n");
+
             dispcount++;
         }
-     }
-     if(!dispcount){
-        printf("No vehicle found with %d tyres.\n",tyre);
-     }
+    }
+    if (!dispcount)
+    {
+        printf("No vehicle found with %d tyres.\n", tyre);
+    }
 };
 int main()
 {
