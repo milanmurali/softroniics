@@ -34,3 +34,5 @@ CREATE TABLE Loans (
     FOREIGN KEY (user_id)
         REFERENCES users (user_id)
 );
+
+INSERT INTO author values ('1','PERU','UGANDA');
