@@ -163,6 +163,7 @@ void userregister()
 };
 
 void userlogin()
+
 {
     char username[100];
     char password[100];
@@ -212,6 +213,7 @@ void userlogin()
         printf("Invalid Username or Password!\n");
     }
 }
+
 void adminmenu()
 {
     char ausername[100] = {"admin"};

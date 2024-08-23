@@ -1,6 +1,6 @@
-create database library;
-use library;
-show tables;
+CREATE DATABASE library;
+USE library;
+SHOW TABLES;
 
 CREATE TABLE author (
     author_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -47,21 +47,33 @@ CREATE TABLE orders (
     orders_id INT PRIMARY KEY AUTO_INCREMENT,
     customer_id INT NOT NULL,
     OrderDate DATE NOT NULL,
-    TotalAmount DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (customer_id) REFERENCES customers(customer_id)
+    TotalAmount DECIMAL(10 , 2 ) NOT NULL,
+    FOREIGN KEY (customer_id)
+        REFERENCES customers (customer_id)
 );
 
 CREATE TABLE products (
     product_id INT PRIMARY KEY AUTO_INCREMENT,
     ProductName VARCHAR(255) NOT NULL,
-    Price DECIMAL(10, 2) NOT NULL,
+    Price DECIMAL(10 , 2 ) NOT NULL,
     StockQuantity INT NOT NULL
 );
 
 INSERT INTO products VALUES (1,'Books', 150.00, 100);
 
-SELECT * FROM products WHERE Price > 100;
+SELECT 
+    *
+FROM
+    products
+WHERE
+    Price > 100;
 
-UPDATE products SET StockQuantity = 150 WHERE product_id = 1;
+UPDATE products 
+SET 
+    StockQuantity = 150
+WHERE
+    product_id = 1;
 
-DELETE FROM Products WHERE product_id = 5;
+DELETE FROM Products 
+WHERE
+    product_id = 5;

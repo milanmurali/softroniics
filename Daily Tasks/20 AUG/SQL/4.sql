@@ -1,10 +1,10 @@
-show databases;
+SHOW DATABASES;
 
-create database library;
+CREATE DATABASE library;
 
-use library;
+USE library;
 
-show tables;
+SHOW TABLES;
 
 CREATE TABLE Books (
     BookID INT PRIMARY KEY,
