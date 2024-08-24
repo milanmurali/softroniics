@@ -46,32 +46,19 @@ INSERT INTO Salaries (EmployeeID, SalaryAmount, SalaryDate) VALUES
 (5, 45000.00, '2023-01-01');
 
 
-UPDATE Departments 
-SET DepartmentName = 'Human Resources' 
-WHERE DepartmentID = 1;
+UPDATE Departments SET DepartmentName = 'Human Resources' WHERE DepartmentID = 1;
 
 
-SELECT Employees.FirstName, Employees.LastName, Departments.DepartmentName 
-FROM Employees
-JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
+SELECT Employees.FirstName, Employees.LastName, Departments.DepartmentName FROM Employees JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
 
-SELECT Departments.DepartmentName, AVG(Salaries.SalaryAmount) AS AverageSalary
-FROM Employees
-JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID
-JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID
-GROUP BY Departments.DepartmentName;
+SELECT Departments.DepartmentName, AVG(Salaries.SalaryAmount) AS AverageSalaryFROM EmployeesJOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeIDJOIN Departments ON Employees.DepartmentID = Departments.DepartmentIDGROUP BY Departments.DepartmentName;
 
-SELECT Employees.FirstName, Employees.LastName
-FROM Employees
-JOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeID
-WHERE Salaries.SalaryAmount > (SELECT AVG(SalaryAmount) FROM Salaries);
+SELECT Employees.FirstName, Employees.LastNameFROM EmployeesJOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeIDWHERE Salaries.SalaryAmount > (SELECT AVG(SalaryAmount) FROM Salaries);
 
-ALTER TABLE Employees ADD LeaveDate DATE;  -- Add the LeaveDate column if it doesn't exist
+ALTER TABLE Employees ADD LeaveDate DATE;
 
-DELETE FROM Salaries
-WHERE EmployeeID IN (
-    SELECT EmployeeID FROM Employees WHERE LeaveDate IS NOT NULL
-);
+DELETE FROM Salaries WHERE EmployeeID IN 
+( SELECT EmployeeID FROM Employees WHERE LeaveDate IS NOT NULL );
 
 
 SELECT E.FirstName, E.LastName, S.SalaryAmount, D.DepartmentName
