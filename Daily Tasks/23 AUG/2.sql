@@ -1,110 +1,79 @@
-CREATE DATABASE CompanyDB;
-USE CompanyDB;
+CREATE DATABASE LibraryDB;
+USE LibraryDB;
+drop database LibraryDB;
 
-CREATE TABLE Departments (
-    DepartmentID INT PRIMARY KEY AUTO_INCREMENT,
-    DepartmentName VARCHAR(100)
+CREATE TABLE Authors (
+    AuthorID INT PRIMARY KEY AUTO_INCREMENT,
+    AuthorName VARCHAR(100),
+    Country VARCHAR(100)
+);
+CREATE TABLE Books (
+    BookID INT PRIMARY KEY AUTO_INCREMENT,
+    Title VARCHAR(255),
+    AuthorID INT,
+    PublishedYear YEAR,
+    Genre VARCHAR(100),
+    FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID)
 );
 
-CREATE TABLE Employees (
-    EmployeeID INT PRIMARY KEY AUTO_INCREMENT,
-    FirstName VARCHAR(50),
-    LastName VARCHAR(50),
-    DepartmentID INT,
-    HireDate DATE,
-    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID)
+CREATE TABLE Borrowing (
+    BorrowingID INT PRIMARY KEY AUTO_INCREMENT,
+    BookID INT,
+    BorrowDate DATE,
+    ReturnDate DATE,
+    BorrowerName VARCHAR(100),
+    FOREIGN KEY (BookID) REFERENCES Books(BookID)
 );
 
-CREATE TABLE Salaries (
-    SalaryID INT PRIMARY KEY AUTO_INCREMENT,
-    EmployeeID INT,
-    SalaryAmount DECIMAL(10, 2),
-    SalaryDate DATE,
-    FOREIGN KEY (EmployeeID) REFERENCES Employees(EmployeeID)
-);
+INSERT INTO Authors (AuthorName, Country)
+VALUES
+    ('John Doe', 'United States'),
+    ('Jane Smith', 'United Kingdom'),
+    ('Robert Brown', 'Canada'),
+    ('Emily Johnson', 'Australia'),
+    ('Michael Lee', 'New Zealand');
+    
+    
+INSERT INTO Books (Title, AuthorID, PublishedYear, Genre)
+VALUES
+    ('Book1', 1, 2020, 'Adventure'),
+    ('Book2', 2, 2018, 'Mystery'),
+    ('Book3', 3, 2022, 'Science Fiction'),
+    ('Book4', 4, 2019, 'Historical Fiction'),
+    ('Book5', 5, 2021, 'Self-help'),
+    ('Book6', 1, 2020, 'Adventure'),
+    ('Book7', 2, 2018, 'Horror'),
+    ('Book8', 3, 2022, 'Technology'),
+    ('Book9', 4, 2019, 'Romance'),
+    ('Book10', 5, 2021, 'Philosophy');
+    
+    
+INSERT INTO Borrowing (BookID, BorrowDate, ReturnDate, BorrowerName)
+VALUES
+    (1, '2024-01-10', '2024-01-20', 'John Doe'),
+    (2, '2024-02-15', '2024-02-25', 'Jane Smith'),
+    (3, '2024-03-05', '2024-03-15', 'Robert Brown'),
+    (4, '2024-04-12', '2024-04-22', 'Emily Johnson'),
+    (5, '2024-05-18', '2024-04-22', 'Michael Lee');
 
-INSERT INTO Departments (DepartmentName) VALUES 
-('HR'),
-('Finance'),
-('Engineering'),
-('Marketing'),
-('Sales');
+UPDATE Borrowing
+SET ReturnDate = '2024-01-25'
+WHERE BorrowingID = 1;
 
-INSERT INTO Employees (FirstName, LastName, DepartmentID, HireDate) VALUES
-('John', 'Doe', 1, '2018-01-15'),
-('Jane', 'Smith', 2, '2017-03-22'),
-('Michael', 'Brown', 3, '2016-07-18'),
-('Emily', 'Davis', 4, '2019-11-05'),
-('David', 'Wilson', 5, '2020-06-21');
+DELETE FROM Authors
+WHERE AuthorID = 1;
 
+SELECT Books.Title, Books.Genre, Borrowing.BorrowDate, Borrowing.ReturnDate
+FROM Borrowing
+JOIN Books ON Borrowing.BookID = Books.BookID
+WHERE Borrowing.BorrowerName = 'John Doe';
 
-INSERT INTO Salaries (EmployeeID, SalaryAmount, SalaryDate) VALUES
-(1, 55000.00, '2023-01-01'),
-(2, 65000.00, '2023-01-01'),
-(3, 85000.00, '2023-01-01'),
-(4, 50000.00, '2023-01-01'),
-(5, 45000.00, '2023-01-01');
+INSERT INTO Books (Title, AuthorID, PublishedYear, Genre)
+VALUES ('New Book', 2, 2023, 'Thriller');
 
-
-UPDATE Departments SET DepartmentName = 'Human Resources' WHERE DepartmentID = 1;
-
-
-SELECT Employees.FirstName, Employees.LastName, Departments.DepartmentName FROM Employees JOIN Departments ON Employees.DepartmentID = Departments.DepartmentID;
-
-SELECT Departments.DepartmentName, AVG(Salaries.SalaryAmount) AS AverageSalaryFROM EmployeesJOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeIDJOIN Departments ON Employees.DepartmentID = Departments.DepartmentIDGROUP BY Departments.DepartmentName;
-
-SELECT Employees.FirstName, Employees.LastNameFROM EmployeesJOIN Salaries ON Employees.EmployeeID = Salaries.EmployeeIDWHERE Salaries.SalaryAmount > (SELECT AVG(SalaryAmount) FROM Salaries);
-
-ALTER TABLE Employees ADD LeaveDate DATE;
-
-DELETE FROM Salaries WHERE EmployeeID IN 
-( SELECT EmployeeID FROM Employees WHERE LeaveDate IS NOT NULL );
-
-
-SELECT E.FirstName, E.LastName, S.SalaryAmount, D.DepartmentName
-FROM Employees E
-JOIN Salaries S ON E.EmployeeID = S.EmployeeID
-JOIN Departments D ON E.DepartmentID = D.DepartmentID
-WHERE 
-    E.HireDate <= CURDATE() - INTERVAL 5 YEAR
-    AND S.SalaryAmount > (
-        SELECT AVG(Salaries.SalaryAmount)
-        FROM Salaries
-        JOIN Employees ON Salaries.EmployeeID = Employees.EmployeeID
-        WHERE Employees.DepartmentID = E.DepartmentID
-    );
-
-
-START TRANSACTION;
-
-BEGIN;
-
--- Insert new department
-INSERT INTO Departments (DepartmentName) VALUES ('Research and Development');
-
--- Get the last inserted DepartmentID
-SET @NewDeptID = LAST_INSERT_ID();
-
--- Insert associated employees
-INSERT INTO Employees (FirstName, LastName, DepartmentID, HireDate) VALUES
-('Alice', 'Johnson', @NewDeptID, '2024-08-01'),
-('Bob', 'Lee', @NewDeptID, '2024-08-01');
-
--- Commit the transaction
-COMMIT;
-
--- If anything fails, roll back the transaction
-ROLLBACK;
-
-
-CREATE VIEW EmployeeOverview AS
-SELECT E.FirstName, E.LastName, D.DepartmentName, S.SalaryAmount, S.SalaryDate
-FROM Employees E
-JOIN Departments D ON E.DepartmentID = D.DepartmentID
-JOIN Salaries S ON E.EmployeeID = S.EmployeeID
-WHERE S.SalaryDate = (SELECT MAX(SalaryDate) FROM Salaries WHERE EmployeeID = E.EmployeeID);
-
-
-SELECT * FROM EmployeeOverview;
+SELECT b.Title, b.Genre, b.PublishedYear
+FROM Books b
+LEFT JOIN Borrowing bo ON b.BookID = bo.BookID AND bo.BorrowDate >= CURDATE() - INTERVAL 1 YEAR
+WHERE bo.BookID IS NULL;
 
 
