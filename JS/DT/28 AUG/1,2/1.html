@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculator</title>
+	<script>
+		function add() {
+			var a, b, sum;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			sum = (a + b);
+			document.getElementById("out").innerHTML = sum;
+
+		}
+		function sub() {
+			var a, b, sub;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			sub = (a - b);
+			document.getElementById("out").innerHTML = sub;
+		}
+		function mul() {
+			var a, b, mul;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			mul = (a * b);
+			document.getElementById("out").innerHTML = mul;
+		}
+		function div() {
+			var a, b, div;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			div = (a / b);
+			document.getElementById("out").innerHTML = div;
+		}
+		function mod() {
+			var a, b, mod;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			mod = (a % b);
+			document.getElementById("out").innerHTML = mod;
+		}
+	</script>
+</head>
+
+<body>
+	<div id="cal">
+		<h1> Calculator </h1>
+		<input type="text" placeholder=" Enter the First Number" id="a"> <br><br><br>
+		<input type="text" placeholder=" Enter the Second Number" id="b"> <br>
+
+		<h2> Operations </h2>
+		<div id="op">
+			<input type="Submit" value="Addition" onclick="add()"> <br>
+			<input type="Submit" value="Subtract" onclick="sub()"> <br>
+			<input type="Submit" value="Multiply" onclick="mul()"> <br>
+			<input type="Submit" value="Divide" onclick="div()"> <br>
+			<input type="Submit" value="Modulus" onclick="mod()"> <br>
+		</div>
+
+		<h2> Output </h2>
+		<p id="out">&nbsp</p>
+	</div>
+</body>
+
+</html>

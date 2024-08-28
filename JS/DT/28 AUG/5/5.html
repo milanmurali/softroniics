@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check() {
+            let char = document.getElementById("char").value;
+
+            if (isNaN(char)) {
+                alert("The Input is a Alphabet");
+            }
+            else {
+                alert("The Input is not a Alphabet");
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>CHAR CHECK</h1>
+    <input type="text" id="char"> <br> <br>
+    <button onclick="check()">CHECK</button>
+</body>
+
+</html>
