@@ -6,29 +6,40 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Calculator</title>
 	<script>
-
-		let a = parseInt(document.getElementById("a").value);
-		let b = parseInt(document.getElementById("b").value);
-
 		function add() {
-			var sum = (a + b);
+			var a, b, sum;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			sum = (a + b);
 			document.getElementById("out").innerHTML = sum;
 
 		}
 		function sub() {
-			var sub = (a - b);
+			var a, b, sub;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			sub = (a - b);
 			document.getElementById("out").innerHTML = sub;
 		}
 		function mul() {
-			var mul = (a * b);
+			var a, b, mul;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			mul = (a * b);
 			document.getElementById("out").innerHTML = mul;
 		}
 		function div() {
-			var div = (a / b);
+			var a, b, div;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			div = (a / b);
 			document.getElementById("out").innerHTML = div;
 		}
 		function mod() {
-			var mod = (a % b);
+			var a, b, mod;
+			a = parseInt(document.getElementById("a").value);
+			b = parseInt(document.getElementById("b").value);
+			mod = (a % b);
 			document.getElementById("out").innerHTML = mod;
 		}
 	</script>
