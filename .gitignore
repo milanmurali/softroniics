@@ -10,6 +10,8 @@ C/.vscode
 C/.vscode/*
 /Tests/*
 /random/
+.gitignore
+.gitignore
 
 
 
