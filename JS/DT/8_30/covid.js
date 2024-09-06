@@ -28,7 +28,7 @@ console.log("Descending Order");
 console.log(four);
 
 //5. is district with +ve cases > 15000 -
-let five = covid_data.some(a=>a[2]>1500)
+let five = covid_data.some(a => a[2] > 1500)
 //6. sort data with 1st dose vaccine -
 
 //7. Print Thrissur details -
