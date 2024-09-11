@@ -13,7 +13,7 @@ function addtasks() {
         return;
     }
     let tname = prompt("Enter New Task Name : ");
-    let tdesc = prompt("Enter New Task Description : ");
+    let tdesc = prompt("Enter New Task Description : "); 
     let tdate = prompt("Enter Task Due Date: ");
 
     if (isNaN(tid) || !tname || !tdesc || !tdate) {
@@ -52,17 +52,28 @@ function sorttasks() {
 }
 //4
 function searchtasks() {
-    let seachtype = parseInt(prompt("Search By : \n 1.ID \n 2.Name \n 3.Description \n 4.Due Date"))
-    switch (seachtype) {
+    let searchtype = parseInt(prompt("Search By : \n 1.ID \n 2.Name \n 3.Description \n 4.Exit"))
+    switch (searchtype) {
         case 1:
-
+            let idsearch = prompt("Enter ID to Search : ")
+            let idresult = tasks.filter(a => a.taskId == idsearch).map(a => (`Task ID:${a.taskId} | Task Name: ${a.taskName} | Description: ${a.taskDescription} | Due Date: ${a.dueDate}`))
+            alert(idresult)
             break;
         case 2:
+            let namesearch = prompt("Enter Name to Search : ")
+            let nameresult = tasks.filter(a => a.taskName.toLowerCase().includes(namesearch.toLowerCase())).map(a => (`Task ID:${a.taskId} | Task Name: ${a.taskName} | Description: ${a.taskDescription} | Due Date: ${a.dueDate}`))
+            alert(nameresult)
             break;
         case 3:
+            let descsearch = prompt("Enter Description to Search : ")
+            let descresult = tasks.filter(a => a.taskDescription.toLowerCase().includes(descsearch.toLowerCase())).map(a => (`Task ID:${a.taskId} | Task Name: ${a.taskName} | Description: ${a.taskDescription} | Due Date: ${a.dueDate}`))
+            alert(descresult)
             break;
         case 4:
+            alert("BYE BYE");
             break;
+        default:
+            alert("Invalid choice");
     }
 }
 

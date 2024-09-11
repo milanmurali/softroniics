@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <script>
+        function timer() {
+            var dateInput = document.getElementById("dateip");
+            var timeInput = document.getElementById("timeip");
+            var target = new Date(dateInput.value + ' ' + timeInput.value);
+            var diff = target - new Date();
+            if (diff <= 0) {
+                document.getElementById("op1").innerHTML = "Event has started!";
+                return;
+            }
+            var days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById("op").innerHTML = "Time Left : " + days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+            setTimeout(timer, 1000)
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Countdown Timer</h1>
+    <label>Select Date : </label>
+    <input type="date" id="dateip">
+    <br> <br>
+    <label>Select Time : </label>
+    <input type="time" id="timeip" step="1">
+    <br> <br>
+    <input type="button" value="START" onclick="timer()">
+
+    <h1 id="op"></h1>
+
+</body>
+
+</html>
