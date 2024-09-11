@@ -7,12 +7,16 @@
     <title>Timer</title>
     <script>
         function timer() {
-            var dateInput = document.getElementById("dateip");
-            var timeInput = document.getElementById("timeip");
-            var target = new Date(dateInput.value + ' ' + timeInput.value);
+            var dateInput = document.getElementById("dateip").value;
+            var timeInput = document.getElementById("timeip").value;
+            if (!dateInput || !timeInput) {
+                document.getElementById("op").innerHTML = "Invalid Input";
+                return;
+            }
+            var target = new Date(dateInput + ' ' + timeInput);
             var diff = target - new Date();
             if (diff <= 0) {
-                document.getElementById("op1").innerHTML = "Event has started!";
+                document.getElementById("op").innerHTML = "Event has started!";
                 return;
             }
             var days = Math.floor(diff / (1000 * 60 * 60 * 24));
