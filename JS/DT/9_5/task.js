@@ -10,7 +10,7 @@ function addtasks() {
     let tid = parseInt(prompt("Enter New TaskID : "));
     if (tasks.some(a => a.taskId == tid)) {
         alert("Task ID already exists.");
-        return;
+        addtasks();
     }
     let tname = prompt("Enter New Task Name : ");
     let tdesc = prompt("Enter New Task Description : "); 
@@ -18,7 +18,7 @@ function addtasks() {
 
     if (isNaN(tid) || !tname || !tdesc || !tdate) {
         alert("All fields are required.");
-        return;
+        addtasks();
     }
 
     tasks.push({ taskId: tid, taskName: tname, taskDescription: tdesc, dueDate: tdate })
@@ -33,7 +33,7 @@ function viewtasks() {
 //3
 function sorttasks() {
     let taskscopy = [...tasks];
-    sorttype = parseInt(prompt("Sort By : \n 1.ID \n 2.Name \n 3.Due Date"))
+    let sorttype = parseInt(prompt("Sort By : \n 1.ID \n 2.Name \n 3.Due Date"))
     switch (sorttype) {
         case 1:
             taskscopy.sort((a, b) => a.taskId - b.taskId)
