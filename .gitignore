@@ -1,22 +1,16 @@
-#GIT IGNORE
+# Ignore Visual Studio Code settings
+.vscode/
+C/.vscode/
 
-#files
-
-#folders
-.vscode/*
-TEST/*
-TEST/
-C/.vscode
-C/.vscode/*
-/Tests/
-/MyWorks/
-.gitignore
-.gitignore
-
-
-
-# Local History for Visual Studio Code
+# Ignore local history in Visual Studio Code
 .history/
 
-# Built Visual Studio Code Extensions
+# Ignore specific folders
+Tests/
+MyWorks/
+
+# Ignore specific files
+.gitignore
+
+# Ignore built Visual Studio Code Extensions
 *.vsix
