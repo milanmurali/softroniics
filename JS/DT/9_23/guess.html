@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUMBER GUESS GAME</title>
+    <script>
+        function num() {
+            let rand = Math.floor(Math.random() * 10) + 1;
+            let guess = parseFloat(document.getElementById("input").value)
+            console.log("r" + rand + "g" + guess);
+            if (guess < 1 || guess > 10) {
+                alert("Please enter a number between 1 and 10");
+            }
+            else {
+                if (guess == rand) {
+                    alert("YOU Win")
+                }
+                else {
+                    alert("YOU Lose")
+                }
+            }
+
+        } 
+    </script>
+</head>
+
+<body>
+    <h1>NUMBER GUESS GAME</h1>
+    <input type="number" min="1" max="10" id="input">
+    <button onclick="num()">SUBMIT</button>
+</body>
+
+</html>
