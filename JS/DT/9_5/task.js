@@ -13,7 +13,7 @@ function addtasks() {
         addtasks();
     }
     let tname = prompt("Enter New Task Name : ");
-    let tdesc = prompt("Enter New Task Description : "); 
+    let tdesc = prompt("Enter New Task Description : ");
     let tdate = prompt("Enter Task Due Date: ");
 
     if (isNaN(tid) || !tname || !tdesc || !tdate) {

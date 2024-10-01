@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do Lists</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+
+        button {
+            padding: 10px 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding: 10px;
+            background-color: whitesmoke;
+            margin: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .delete {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <h1>Things to Do</h1>
+        <ul id="taskList">
+        </ul>
+        <button class="addbutton" onclick="addTasks()">New Task</button>
+    </div>
+    <script>
+        let tasks = [
+            { name: "1" },
+            { name: "2" },
+            { name: "3" }
+        ];
+
+        function displayTasks() {
+            const taskList = document.getElementById('taskList');
+            taskList.innerHTML = ""
+
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.appendChild(document.createTextNode(task.name));
+                taskList.appendChild(li);
+
+                const deleteBtn = document.createElement('span');
+                deleteBtn.className = 'delete';
+                deleteBtn.textContent = '❌';
+                deleteBtn.onclick = function () {
+                    deleteTask(index);
+                };
+
+                li.appendChild(deleteBtn);
+                taskList.appendChild(li);
+            });
+        }
+
+        function addTasks() {
+            const newtask = prompt("Enter New Task :")
+            if (newtask) {
+                tasks.push({ name: newtask })
+                displayTasks()
+            }
+            else {
+                alert("Task cannot be Empty!")
+            }
+        }
+        function deleteTask(index) {
+            tasks.splice(index, 1);
+            displayTasks();
+        }
+        window.onload = function () {
+            setTimeout(displayTasks, 10);
+        };
+
+
+
+    </script>
+</body>
+
+</html>

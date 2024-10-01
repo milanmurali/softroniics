@@ -1,12 +1,20 @@
-//Find the area and diameter of the circle using the function and convert it into a higher-order function
-
-function area(radius){
+// Find the area and diameter of the circle using the function and convert it into a higher-order function
+const radius = [51, 2, 73]
+function area(radius) {
     return Math.PI * radius * radius;
 }
-function dia(radius){
+
+function dia(radius) {
     return 2 * radius;
 }
 
-let radius =5
-console.log(area(radius));
-console.log(dia(radius));
+function highorder(radius, callback) {
+    let op = []
+    for (i in radius) {
+        op.push(callback(radius[i]))
+    }
+    return op
+}
+
+console.log(highorder(radius, area))
+console.log(highorder(radius, dia))
