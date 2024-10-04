@@ -1,0 +1,8 @@
+
+.outer{
+    display: flex;
+    justify-content: space-around;
+    background-color: lightblue;
+    color: white;
+    padding: 10px;  
+} 
