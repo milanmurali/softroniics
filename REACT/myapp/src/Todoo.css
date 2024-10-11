@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+  }
+  
+  .main {
+    max-width: 400px;
+  }
+  
+  button {
+    padding: 10px 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    padding: 10px;
+    background-color: whitesmoke;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .delete {
+    cursor: pointer;
+  }
+  
