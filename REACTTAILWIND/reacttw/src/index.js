@@ -5,11 +5,40 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Helloo } from './Helloo';
 import { Business } from './Business';
+import { Educ } from './Educ';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BisLogin } from './BisLogin';
+import { BisSignup } from './BisSignup';
+import { BisAbout } from './BisAbout';
+import { BisContact } from './BisContact';
+import { Counter } from './Counter';
+import { BgChanger } from './BgChanger';
+import { SimluateDataFetch } from './SimluateDataFetch';
+import { ApiCallSim } from './ApiCallSim';
+import { ApiTodo } from './ApiTodo';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Business />
+    {/* <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Business />}> </Route>
+        <Route path="/home" element={<Business />}> </Route>
+        <Route path="/bisabout" element={<BisAbout />}> </Route>
+        <Route path="/biscontact" element={<BisContact />}> </Route>
+        <Route path="/bislogin" element={<BisLogin />}> </Route>
+        <Route path="/bissignup" element={<BisSignup />}> </Route>
+      </Routes> */}
+    {/* </BrowserRouter> */}
+
+
+    {/* <ApiCallSim/>  */}
+    {/* <ApiTodo/>   */}
+    {/* <SimluateDataFetch/> */}
+    {/* <BgChanger/> */}
+    {/* <Counter/> */}
+    {/* <Educ/> */}
+    {/* <Business /> */}
     {/* <Helloo/> */}
     {/* <App /> */}
   </React.StrictMode>
