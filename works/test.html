@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+        }
+        audio{
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="aa">
+        <button onclick="a()">ENGLISH</button>
+        <p>OR</p>
+        <button onclick="b()">SPANISH</button>
+    </div>
+    <div>
+        <p id="para"></p>
+    </div>
+
+    <audio controls autoplay>
+        <source src="https://www.myinstants.com/media/sounds/english-or-spanish_YRFEwaM.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function a() {
+            document.getElementById("para").innerHTML = "Whoever moves first is GAY.";
+        }
+        function b() {
+            document.getElementById("para").innerHTML = "El que se mueve primero es GAY.";
+        }</script>
+</body>
+
+</html>
+
+

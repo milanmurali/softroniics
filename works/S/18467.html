@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preselected Date and Time</title>
+</head>
+<body onload="setCurrentDateTime()">
+    <label for="dateip">Select Date:</label>
+    <input type="date" id="dateip"><br><br>
+
+    <label for="timeip">Select Time:</label>
+    <input type="time" id="timeip"><br><br>
+
+    <div id="op1"></div>
+    <div id="op2"></div>
+
+    <script>
+        function setCurrentDateTime() {
+            var today = new Date();
+            
+            // Get the current date in the format YYYY-MM-DD
+            var year = today.getFullYear();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2); // Add leading 0 if needed
+            var day = ('0' + today.getDate()).slice(-2); // Add leading 0 if needed
+            var currentDate = year + '-' + month + '-' + day;
+
+            // Get the current time in the format HH:MM
+            var hours = ('0' + today.getHours()).slice(-2); // Add leading 0 if needed
+            var minutes = ('0' + today.getMinutes()).slice(-2); // Add leading 0 if needed
+            var currentTime = hours + ':' + minutes;
+
+            // Set the value of the date and time input fields
+            document.getElementById("dateip").value = currentDate;
+            document.getElementById("timeip").value = currentTime;
+        }
+    </script>
+</body>
+</html>

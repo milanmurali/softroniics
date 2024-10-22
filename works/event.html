@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+
+<body>
+    <style>
+        body * {
+            margin: 10px;
+            border: 1px solid blue;
+        }
+    </style>
+
+    <form>FORM
+        <div>DIV
+            <p>P</p>
+        </div>
+    </form>
+
+    <script>
+        for (let elem of document.querySelectorAll('*')) {
+            elem.addEventListener("click", function (e) {
+                e.stopPropagation();
+                alert(`capturing: ${elem.tagName}`);
+            }, false);
+        }
+    </script>
+</body>
+
+</html>

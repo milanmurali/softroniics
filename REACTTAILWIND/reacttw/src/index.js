@@ -16,6 +16,8 @@ import { BgChanger } from './BgChanger';
 import { SimluateDataFetch } from './SimluateDataFetch';
 import { ApiCallSim } from './ApiCallSim';
 import { ApiTodo } from './ApiTodo';
+import { MovieList } from './MovieList';
+import { Movie } from './Movie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -30,7 +32,12 @@ root.render(
         <Route path="/bissignup" element={<BisSignup />}> </Route>
       </Routes> */}
     {/* </BrowserRouter> */}
-
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<MovieList/>}> </Route>
+          <Route path="/movie/:imdbID" element={<Movie/>}> </Route>
+        </Routes>
+      </BrowserRouter>
 
     {/* <ApiCallSim/>  */}
     {/* <ApiTodo/>   */}

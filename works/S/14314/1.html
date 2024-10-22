@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            box-sizing: content-box;
+        }
+
+        .top {
+            width: 100%;
+            border: 2px solid black;
+
+        }
+
+        .topnav {
+            display: flex;
+            justify-content: space-around;
+            color: white;
+            background-color: rgb(37, 37, 37);
+        }
+
+        .botnav {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 5px;
+            background-color: aquamarine;
+        }
+
+        .srch {
+            display: flex;
+
+        }
+
+        .srchbar {
+            width: 300px;
+            height: auto;
+            border: 1px solid black;
+            border-radius: 20px 0px 0px 20px;
+        }
+
+        .srchicon {
+            width: 30px;
+            height: auto;
+            margin-left: 5px;
+        }
+
+        .srchbar::placeholder {
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .cart {
+            display: flex;
+
+        }
+
+        .carticon {
+            width: 30px;
+            height: auto;
+            margin-left: 5px;
+
+        }
+
+        .row1 {
+            display: flex;
+            justify-content: space-around;
+            background-color: whitesmoke;
+        }
+
+        .box1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .img1 {
+            width: 100px;
+            height: auto;
+
+        }
+
+        .cut {
+            text-decoration: line-through;
+            text-decoration-color: red;
+
+        }
+
+        .box1form {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .qtybox {
+            align-self: center;
+        }
+
+        .buttons {
+            background-color: dodgerblue;
+            color: white;
+            border: 0px;
+            width: 100px;
+            height: 30px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="top">
+        <div class="topnav">
+            <h2 class="head1">My Cart</h2>
+            <h2 class="head1">mycart99@gmail.com</h2>
+            <h2 class="head1">ghm.chm</h2>
+        </div>
+        <nav class="botnav">
+            <h1>HOME</h1>
+            <div class="srch">
+                <input type="text" class="srchbar" name="search" placeholder="Enter text to Search">
+                <img src="https://img.icons8.com/?size=100&id=132&format=png&color=000000" class="srchicon" alt="">
+            </div>
+            <div class="cart">
+                <h1>MyCart</h1>
+                <img src="https://img.icons8.com/?size=100&id=3538&format=png&color=000000" class="carticon" alt="">
+            </div>
+            <h1>LOGIN</h1>
+        </nav>
+    </header>
+
+    <div class="row1">
+
+        <div class="box1">
+            <img src="https://a.media-amazon.com/images/I/31K0TGXVovL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+            <h2 class="box1head">JBL TUNE760NC</h2>
+            <h4>Rate <span class="cut"> 7000 </span> 5000/-</h4>
+            <form class="box1form">
+                <div class="qtybox">
+                    <label for="price">Qty</label>
+                    <select id="qty" name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="butt">
+                    <input type="submit" class="buttons" value="Add To Cart" id="btn1" name="buy">
+                    <input type="submit" class="buttons" value="Buy" name="details" id="btn2">
+                </div>
+
+            </form>
+        </div>
+
+        <div class="box1">
+            <img src="https://a.media-amazon.com/images/I/31K0TGXVovL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+            <h2 class="box1head">JBL TUNE760NC</h2>
+            <h4>Rate <span class="cut"> 7000 </span> 5000/-</h4>
+            <form class="box1form">
+                <div class="qtybox">
+                    <label for="price">Qty</label>
+                    <select id="qty" name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="butt">
+                    <input type="submit" class="buttons" value="Add To Cart" id="btn1" name="buy">
+                    <input type="submit" class="buttons" value="Buy" name="details" id="btn2">
+                </div>
+
+            </form>
+        </div>
+        <div class="box1">
+            <img src="https://a.media-amazon.com/images/I/31K0TGXVovL._SX300_SY300_QL70_FMwebp_.jpg" alt="">
+            <h2 class="box1head">JBL TUNE760NC</h2>
+            <h4>Rate <span class="cut"> 7000 </span> 5000/-</h4>
+            <form class="box1form">
+                <div class="qtybox">
+                    <label for="price">Qty</label>
+                    <select id="qty" name="quantity">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+                <div class="butt">
+                    <input type="submit" class="buttons" value="Add To Cart" id="btn1" name="buy">
+                    <input type="submit" class="buttons" value="Buy" name="details" id="btn2">
+                </div>
+
+            </form>
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
