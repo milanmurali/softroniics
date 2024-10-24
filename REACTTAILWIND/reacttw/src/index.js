@@ -18,10 +18,14 @@ import { ApiCallSim } from './ApiCallSim';
 import { ApiTodo } from './ApiTodo';
 import { MovieList } from './MovieList';
 import { Movie } from './Movie';
+import { Weather } from './Weather';
+import { FormSubmission } from './FormSubmission';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+
+    {/* Business */}
     {/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<Business />}> </Route>
@@ -32,13 +36,16 @@ root.render(
         <Route path="/bissignup" element={<BisSignup />}> </Route>
       </Routes> */}
     {/* </BrowserRouter> */}
-      <BrowserRouter>
+
+      {/* MovieDB */}
+      {/* <BrowserRouter>
         <Routes>
           <Route path="/" element={<MovieList/>}> </Route>
           <Route path="/movie/:imdbID" element={<Movie/>}> </Route>
         </Routes>
-      </BrowserRouter>
-
+      </BrowserRouter> */}
+    <FormSubmission/>
+    {/* <Weather/> */}
     {/* <ApiCallSim/>  */}
     {/* <ApiTodo/>   */}
     {/* <SimluateDataFetch/> */}
