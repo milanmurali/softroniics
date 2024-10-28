@@ -20,6 +20,7 @@ import { MovieList } from './MovieList';
 import { Movie } from './Movie';
 import { Weather } from './Weather';
 import { FormSubmission } from './FormSubmission';
+import { Keys } from './Keys';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -44,7 +45,12 @@ root.render(
           <Route path="/movie/:imdbID" element={<Movie/>}> </Route>
         </Routes>
       </BrowserRouter> */}
-    <FormSubmission/>
+
+
+
+
+    <Keys/>
+    {/* <FormSubmission/> */}
     {/* <Weather/> */}
     {/* <ApiCallSim/>  */}
     {/* <ApiTodo/>   */}
