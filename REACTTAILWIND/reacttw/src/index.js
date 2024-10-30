@@ -23,6 +23,9 @@ import { FormSubmission } from './FormSubmission';
 import { Keys } from './Keys';
 import { Todo } from './Todo';
 import { Main } from './CR/Main';
+import { UPCMain } from './UserPermissionChecker/UPCMain';
+import { ThemeProvider } from './UCTheme/ThemeProvider';
+import { TestTheme } from './UCTheme/TestTheme';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -49,7 +52,16 @@ root.render(
       </BrowserRouter> */}
 
 
-    <Main/>
+
+
+
+    <ThemeProvider>
+      <TestTheme />
+    </ThemeProvider>
+
+
+    {/* <UPCMain /> */}
+    {/* <Main/> */}
     {/* <Todo /> */}
     {/* <Keys/> */}
     {/* <FormSubmission/> */}
