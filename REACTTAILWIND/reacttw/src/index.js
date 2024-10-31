@@ -26,6 +26,8 @@ import { Main } from './CR/Main';
 import { UPCMain } from './UserPermissionChecker/UPCMain';
 import { ThemeProvider } from './UCTheme/ThemeProvider';
 import { TestTheme } from './UCTheme/TestTheme';
+import { LanguageProvider } from './UCTheme/LanguageProvider';
+import { MultiLang } from './UCTheme/MultiLang';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -55,10 +57,13 @@ root.render(
 
 
 
-    <ThemeProvider>
-      <TestTheme />
-    </ThemeProvider>
+    <LanguageProvider>
+      <MultiLang/>
+    </LanguageProvider>
 
+    {/* <ThemeProvider>
+      <TestTheme />
+    </ThemeProvider> */}
 
     {/* <UPCMain /> */}
     {/* <Main/> */}
