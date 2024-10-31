@@ -26,14 +26,14 @@ export const MultiLang = () => {
           id="language-select"
           value={Language}
           onChange={handleChange}
-          className="bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg shadow focus:outline-none focus:border-blue-500"
+          className="bg-white border border-gray-300 text-gray-700 py-2 px-4 rounded-lg shadow focus:outline-none"
         >
           <option value="en">English</option>
           <option value="fr">French</option>
         </select>
       </div>
 
-      <h2 className="mt-8 text-2xl font-semibold text-blue-600">
+      <h2 className="mt-8 text-2xl font-semibold text-green-400">
         {translations[Language]}
       </h2>
     </div>

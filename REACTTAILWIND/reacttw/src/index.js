@@ -28,6 +28,7 @@ import { ThemeProvider } from './UCTheme/ThemeProvider';
 import { TestTheme } from './UCTheme/TestTheme';
 import { LanguageProvider } from './UCTheme/LanguageProvider';
 import { MultiLang } from './UCTheme/MultiLang';
+import { Calculator } from './Calculator';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -57,14 +58,14 @@ root.render(
 
 
 
-    <LanguageProvider>
+    {/* <LanguageProvider>
       <MultiLang/>
-    </LanguageProvider>
+    </LanguageProvider> */}
 
     {/* <ThemeProvider>
       <TestTheme />
     </ThemeProvider> */}
-
+    <Calculator/>
     {/* <UPCMain /> */}
     {/* <Main/> */}
     {/* <Todo /> */}
