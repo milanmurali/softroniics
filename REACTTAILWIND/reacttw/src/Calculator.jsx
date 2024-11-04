@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { evaluate } from 'mathjs';
 export const Calculator = () => {
     const [Input, SetInput] = useState('')
     const [Result, SetResult] = useState('')
@@ -10,9 +10,9 @@ export const Calculator = () => {
     const append = (bleh) => {
         SetInput(Input + bleh)
     }
-    const evaluate = () => {
+    const evalu = () => {
         try {
-            SetResult(eval(Input))
+            SetResult(evaluate(Input))
         }
 
         catch (error) {
@@ -20,14 +20,17 @@ export const Calculator = () => {
             console.log(error.message);
         }
     }
-    const reset = () => {
+    const allclear = () => {
         SetInput('')
         SetResult('')
+    }
+    const clear = () => {
+        SetInput(Input.slice(0, -1))
     }
     return (
         <div className="robotofont bg-gray-50 min-h-screen flex flex-col items-center justify-center p-8">
             <div className="main bg-black rounded-lg shadow-md p-8">
-                <div className='disp text-right bg-gray-500 pt-6 pb-4 px-2 rounded-md transition-transform duration-300 ease-in-out'>
+                <div className='disp text-right bg-gray-500 pt-6 pb-4 px-2 rounded-md transition-transform duration-300 ease-in-out h-36'>
                     {/* Input */}
                     {Input === '' ? (
                         <p className={`text-white text-5xl ${Result ? "-translate-y-4 opacity-60" : ""} transition-transform duration-300 ease-in-out`}>
@@ -46,8 +49,8 @@ export const Calculator = () => {
                 </div>
                 <div className="keys">
                     <div className="r1 grid grid-cols-4 gap-3 my-2">
-                        <button onClick={reset} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">AC</button>
-                        <button onClick={reset} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">+/-</button>
+                        <button onClick={allclear} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">AC</button>
+                        <button onClick={clear} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">C</button>
                         <button onClick={() => { append('%') }} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">%</button>
                         <button onClick={() => { append('/') }} className="text-xl rounded-full p-5 bg-orange-500 hover:bg-orange-700 text-white font-bold">÷</button>
                     </div>
@@ -73,7 +76,7 @@ export const Calculator = () => {
                         <button onClick={() => { append('00') }} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">00</button>
                         <button onClick={() => { append('0') }} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">0</button>
                         <button onClick={() => { append('.') }} className="text-xl rounded-full p-5 bg-gray-500 hover:bg-gray-700 text-white font-bold">.</button>
-                        <button onClick={evaluate} className="text-xl rounded-full p-5 bg-orange-500 hover:bg-orange-700 text-white font-bold">=</button>
+                        <button onClick={evalu} className="text-xl rounded-full p-5 bg-orange-500 hover:bg-orange-700 text-white font-bold">=</button>
                     </div>
                 </div>
             </div>
