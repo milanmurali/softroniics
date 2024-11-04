@@ -20,20 +20,21 @@ export const UserInputTodo = () => {
         }
     };
 
-    const change = (event) => {
-        setNewTask({
-            ...newTask, [event.target.name]: event.target.value
-        })
-    }
-
-    const statuschangeoncreate = (event) => {
+    const change = (event) => {         //normal change
         setNewTask({
             ...newTask,
-            status: event.target.checked ? 'Completed' : 'Pending'
+            [event.target.name]: event.target.value
+        })
+    }
+    const changeEdit = (event) => {     //edit change (diffrent states to work with)
+        setEditTaskData({
+            ...editTaskData,
+            [event.target.name]: event.target.value,
         });
     };
 
-    const statusChange = (index) => (event) => {
+
+    const statusChange = (index) => (event) => {    //checkbox
         const updatedTodo = todo.map((task, i) => {
             if (i === index) {
                 return { ...task, status: event.target.checked ? 'Completed' : 'Pending' };
@@ -42,25 +43,44 @@ export const UserInputTodo = () => {
         });
         setTodo(updatedTodo);
     };
+    const statuschangeoncreate = (event) => {  //mark as completed
+        setNewTask({
+            ...newTask,
+            status: event.target.checked ? 'Completed' : 'Pending'
+        });
+    };
+    const statuschangeonedit = (event) => {          // //mark as completed edit box
+        setEditTaskData({
+            ...editTaskData,
+            status: event.target.checked ? 'Completed' : 'Pending',
+        });
+    };
 
     const [editTaskIndex, setEditTaskIndex] = useState(null);
     const [editTaskData, setEditTaskData] = useState({ name: '', dueDate: '', priority: 'Normal', description: '', status: 'Pending' });
 
-    const edittodo = (index) => (event) => {
-        event.preventDefault(); // Prevent the default form submission if applicable
-
-        // Find the task at the specified index
-        const taskToEdit = todo[index];
-
-        // Set the task data htmlFor editing
-        setEditTaskData(taskToEdit); // Set the task to be edited
-        setEditTaskIndex(index); // Keep track of the index being edited
-
+    const edittodo = (id) => (event) => {     //editing existing
+        event.preventDefault();
+        const taskToEdit = todo.find(task => task.id === id);
+        setEditTaskData({ ...taskToEdit });
+        setEditTaskIndex(id);
         // console.log("et", taskToEdit); // Log the task data being edited
         // console.log("eti", index); // This may still log the old index due to state batching
         console.log("etdstate", editTaskData); // Log the task data being edited
     };
 
+    const editsubmit = (event) => {
+        event.preventDefault();
+        const updatedTodo = todo.map(task =>
+            task.id === editTaskIndex ? { ...editTaskData } : task
+        );
+        setTodo(updatedTodo);
+        setEditTaskIndex(null);
+        setEditTaskData({ name: '', dueDate: '', priority: 'Normal', description: '', status: 'Pending' });  // Reset edit form
+    };
+    const deletetodo = (index) => {
+        setTodo(todo.filter((_, i) => i !== index));
+    };
 
     return (
         <div className='h-screen px-8 py-6 bg-gray-300'>
@@ -102,7 +122,7 @@ export const UserInputTodo = () => {
                     </thead>
                     <tbody>
                         {todo.map((task, index) => (
-                            <tr key={task.index} className="bg-white dark:bg-gray-900 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                            <tr key={index} className="bg-white dark:bg-gray-900 border-b dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                                 <td scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                                     <div className="flex items-center">
                                         <input
@@ -130,10 +150,12 @@ export const UserInputTodo = () => {
                                 </td>
                                 <td className=" flex px-6 py-4 gap-2">
                                     {/* <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a> */}
-                                    <button onClick={edittodo(index)} data-modal-target="edit-todo-modal" data-modal-toggle="edit-todo-modal" className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button
+                                        onClick={edittodo(index)}
+                                        data-modal-target="edit-todo-modal" data-modal-toggle="edit-todo-modal" className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Edit
                                     </button>
-                                    <button onClick={edittodo(index)} className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                                    <button onClick={() => deletetodo(index)} className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
                                         Delete
                                     </button>
 
@@ -147,8 +169,6 @@ export const UserInputTodo = () => {
 
             {/* MODAL TODO CREATE */}
             <div>
-
-
                 {/* <!-- Main modal --> */}
                 <div id="create-todo-modal" tabIndex="-1" aria-hidden="{true}" className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div className="relative p-4 w-full max-w-md max-h-full">
@@ -171,15 +191,19 @@ export const UserInputTodo = () => {
                                 <div className="grid gap-4 mb-4 grid-cols-2">
                                     <div className="col-span-2">
                                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Name</label>
-                                        <input value={newTask.name} onChange={change} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Task name" required="{true}" />
+                                        <input value={newTask.name} onChange={change} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Task name" required/>
                                     </div>
                                     <div className="col-span-2 sm:col-span-1">
                                         <label htmlFor="dueDate" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Due Date</label>
-                                        <input value={newTask.dueDate} onChange={change} type="date" name="dueDate" id="dueDate" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="" />
+                                        <input value={newTask.dueDate} onChange={change} type="date" name="dueDate" id="dueDate" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" />
                                     </div>
                                     <div className="col-span-2 sm:col-span-1">
                                         <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Priority</label>
-                                        <select id="priority" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                        <select
+                                            name="priority"
+                                            id="priority"
+                                            onChange={change}
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                             <option defaultValue="">Select category</option>
                                             <option value="Low">Low</option>
                                             <option value="Normal">Normal</option>
@@ -217,13 +241,9 @@ export const UserInputTodo = () => {
 
             {/* MODAL TODO EDIT */}
             <div>
-                {/* <!-- Modal toggle --> */}
-                {/* in the table  */}
-
                 {/* <!-- Main modal --> */}
                 <div id="edit-todo-modal" tabIndex="-1" aria-hidden="{true}" className="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
                     <div className="relative p-4 w-full max-w-md max-h-full">
-                        {/* <!-- Modal content --> */}
                         <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                             {/* <!-- Modal header --> */}
                             <div className="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
@@ -238,20 +258,24 @@ export const UserInputTodo = () => {
                                 </button>
                             </div>
                             {/* <!-- Modal body --> */}
-                            <form className="p-4 md:p-5" onSubmit={submit}>
-
+                            <form className="p-4 md:p-5" onSubmit={editsubmit}>
                                 <div className="grid gap-4 mb-4 grid-cols-2">
                                     <div className="col-span-2">
                                         <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Name</label>
-                                        <input value={editTaskData.name} onChange={change} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Task name" required="{true}" />
+                                        <input value={editTaskData.name || ''} onChange={changeEdit} type="text" name="name" id="name" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" placeholder="Task name" required="{true}" />
                                     </div>
                                     <div className="col-span-2 sm:col-span-1">
                                         <label htmlFor="dueDate" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Due Date</label>
-                                        <input value={editTaskData.dueDate} onChange={change} type="date" name="dueDate" id="dueDate" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required="" />
+                                        <input value={editTaskData.dueDate || ''} onChange={changeEdit} type="date" name="dueDate" id="dueDate" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500" required/>
                                     </div>
                                     <div className="col-span-2 sm:col-span-1">
                                         <label htmlFor="priority" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Priority</label>
-                                        <select id="priority" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                                        <select
+                                            value={editTaskData.priority || ''}
+                                            onChange={changeEdit}
+                                            name="priority"
+                                            id="priority"
+                                            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
                                             <option defaultValue="{editTaskData.priority}">{editTaskData.priority}</option>
                                             <option value="Low">Low</option>
                                             <option value="Normal">Normal</option>
@@ -260,21 +284,20 @@ export const UserInputTodo = () => {
                                     </div>
                                     <div className="col-span-2">
                                         <label htmlFor="description" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Task Description</label>
-                                        <textarea value={editTaskData.description} onChange={change} name='description' id="description" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write Task description here"></textarea>
+                                        <textarea value={editTaskData.description || ''} onChange={changeEdit} name='description' id="description" rows="4" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write Task description here"></textarea>
                                     </div>
                                     <div>
                                         <label className="inline-flex items-center mb-5 cursor-pointer">
                                             <input
-                                                onChange={statuschangeoncreate}
+                                                onChange={statuschangeonedit}
+                                                checked={editTaskData.status === 'Completed'}
                                                 type="checkbox"
-                                                value=""
                                                 className="sr-only peer" />
                                             <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-3 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
                                             <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">Mark as Completed</span>
                                         </label>
                                     </div>
                                 </div>
-
                                 <button type="submit" className="text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                                     Save Changes
                                 </button>
@@ -285,7 +308,6 @@ export const UserInputTodo = () => {
                 </div>
             </div>
             {/* MODAL TODO EDIT END */}
-
         </div>
     );
 };
