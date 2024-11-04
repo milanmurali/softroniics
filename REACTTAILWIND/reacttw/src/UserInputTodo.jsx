@@ -64,6 +64,7 @@ export const UserInputTodo = () => {
 
     return (
         <div className='h-screen px-8 py-6 bg-gray-300'>
+
             <div className='flex justify-between my-4'>
                 <h1 className="text-2xl font-bold">Things to do</h1>
                 <button data-modal-target="create-todo-modal" data-modal-toggle="create-todo-modal" className="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
