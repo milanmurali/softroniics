@@ -30,6 +30,10 @@ import { LanguageProvider } from './UCTheme/LanguageProvider';
 import { MultiLang } from './UCTheme/MultiLang';
 import { Calculator } from './Calculator';
 import { UserInputTodo } from './UserInputTodo';
+import { CounterTest } from './CounterTest';
+import { CounterRedux } from './Redux/CounterRedux';
+import { Provider } from 'react-redux';
+import Store from './Redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -66,10 +70,15 @@ root.render(
     {/* <ThemeProvider>
       <TestTheme />
     </ThemeProvider> */}
+    <Provider store={Store}>
+      <CounterRedux/>
+    </Provider>
+    
+    {/* <CounterTest/> */}
     {/* <Calculator/> */}
     {/* <UPCMain /> */}
     {/* <Main/> */}
-    <UserInputTodo/>  
+    {/* <UserInputTodo/>   */}
     {/* <Todo /> */}
     {/* <Keys/> */}
     {/* <FormSubmission/> */}
