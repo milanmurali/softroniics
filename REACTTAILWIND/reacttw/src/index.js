@@ -34,6 +34,8 @@ import { CounterTest } from './CounterTest';
 import { CounterRedux } from './Redux/CounterRedux';
 import { Provider } from 'react-redux';
 import Store from './Redux/Store';
+import { CartHome } from './Redux/Cart/CartHome';
+import { AddtoCart } from './Redux/Cart/AddtoCart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -56,11 +58,19 @@ root.render(
         <Routes>
           <Route path="/" element={<MovieList/>}> </Route>
           <Route path="/movie/:imdbID" element={<Movie/>}> </Route>
-        </Routes>
-      </BrowserRouter> */}
+          </Routes>
+          </BrowserRouter> */}
 
+    {/* Flipkart */}
+    <BrowserRouter>
+      <Routes>
+        <Route>
+          <Route path="/" element={<CartHome />}> </Route>
+          <Route path="/cart" element={<AddtoCart />}> </Route>
 
-
+        </Route>
+      </Routes>
+    </BrowserRouter>
 
 
     {/* <LanguageProvider>
@@ -70,10 +80,18 @@ root.render(
     {/* <ThemeProvider>
       <TestTheme />
     </ThemeProvider> */}
-    <Provider store={Store}>
+    {/* <Provider store={Store}>
       <CounterRedux/>
-    </Provider>
-    
+    </Provider> */}
+
+
+
+
+
+
+
+
+
     {/* <CounterTest/> */}
     {/* <Calculator/> */}
     {/* <UPCMain /> */}

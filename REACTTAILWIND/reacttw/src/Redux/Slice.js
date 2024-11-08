@@ -14,7 +14,9 @@ const counterslice = createSlice({
         },
         decrement: (state, action) => {
             state.count -= 1
-        }
+        },
+        cartadd
+
     }
 })
 

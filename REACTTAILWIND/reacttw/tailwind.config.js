@@ -8,6 +8,21 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require('tailwind-scrollbar-hide'),
+    function ({ addUtilities }) {
+      addUtilities({
+        '.no-scrollbar': {
+          /* For Firefox */
+          'scrollbar-width': 'none',
+          /* For Internet Explorer, Edge, and Chrome */
+          '-ms-overflow-style': 'none',
+          /* For Chrome, Safari, and Opera */
+          '&::-webkit-scrollbar': {
+            display: 'none',
+          },
+        },
+      });
+    },
   ],
 }
