@@ -34,8 +34,8 @@ import { CounterTest } from './CounterTest';
 import { CounterRedux } from './Redux/CounterRedux';
 import { Provider } from 'react-redux';
 import Store from './Redux/Store';
-import { CartHome } from './Redux/Cart/CartHome';
-import { AddtoCart } from './Redux/Cart/AddtoCart';
+import { CartHome, Fcart } from './Redux/Cart/Fcart';
+import { AddtoCart, Cart } from './Redux/Cart/Cart';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -62,15 +62,16 @@ root.render(
           </BrowserRouter> */}
 
     {/* Flipkart */}
-    <BrowserRouter>
-      <Routes>
-        <Route>
-          <Route path="/" element={<CartHome />}> </Route>
-          <Route path="/cart" element={<AddtoCart />}> </Route>
-
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <Provider store={Store}>
+      <BrowserRouter>
+        <Routes>
+          <Route>
+            <Route path="/" element={<Fcart />}> </Route>
+            <Route path="/cart" element={<Cart />}> </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider>
 
 
     {/* <LanguageProvider>

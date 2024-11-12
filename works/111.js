@@ -73,3 +73,47 @@
 //   wordFrequency[word] = (wordFrequency[word] || 0) + 1;
 // });
 // console.log(wordFrequency);
+
+
+// const arr = [1,2,3,4,5,6,7,8,9]
+// const even = []
+// for (let i = 0; i<arr.length;i++){
+//     if (arr[i] % 2 == 0){
+//         even.push(arr[i])
+//     }
+// }
+// console.log(even);
+
+
+// const arr = [9, 8, 7, 6, 5, 4, 3, 2, 1]
+// const even = []
+// for (const items of arr) {
+//     if (items % 2 == 0) {
+//         even.push(items)
+//     }
+// }
+// console.log(even);
+
+
+// let a = [4, 9, 2, 6, 4, 8, 9];
+// let c = a.length;
+
+// let b = [];
+// for (let i = 0; i < a.length; i++) {
+//     if (a[i] % 2 == 0) {
+//         b.push(a[i]);
+//     }
+// }
+// console.log(b);
+
+
+const obj = { name: 'Alice', age: 25 };
+// const entries = Object.entries(obj);
+const entries = Object.entries(obj)
+
+for (let [key, value] of entries) {
+  console.log(key, value);
+}
+// Output:
+// 'name' 'Alice'
+// 'age' 25

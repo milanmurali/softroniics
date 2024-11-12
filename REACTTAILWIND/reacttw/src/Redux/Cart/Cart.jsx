@@ -1,55 +1,17 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { decreasequantity, increasequantity, removeitemfromcart } from '../Slice';
 
-export const AddtoCart = () => {
-  const products = [
-    {
-      id: 1,
-      name: "Mi 11X",
-      price: 24999,
-      description: "A powerful smartphone with a sleek design and advanced features.",
-      imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/c/8/o/-original-imaggcz7bfchgq8g.jpeg?q=70&crop=true"
-    },
-    {
-      id: 2,
-      name: "JBL TUNE 760 NC",
-      price: 4999,
-      description: "High-quality wireless headphones with noise cancellation and long battery life.",
-      imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/headphone/y/e/g/-original-imagrh3th8hhnvf4.jpeg?q=70&crop=false"
-    },
-    {
-      id: 3,
-      name: "Acer Nitro V 15",
-      price: 79999,
-      description: "A powerful laptop designed for gaming and professional performance.",
-      imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/2/p/v/anv15-51-gaming-laptop-acer-original-imah3myfh66y6azy.jpeg?q=70&crop=false"
-    },
-    {
-      id: 4,
-      name: "Redmi Earbuds 3 Pro",
-      price: 1999,
-      description: "True wireless earbuds with excellent sound quality and battery life.",
-      imageUrl: "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1674050332/Croma%20Assets/Communication/Headphones%20and%20Earphones/Images/243016_0_i0dqgt.png"
-    },
-    {
-      id: 5,
-      name: "Xpulse 200 4V Pro",
-      price: 145000,
-      description: "A rugged, off-road motorcycle designed for adventure and reliability.",
-      imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/motorcycle/s/m/j/-original-imah57hwhzmbywsr.jpeg?q=70&crop=false"
-    },
-    {
-      id: 6,
-      name: "SMK Stellar Rainstar Helmet",
-      price: 3499,
-      description: "A stylish and safe helmet with advanced ventilation and comfortable fit.",
-      imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/helmet/8/0/e/-original-imagsjvhhzrz7zfe.jpeg?q=70&crop=false"
-    }
-  ];
-
+export const Cart = () => {
+  const cartitems = useSelector((state) => state.counter.data)
+  const totalPrice = cartitems.reduce((total, item) => total + item.price * item.quantity, 0);
+  const dispatch = useDispatch();
+  console.log(cartitems);
 
   return (
     <div>
+      {/* nav */}
       <div className='nav sticky top-0 z-10 flex justify-between py-6 bg-white pr-8'>
         {/* Logo */}
         <div className='navhead bg-pink flex'>
@@ -136,26 +98,43 @@ export const AddtoCart = () => {
 
 
       {/* Cart*/}
-      <div className='px-8'>
-        <h2 className="text-2xl font-bold mt-10 mb-4">Shopping Cart</h2>
-
-        <div>
-          {products.map((item) => (
+      <div className='px-8 my-10'>
+        <div className='flex justify-between'>
+          <h2 className="text-2xl font-bold">Shopping Cart</h2>
+          <h3 className="text-2xl font-semibold">Total Price: ₹{totalPrice}</h3>
+        </div>
+        <div className='my-5'>
+          {cartitems.map((item) => (
             <div key={item.id} className="flex items-center justify-between border-b py-4">
               <div className="flex items-center space-x-4">
-                <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-cover rounded-md" />
+                <img src={item.imageUrl} alt={item.name} className="w-16 h-16 object-contain rounded-md" />
                 <div>
                   <h3 className="text-lg font-semibold">{item.name}</h3>
+                  <div className="flex items-center space-x-2">
+                    <h3 className="text-md font-semibold text-gray-600">Qty: </h3>
+                    <button
+                      onClick={() => dispatch(decreasequantity(item))}
+                      className="px-2 py-1 bg-gray-300 rounded text-gray-700">
+                      -
+                    </button>
+                    <span className="px-2">{item.quantity}</span>
+                    <button
+                      onClick={() => dispatch(increasequantity(item))}
+                      className="px-2 py-1 bg-gray-300 rounded text-gray-700">
+                      +
+                    </button>
+                  </div>
                   <p className="text-gray-600">₹{item.price}</p>
                 </div>
               </div>
               <button
-                
+                onClick={() => dispatch(removeitemfromcart(item.id))}
                 className="px-4 py-2 rounded-lg text-red-500 hover:bg-gray-100">
                 Remove
               </button>
             </div>
           ))}
+
         </div>
       </div>
     </div>

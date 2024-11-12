@@ -1,55 +1,69 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast, Slide } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { additemtocart } from '../Slice';
 
-export const CartHome = () => {
+export const Fcart = () => {
     const products = [
         {
             id: 1,
             name: "Mi 11X",
             price: 24999,
             description: "A powerful smartphone with a sleek design and advanced features.",
-            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/c/8/o/-original-imaggcz7bfchgq8g.jpeg?q=70&crop=true"
+            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/mobile/c/8/o/-original-imaggcz7bfchgq8g.jpeg?q=70&crop=true",
+            quantity: 1
         },
         {
             id: 2,
             name: "JBL TUNE 760 NC",
             price: 4999,
             description: "High-quality wireless headphones with noise cancellation and long battery life.",
-            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/headphone/y/e/g/-original-imagrh3th8hhnvf4.jpeg?q=70&crop=false"
+            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/headphone/y/e/g/-original-imagrh3th8hhnvf4.jpeg?q=70&crop=false",
+            quantity: 1
         },
         {
             id: 3,
             name: "Acer Nitro V 15",
             price: 79999,
             description: "A powerful laptop designed for gaming and professional performance.",
-            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/2/p/v/anv15-51-gaming-laptop-acer-original-imah3myfh66y6azy.jpeg?q=70&crop=false"
+            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/computer/2/p/v/anv15-51-gaming-laptop-acer-original-imah3myfh66y6azy.jpeg?q=70&crop=false",
+            quantity: 1
         },
         {
             id: 4,
             name: "Redmi Earbuds 3 Pro",
             price: 1999,
             description: "True wireless earbuds with excellent sound quality and battery life.",
-            imageUrl: "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1674050332/Croma%20Assets/Communication/Headphones%20and%20Earphones/Images/243016_0_i0dqgt.png"
+            imageUrl: "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1674050332/Croma%20Assets/Communication/Headphones%20and%20Earphones/Images/243016_0_i0dqgt.png",
+            quantity: 1
         },
         {
             id: 5,
             name: "Xpulse 200 4V Pro",
             price: 145000,
             description: "A rugged, off-road motorcycle designed for adventure and reliability.",
-            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/motorcycle/s/m/j/-original-imah57hwhzmbywsr.jpeg?q=70&crop=false"
+            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/motorcycle/s/m/j/-original-imah57hwhzmbywsr.jpeg?q=70&crop=false",
+            quantity: 1
         },
         {
             id: 6,
             name: "SMK Stellar Rainstar Helmet",
             price: 3499,
             description: "A stylish and safe helmet with advanced ventilation and comfortable fit.",
-            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/helmet/8/0/e/-original-imagsjvhhzrz7zfe.jpeg?q=70&crop=false"
+            imageUrl: "https://rukminim2.flixcart.com/image/416/416/xif0q/helmet/8/0/e/-original-imagsjvhhzrz7zfe.jpeg?q=70&crop=false",
+            quantity: 1
         }
     ];
-    const added = () => toast("Item added to Cart");
+    const data = useSelector((state) => state.counter.data); // Access data from the state
+    const dispatch = useDispatch();
+    console.log("data", data);
 
+    const added = () => {
+        toast("Item added to Cart");
+
+    }
     return (
         <div className='main bg-[#f1f2f4]'>
             <div className='nav sticky top-0 z-50 flex justify-between py-6 bg-white pr-8'>
@@ -149,7 +163,10 @@ export const CartHome = () => {
                         <div className="mt-4 flex justify-between items-center">
                             <span className="text-xl font-bold">{product.price}</span>
                             <button
-                                onClick={added}
+                                onClick={() => {
+                                    dispatch(additemtocart(product));
+                                    added(); // Show toast notification
+                                }}
                                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                                 Add to Cart
                             </button>
@@ -157,6 +174,13 @@ export const CartHome = () => {
                     </div>
                 ))}
             </div>
+
+
+
+
+
+
+            
             <ToastContainer
                 position="top-center"
                 autoClose={1000}
