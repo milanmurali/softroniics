@@ -61,17 +61,6 @@ root.render(
           </Routes>
           </BrowserRouter> */}
 
-    {/* Flipkart */}
-    <Provider store={Store}>
-      <BrowserRouter>
-        <Routes>
-          <Route>
-            <Route path="/" element={<Fcart />}> </Route>
-            <Route path="/cart" element={<Cart />}> </Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </Provider>
 
 
     {/* <LanguageProvider>
@@ -85,6 +74,17 @@ root.render(
       <CounterRedux/>
     </Provider> */}
 
+    {/* Flipkart */}
+    {/* <Provider store={Store}>
+      <BrowserRouter>
+        <Routes>
+          <Route>
+            <Route path="/" element={<Fcart />}> </Route>
+            <Route path="/cart" element={<Cart />}> </Route>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider> */}
 
 
 
@@ -93,11 +93,11 @@ root.render(
 
 
 
+    <UserInputTodo/>  
     {/* <CounterTest/> */}
     {/* <Calculator/> */}
     {/* <UPCMain /> */}
     {/* <Main/> */}
-    {/* <UserInputTodo/>   */}
     {/* <Todo /> */}
     {/* <Keys/> */}
     {/* <FormSubmission/> */}

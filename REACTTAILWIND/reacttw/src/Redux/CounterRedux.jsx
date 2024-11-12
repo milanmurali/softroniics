@@ -7,10 +7,11 @@ export const CounterRedux = () => {
     const dispatch = useDispatch();
     console.log(data);
     return (
-        <div>
+        <div> 
             <div>{data}</div>
             <button onClick={() => dispatch(increment())}>Increment</button>
             <button onClick={() => dispatch(decrement())}>Decrement</button>
         </div>
     )
 }
+ 

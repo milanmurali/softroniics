@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast, Slide } from 'react-toastify';
@@ -58,14 +58,18 @@ export const Fcart = () => {
     ];
     const data = useSelector((state) => state.counter.data); // Access data from the state
     const dispatch = useDispatch();
-    console.log("data", data);
+    // console.log("data", data);
 
     const added = () => {
         toast("Item added to Cart");
 
     }
+    const [search, setsearch] = useState('')
+    console.log(search);
+
     return (
         <div className='main bg-[#f1f2f4]'>
+
             <div className='nav sticky top-0 z-50 flex justify-between py-6 bg-white pr-8'>
                 {/* Logo */}
                 <div className='navhead bg-pink flex'>
@@ -89,7 +93,16 @@ export const Fcart = () => {
                             </path>
                         </svg>
                     </button>
-                    <input className="bg-[#f0f5ff] w-[500px] border border-none" type="text" title="Search for Products, Brands and More" name="q" autoComplete="off" placeholder="Search for Products, Brands and More" value="" />
+                    <input
+                        className="bg-[#f0f5ff] w-[500px] border border-none"
+                        type="text"
+                        title="Search for Products, Brands and More"
+                        name="q"
+                        value={search}
+                        onChange={(e) => setsearch(e.target.value)}
+                        autoComplete="off"
+                        placeholder="Search for Products, Brands and More"
+                    />
                 </div>
 
                 {/* Action Buttons */}
@@ -150,29 +163,31 @@ export const Fcart = () => {
                 </div>
             </div>
 
+
             <div className="py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 bg-white px-8">
                 {products.map((product) => (
-                    <div key={product.id} className="border rounded-lg shadow-md p-4">
-                        <img
-                            src={product.imageUrl}
-                            alt={product.name}
-                            className="w-full h-40 object-contain rounded-md mb-4"
-                        />
-                        <h3 className="text-lg font-semibold">{product.name}</h3>
-                        <p className="text-gray-500">{product.description}</p>
-                        <div className="mt-4 flex justify-between items-center">
-                            <span className="text-xl font-bold">{product.price}</span>
-                            <button
-                                onClick={() => {
-                                    dispatch(additemtocart(product));
-                                    added(); // Show toast notification
-                                }}
-                                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-                                Add to Cart
-                            </button>
+                    product.name.toLowerCase().includes(search.toLowerCase()) && (
+                        <div key={product.id} className="border rounded-lg shadow-md p-4">
+                            <img
+                                src={product.imageUrl}
+                                alt={product.name}
+                                className="w-full h-40 object-contain rounded-md mb-4"
+                            />
+                            <h3 className="text-lg font-semibold">{product.name}</h3>
+                            <p className="text-gray-500">{product.description}</p>
+                            <div className="mt-4 flex justify-between items-center">
+                                <span className="text-xl font-bold">{product.price}</span>
+                                <button
+                                    onClick={() => {
+                                        dispatch(additemtocart(product));
+                                        added(); // Show toast notification
+                                    }}
+                                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                    Add to Cart
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    )))}
             </div>
 
 
@@ -180,7 +195,7 @@ export const Fcart = () => {
 
 
 
-            
+
             <ToastContainer
                 position="top-center"
                 autoClose={1000}
