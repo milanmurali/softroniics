@@ -75,7 +75,7 @@ root.render(
     </Provider> */}
 
     {/* Flipkart */}
-    {/* <Provider store={Store}>
+     <Provider store={Store}>
       <BrowserRouter>
         <Routes>
           <Route>
@@ -84,7 +84,7 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </Provider> */}
+    </Provider>
 
 
 
@@ -93,7 +93,7 @@ root.render(
 
 
 
-    <UserInputTodo/>  
+    {/* <UserInputTodo/>   */}
     {/* <CounterTest/> */}
     {/* <Calculator/> */}
     {/* <UPCMain /> */}
