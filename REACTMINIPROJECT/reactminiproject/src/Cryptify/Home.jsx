@@ -1,8 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import 'flowbite';
+import axios from 'axios';
 import { Link } from 'react-router-dom'
 import MainIcon from '../References/AppIcon.svg'
 export const Home = () => {
+    // State to store the crypto data
+    const [cryptoData, setCryptoData] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState('');
+
+    // Fetch data from the CoinGecko API
+    useEffect(() => {
+        // URL for CoinGecko API to get cryptocurrency data
+        const fetchData = async () => {
+            try {
+                // Fetch data from the API
+                const response = await axios.get('http://localhost:6969/coins');  // Update URL to local JSON server
+                setCryptoData(response.data);
+                setLoading(false); // Stop the loading spinner once the data is fetched
+            } catch (err) {
+                setError('Error fetching data from Server');
+                setLoading(false); // Stop loading even in case of an error
+            }
+        };
+
+        fetchData();
+    }, []); // Empty dependency array means this will run once when the component mounts
+
     return (
         <div>
             {/* navbar */}
@@ -31,7 +55,7 @@ export const Home = () => {
                         className="bg-[#f0f5ff] w-[500px] h-[30px] border-none focus:outline-none focus:ring-0 me-2"
                         type="text"
                         title="Search here"
-                        autocomplete="off"
+                        autoComplete="off"
                         placeholder="Search..." />
                 </div>
                 {/* Action Buttons */}
@@ -88,7 +112,36 @@ export const Home = () => {
                 </div>
             </div>
 
+            {/* main */}
+            <div>
+                {/* Navbar and other elements */}
 
+                <div className="crypto-prices">
+                    {loading ? (
+                        <p className='text-center'>Loading Data...</p>
+                    ) : error ? (
+                        <p className='text-center'>{error}</p>
+                    ) : (
+                        <div className=" px-4 grid grid-cols-4 gap-4">
+                            {cryptoData.map((coin) => (
+                                <div key={coin.id} className="coin-card flex justify-between bg-white p-4 rounded-lg shadow-md">
+                                    <div>
+                                        <h2 className="text-xl font-bold">{coin.name}</h2>
+                                        <p>Price: ${coin.current_price}</p>
+                                        <p>24h Change: {coin.price_change_percentage_24h}%</p>
+                                    </div>
+                                    <div>
+                                        <img
+                                            src={coin.image}
+                                            className="w-20 h-20"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    )}
+                </div>
+            </div>
         </div>
     )
 }
