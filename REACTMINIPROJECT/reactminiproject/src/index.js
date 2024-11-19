@@ -6,17 +6,26 @@ import reportWebVitals from './reportWebVitals';
 import { Test } from './Test';
 import { Home } from './Cryptify/Home';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import DashBoard from './Cryptify/DashBoard';
+// import { CoinDetails } from './Cryptify/CoinDetails';
+import CoinDetails from './Cryptify/CoinDetails';
+
+import { Provider } from 'react-redux';
+import { store } from './Cryptify/Store.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-      </Routes>
-    </BrowserRouter>
-
+    <Provider store={store}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/coins/:id" element={<CoinDetails />} />
+          <Route path="/dashboard" element={<DashBoard />} />
+        </Routes>
+      </BrowserRouter>
+    </Provider>
     {/* <App /> */}
     {/* <Test/> */}
   </React.StrictMode>
