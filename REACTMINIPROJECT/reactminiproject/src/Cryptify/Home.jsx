@@ -32,9 +32,8 @@ export const Home = () => {
         <div>
             {/* navbar */}
             <div className='nav sticky top-0 z-10 flex flex-wrap justify-between items-center bg-white px-6 py-4 shadow-md'>
-
                 {/* Logo */}
-                <div className='navhead flex items-center w-full sm:w-auto mb-4 sm:mb-0'>
+                <div className='navhead flex items-center w-full sm:w-auto mb-4 sm:mb-0 justify-center'>
                     <Link to="/">
                         <img
                             className='w-16 sm:w-20'
@@ -46,45 +45,47 @@ export const Home = () => {
                 </div>
 
                 {/* Search */}
-                <div className="flex items-center bg-[#f0f5ff] rounded-lg w-full sm:w-auto mb-4 sm:mb-0">
-                    <button className="p-2" type="submit" title="Search here">
-                        <img
-                            src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=717478"
-                            alt="Login"
-                            className="w-6 h-6 object-contain"
-                        />
-                    </button>
-                    <input
-                        className="bg-[#f0f5ff] w-full sm:w-[500px] h-[30px] border-none focus:outline-none focus:ring-0 me-2"
-                        type="text"
-                        value={search}
-                        onChange={(e) => setsearch(e.target.value)}
-                        title="Search here"
-                        autoComplete="off"
-                        placeholder="Search..." />
+                <div className="flex flex-col sm:flex-row items-center bg-[#f0f5ff] rounded-lg w-full sm:w-auto mb-4 sm:mb-0">
+                    <div className="flex items-center w-full sm:w-auto">
+                        <button className="p-2" type="submit" title="Search here">
+                            <img
+                                src="https://img.icons8.com/?size=100&id=XU3XKgdpT0qG&format=png&color=717478"
+                                alt="Login"
+                                className="w-6 h-6 object-contain"
+                            />
+                        </button>
+                        <input
+                            className="bg-[#f0f5ff] w-full sm:w-[300px] lg:w-[500px] h-[30px] border-none focus:outline-none focus:ring-0 me-2"
+                            type="text"
+                            value={search}
+                            onChange={(e) => setsearch(e.target.value)}
+                            title="Search here"
+                            autoComplete="off"
+                            placeholder="Search..." />
+                    </div>
                 </div>
 
                 {/* Action Buttons */}
-                <div className="flex space-x-4 items-center">
-                    {/* MY Account dropdown button*/}
+                <div className="relative flex items-center justify-center w-full sm:w-auto">
+                    {/* My Account dropdown button */}
                     <button
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                        className="text-black bg-white hover:bg-gray-100 focus:ring-2 focus:ring-gray-300 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center transition ease-in-out duration-200"
-                        type="button" >
+                        className="text-black bg-white hover:bg-gray-100 focus:ring-2 focus:ring-gray-300 focus:outline-none rounded-lg px-4 py-2 text-center flex justify-center items-center transition ease-in-out duration-200"
+                        type="button"
+                    >
                         <img
-                            className="flex justify-center items-center w-6 h-6 mr-2"
+                            className="flex justify-center items-center w-6 h-6"
                             src="https://img.icons8.com/?size=100&id=36389&format=png&color=000000"
                             alt="Account"
                         />
                     </button>
 
-
-                    {/* <!-- Dropdown menu --> */}
+                    {/* Dropdown menu */}
                     {isDropdownOpen && (
-                        <div className="absolute top-full right-4 w-40 bg-white shadow-lg rounded-lg">
+                        <div className="absolute top-full mt-2 right-0 w-40 bg-white shadow-lg rounded-lg">
                             <ul className="py-2 text-sm text-gray-700 dark:text-gray-200 text-center">
                                 <li>
-                                    <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Home</  Link>
+                                    <Link to="/" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Home</Link>
                                 </li>
                                 <li>
                                     <Link to="/dashboard" className="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</Link>
@@ -95,18 +96,14 @@ export const Home = () => {
                             </ul>
                         </div>
                     )}
-
-
-
                 </div>
-
-
             </div>
+
 
             {/* main */}
             <div className='p-6'>
 
-                <div className='text-2xl font-bold'>Crypto Currencies</div>
+                <div className='text-2xl font-bold'>Crypto Market</div>
                 <div className="crypto-prices my-5">
                     {loading ? (
                         <p className='text-center'>Loading Data...</p>

@@ -97,17 +97,16 @@ const DashBoard = () => {
                 </div>
             </div>
 
-            <h1 className="text-2xl font-bold mb-4">Portfolio</h1>
+
+
 
             {/* Portfolio Section */}
             <div className="container mx-auto px-6 py-10">
                 <h1 className="text-2xl font-bold mb-4">Your Portfolio</h1>
 
-                <h2 className="text-lg text-gray-600 mb-4">Coins you've added:</h2>
-
                 <ul>
                     {portfolio.length === 0 ? (
-                        <p>Your portfolio is empty.</p>
+                        <p className='text-center'>Your portfolio is empty.</p>
                     ) : (
                         portfolio.map((coin) => (
                             <div key={coin.id} className="coin-card flex items-center justify-between bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
