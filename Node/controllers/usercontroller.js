@@ -1,7 +1,6 @@
 import { request, response } from "express";
 import user from "../models/userschema.js"
 
-console.log();
 
 const add = async (req, res) => {
     let newuser = new user(req.body)
