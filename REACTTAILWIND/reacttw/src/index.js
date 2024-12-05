@@ -36,11 +36,13 @@ import { Provider } from 'react-redux';
 import Store from './Redux/Store';
 import { CartHome, Fcart } from './Redux/Cart/Fcart';
 import { AddtoCart, Cart } from './Redux/Cart/Cart';
+import { NHome } from './nodetest/NHome';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
+    <NHome/>
     {/* Business */}
     {/* <BrowserRouter>
       <Routes>
@@ -55,13 +57,11 @@ root.render(
 
     {/* MovieDB */}
     {/* <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MovieList/>}> </Route>
-          <Route path="/movie/:imdbID" element={<Movie/>}> </Route>
-          </Routes>
-          </BrowserRouter> */}
-
-
+      <Routes>
+        <Route path="/" element={<MovieList />}> </Route>
+        <Route path="/movie/:imdbID" element={<Movie />}> </Route>
+      </Routes>
+    </BrowserRouter> */}
 
     {/* <LanguageProvider>
       <MultiLang/>
@@ -75,7 +75,7 @@ root.render(
     </Provider> */}
 
     {/* Flipkart */}
-     <Provider store={Store}>
+    {/* <Provider store={Store}>
       <BrowserRouter>
         <Routes>
           <Route>
@@ -84,7 +84,7 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </Provider>
+    </Provider> */}
 
 
 
