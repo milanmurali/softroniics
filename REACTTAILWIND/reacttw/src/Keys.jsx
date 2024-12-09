@@ -4,6 +4,11 @@ export const Keys = () => {
     const ProductDetails = [
         { id: 1, name: "Acer Nitro V15", qty: 1 },
         { id: 2, name: "Product2", qty: 2 },
+        { id: 3, name: "Product3", qty: 3 },
+        { id: 4, name: "Product4", qty: 3 },
+        { id: 5, name: "Product5", qty: 3 },
+
+
         
     ]
     const [data, Setdata] = useState(ProductDetails)

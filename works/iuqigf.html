@@ -4,17 +4,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Expense Tracker</title>
+    <script>
+        // Sample data to save in localStorage
+        const expenseData = [
+            {
+                name: "Groceries",
+                type: "expense",
+                category: "Food",
+                dateTime: "2024-12-08T10:30:00"
+            },
+            {
+                name: "Salary",
+                type: "income",
+                category: "Job",
+                dateTime: "2024-12-01T09:00:00"
+            },
+            {
+                name: "Electricity Bill",
+                type: "expense",
+                category: "Utilities",
+                dateTime: "2024-12-05T15:00:00"
+            },
+            {
+                name: "Freelance Work",
+                type: "income",
+                category: "Side Hustle",
+                dateTime: "2024-12-06T20:00:00"
+            },
+            {
+                name: "Movie Tickets",
+                type: "expense",
+                category: "Entertainment",
+                dateTime: "2024-12-07T18:00:00"
+            }
+        ];
+
+        // Function to save data to localStorage
+        function saveData() {
+            // Convert the array into a JSON string and save it to localStorage
+            localStorage.setItem('expenseData', JSON.stringify(expenseData));
+            alert('Data saved to localStorage!');
+        }
+
+        // Function to load data from localStorage
+        function loadData() {
+            // Retrieve the data from localStorage and parse it back into an array
+            const storedData = localStorage.getItem('expenseData');
+            const expenseDataFromStorage = storedData ? JSON.parse(storedData) : [];
+            
+            // Display the data in the page
+            const dataList = document.getElementById('dataList');
+            dataList.innerHTML = ''; // Clear any previous data
+            expenseDataFromStorage.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - ${item.type} - ${item.category} - ${item.dateTime}`;
+                dataList.appendChild(li);
+            });
+        }
+
+        // Function to add new data to the existing localStorage
+        function addData() {
+            const newItem = {
+                name: "Rent",
+                type: "expense",
+                category: "Housing",
+                dateTime: "2024-12-10T09:00:00"
+            };
+            expenseData.push(newItem);
+            // Save the updated data to localStorage
+            localStorage.setItem('expenseData', JSON.stringify(expenseData));
+            alert('New data added and saved!');
+            loadData(); // Reload the updated data to display it
+        }
+    </script>
 </head>
 
 <body>
+    <h1>Expense Tracker</h1>
+    <button onclick="saveData()">Save Data to LocalStorage</button>
+    <button onclick="loadData()">Load Data from LocalStorage</button>
+    <button onclick="addData()">Add New Data</button>
 
-    <marquee onmouseover="MARQUEE.stop();" onmouseout="MARQUEE.start();" id="MARQUEE" class="textheadblue"
-        style="COLOR: #841f27;width:100%;" *bgcolor="#f0f8fc*/" scrollamount="1" truespeed="10" scrolldelay="15">Waiver off
-        installation charges of Rs. 250/- (for copper connections) and Rs. 500/- (for Bharat Fibre connections) on
-        BSNL's Landline / Broadband connections (Copper / Fibre / AirFibre) for customers under all account types
-        (except Government Account Type) upto 31-03-2025 in all the circles. </marquee>
-
+    <h2>Expense Data:</h2>
+    <ul id="dataList"></ul>
 </body>
 
 </html>

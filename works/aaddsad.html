@@ -2,197 +2,77 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <title>[[PAGE_NAME]]</title>
-    <meta name="generator" content="BBEdit 10.5" />
-    <meta name="viewport" content="width=device-width" />
-
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons" type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+Gulf,v1"
-        type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+HK,v1"
-        type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+TC,v1"
-        type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+KR,v1"
-        type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+TH,v1"
-        type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+JP,v1"
-        type="text/css" />
-    <link rel="stylesheet" href="//www.apple.com/wss/fonts?families=SF+Pro,v1|SF+Pro+Icons,v1|SF+Pro+SC,v1"
-        type="text/css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Tailwind Page</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body#message {
-            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !important;
-            font-size: 17px;
-            line-height: 25px;
-            font-weight: normal;
-            color: #333 !important;
-            background-color: #ffffff !important;
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-        }
-
-        .main {
-            width: 685px;
-        }
-
-        #apple-logo-left-margin {
-            width: 538px !important;
-        }
-
-        #logo-row-box {
-            width: 100% !important;
-            padding-bottom: 20px !important;
-        }
-
-        h1 {
-            font-size: 32px;
-            line-height: 36px;
-            padding-bottom: 10px;
-            color: #333 !important;
-        }
-
-        b {
-            font-weight: 500 !important;
-        }
-
-        p {
-            margin-top: 0 !important;
-            word-wrap: break-word;
-            color: #333;
-        }
-
-        td.h1-header,
-        td.signature,
-        td.no-padding-bottom {
-            padding: 0 !important;
-        }
-
-        #signature {
-            padding-top: 18px !important;
-            padding-bottom: 50px !important;
-        }
-
-        a {
-            color: #0070c9;
-            text-decoration: none;
-        }
-
-        a:hover,
-        a:focus {
-            text-decoration: underline !important;
-        }
-
-        footer,
-        footer p,
-        footer span.unlink a,
-        footer td.paragraph {
-            font-size: 12px;
-            line-height: 18px;
-            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            color: #888 !important;
-        }
-
-        .center-text,
-        footer nav,
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .warning-list {
-            font-size: 17px;
-            line-height: 25px;
-            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            color: #333333;
-        }
-
-        .email-header {
-            font-size: 32px;
-            line-height: 36px;
-            font-weight: 500;
-            font-family: 'SF Pro Display', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            margin-bottom: 0.5em;
-            text-align: center;
-        }
-
-        .email-body {
-            font-size: 17px;
-            line-height: 25px;
-            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            color: #333333;
-        }
-
-        .form-alert.form-alert-warning {
-            border: 0;
-            border-left: 6px solid #fee450;
-            background-color: #fbf8e8 !important;
-        }
-
-        .form-alert {
-            border-radius: 4px;
-            font-size: 17px;
-            line-height: 25px;
-            font-family: 'SF Pro Text', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-            background-color: hsla(0, 0%, 95%, 0.4);
-            border: 1px solid #e3e3e3;
-            padding: 15px;
-            margin: 20px 0;
+        body {
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
 
-<body id="message" style="background-color:#fff;">
-    <div id="left-align-on-reply" dir="ltr">
-        <div id="main" style="margin-top: 40px; padding-right: 15px; padding-left: 15px; padding-bottom: 30px;">
-            <div id="logo-row-box" style="width:95%;text-align:left;padding-top:6%;padding-bottom:6%;">
-                <img id="apple-logo-in-row-box"
-                    src="https://statici.icloud.com/emailimages/v4/common/apple_logo_web@2x.png"
-                    style="display:inline-block;height:24px;width:20px;" alt="Apple">
-            </div>
-            <div class="container">
-                <h1 class="email-header">Verify your Apple ID email address.</h1>
-                <div class="email-body">
-                    <p>You have selected this email address as your new <span style="white-space: nowrap">Apple
-                            ID</span>. To verify this email address belongs to you, enter the code below on the email
-                        verification page:</p>
-                    <div class="email-body" style="font-size: 23px; line-height: 25px;">
-                        <p><b>709704</b></p>
+<body class="bg-gray-200">
+
+    <div class="navbar flex justify-between px-6 py-4 bg-[#121212] shadow-lg text-white">
+
+        <div class="navname flex items-center">
+            <img class="w-14 p-2" src="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff" alt="">
+            <div class="name mx-2 text-lg">ExpensioPatronum</div>
+        </div>
+
+        <div class="navitems flex items-center text-lg">
+
+            <button
+                class="flex items-center mx-2 px-4 py-2 rounded border border-transparent hover:border hover:border-white ">
+                <img class="w-8" src="https://img.icons8.com/?size=100&id=MpN00l6F80aB&format=png&color=FFFFFF" alt="">
+                <p>History</p>
+            </button>
+
+            <button class="mx-2 px-4 py-2 rounded border border-transparent hover:border hover:border-white ">
+                <img class="w-6" src="https://img.icons8.com/?size=100&id=36389&format=png&color=FFFFFF" alt="">
+            </button>
+
+
+        </div>
+    </div>
+
+
+    <div class="maincontent px-6 mt-4">
+
+        <div class=" max-w-4xl mx-auto mt-10 px-6">
+            <div class="bg-[#1e1e1e] rounded-lg shadow-lg p-6 text-white">
+                <p class="text-3xl font-bold text-teal-400">
+                    Welcome, Stupid
+                </p>
+
+                <div class="flex justify-around items-centermt-8">
+                    <!-- Expenses -->
+                    <div class="p-4 text-center bg-yellow-600 bg-opacity-20 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-yellow-300">Expenses</p>
+                        <p class="text-xl font-bold text-yellow-200">₹ 5,500</p>
                     </div>
-                    <p>This code will expire three hours after this email was sent.</p>
-                    <p><b>Why you received this email.</b><br>Apple requires verification whenever an email address is
-                        selected as an <span style="white-space: nowrap">Apple ID</span>. Your <span
-                            style="white-space: nowrap">Apple ID</span> cannot be used until you verify it.</p>
-                    <p>If you did not make this request, you can ignore this email. No <span
-                            style="white-space: nowrap">Apple ID</span> will be created without verification.</p>
+
+                    <!-- Income -->
+                    <div class="p-4 text-center bg-green-600 bg-opacity-20 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-green-300">Income</p>
+                        <p class="text-xl font-bold text-green-200">₹ 10,000</p>
+                    </div>
+                </div>
+                <div class="flex justify-center mt-6">
+                    <!-- Net Worth -->
+                    <div class="w-64 p-4 text-center bg-blue-600 bg-opacity-20 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-blue-300">Net Worth</p>
+                        <p class="text-xl font-bold text-blue-200">₹ 5,000</p>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <footer style="width:100%; background-color: #f2f2f2;">
-            <table id="footer-paragraphs" width="100%" cellpadding="0" cellspacing="0"
-                style="background:#f2f2f2; padding:20px 15px;">
-                <tr>
-                    <td id="footer-links" style="font-size:12px;line-height:18px;color:#888 !important;">
-                        <a href="https://appleid.apple.com" style="color:#555;text-decoration:none;">Apple ID</a> |
-                        <a href="https://www.apple.com/support/" style="color:#555;text-decoration:none;">Support</a> |
-                        <a href="https://www.apple.com/legal/privacy" style="color:#555;text-decoration:none;">Privacy
-                            Policy</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td id="copyright-cell" style="font-size:12px;line-height:18px;color:#888 !important;">
-                        Copyright © 2024 <span id="apple-address" class="unlink">One Apple Park Way, Cupertino, CA
-                            95014, United States</span> <span id="all-rights-reserved" style="white-space:nowrap;">All
-                            rights reserved.</span>
-                    </td>
-                </tr>
-            </table>
-        </footer>
     </div>
+
 </body>
 
 </html>

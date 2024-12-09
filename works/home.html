@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-200">
+    <!-- Main Container -->
+    <div class="flex w-full h-screen">
+        <!-- Left Sidebar (Navbar) -->
+        <div class="w-1/6 bg-[#121212] text-white px-4 py-6 flex flex-col justify-between">
+            <div>
+                <div class="navname flex items-center">
+                    <img class="w-14 p-2" src="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff"
+                        alt="">
+                    <div class="name mx-2 text-lg">ExpensioPatronum</div>
+                </div>
+
+                <div class="navitems flex flex-col items-center justify-center text-lg mt-16">
+
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8 mx-2"
+                            src="https://img.icons8.com/?size=100&id=92zOGOmxGkWj&format=png&color=FFFFFF" />DashBoard</button>
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8" src="https://img.icons8.com/?size=100&id=MpN00l6F80aB&format=png&color=FFFFFF"
+                            alt="">
+                        <p>History</p>
+                    </button>
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8 mx-2"
+                            src="https://img.icons8.com/?size=100&id=KEbGV3pxJXwe&format=png&color=ffffff" alt="">
+                        Account</button>
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8 mx-2" src="https://img.icons8.com/?size=100&id=24337&format=png&color=ffffff"
+                            alt="">
+                        Sign out</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="w-4/5 p-6">
+            <!-- Welcome Section -->
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                <p class="text-3xl font-bold text-teal-800">
+                    Welcome, User
+                </p>
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <!-- Total Expense -->
+                    <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-gray-700">Total Expense</p>
+                        <p id="totalExpense" class="text-xl font-bold text-gray-800">₹ 0</p>
+                    </div>
+
+                    <!-- Total Income -->
+                    <div class="bg-green-100 p-4 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-gray-700">Total Income</p>
+                        <p id="totalIncome" class="text-xl font-bold text-gray-800">₹ 0</p>
+                    </div>
+
+                    <!-- Net Worth -->
+                    <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-gray-700">Net Worth</p>
+                        <p id="netWorth" class="text-xl font-bold text-gray-800">₹ 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Transactions Section -->
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <h2 class="text-2xl font-semibold mb-4">Recent Transactions</h2>
+                <!-- Table for displaying recent transactions -->
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-100">
+                            <th class="py-2 px-4 border-b text-left">Transaction</th>
+                            <th class="py-2 px-4 border-b text-left">Type</th>
+                            <th class="py-2 px-4 border-b text-left">Category</th>
+                            <th class="py-2 px-4 border-b text-left">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactionTableBody">
+                        <!-- Data will be inserted here by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dummy transactions data
+        const transactions = [
+            {
+                name: "Groceries",
+                type: "expense",
+                category: "Food",
+                date: "2024-12-08",
+                amount: 2000
+            },
+            {
+                name: "Salary",
+                type: "income",
+                category: "Job",
+                date: "2024-12-01",
+                amount: 50000
+            },
+            {
+                name: "Electricity Bill",
+                type: "expense",
+                category: "Utilities",
+                date: "2024-12-05",
+                amount: 1500
+            },
+            {
+                name: "Freelance Work",
+                type: "income",
+                category: "Side Hustle",
+                date: "2024-12-06",
+                amount: 12000
+            },
+            {
+                name: "Movie Tickets",
+                type: "expense",
+                category: "Entertainment",
+                date: "2024-12-07",
+                amount: 1000
+            }
+        ];
+
+        // Function to calculate Total Expense, Total Income, and Net Worth
+        function calculateTotals() {
+            let totalExpense = 0;
+            let totalIncome = 0;
+
+            transactions.forEach(transaction => {
+                if (transaction.type === 'expense') {
+                    totalExpense += transaction.amount;
+                } else if (transaction.type === 'income') {
+                    totalIncome += transaction.amount;
+                }
+            });
+
+            const netWorth = totalIncome - totalExpense;
+
+            // Update the UI with the calculated values
+            document.getElementById('totalExpense').textContent = `₹ ${totalExpense}`;
+            document.getElementById('totalIncome').textContent = `₹ ${totalIncome}`;
+            document.getElementById('netWorth').textContent = `₹ ${netWorth}`;
+        }
+
+        // Function to render the transactions in the table
+        function renderTransactions() {
+            const tableBody = document.getElementById('transactionTableBody');
+
+            transactions.forEach(transaction => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td class="py-2 px-4 border-b">${transaction.name}</td>
+                    <td class="py-2 px-4 border-b">${transaction.type}</td>
+                    <td class="py-2 px-4 border-b">${transaction.category}</td>
+                    <td class="py-2 px-4 border-b">${transaction.date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Initialize the page
+        renderTransactions();
+        calculateTotals();
+    </script>
+
+</body>
+
+</html>
