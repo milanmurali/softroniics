@@ -37,42 +37,43 @@ import Store from './Redux/Store';
 import { CartHome, Fcart } from './Redux/Cart/Fcart';
 import { AddtoCart, Cart } from './Redux/Cart/Cart';
 import { NHome } from './nodetest/NHome';
+import { NodeLogin } from './nodetest/NodeLogin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
-    <NHome/>
+
     {/* Business */}
     {/* <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Business />}> </Route>
+      <Route path="/" element={<Business />}> </Route>
         <Route path="/home" element={<Business />}> </Route>
         <Route path="/bisabout" element={<BisAbout />}> </Route>
         <Route path="/biscontact" element={<BisContact />}> </Route>
         <Route path="/bislogin" element={<BisLogin />}> </Route>
         <Route path="/bissignup" element={<BisSignup />}> </Route>
-      </Routes>
-    </BrowserRouter> */}
+        </Routes>
+        </BrowserRouter> */}
 
     {/* MovieDB */}
-    {/* <BrowserRouter>
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<MovieList />}> </Route>
         <Route path="/movie/:imdbID" element={<Movie />}> </Route>
-      </Routes>
-    </BrowserRouter> */}
+        </Routes>
+        </BrowserRouter>
 
     {/* <LanguageProvider>
       <MultiLang/>
-    </LanguageProvider> */}
+      </LanguageProvider> */}
 
     {/* <ThemeProvider>
       <TestTheme />
-    </ThemeProvider> */}
+      </ThemeProvider> */}
     {/* <Provider store={Store}>
       <CounterRedux/>
-    </Provider> */}
+      </Provider> */}
 
     {/* Flipkart */}
     {/* <Provider store={Store}>
@@ -81,10 +82,10 @@ root.render(
           <Route>
             <Route path="/" element={<Fcart />}> </Route>
             <Route path="/cart" element={<Cart />}> </Route>
-          </Route>
-        </Routes>
-      </BrowserRouter>
-    </Provider> */}
+            </Route>
+            </Routes>
+            </BrowserRouter>
+            </Provider> */}
 
 
 
@@ -92,6 +93,8 @@ root.render(
 
 
 
+    {/* <NHome /> */}
+    {/* <NodeLogin/> */}
 
     {/* <UserInputTodo/>   */}
     {/* <CounterTest/> */}

@@ -83,8 +83,9 @@ export const NHome = () => {
     return (
         <div className="flex flex-col bg-gray-100 min-h-screen">
 
-            {/* Node View Section */}
+            {/* Node View, Delete Section */}
             <div className="flex items-center justify-center min-h-screen">
+                    
                 <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-5xl">
                     <h1 className="text-2xl font-bold text-center mb-6">View Data</h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
+    <title>Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="bg-gray-200">
@@ -21,16 +23,15 @@
                 </div>
 
                 <div class="navitems flex flex-col items-center justify-center text-lg mt-16">
-
                     <button
                         class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
                         <img class="w-8 mx-2"
                             src="https://img.icons8.com/?size=100&id=92zOGOmxGkWj&format=png&color=FFFFFF" />DashBoard</button>
                     <button
                         class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
-                        <img class="w-8" src="https://img.icons8.com/?size=100&id=MpN00l6F80aB&format=png&color=FFFFFF"
+                        <img class="w-8 p-1" src="https://img.icons8.com/?size=100&id=15116&format=png&color=FFFFFF"
                             alt="">
-                        <p>History</p>
+                        <p>Transactions</p>
                     </button>
                     <button
                         class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
@@ -47,9 +48,9 @@
         </div>
 
         <!-- Right Content Area -->
-        <div class="w-4/5 p-6">
+        <div class="w-5/6 p-6">
             <!-- Welcome Section -->
-            <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div class="bg-white rounded-lg shadow-lg p-6 mb-4">
                 <p class="text-3xl font-bold text-teal-800">
                     Welcome, User
                 </p>
@@ -73,67 +74,20 @@
                     </div>
                 </div>
             </div>
-
-            <!-- Recent Transactions Section -->
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <h2 class="text-2xl font-semibold mb-4">Recent Transactions</h2>
-                <!-- Table for displaying recent transactions -->
-                <table class="min-w-full bg-white border border-gray-200">
-                    <thead>
-                        <tr class="bg-gray-100">
-                            <th class="py-2 px-4 border-b text-left">Transaction</th>
-                            <th class="py-2 px-4 border-b text-left">Type</th>
-                            <th class="py-2 px-4 border-b text-left">Category</th>
-                            <th class="py-2 px-4 border-b text-left">Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="transactionTableBody">
-                        <!-- Data will be inserted here by JavaScript -->
-                    </tbody>
-                </table>
+            <!-- Chart Section -->
+            <div class="bg-white rounded-lg shadow-lg p-6 my-4">
+                <h2 class="text-2xl font-semibold mb-4">Expense vs Income</h2>
+                <div class="w-1/2 mx-auto">
+                    <canvas id="expenseIncomeChart" class="w-full h-64"></canvas>
+                </div>
             </div>
+
         </div>
     </div>
 
     <script>
-        // Dummy transactions data
-        const transactions = [
-            {
-                name: "Groceries",
-                type: "expense",
-                category: "Food",
-                date: "2024-12-08",
-                amount: 2000
-            },
-            {
-                name: "Salary",
-                type: "income",
-                category: "Job",
-                date: "2024-12-01",
-                amount: 50000
-            },
-            {
-                name: "Electricity Bill",
-                type: "expense",
-                category: "Utilities",
-                date: "2024-12-05",
-                amount: 1500
-            },
-            {
-                name: "Freelance Work",
-                type: "income",
-                category: "Side Hustle",
-                date: "2024-12-06",
-                amount: 12000
-            },
-            {
-                name: "Movie Tickets",
-                type: "expense",
-                category: "Entertainment",
-                date: "2024-12-07",
-                amount: 1000
-            }
-        ];
+        // Fetch transactions from localStorage
+        const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 
         // Function to calculate Total Expense, Total Income, and Net Worth
         function calculateTotals() {
@@ -141,10 +95,12 @@
             let totalIncome = 0;
 
             transactions.forEach(transaction => {
-                if (transaction.type === 'expense') {
+                if (transaction.type === 'Expense') {
                     totalExpense += transaction.amount;
-                } else if (transaction.type === 'income') {
+                } else if (transaction.type === 'Income') {
                     totalIncome += transaction.amount;
+                } else if (transaction.type === 'Savings') {
+                    totalIncome += transaction.amount;  // Consider savings as part of income for net worth calculation
                 }
             });
 
@@ -154,29 +110,43 @@
             document.getElementById('totalExpense').textContent = `₹ ${totalExpense}`;
             document.getElementById('totalIncome').textContent = `₹ ${totalIncome}`;
             document.getElementById('netWorth').textContent = `₹ ${netWorth}`;
+
+            // Return the totals for use in the chart
+            return { totalExpense, totalIncome };
         }
 
-        // Function to render the transactions in the table
-        function renderTransactions() {
-            const tableBody = document.getElementById('transactionTableBody');
+        // Function to render the pie chart
+        function renderChart() {
+            const { totalExpense, totalIncome } = calculateTotals();
 
-            transactions.forEach(transaction => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td class="py-2 px-4 border-b">${transaction.name}</td>
-                    <td class="py-2 px-4 border-b">${transaction.type}</td>
-                    <td class="py-2 px-4 border-b">${transaction.category}</td>
-                    <td class="py-2 px-4 border-b">${transaction.date}</td>
-                `;
-                tableBody.appendChild(row);
+            const ctx = document.getElementById('expenseIncomeChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Total Expense', 'Total Income'],
+                    datasets: [{
+                        data: [totalExpense, totalIncome],
+                        backgroundColor: ['#F87171', '#4ADE80'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // Disable aspect ratio for custom height/width
+                    plugins: {
+                        legend: {
+                            position: 'top'
+                        }
+                    }
+                }
             });
+
         }
 
         // Initialize the page
-        renderTransactions();
         calculateTotals();
+        renderChart();
     </script>
-
 </body>
 
 </html>
