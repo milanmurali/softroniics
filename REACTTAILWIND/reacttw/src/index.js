@@ -57,12 +57,12 @@ root.render(
         </BrowserRouter> */}
 
     {/* MovieDB */}
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Routes>
         <Route path="/" element={<MovieList />}> </Route>
         <Route path="/movie/:imdbID" element={<Movie />}> </Route>
         </Routes>
-        </BrowserRouter>
+        </BrowserRouter> */}
 
     {/* <LanguageProvider>
       <MultiLang/>
@@ -93,8 +93,8 @@ root.render(
 
 
 
+    <NodeLogin/>
     {/* <NHome /> */}
-    {/* <NodeLogin/> */}
 
     {/* <UserInputTodo/>   */}
     {/* <CounterTest/> */}

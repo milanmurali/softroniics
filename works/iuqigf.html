@@ -4,90 +4,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expense Tracker</title>
-    <script>
-        // Sample data to save in localStorage
-        const expenseData = [
-            {
-                name: "Groceries",
-                type: "expense",
-                category: "Food",
-                dateTime: "2024-12-08T10:30:00"
-            },
-            {
-                name: "Salary",
-                type: "income",
-                category: "Job",
-                dateTime: "2024-12-01T09:00:00"
-            },
-            {
-                name: "Electricity Bill",
-                type: "expense",
-                category: "Utilities",
-                dateTime: "2024-12-05T15:00:00"
-            },
-            {
-                name: "Freelance Work",
-                type: "income",
-                category: "Side Hustle",
-                dateTime: "2024-12-06T20:00:00"
-            },
-            {
-                name: "Movie Tickets",
-                type: "expense",
-                category: "Entertainment",
-                dateTime: "2024-12-07T18:00:00"
-            }
-        ];
-
-        // Function to save data to localStorage
-        function saveData() {
-            // Convert the array into a JSON string and save it to localStorage
-            localStorage.setItem('expenseData', JSON.stringify(expenseData));
-            alert('Data saved to localStorage!');
-        }
-
-        // Function to load data from localStorage
-        function loadData() {
-            // Retrieve the data from localStorage and parse it back into an array
-            const storedData = localStorage.getItem('expenseData');
-            const expenseDataFromStorage = storedData ? JSON.parse(storedData) : [];
-            
-            // Display the data in the page
-            const dataList = document.getElementById('dataList');
-            dataList.innerHTML = ''; // Clear any previous data
-            expenseDataFromStorage.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = `${item.name} - ${item.type} - ${item.category} - ${item.dateTime}`;
-                dataList.appendChild(li);
-            });
-        }
-
-        // Function to add new data to the existing localStorage
-        function addData() {
-            const newItem = {
-                name: "Rent",
-                type: "expense",
-                category: "Housing",
-                dateTime: "2024-12-10T09:00:00"
-            };
-            expenseData.push(newItem);
-            // Save the updated data to localStorage
-            localStorage.setItem('expenseData', JSON.stringify(expenseData));
-            alert('New data added and saved!');
-            loadData(); // Reload the updated data to display it
-        }
-    </script>
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
-    <h1>Expense Tracker</h1>
-    <button onclick="saveData()">Save Data to LocalStorage</button>
-    <button onclick="loadData()">Load Data from LocalStorage</button>
-    <button onclick="addData()">Add New Data</button>
+<body class="bg-black">
+    <!-- Main Container -->
+    <div class="flex w-full h-screen">
+        <!-- Left Sidebar (Navbar) -->
+        <div class="hidden sm:block w-1/6 bg-[#121212] text-white px-4 py-6 flex-col justify-between">
+            <div>
+                <div class="navname flex items-center justify-center">
+                    <img class="w-14 p-2" src="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff"
+                        alt="">
+                    <div class="name mx-2 text-lg">Expensio</div>
+                </div>
 
-    <h2>Expense Data:</h2>
-    <ul id="dataList"></ul>
+                <div class="navitems flex flex-col items-center justify-center text-lg mt-16">
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8 mx-2"
+                            src="https://img.icons8.com/?size=100&id=92zOGOmxGkWj&format=png&color=FFFFFF" />DashBoard</button>
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8 p-1" src="https://img.icons8.com/?size=100&id=15116&format=png&color=FFFFFF"
+                            alt="">
+                        <p>Transactions</p>
+                    </button>
+                    
+                    <button
+                        class="flex items-center mx-2 mb-4 px-4 py-2 rounded border border-transparent hover:border hover:border-white">
+                        <img class="w-8 mx-2" src="https://img.icons8.com/?size=100&id=24337&format=png&color=ffffff"
+                            alt="">
+                        Sign out</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Content Area -->
+        <div class="w-full sm:w-5/6 p-6 bg-[url('money.jpg')] bg-contain bg-center">
+            <!-- Top Navigation for Small Screens -->
+            <div class="sm:hidden flex justify-between items-center bg-[#121212] p-4 fixed w-full z-10 top-0 left-0">
+                <div class="flex items-center">
+                    <img class="w-14 p-2" src="https://img.icons8.com/?size=100&id=jTZgNRupW50C&format=png&color=ffffff" alt="">
+                    <div class="name mx-2 text-lg text-white">Expensio</div>
+                </div>
+                <button id="hamburgerBtn" class="text-white text-3xl focus:outline-none">
+                    &#9776;
+                </button>
+            </div>
+
+            <!-- Dropdown Menu -->
+            <div id="dropdownMenu" class="hidden sm:hidden absolute top-0 right-0 mt-24 bg-[#121212] text-white w-48 rounded-lg shadow-lg">
+                <a href="#" class="block px-4 py-2">DashBoard</a>
+                <a href="#" class="block px-4 py-2">Transactions</a>
+                <a href="#" class="block px-4 py-2">Sign out</a>
+            </div>
+
+            <!-- Welcome Section -->
+            <div class="rounded-lg shadow-lg p-6">
+                <p class="text-3xl font-bold text-white">
+                    Welcome, User
+                </p>
+                <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Total Expense -->
+                    <div class="bg-yellow-100 p-4 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-gray-700">Total Expense</p>
+                        <p id="totalExpense" class="text-xl font-bold text-gray-800">₹ 0</p>
+                    </div>
+
+                    <!-- Total Income -->
+                    <div class="bg-green-100 p-4 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-gray-700">Total Income</p>
+                        <p id="totalIncome" class="text-xl font-bold text-gray-800">₹ 0</p>
+                    </div>
+
+                    <!-- Net Worth -->
+                    <div class="bg-blue-100 p-4 rounded-lg shadow-md">
+                        <p class="text-lg font-semibold text-gray-700">Net Worth</p>
+                        <p id="netWorth" class="text-xl font-bold text-gray-800">₹ 0</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Chart Reminder Section -->
+            <div class="flex flex-col sm:flex-row gap-4">
+                <div class="w-full sm:w-1/2 backdrop-blur-sm p-6 rounded-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-white">Expense vs Income</h2>
+                    <div class="mx-auto">
+                        <canvas id="expenseIncomeChart" class="w-full h-64"></canvas>
+                    </div>
+                </div>
+                <div class="w-full sm:w-1/2 backdrop-blur-sm p-6 rounded-lg">
+                    <h2 class="text-2xl font-semibold mb-4 text-white">Reminders</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Toggle the dropdown menu when hamburger icon is clicked
+        const hamburgerBtn = document.getElementById('hamburgerBtn');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            dropdownMenu.classList.toggle('hidden');
+        });
+
+        // Function to render the pie chart
+        function renderChart() {
+            const { totalExpense, totalIncome } = calculateTotals();
+
+            const ctx = document.getElementById('expenseIncomeChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Total Expense', 'Total Income'],
+                    datasets: [{
+                        data: [totalExpense, totalIncome],
+                        backgroundColor: ['#F87171', '#4ADE80'],
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false, // Disable aspect ratio for custom height/width
+                    plugins: {
+                        legend: {
+                            position: 'bottom', // Options: 'top', 'left', 'bottom', 'right'
+                            labels: {
+                                color: '#FFFFFF', // Legend text color
+                                font: {
+                                    size: 14, // Font size
+                                    family: 'Arial', // Font family
+                                    weight: 'bold' // Font weight
+                                },
+                                padding: 20, // Padding around the legend items
+                                boxWidth: 20, // Width of the box showing the color
+                                boxHeight: 20, // Height of the box
+                            },
+                            align: 'start', // Options: 'start', 'center', 'end'
+                            onClick: (event, legendItem, legend) => {
+                                console.log(`Legend clicked: ${legendItem.text}`);
+                            }
+                        }
+                    }
+                }
+            });
+
+        }
+
+        // Fetch transactions from localStorage
+        const transactions = JSON.parse(localStorage.getItem('expenses')) || [];
+
+        // Function to calculate Total Expense, Total Income, and Net Worth
+        function calculateTotals() {
+            let totalExpense = 0;
+            let totalIncome = 0;
+
+            transactions.forEach(transaction => {
+                if (transaction.type === 'Expense') {
+                    totalExpense += transaction.amount;
+                } else if (transaction.type === 'Income') {
+                    totalIncome += transaction.amount;
+                } else if (transaction.type === 'Savings') {
+                    totalIncome += transaction.amount;  // Consider savings as part of income for net worth calculation
+                }
+            });
+
+            const netWorth = totalIncome - totalExpense;
+
+            // Update the UI with the calculated values
+            document.getElementById('totalExpense').textContent = `₹ ${totalExpense}`;
+            document.getElementById('totalIncome').textContent = `₹ ${totalIncome}`;
+            document.getElementById('netWorth').textContent = `₹ ${netWorth}`;
+
+            // Return the totals for use in the chart
+            return { totalExpense, totalIncome };
+        }
+
+        // Initialize the page
+        calculateTotals();
+        renderChart();
+    </script>
 </body>
 
 </html>

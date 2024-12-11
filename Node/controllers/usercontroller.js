@@ -21,9 +21,33 @@ const update = async (req, res) => {
     res.json(response)
 }
 
-const deletee = async (req,res) => {
+const deletee = async (req, res) => {
     let id = req.params.id
     let response = await user.findByIdAndDelete(id)
     res.json(response)
 }
-export { add, view, update, deletee }   
+
+const login = async (req, res) => {
+    const { email, password } = req.body
+    try {
+        let users = await user.findOne({ email: email })
+        if (!users) {
+            console.log("Ingane oruthan illa");
+            return res.status(404).json({ message: "Ingane oruthan illa" })
+        }
+        if (users.password === password) {
+            console.log("Mmm kerikko")
+            return res.json(users);
+        }
+        else {
+            console.log("Nee ini venda");
+            return res.status(401).json({ message: "Nee ini venda" })
+        }
+    }
+    catch (error) {
+        console.error("Entho Kozppand", error);
+        return res.status(500).json({ message: "Entho Kozppand" })
+
+    }
+}
+export { add, view, update, deletee, login }   
