@@ -15,6 +15,12 @@ const view = async (req, res) => {
     res.json(response)
 }
 
+const viewid = async (req, res) => {
+    let id = req.params.id
+    let response = await user.findById(id)
+    res.json(response)
+}
+
 const update = async (req, res) => {
     let id = req.params.id
     let response = await user.findByIdAndUpdate(id, req.body)
@@ -50,4 +56,4 @@ const login = async (req, res) => {
 
     }
 }
-export { add, view, update, deletee, login }   
+export { add, view, viewid, update, deletee, login }   

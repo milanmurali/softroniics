@@ -1,5 +1,5 @@
 import express from "express"
-import { add, deletee, login, update, view } from "../controllers/usercontroller.js"
+import { add, deletee, login, update, view, viewid } from "../controllers/usercontroller.js"
 
 const userRouter = express.Router()
 
@@ -9,6 +9,7 @@ userRouter.post("/login", login)
 
 
 userRouter.get("/view", view)
+userRouter.get("/viewid/:id", viewid)
 
 userRouter.put("/update/:id", update)
 

@@ -1,7 +1,9 @@
 import axios from 'axios'
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 export const NodeLogin = () => {
+  const nav = useNavigate()
 
 
   const [adddata, setadddata] = useState('')
@@ -21,6 +23,8 @@ export const NodeLogin = () => {
         localStorage.setItem('email', response.data.email)
         localStorage.setItem('password', response.data.password)
         alert("YEEESS")
+        nav('/profile')
+
       }
       else {
         alert("PODA")
