@@ -40,8 +40,8 @@ const login = async (req, res) => {
             return res.json(users);
         }
         else {
-            console.log("Nee ini venda");
-            return res.status(401).json({ message: "Nee ini venda" })
+            console.log("Noki Type cheyy");
+            return res.status(401).json({ message: "Noki Type cheyy" })
         }
     }
     catch (error) {

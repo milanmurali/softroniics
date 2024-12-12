@@ -13,11 +13,22 @@ export const NodeLogin = () => {
     event.preventDefault()
     try {
       let response = await axios.post('http://127.0.0.1:6969/api/user/login', adddata)
-      setadddata(adddata)
-      console.log(response);
+      console.log(response.data);
+
+      if (response.data) {
+        localStorage.setItem('id', response.data._id)
+        localStorage.setItem('name', response.data.name)
+        localStorage.setItem('email', response.data.email)
+        localStorage.setItem('password', response.data.password)
+        alert("YEEESS")
+      }
+      else {
+        alert("PODA")
+      }
     }
     catch (error) {
-      console.log(error);
+      console.log("CL", error);
+      console.error("CE", error)
     }
   }
   return (
