@@ -2,28 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export const NHome = () => {
-
-    const [adddata, setadddata] = useState('')
-
-
-    const change = (event) => {
-        setadddata({ ...adddata, [event.target.name]: event.target.value })
-    }
-    const submit = async (event) => {
-        event.preventDefault()
-        try {
-            let response = await axios.post('http://127.0.0.1:6969/api/user/add', adddata)
-            setadddata(adddata)
-            // console.log(data);
-            console.log(response);
-            fetchData();
-        }
-        catch (error) {
-            console.log(error);
-        }
-    }
-
-
+    // VIEW
     const [viewdata, setviewdata] = useState('');
 
     const fetchData = async () => {
@@ -52,6 +31,61 @@ export const NHome = () => {
         }
     }
 
+    // ADD 
+
+
+    const [adddata, setadddata] = useState({
+        name: '',
+        age: '',
+        email: '',
+        password: '',
+        image: null
+    })
+
+    const change = (event) => {
+        setadddata({ ...adddata, [event.target.name]: event.target.value })
+    }
+
+    const handlefile = (event) => {
+        setadddata({ ...adddata, image: event.target.files[0] });
+    };
+
+    const submit = async (event) => {
+
+        event.preventDefault()
+        const formData = new FormData();
+        formData.append("name", adddata.name);
+        formData.append("age", adddata.age);
+        formData.append("email", adddata.email);
+        formData.append("password", adddata.password);
+        formData.append("image", adddata.image);
+
+        console.log("adddata", adddata);
+        console.log("fde", [...formData.entries()]);
+
+        try {
+            let response = await axios.post('http://127.0.0.1:6969/api/user/add', formData,
+                {
+                    headers: {
+                        'Content-Type' : 'multipart/form-data',
+                    }
+                }
+            )
+            // console  .log(response.data);
+            fetchData();
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
+
+
+
+
+
     const [editmode, seteditmode] = useState(false)
     const [edituser, setedituser] = useState(null);
 
@@ -79,7 +113,6 @@ export const NHome = () => {
             console.error('Error updating user:', error);
         }
     };
-
     return (
         <div className="flex flex-col bg-gray-100 min-h-screen">
 
@@ -189,6 +222,12 @@ export const NHome = () => {
                                 className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400"
                                 required
                             />
+                        </div>
+                        {/* file  */}
+                        <div>
+                            <input
+                                onChange={handlefile}
+                                type="file" name="image" />
                         </div>
                         {/* Submit Button */}
                         <div className="flex space-x-4">
