@@ -85,7 +85,7 @@ export const NHome = () => {
 
             {/* Node View, Delete Section */}
             <div className="flex items-center justify-center min-h-screen">
-                    
+
                 <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-5xl">
                     <h1 className="text-2xl font-bold text-center mb-6">View Data</h1>
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -108,6 +108,7 @@ export const NHome = () => {
                                         <p className="text-gray-600">
                                             <strong>Password:</strong> {user.password}
                                         </p>
+                                        <img src={`http://127.0.0.1:6969/uploads/${user.image}`} />
                                     </div>
                                     <div className='flex flex-col'>
                                         <button

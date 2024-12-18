@@ -10,6 +10,20 @@ const add = async (req, res) => {
 
 }
 
+const uploadd = async (req, res) => {
+    try {
+        console.log(req.file);
+        let path = req.file.filename
+        const uploadfile = new user({ ...req.body, image: path })
+        const uploadedfile = await uploadfile.save()
+        res.json(uploadedfile)
+    }
+    catch (error) {
+        console.log(error);
+        res.json(error.message)
+    }
+}
+
 const view = async (req, res) => {
     let response = await user.find()
     res.json(response)
@@ -56,4 +70,4 @@ const login = async (req, res) => {
 
     }
 }
-export { add, view, viewid, update, deletee, login }   
+export { add, view, viewid, update, deletee, login, uploadd }   
