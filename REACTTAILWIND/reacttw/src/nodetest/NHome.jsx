@@ -61,17 +61,28 @@ export const NHome = () => {
         formData.append("image", adddata.image);
 
         console.log("adddata", adddata);
-        console.log("fde", [...formData.entries()]);
+        console.log("formData.entries", [...formData.entries()]);
 
         try {
+            // og 
             let response = await axios.post('http://127.0.0.1:6969/api/user/add', formData,
                 {
                     headers: {
-                        'Content-Type' : 'multipart/form-data',
+                        'Content-Type': 'multipart/form-data'
                     }
                 }
             )
-            // console  .log(response.data);
+            console.log("response.data".response.data);
+
+            // gpt worked  
+            const response = await fetch('http://localhost:6969/api/user/upload', {
+                method: 'POST',
+                body: formData,
+            });
+            const result = await response.json();
+            console.log(result);
+
+
             fetchData();
         }
         catch (error) {
