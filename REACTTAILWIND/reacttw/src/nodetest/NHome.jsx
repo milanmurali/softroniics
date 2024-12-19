@@ -123,44 +123,59 @@ export const NHome = () => {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         {viewdata.length > 0 ? (
                             viewdata.map((user) => (
+
                                 <div
                                     key={user._id}
-                                    className=" flex justify-between p-4 border border-gray-300 rounded-lg bg-gray-50 shadow-sm"
+                                    className="flex flex-col justify-between p-4 border border-gray-300 rounded-lg bg-gray-50 shadow-sm"
                                 >
-                                    <div>
-                                        <p className="text-lg font-medium">
-                                            <strong>Name:</strong> {user.name}
-                                        </p>
-                                        <p className="text-gray-600">
-                                            <strong>Age:</strong> {user.age}
-                                        </p>
-                                        <p className="text-gray-600">
-                                            <strong>Email:</strong> {user.email}
-                                        </p>
-                                        <p className="text-gray-600">
-                                            <strong>Password:</strong> {user.password}
-                                        </p>
-                                        <img src={`http://127.0.0.1:6969/uploads/${user.image}`} />
+                                    <div className='flex justify-between'>
+                                        <div>
+                                            <p className="text-lg font-medium">
+                                                <strong>Name:</strong> {user.name}
+                                            </p>
+                                            <p className="text-gray-600">
+                                                <strong>Age:</strong> {user.age}
+                                            </p>
+                                            <p className="text-gray-600">
+                                                <strong>Email:</strong> {user.email}
+                                            </p>
+                                            <p className="text-gray-600">
+                                                <strong>Password:</strong> {user.password}
+                                            </p>
+
+                                        </div>
+
+                                        <div className='flex flex-col'>
+                                            <button
+                                                onClick={() => { openEditModal(user); }}
+                                            >
+                                                <img
+                                                    className='w-10 hover:bg-slate-200 p-2'
+                                                    src="https://img.icons8.com/?size=100&id=114092&format=png&color=000000"
+                                                    alt="" />
+                                            </button>
+                                            <button
+                                                onClick={() => del(user._id)}
+                                            >
+                                                <img
+                                                    className='w-10 hover:bg-slate-200 p-2'
+                                                    src="https://img.icons8.com/?size=100&id=DsfKIIZjz707&format=png&color=000000"
+                                                    alt="" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className='flex flex-col'>
-                                        <button
-                                            onClick={() => { openEditModal(user); }}
-                                        >
+                                    {user.image && (
+                                        <div className='p-4'>
                                             <img
-                                                className='w-10 hover:bg-slate-200 p-2'
-                                                src="https://img.icons8.com/?size=100&id=114092&format=png&color=000000"
-                                                alt="" />
-                                        </button>
-                                        <button
-                                            onClick={() => del(user._id)}
-                                        >
-                                            <img
-                                                className='w-10 hover:bg-slate-200 p-2'
-                                                src="https://img.icons8.com/?size=100&id=DsfKIIZjz707&format=png&color=000000"
-                                                alt="" />
-                                        </button>
-                                    </div>
+                                                src={`http://127.0.0.1:6969/uploads/${user.image}`}
+                                                alt="Uploaded IMG"
+                                                className="w-full object-cover rounded-md"
+                                            />
+                                        </div>
+                                    )}
+
                                 </div>
+
                             ))
                         ) : (
                             <p className="text-center text-gray-500 col-span-full">Loading data...</p>
