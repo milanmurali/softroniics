@@ -39,6 +39,7 @@ import { AddtoCart, Cart } from './Redux/Cart/Cart';
 import { NHome } from './nodetest/NHome';
 import { NodeLogin } from './nodetest/NodeLogin';
 import { NodeProfile } from './nodetest/NodeProfile';
+import NodeRegister from './nodetest/NodeRegister';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -98,6 +99,7 @@ root.render(
           <Route path="/profile" element={<NodeProfile />}> </Route>
           <Route path="/login" element={<NodeLogin />}> </Route>
           <Route path="/home" element={<NHome />}> </Route>
+          <Route path="/" element={<NodeRegister />}> </Route>
         </Route>
       </Routes>
     </BrowserRouter>

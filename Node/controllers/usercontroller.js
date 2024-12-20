@@ -1,4 +1,5 @@
 import { request, response } from "express";
+import bcrypt from "bcrypt"
 import user from "../models/userschema.js"
 
 
@@ -8,6 +9,23 @@ const add = async (req, res) => {
     res.json(response)
     console.log(response);
 
+}
+
+const register = async (req, res) => {
+    try {
+        let hashpass = await bcrypt.hash(req.body.password, 10) //hashing password
+        console.log("hashpass",hashpass);
+
+        let newuser = new user(req.body)
+        newuser.password = hashpass
+        let response = await newuser.save()
+        
+        res.json(response)
+        console.log(response);
+    }
+    catch (error) {
+        console.log(error);
+    }
 }
 
 const uploadd = async (req, res) => {
@@ -70,4 +88,7 @@ const login = async (req, res) => {
 
     }
 }
-export { add, view, viewid, update, deletee, login, uploadd }   
+
+
+
+export { add, view, viewid, update, deletee, login, uploadd, register }   
