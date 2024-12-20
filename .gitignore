@@ -8,7 +8,7 @@ C/.vscode/
 # Ignore specific folders
 Tests/
 MyWorks/
-
+REACTCRYPTIFY/
 # Ignore specific files
 .gitignore
 
