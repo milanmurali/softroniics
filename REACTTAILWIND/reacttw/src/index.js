@@ -40,6 +40,8 @@ import { NHome } from './nodetest/NHome';
 import { NodeLogin } from './nodetest/NodeLogin';
 import { NodeProfile } from './nodetest/NodeProfile';
 import NodeRegister from './nodetest/NodeRegister';
+import { TaskLogin } from './TaskNode/TaskLogin';
+import { TaskRegister } from './TaskNode/TaskRegister';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -93,13 +95,23 @@ root.render(
 
 
     {/* node */}
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Routes>
         <Route>
           <Route path="/profile" element={<NodeProfile />}> </Route>
           <Route path="/login" element={<NodeLogin />}> </Route>
           <Route path="/home" element={<NHome />}> </Route>
           <Route path="/" element={<NodeRegister />}> </Route>
+        </Route>
+      </Routes>
+    </BrowserRouter> */}
+
+    {/* Task Node  */}
+    <BrowserRouter>
+      <Routes>
+        <Route>
+          <Route path="/login" element={<TaskLogin />}> </Route>
+          <Route path="/register" element={<TaskRegister />}> </Route>
         </Route>
       </Routes>
     </BrowserRouter>
