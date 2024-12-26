@@ -17,4 +17,9 @@ const view = async (req, res) => {
     res.json(response)
 }
 
-export { add, view }
+const deletee = async (req, res) => {
+    let id = req.params.id
+    let response = await task.findByIdAndDelete(id)
+    res.json(response)
+}
+export { add, view, deletee }

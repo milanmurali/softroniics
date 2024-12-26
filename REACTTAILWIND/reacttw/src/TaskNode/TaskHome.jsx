@@ -83,13 +83,27 @@ const TaskHome = () => {
         try {
             let response = await axios.post('http://127.0.0.1:6969/task/add', addtask)
             console.log(response);
+            fetchtasks();
+            closeModal();
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+    // delete task
+    const deletetask = async (id) => {
+        try {
+            let response = await axios.delete(`http:///127.0.0.1:6969/task/delete/${id}`)
+            console.log(response);
+            fetchtasks();
         }
         catch (error) {
             console.log(error);
         }
     }
     return (
-        <div className="min-h-screen bg-gray-50 font-mono">
+        <div className="min-h-screen font-mono">
             {/* nav */}
             <div className="bg-teal-500 px-4 py-6 shadow-md container mx-auto flex justify-between items-center">
                 <div>
@@ -112,13 +126,14 @@ const TaskHome = () => {
             <div className="container mx-auto px-4">
                 {/* Welcome Message */}
                 <div>
-                    <p className="text-gray-800 text-2xl font-semibold my-4 capitalize">
+                    <p className="text-gray-800 text-2xl font-semibold px-8 py-4 capitalize">
                         Welcome, {viewuserdata.name}
                     </p>
+                    
                 </div>
                 {/* Todo List Section */}
                 <main className="">
-                    <div className="bg-white px-4 py-4 rounded-lg shadow-md max-w-7xl mx-auto">
+                    <div className="bg-white px-4 py-4 rounded-lg mx-auto">
                         <h3 className="text-xl font-semibold text-gray-800 mb-4">Your Tasks</h3>
                         <div className="space-y-4">
                             {tasks && tasks.length > 0 ? (
@@ -131,9 +146,18 @@ const TaskHome = () => {
                                             <h4 className="text-lg font-semibold text-gray-800">{task.title}</h4>
                                             <p className="text-sm text-gray-600">{task.description}</p>
                                         </div>
-                                        <button className="bg-red-500 text-white py-1 px-3 rounded-md hover:bg-red-600 transition duration-200">
-                                            Delete
-                                        </button>
+
+                                        <div className='space-x-4'>
+                                            <button
+                                                className="bg-white text-teal-500 py-2 px-4 rounded-md font-semibold hover:bg-teal-500 hover:text-white shadow transition duration-200">
+                                                Edit
+                                            </button>
+                                            <button
+                                                onClick={() => deletetask(task._id)}
+                                                className="bg-white text-teal-500 py-2 px-4 rounded-md font-semibold hover:bg-red-500 hover:text-white shadow transition duration-200">
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
                                 ))
                             ) : (
@@ -145,10 +169,11 @@ const TaskHome = () => {
             </div>
 
             {/* Footer */}
-            <div className="fixed bottom-0 bg-gray-100 text-center py-4 w-full">
+            {/* <div className="fixed bottom-0 bg-gray-100 text-center py-4 w-full">
                 <p className="text-sm text-gray-500">© 2024 MM. All rights reserved.</p>
-            </div>
+            </div> */}
 
+            {/* add modal  */}
             {modal && (
                 <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm flex items-center justify-center z-50">
 
@@ -169,54 +194,59 @@ const TaskHome = () => {
                         <div className="flex items-center justify-around">
                             <div className="">
                                 <form onSubmit={taskaddsubmit}>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="title">
-                                            Title
-                                        </label>
-                                        <input
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                            id="title"
-                                            name='title'
-                                            onChange={taskaddchange}
-                                            type="text"
-                                            placeholder="Enter task title"
-                                        />
+                                    <div className='flex justify-between space-x-4'>
+                                        {/* title  */}
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700 text-sm font-bold mb-2">Title</label>
+                                            <input
+                                                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 transition duration-200"
+                                                id="title"
+                                                name='title'
+                                                onChange={taskaddchange}
+                                                type="text"
+                                                placeholder="Enter task title"
+                                            />
+                                        </div>
+                                        {/* status  */}
+                                        <div className="mb-4">
+                                            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="status">
+                                                Status
+                                            </label>
+                                            <select
+                                                className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full p-2.5 transition duration-200'
+                                                id="status"
+                                                name="status"
+                                                onChange={taskaddchange}
+                                            >
+                                                <option className='bg-teal-500 text-white' value="pending">Pending</option>
+                                                <option className="bg-teal-500 text-white" value="completed">Completed</option>
+                                            </select>
+                                        </div>
                                     </div>
+
+                                    {/* description  */}
                                     <div className="mb-4">
                                         <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="description">
                                             Description
                                         </label>
                                         <textarea
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                            className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 h-28 w-full p-2.5 transition duration-200'
                                             id="description"
                                             name="description"
                                             onChange={taskaddchange}
                                             placeholder="Enter task description"
                                         />
                                     </div>
-                                    <div className="mb-4">
-                                        <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="status">
-                                            Status
-                                        </label>
-                                        <select
-                                            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                            id="status"
-                                            name="status"
-                                            onChange={taskaddchange}
-                                        >
-                                            <option value="pending">Pending</option>
-                                            <option value="completed">Completed</option>
-                                        </select>
-                                    </div>
+
                                     <div className="flex items-center justify-between">
                                         <button
-                                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-200"
                                             type="submit"
                                         >
                                             Add Task
                                         </button>
                                         <button
-                                            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                                            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-200"
                                             type="reset"
                                         >
                                             Reset
