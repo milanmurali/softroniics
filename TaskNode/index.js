@@ -16,4 +16,4 @@ app.use('/user', userRouter)
 
 app.listen(6969, () => {
     console.log("Task Node Server Running on 6969");
-})
+}) 

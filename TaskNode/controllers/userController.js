@@ -1,6 +1,31 @@
 import bcrypt from "bcrypt"
 import user from "../models/userschema.js"
 
+const login = async (req, res) => {
+    const { email, password } = req.body
+    try {
+        let users = await user.findOne({ email: email })
+        if (!users) {
+            console.log("User Not Found");
+            return res.status(404).json({ message: "User Not Found" })
+        }
+        let isMatch = await bcrypt.compare(password, users.password);
+        if (isMatch) {
+            console.log("Login Succesful");
+            return res.status(200).json(users);
+        }
+        else {
+            console.log("Credential Mismatch");
+            return res.status(401).json({ message: "Credential Mismatch" })
+        }
+    }
+    catch (error) {
+        console.error("Internal Server Error", error);
+        return res.status(500).json({ message: "Internal Server Error" })
+
+    }
+}
+
 const register = async (req, res) => {
     try {
         console.log("req.body", req.body);
@@ -41,31 +66,5 @@ const deletee = async (req, res) => {
     let response = await user.findByIdAndDelete(id)
     res.json(response)
 }
-
-const login = async (req, res) => {
-    const { email, password } = req.body
-    try {
-        let users = await user.findOne({ email: email })
-        if (!users) {
-            console.log("User Not Found");
-            return res.status(404).json({ message: "User Not Found" })
-        }
-        if (users.password === password) {
-            console.log("Login Succesful");
-            return res.json(users);
-        }
-        else {
-            console.log("Credential Mismatch");
-            return res.status(401).json({ message: "Credential Mismatch" })
-        }
-    }
-    catch (error) {
-        console.error("Internal Server Error", error);
-        return res.status(500).json({ message: "Internal Server Error" })
-
-    }
-}
-
-
 
 export { view, viewid, update, deletee, login, register }   

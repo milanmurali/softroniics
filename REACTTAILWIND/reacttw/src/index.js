@@ -42,6 +42,7 @@ import { NodeProfile } from './nodetest/NodeProfile';
 import NodeRegister from './nodetest/NodeRegister';
 import { TaskLogin } from './TaskNode/TaskLogin';
 import { TaskRegister } from './TaskNode/TaskRegister';
+import TaskHome from './TaskNode/TaskHome';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -86,10 +87,10 @@ root.render(
           <Route>
             <Route path="/" element={<Fcart />}> </Route>
             <Route path="/cart" element={<Cart />}> </Route>
-            </Route>
-            </Routes>
-            </BrowserRouter>
-            </Provider> */}
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </Provider> */}
 
 
 
@@ -112,6 +113,9 @@ root.render(
         <Route>
           <Route path="/login" element={<TaskLogin />}> </Route>
           <Route path="/register" element={<TaskRegister />}> </Route>
+          <Route path="/home" element={<TaskHome />}> </Route>
+          <Route path="/ref" element={<UserInputTodo />}> </Route>
+
         </Route>
       </Routes>
     </BrowserRouter>

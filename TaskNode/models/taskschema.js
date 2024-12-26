@@ -14,8 +14,8 @@ let taskschema = new mongoose.Schema({
     status: {
         type: String,
         required: true
-    },
-    date: {
+    }, 
+    loggedinuser: {
         type: String,
         required: true
     }
