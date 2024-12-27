@@ -8,7 +8,7 @@ const TaskHome = () => {
 
     // get id from localStorage
     let id = localStorage.getItem('id')
-    console.log("LocalStorage ID : ", id);
+    // console.log("LocalStorage ID : ", id);
 
     // get userdata using localstorage id 
     const [viewuserdata, setviewuserdata] = useState('');
@@ -41,7 +41,7 @@ const TaskHome = () => {
 
     const fetchtasks = async () => {
         try {
-            let response = await axios.get('http://127.0.0.1:6969/task/view')
+            let response = await axios.get(`http://127.0.0.1:6969/task/viewid/${id}`);
             settasks(response.data)
             console.log(tasks);
         }

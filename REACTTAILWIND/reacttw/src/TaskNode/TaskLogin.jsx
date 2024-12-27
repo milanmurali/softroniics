@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
+
 
 export const TaskLogin = () => {
 
@@ -18,21 +20,18 @@ export const TaskLogin = () => {
 
             if (response.status === 200) {
                 localStorage.setItem('id', response.data._id)
-                alert("Login successful!")
-                nav('/home')
+                toast.success('Login Successful')
+                // nav('/home')
             }
         }
         catch (error) {
             if (error.response) {
                 if (error.response.status === 404) {
-                    alert("User not found")
+                    toast.error('User not found')
+
                 }
                 else if (error.response.status === 401) {
-                    alert("Credential Mismatch")
-                }
-                else {
-                    alert("Internal server error")
-                    console.log(error)
+                    toast.error('Credential mismatch')
                 }
             }
             else {
@@ -41,8 +40,12 @@ export const TaskLogin = () => {
             }
         }
     }
+
+    const notify = () => toast('Here is your toast.');
     return (
+
         <div className="flex items-center justify-center min-h-screen bg-teal-500">
+            <Toaster />
             <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg">
                 <h2 className="text-3xl text-center text-gray-900 font-semibold">Login</h2>
                 <form className="space-y-6" onSubmit={submit}>
@@ -75,6 +78,7 @@ export const TaskLogin = () => {
                     >
                         Login
                     </button>
+
                 </form>
             </div>
         </div>
