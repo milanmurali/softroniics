@@ -16,10 +16,14 @@ const view = async (req, res) => {
     let response = await task.find()
     res.json(response)
 }
-
+const update = async (req, res) => {
+    let id = req.params.id
+    let response = await task.findByIdAndUpdate(id, req.body)
+    res.json(response)
+}
 const deletee = async (req, res) => {
     let id = req.params.id
     let response = await task.findByIdAndDelete(id)
     res.json(response)
 }
-export { add, view, deletee }
+export { add, view, update, deletee }
