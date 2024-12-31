@@ -7,10 +7,19 @@ C/.vscode/
 
 # Ignore specific folders
 Tests/
-MyWorks/
-REACTCRYPTIFY/
 # Ignore specific files
 .gitignore
+.env
 
 # Ignore built Visual Studio Code Extensions
 *.vsix
+
+# Ignore .env files
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# Ignore backup or temporary files
+.env.*
