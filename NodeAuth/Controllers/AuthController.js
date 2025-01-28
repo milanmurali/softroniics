@@ -23,7 +23,7 @@ export async function login(req, res) {
             return res.status(401).json({ message: "Invalid Credentials" });
         }
         const token = jwt.sign({ userid: userexists._id, email: userexists.email }, process.env.JWTKEY, { expiresIn: "1h" });
-        return res.status(201).json({ message: "User Logged In. Token", token });
+        return res.status(200).json({ message: "User Logged In. Token", token });
     }
     catch (error) {
         console.error("Internal Server Error", error);

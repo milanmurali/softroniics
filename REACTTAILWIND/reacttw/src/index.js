@@ -43,12 +43,14 @@ import NodeRegister from './nodetest/NodeRegister';
 import { TaskLogin } from './TaskNode/TaskLogin';
 import { TaskRegister } from './TaskNode/TaskRegister';
 import TaskHome from './TaskNode/TaskHome';
+import { CELogin } from './CE/CELogin';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
 
 
+  <CELogin/>
     {/* Business */}
     {/* <BrowserRouter>
       <Routes>
@@ -69,9 +71,9 @@ root.render(
         </Routes>
         </BrowserRouter> */}
 
-    {/* <LanguageProvider>
+    <LanguageProvider>
       <MultiLang/>
-      </LanguageProvider> */}
+      </LanguageProvider>
 
     {/* <ThemeProvider>
       <TestTheme />
@@ -108,7 +110,7 @@ root.render(
     </BrowserRouter> */}
 
     {/* Task Node  */}
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <Routes>
         <Route>
           <Route path="/login" element={<TaskLogin />}> </Route>
@@ -118,7 +120,7 @@ root.render(
 
         </Route>
       </Routes>
-    </BrowserRouter>
+    </BrowserRouter> */}
 
 
     {/* <UserInputTodo/>   */}
