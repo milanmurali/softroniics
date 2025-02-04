@@ -50,18 +50,18 @@ root.render(
   <React.StrictMode>
 
 
-  <CELogin/>
+    {/* <CELogin/> */}
     {/* Business */}
     {/* <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Business />}> </Route>
+        <Route path="/" element={<Business />}> </Route>
         <Route path="/home" element={<Business />}> </Route>
         <Route path="/bisabout" element={<BisAbout />}> </Route>
         <Route path="/biscontact" element={<BisContact />}> </Route>
         <Route path="/bislogin" element={<BisLogin />}> </Route>
         <Route path="/bissignup" element={<BisSignup />}> </Route>
-        </Routes>
-        </BrowserRouter> */}
+      </Routes>
+    </BrowserRouter> */}
 
     {/* MovieDB */}
     {/* <BrowserRouter>
@@ -71,9 +71,9 @@ root.render(
         </Routes>
         </BrowserRouter> */}
 
-    <LanguageProvider>
+    {/* <LanguageProvider>
       <MultiLang/>
-      </LanguageProvider>
+      </LanguageProvider> */}
 
     {/* <ThemeProvider>
       <TestTheme />
@@ -83,7 +83,7 @@ root.render(
       </Provider> */}
 
     {/* Flipkart */}
-    {/* <Provider store={Store}>
+    <Provider store={Store}>
       <BrowserRouter>
         <Routes>
           <Route>
@@ -92,7 +92,7 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </Provider> */}
+    </Provider>
 
 
 
@@ -110,17 +110,14 @@ root.render(
     </BrowserRouter> */}
 
     {/* Task Node  */}
-    {/* <BrowserRouter>
+    <BrowserRouter>
       <Routes>
-        <Route>
           <Route path="/login" element={<TaskLogin />}> </Route>
           <Route path="/register" element={<TaskRegister />}> </Route>
           <Route path="/home" element={<TaskHome />}> </Route>
           <Route path="/ref" element={<UserInputTodo />}> </Route>
-
-        </Route>
       </Routes>
-    </BrowserRouter> */}
+    </BrowserRouter>
 
 
     {/* <UserInputTodo/>   */}
