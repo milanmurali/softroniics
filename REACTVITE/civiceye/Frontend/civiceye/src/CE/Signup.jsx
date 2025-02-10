@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import celogofull from '../assets/celogofull.png'
+import celogofullpng from '../assets/celogofull.png'
 import { Link } from "react-router-dom";
+
+
 export const Signup = () => {
 
   const [signindata, setsignindata] = useState('')
@@ -28,7 +30,7 @@ export const Signup = () => {
         {/* Left Section */}
         <div className="w-full md:w-1/2 flex flex-col justify-between items-center p-8 border-b-2 md:border-b-0 md:border-r-2 border-gray-500">
 
-          <img width="200px" src={celogofull} alt="Civic Eye Logo" />
+          <img width="200px" src={celogofullpng} alt="Civic Eye Logo" />
 
           <p className="text-gray-700 text-center text-xl">
             Welcome to CivicEye!

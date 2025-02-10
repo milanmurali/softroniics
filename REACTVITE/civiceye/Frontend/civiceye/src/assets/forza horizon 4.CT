@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="27">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>8</ID>
+      <Description>"Unlimited Credits"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>{ Game   : ForzaHorizon4.exe
+  Version:
+  Date   : 2018-11-15
+  Author : STN
+
+  This script does blah blah blah
+}
+
+[ENABLE]
+
+aobscanmodule(monies,ForzaHorizon4.exe,48 8D 4C 24 50 38 07 75 31 48 8D 57 16 E8 6A) // should be unique
+alloc(newmem,$1000,monies)
+
+label(code)
+label(monypts)
+registersymbol(monypts)
+label(return)
+
+newmem:
+mov [monypts], rdi
+ mov [rdi], (float)5.570718539E-11
+code:
+  lea rcx,[rsp+50]
+  jmp return
+
+monypts:
+dd 0
+dd 0
+
+monies:
+  jmp newmem
+return:
+registersymbol(monies)
+
+[DISABLE]
+
+monies:
+  db 48 8D 4C 24 50
+
+unregistersymbol(monies)
+dealloc(newmem)
+
+{
+// ORIGINAL CODE - INJECTION POINT: "ForzaHorizon4.exe"+9CAAEA
+
+"ForzaHorizon4.exe"+9CAAC3: E8 08 F0 E1 01              -  call ForzaHorizon4.exe+27E9AD0
+"ForzaHorizon4.exe"+9CAAC8: 48 8B D8                    -  mov rbx,rax
+"ForzaHorizon4.exe"+9CAACB: 48 89 44 24 68              -  mov [rsp+68],rax
+"ForzaHorizon4.exe"+9CAAD0: 48 83 38 00                 -  cmp qword ptr [rax],00
+"ForzaHorizon4.exe"+9CAAD4: 74 0A                       -  je ForzaHorizon4.exe+9CAAE0
+"ForzaHorizon4.exe"+9CAAD6: 48 8B C8                    -  mov rcx,rax
+"ForzaHorizon4.exe"+9CAAD9: FF 15 69 DB 28 07           -  call qword ptr [ForzaHorizon4.exe+7C58648]
+"ForzaHorizon4.exe"+9CAADF: 90                          -  nop
+"ForzaHorizon4.exe"+9CAAE0: 0F B6 47 15                 -  movzx eax,byte ptr [rdi+15]
+"ForzaHorizon4.exe"+9CAAE4: 41 B8 04 00 00 00           -  mov r8d,00000004
+// ---------- INJECTING HERE ----------
+"ForzaHorizon4.exe"+9CAAEA: 48 8D 4C 24 50              -  lea rcx,[rsp+50]
+// ---------- DONE INJECTING  ----------
+"ForzaHorizon4.exe"+9CAAEF: 38 07                       -  cmp [rdi],al
+"ForzaHorizon4.exe"+9CAAF1: 75 31                       -  jne ForzaHorizon4.exe+9CAB24
+"ForzaHorizon4.exe"+9CAAF3: 48 8D 57 16                 -  lea rdx,[rdi+16]
+"ForzaHorizon4.exe"+9CAAF7: E8 6A 29 79 07              -  call ForzaHorizon4.exe+815D466
+"ForzaHorizon4.exe"+9CAAFC: 4C 8D 44 24 50              -  lea r8,[rsp+50]
+"ForzaHorizon4.exe"+9CAB01: 33 C0                       -  xor eax,eax
+"ForzaHorizon4.exe"+9CAB03: 8D 50 B4                    -  lea edx,[rax-4C]
+"ForzaHorizon4.exe"+9CAB06: 41 32 10                    -  xor dl,[r8]
+"ForzaHorizon4.exe"+9CAB09: 48 63 C8                    -  movsxd  rcx,eax
+"ForzaHorizon4.exe"+9CAB0C: 88 54 0C 58                 -  mov [rsp+rcx+58],dl
+}
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols/>
+  <Signature>
+    <SignedHash HashSize="132">0P(g_lg0Y-R3s}_ff=G:[$e?1c+W#:JLU4;WR.^$8bkN}rc7D4S%nA-1dZ3#K^/q@%)NY(^69?1YVv8g$U@}UtNf:r#}_R@6a5x-Y%Jus;t);uJB1F4$ccVnlO([sr%J6jXOHPtaKl;njnOLMJ-fNL,(Pt9mV*vJi^5L;</SignedHash>
+    <PublicKey Size="323">CIA2cQ*y;zWn;@=c[33%PA({!W?TY:Y-MwEa%FaJY._.LZ+DGQZ+7bK0RTlqQ#C;W0005Nd,bJ2aZE/{)[g11up9}h-h:-.dX$Uuo2VIuNbG}FhM]dZ#F:19Q6J:.CY;JLUaF*Mrd8hw-g)veO^]y50Hd.{,W0_9?LWuhaP;2ppkn4$7Y!dKb/Aeyh:tak?g:=Mm-^:roKW*lYux:Bhn+^XD$QxcDlO-dP#I-fZqfjR00000]a2MWq]^#OcC8[@8@,;xC6y6sxu8!wf!iwb0L?tW$X=KGvY^9wq*=V9qQGF7nXROuac2jA,(]93D2MoSwgKx[eGGEl3E)EVab)@s3AQ;:O2*kNW8tNa^qZY@-2SQt!ezy}CNwBZU}+!+xt.pI1#uB!K63o%OXpGRw+dA</PublicKey>
+  </Signature>
+</CheatTable>
