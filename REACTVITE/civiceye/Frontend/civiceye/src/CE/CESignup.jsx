@@ -3,7 +3,7 @@ import celogofullpng from '../assets/celogofull.png'
 import { Link } from "react-router-dom";
 
 
-export const Signup = () => {
+export const CESignup = () => {
 
   const [signindata, setsignindata] = useState('')
 
@@ -148,4 +148,4 @@ export const Signup = () => {
   );
 };
 
-export default Signup;
+export default CESignup;

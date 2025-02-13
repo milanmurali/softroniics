@@ -1,6 +1,8 @@
+
+html, body {
+    font-family: "Questrial";
+    overflow-x: hidden;
+}
+
 @import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
-
-body {
-    font-family: "Questrial";
-}

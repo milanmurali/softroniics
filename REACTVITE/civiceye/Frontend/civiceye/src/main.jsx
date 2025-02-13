@@ -6,8 +6,8 @@ import './index.css'
 
 import { CELogin } from './CE/CELogin.jsx'
 import { CEUserProfile } from './CE/CEUserProfile.jsx'
-import { Signup } from './CE/Signup.jsx'
-import { CEHomePage } from './CE/CEHomePage.jsx'
+import { CESignup } from './CE/CESignup.jsx'
+import { CEGuestHomePage } from './CE/CEGuestHomePage.jsx'
 import { KHome } from './Testss/KHome.jsx'
 
 createRoot(document.getElementById('root')).render(
@@ -16,17 +16,12 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
 
-        <Route path="/" element={<CELogin />} />
+        <Route path='/' element={<CEGuestHomePage />} />
         <Route path="/login" element={<CELogin />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route path="/signup" element={<CESignup />} />
         <Route path='/userprofile' element={<CEUserProfile />} />
-        <Route path='/ghome' element={<CEHomePage />} />
 
 
-
-
-
-        
         <Route path='/khome' element={<KHome />} />
 
 
