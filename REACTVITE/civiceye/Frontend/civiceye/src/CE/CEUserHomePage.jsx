@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel'; // Import the Carousel Component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Carousel CSS
 import AOS from 'aos'; // Import the AOS Library
 import 'aos/dist/aos.css'; // Import the AOS CSS
 import celogofullpng from '../assets/celogofull.png' // Import the CivicEye Logo
 import porsche from '../assets/porsche.jpg' // Import the Porsche Image
+import { CEComplaintRegisterPopup } from './CEComplaintRegisterPopup';
 
-export const CEGuestHomePage = () => {
+export const CEUserHomePage = () => {
 
     AOS.init(); // Initialize AOS Library
-    
-    const [menuOpen, setMenuOpen] = useState(false); //  navbar hamburger state
 
-    const [popupOpen, setPopupOpen] = useState(false); //  popup state
-    
+    const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
+    const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
+    const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
+
+
+
     return (
         <div>
 
-
-            {/* the nav  */}
+            {/* Navbar */}
             <div className="flex justify-between items-center p-4 bg-white shadow-md sticky top-0 w-full z-50">
-                {/* Logo */}
-                <div className="flex items-center">
+                {/* Logo on the Left */}
+                <div>
                     <Link to="/">
                         <img
                             src={celogofullpng}
@@ -34,38 +36,107 @@ export const CEGuestHomePage = () => {
                     </Link>
                 </div>
 
-                {/* Desktop Menu */}
-                <div className="hidden md:flex space-x-6">
-                    <Link to="/" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
-                    <Link to="/about" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
-                    <Link to="/contact" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
-                    <Link to="/login" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition">Login</Link>
-                </div>
-
-                {/* Mobile Login Button and Dropdown Menu */}
-                <div className="md:hidden">
-                    <div className="space-x-6">
-                        {/* Mobile Login Button */}
-                        <Link to="/login" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition" onClick={() => setMenuOpen(false)}>
-                            Login
+                {/* Desktop Menu: Nav Links + Profile Dropdown */}
+                <div className="hidden md:flex items-center space-x-4 ">
+                    {/* Nav Links */}
+                    <div className="flex space-x-4">
+                        <Link to="/" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                            Home
                         </Link>
-
-                        {/* Mobile Menu Button */}
-                        <button onClick={() => setMenuOpen(!menuOpen)}>
-                            {menuOpen ? <div className=''>✖</div> : <div>☰</div>}
-                        </button>
+                        <Link to="/mycomplaints" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                            My Complaints
+                        </Link>
+                        <Link to="/about" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                            About
+                        </Link>
+                        <Link to="/contact" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                            Contact
+                        </Link>
                     </div>
 
-                    {/* Mobile Dropdown Menu */}
-                    {menuOpen && (
-                        <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center">
-                            <Link to="/" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Home</Link>
-                            <Link to="/about" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>About</Link>
-                            <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Contact</Link>
-                        </div>
-                    )}
+                    {/* Profile Dropdown Button */}
+                    <div className="relative rounded text-gray-700 hover:bg-gray-200 transition">
+                        <button
+                            onClick={() => setProfileOpen(!profileOpen)}
+                            className="flex items-center space-x-2 p-2 focus:outline-none"
+                        >
+                            <img
+                                src="https://img.icons8.com/?size=100&id=7819&format=png&color=00B9FF"
+                                alt="Profile Icon"
+                                className="w-8 h-8 "
+                            />
+                            <span className="text-gray-700 font-normal">Username</span>
+                            <img
+                                src="https://img.icons8.com/?size=100&id=fZGbT6FrWkSx&format=png&color=000000"
+                                alt="Down Arrow"
+                                className="w-4 h-4"
+                            />
+                        </button>
+
+                        {profileOpen && (
+                            <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200 py-2">
+                                <Link
+                                    to="/profile"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => setProfileOpen(false)}
+                                >
+                                    Profile
+                                </Link>
+                                <Link
+                                    to="/delete-account"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => setProfileOpen(false)}
+                                >
+                                    Delete Account
+                                </Link>
+                                <Link
+                                    to="/logout"
+                                    className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
+                                    onClick={() => setProfileOpen(false)}
+                                >
+                                    Logout
+                                </Link>
+                            </div>
+                        )}
+                    </div>
                 </div>
+
+                {/* Mobile Section */}
+                <div className="md:hidden flex items-center">
+                    <button onClick={() => setMenuOpen(!menuOpen)} className="p-2 focus:outline-none text-2xl">
+                        {menuOpen ? "✖" : "☰"}
+                    </button>
+                </div>
+
+                {/* Mobile Dropdown Menu */}
+                {menuOpen && (
+                    <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden">
+                        <Link to="/" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            Home
+                        </Link>
+                        <Link to="/mycomplaints" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            My Complaints
+                        </Link>
+                        <Link to="/about" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            About
+                        </Link>
+                        <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            Contact
+                        </Link>
+                        <hr className="w-full border-gray-200" />
+                        <Link to="/profile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            Profile
+                        </Link>
+                        <Link to="/delete-account" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            Delete Account
+                        </Link>
+                        <Link to="/logout" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                            Logout
+                        </Link>
+                    </div>
+                )}
             </div>
+
 
             {/* Carousel  */}
             <Carousel
@@ -90,29 +161,70 @@ export const CEGuestHomePage = () => {
 
             </Carousel>
 
-            {/* Hero Section */}
-            <div className="relative h-[70vh] bg-[#1A1A1A] text-white flex flex-col items-center justify-center text-center px-6 md:px-12">
-                {/* Hero Content */}
-                <div className="max-w-3xl">
-                    <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-                        Make Your Voice Heard!
-                    </h1>
-                    <p className="text-lg md:text-xl mt-4 opacity-90">
-                        Report Problems, Help Your City, and Earn Rewards!
-                    </p>
+            {/* Full Screen Popup */}
+            {popupOpen && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-75">
+                    <div className="relative w-full h-full flex items-center justify-center">
+                        <CEComplaintRegisterPopup />
 
-                    {/* Call-to-Action Button */}
-                    <a href='/signup'>
-
-                        <button className="mt-6 bg-[#00B9FF] px-8 py-3 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out">
-                            Sign Up Now!
+                        <button
+                            onClick={() => setPopupOpen(false)}
+                            className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
+                        >
+                            ✖
                         </button>
-                    </a>
+                    </div>
                 </div>
+            )}
+
+            {/* Register Complaints Section */}
+            <div className="p-16 mx-auto bg-gray-50 text-black">
+                {/* Title */}
+                <div className='mx-auto text-center'>
+                    <h2 className="text-3xl font-extrabold text-gray-800 mb-2">Register Complaints</h2>
+                    <p className="text-gray-600 mb-6">Easily register your complaints and help us improve our community.</p>
+                </div>
+
+                {/* Register Complaints Buttons */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+                    {/* Button 1 */}
+                    <button onClick={() => setPopupOpen(true)}
+                        className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+                        <div className="text-4xl mb-2">🗑️</div>
+                        <span className="text-gray-700 text-lg font-semibold">Waste Dumping</span>
+                    </button>
+
+
+                    {/* Button 2 */}
+                    <button
+                        className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+                        <div className="text-4xl mb-2">⚠️</div>
+                        <span className="text-gray-700 text-lg font-semibold">Public Nuisance</span>
+                    </button>
+
+                    {/* Button 3 */}
+                    <button
+                        className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+                        <div className="text-4xl mb-2">🚦</div>
+                        <span className="text-gray-700 text-lg font-semibold">Traffic Violations</span>
+                    </button>
+
+                    {/* Button 4 */}
+                    <button
+                        className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
+                        <div className="text-4xl mb-2">📄</div>
+                        <span className="text-gray-700 text-lg font-semibold">Others</span>
+                    </button>
+                </div>
+
             </div>
+
+
+
 
             {/* Complaint Reports Section */}
             <div className="py-16 bg-gray-50">
+
                 <div className="max-w-5xl mx-auto text-center">
                     {/* Section Heading */}
                     <h2
