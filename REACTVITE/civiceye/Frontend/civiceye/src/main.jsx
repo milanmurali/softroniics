@@ -11,13 +11,15 @@ import { CEGuestHomePage } from './CE/CEGuestHomePage.jsx'
 import { KHome } from './Testss/KHome.jsx'
 import { CEUserHomePage } from './CE/CEUserHomePage.jsx'
 import { CEComplaintRegisterPopup } from './CE/CEComplaintRegisterPopup.jsx'
+import { TaxInvoice } from './TaxInvoice.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <BrowserRouter>
       <Routes>
-
+        
+        {/* <Route path='/' element={<TaxInvoice />} /> */}
         <Route path='/guesthome' element={<CEGuestHomePage />} />
         <Route path='/userhome' element={<CEUserHomePage />} />
         <Route path='/pop' element={<CEComplaintRegisterPopup />} />
