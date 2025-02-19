@@ -2,7 +2,7 @@ import React from 'react';
 
 export const CEComplaintRegisterPopup = () => {
     return (
-        <div className="w-full max-w-2xl p-8 bg-white rounded-lg shadow-2xl mx-auto">
+        <div className="w-full max-w-2xl p-4 md:p-8 bg-white rounded-lg shadow-2xl mx-auto">
             <h2 className="text-2xl font-bold text-center text-gray-800">
                 Report an Issue
             </h2>
@@ -51,17 +51,35 @@ export const CEComplaintRegisterPopup = () => {
                         className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring-blue-500 focus:outline-none"
                     />
                 </div>
-                {/* Proof */}
-                <div>
-                    <label className="block text-sm font-medium text-gray-700">
-                        Proof
-                    </label>
-                    <button
-                        type="button"
-                        className="mt-1 w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition focus:outline-none"
-                    >
-                        Upload Photo or Video
-                    </button>
+
+                {/* Media Upload */}
+                <div className='flex justify-between px-2'>
+                    <div>
+                        <p className="text-gray-600 text-md">Upload Media as proof</p>
+                    </div>
+
+                    <div className="">
+                        {/* Hidden file input */}
+                        <input
+                            type="file"
+                            accept="image/*,video/*"
+                            id="media-upload"
+                            className="hidden"
+                        />
+                        {/* Label acts as a button */}
+                        <label
+                            htmlFor="media-upload"
+                            className="flex items-center gap-2 cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition transform hover:scale-105 active:scale-95 focus:outline-none"
+                        >
+                            <span className="text-md">Upload</span>
+                            <img
+                                src="https://img.icons8.com/?size=100&id=5a1dAmxLxIS1&format=png&color=ffffff"
+                                alt="Upload Media"
+                                className="w-6 h-6"
+                            />
+                        </label>
+
+                    </div>
                 </div>
                 {/* Actions */}
                 <div className="flex space-x-4 mt-6">

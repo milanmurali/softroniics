@@ -161,21 +161,25 @@ export const CEUserHomePage = () => {
 
             </Carousel>
 
-            {/* Full Screen Popup */}
+            {/* Register Complaints Full Screen Popup */}
             {popupOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-opacity-75">
-                    <div className="relative w-full h-full flex items-center justify-center">
-                        <CEComplaintRegisterPopup />
-
+                <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs bg-gray-950/80">
+                    <div className="relative flex items-center justify-center">
                         <button
                             onClick={() => setPopupOpen(false)}
-                            className="absolute top-4 right-4 text-white text-2xl focus:outline-none"
+                            className="absolute top-4 right-4 focus:outline-none transition transform hover:scale-105 active:scale-95"
                         >
-                            ✖
+                            <img
+                                src="https://img.icons8.com/?size=100&id=82771&format=png&color=000000"
+                                alt="Close"
+                                className="w-6 h-6"
+                            />
                         </button>
+                        <CEComplaintRegisterPopup />
                     </div>
                 </div>
             )}
+
 
             {/* Register Complaints Section */}
             <div className="p-16 mx-auto bg-gray-50 text-black">
@@ -196,21 +200,21 @@ export const CEUserHomePage = () => {
 
 
                     {/* Button 2 */}
-                    <button
+                    <button onClick={() => setPopupOpen(true)}
                         className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
                         <div className="text-4xl mb-2">⚠️</div>
                         <span className="text-gray-700 text-lg font-semibold">Public Nuisance</span>
                     </button>
 
                     {/* Button 3 */}
-                    <button
+                    <button onClick={() => setPopupOpen(true)}
                         className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
                         <div className="text-4xl mb-2">🚦</div>
                         <span className="text-gray-700 text-lg font-semibold">Traffic Violations</span>
                     </button>
 
                     {/* Button 4 */}
-                    <button
+                    <button onClick={() => setPopupOpen(true)}
                         className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl active:scale-95 active:shadow-md">
                         <div className="text-4xl mb-2">📄</div>
                         <span className="text-gray-700 text-lg font-semibold">Others</span>
