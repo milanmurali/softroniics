@@ -7,6 +7,7 @@ import 'aos/dist/aos.css'; // Import the AOS CSS
 import celogofullpng from '../assets/celogofull.png' // Import the CivicEye Logo
 import porsche from '../assets/porsche.jpg' // Import the Porsche Image
 import { CEComplaintRegisterPopup } from './CEComplaintRegisterPopup';
+import toast, { Toaster } from 'react-hot-toast';
 
 export const CEUserHomePage = () => {
 
@@ -20,6 +21,8 @@ export const CEUserHomePage = () => {
 
     return (
         <div>
+            {/* Toast Notifications */}
+            <Toaster />
 
             {/* Navbar */}
             <div className="flex justify-between items-center p-4 bg-white shadow-md sticky top-0 w-full z-50">

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import celogofullpng from '../assets/celogofull.png'
 import { Link } from "react-router-dom";
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 export const CESignup = () => {
@@ -15,9 +17,13 @@ export const CESignup = () => {
     event.preventDefault()
     try {
       console.table(signindata)
+      let response = await axios.post('http://127.0.0.1:6969/user/register', signindata)
+      console.log(response.data);
+      toast.success(response.data.message);
     }
     catch (error) {
       console.log("CL", error);
+      toast.error(error.response.data.message)
     }
   }
   return (
@@ -53,14 +59,15 @@ export const CESignup = () => {
             SIGN <span className="text-blue-500">UP</span>
           </h2>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={submit}>
             <div>
               <label htmlFor="username" className="block text-gray-700 text-sm font-medium mb-2">
-                Username
+                Name
               </label>
               <input
-                id="username"
-                name="username"
+                onChange={change}
+                id="name"
+                name="name"
                 type="text"
                 placeholder="Full Name"
                 className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-white placeholder-gray-500 
@@ -73,6 +80,7 @@ export const CESignup = () => {
                 Mobile Number
               </label>
               <input
+                onChange={change}
                 id="mobile"
                 name="mobile"
                 type="tel"
@@ -87,6 +95,7 @@ export const CESignup = () => {
                 DOB
               </label>
               <input
+                onChange={change}
                 id="dob"
                 name="dob"
                 type="date"
@@ -117,6 +126,7 @@ export const CESignup = () => {
                 Password
               </label>
               <input
+                onChange={change}
                 id="password"
                 name="password"
                 type="password"
@@ -148,4 +158,4 @@ export const CESignup = () => {
   );
 };
 
-export default CESignup;
+// export default CESignup;

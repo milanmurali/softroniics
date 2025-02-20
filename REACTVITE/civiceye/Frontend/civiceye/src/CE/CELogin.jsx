@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
 import celogofullpng from '../assets/celogofull.png'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
 export const CELogin = () => {
-
+    const navigate = useNavigate();
 
     const [logindata, setlogindata] = useState('')
 
@@ -17,13 +19,27 @@ export const CELogin = () => {
         event.preventDefault()
         try {
             console.table(logindata)
+            const response = await axios.post('http://127.0.0.1:6969/user/login', logindata);
+
+            console.log(response);
+            // console.log(response.data.token);
+            localStorage.setItem("token", response.data.token);
+            // console.log(localStorage.getItem("token"));
+            localStorage.setItem("id", response.data.id);
+            // console.log(localStorage.getItem("id"));
+            toast.success(response.data.message);
+            setTimeout(() => {
+                navigate('/userhome');
+            }, 1000);
         }
         catch (error) {
-            console.log("CL", error);
+            console.log("Error Occured", error);
+            toast.error(error.response.data.message);
         }
     }
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100 px-10">
+            <Toaster />
 
             {/* the box  */}
             <div className="bg-white flex flex-col md:flex-row w-7xl shadow-lg rounded-lg py-10 px-4 md:py-20 md:px-0">
