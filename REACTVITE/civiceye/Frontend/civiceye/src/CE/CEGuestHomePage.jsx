@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom' 
+import { Link } from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel'; // Import the Carousel Component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Carousel CSS
 import AOS from 'aos'; // Import the AOS Library
@@ -10,17 +10,17 @@ import porsche from '../assets/porsche.jpg' // Import the Porsche Image
 export const CEGuestHomePage = () => {
 
     AOS.init(); // Initialize AOS Library
-    
+
     const [menuOpen, setMenuOpen] = useState(false); //  navbar hamburger state
 
     const [popupOpen, setPopupOpen] = useState(false); //  popup state
-    
+
     return (
-        <div>
+        <div className=''>
 
 
             {/* the nav  */}
-            <div className="flex justify-between items-center p-4 bg-white shadow-md sticky top-0 w-full z-50">
+            <div className=" flex justify-between items-center p-4 bg-white shadow-md sticky top-0 w-full z-50">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link to="/">
@@ -36,17 +36,17 @@ export const CEGuestHomePage = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6">
-                    <Link to="/" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
-                    <Link to="/about" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
-                    <Link to="/contact" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
-                    <Link to="/login" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition">Login</Link>
+                    <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
+                    <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
+                    <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
+                    <Link to="/signin" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition">Login</Link>
                 </div>
 
                 {/* Mobile Login Button and Dropdown Menu */}
                 <div className="md:hidden">
                     <div className="space-x-6">
                         {/* Mobile Login Button */}
-                        <Link to="/login" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition" onClick={() => setMenuOpen(false)}>
+                        <Link to="/signin" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition" onClick={() => setMenuOpen(false)}>
                             Login
                         </Link>
 
@@ -59,9 +59,9 @@ export const CEGuestHomePage = () => {
                     {/* Mobile Dropdown Menu */}
                     {menuOpen && (
                         <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center">
-                            <Link to="/" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Home</Link>
-                            <Link to="/about" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>About</Link>
-                            <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Contact</Link>
+                            <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Home</Link>
+                            <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>About</Link>
+                            <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Contact</Link>
                         </div>
                     )}
                 </div>
@@ -102,12 +102,12 @@ export const CEGuestHomePage = () => {
                     </p>
 
                     {/* Call-to-Action Button */}
-                    <a href='/signup'>
+                    <Link href='/signup'>
 
                         <button className="mt-6 bg-[#00B9FF] px-8 py-3 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out">
                             Sign Up Now!
                         </button>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
@@ -324,13 +324,22 @@ export const CEGuestHomePage = () => {
                         <div className=''>
                             <h3 className="text-lg font-semibold pl-2">
                                 <span className='border-l-4 border-[#00B9FF]'> </span>
-                                Quick Links</h3>
+                                Quick Links</h3> 
                             <ul className="ml-4 mt-2 space-y-2">
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Home</span></a></li>
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Complaints</span></a></li>
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Register</span></a></li>
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Login</span></a></li>
+                                <li>
+                                    <Link to="/landing" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Home</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="/landing" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Complaints</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="/signup" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Register</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="/signin" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Login</span></Link>
+                                </li>
                             </ul>
+
                         </div>
                         {/* Phone Numbers */}
                         <div>

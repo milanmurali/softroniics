@@ -1,23 +1,60 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel'; // Import the Carousel Component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Carousel CSS
 import AOS from 'aos'; // Import the AOS Library
 import 'aos/dist/aos.css'; // Import the AOS CSS
 import celogofullpng from '../assets/celogofull.png' // Import the CivicEye Logo
 import porsche from '../assets/porsche.jpg' // Import the Porsche Image
-import { CEComplaintRegisterPopup } from './CEComplaintRegisterPopup';
 import toast, { Toaster } from 'react-hot-toast';
+import axios from 'axios';
 
 export const CEUserHomePage = () => {
 
     AOS.init(); // Initialize AOS Library
+    const navigate = useNavigate();
+
+
 
     const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
+    const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
+
+    const userid = localStorage.getItem('id'); // Get the user id from local storage
+    // console.log(userid);
+
+    useEffect(() => {
+        if (!userid) {
+            navigate('/landing')
+        }
+    }, []);
 
 
+    // Fetch the logged user data from the backend
+    const fetchUserData = async () => {
+        try {
+            if (!userid) return;
+            const response = await axios.get(`http://127.0.0.1:6969/user/viewuser/${userid}`);
+            if (response) {
+                setloggeduserdata(response.data);
+            }
+
+        }
+        catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    }
+
+    useEffect(() => {
+        fetchUserData();
+    }, []);
+
+    // Logout function
+    const logout = () => {
+        localStorage.clear()
+        nav('/logout')
+    }
 
     return (
         <div>
@@ -43,7 +80,7 @@ export const CEUserHomePage = () => {
                 <div className="hidden md:flex items-center space-x-4 ">
                     {/* Nav Links */}
                     <div className="flex space-x-4">
-                        <Link to="/" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                        <Link to="/home" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
                             Home
                         </Link>
                         <Link to="/mycomplaints" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
@@ -66,9 +103,9 @@ export const CEUserHomePage = () => {
                             <img
                                 src="https://img.icons8.com/?size=100&id=7819&format=png&color=00B9FF"
                                 alt="Profile Icon"
-                                className="w-8 h-8 "
+                                className="w-6 h-6 "
                             />
-                            <span className="text-gray-700 font-normal">Username</span>
+                            <span className="text-gray-700 font-normal">{loggeduserdata.name || "Account"} </span>
                             <img
                                 src="https://img.icons8.com/?size=100&id=fZGbT6FrWkSx&format=png&color=000000"
                                 alt="Down Arrow"
@@ -79,23 +116,23 @@ export const CEUserHomePage = () => {
                         {profileOpen && (
                             <div className="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg border border-gray-200 py-2">
                                 <Link
-                                    to="/profile"
+                                    to="/myprofile"
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                     onClick={() => setProfileOpen(false)}
                                 >
                                     Profile
                                 </Link>
                                 <Link
-                                    to="/delete-account"
+                                    to="/myprofile"
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                     onClick={() => setProfileOpen(false)}
                                 >
                                     Delete Account
                                 </Link>
                                 <Link
-                                    to="/logout"
+                                    to="/signin"
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                                    onClick={() => setProfileOpen(false)}
+                                    onClick={() => { setProfileOpen(false), logout() }}
                                 >
                                     Logout
                                 </Link>
@@ -114,7 +151,7 @@ export const CEUserHomePage = () => {
                 {/* Mobile Dropdown Menu */}
                 {menuOpen && (
                     <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden">
-                        <Link to="/" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/home" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
                             Home
                         </Link>
                         <Link to="/mycomplaints" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
@@ -127,13 +164,13 @@ export const CEUserHomePage = () => {
                             Contact
                         </Link>
                         <hr className="w-full border-gray-200" />
-                        <Link to="/profile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
                             Profile
                         </Link>
-                        <Link to="/delete-account" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
                             Delete Account
                         </Link>
-                        <Link to="/logout" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/signin" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setProfileOpen(false), logout() }}>
                             Logout
                         </Link>
                     </div>
@@ -178,7 +215,103 @@ export const CEUserHomePage = () => {
                                 className="w-6 h-6"
                             />
                         </button>
-                        <CEComplaintRegisterPopup />
+                        <div className="w-full max-w-2xl p-4 md:p-8 bg-white rounded-lg shadow-2xl mx-auto">
+                            <h2 className="text-2xl font-bold text-center text-gray-800">
+                                Report an Issue
+                            </h2>
+                            <p className="mt-2 text-center text-gray-600">
+                                Help us improve our community by reporting issues with detailed information.
+                            </p>
+                            <form className="mt-6 space-y-4">
+                                {/* Description */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        Description
+                                    </label>
+                                    <textarea
+                                        rows="3"
+                                        placeholder="Enter a detailed description"
+                                        className="mt-1 w-full border border-gray-300 rounded-md p-2 text-gray-800 focus:ring-blue-500 focus:outline-none"
+                                    ></textarea>
+                                </div>
+                                {/* Complaint Type */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        Complaint Type
+                                    </label>
+                                    <select
+                                        className="mt-1 w-full border border-gray-300 rounded-md p-2 text-gray-800 focus:ring-blue-500 focus:outline-none"
+                                    >
+                                        <option>Select complaint type</option>
+                                        <option>Waste Dumping</option>
+                                        <option>Public Nuisance</option>
+                                        <option>Traffic Violations</option>
+                                        <option>Water Leakage</option>
+                                        <option>Power Outage</option>
+                                        <option>Noise Complaint</option>
+                                        <option>Road Damage</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                                {/* Location */}
+                                <div>
+                                    <label className="block text-sm font-medium text-gray-700">
+                                        Location
+                                    </label>
+                                    <input
+                                        type="text"
+                                        placeholder="Enter location"
+                                        className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring-blue-500 focus:outline-none"
+                                    />
+                                </div>
+
+                                {/* Media Upload */}
+                                <div className='flex justify-between px-2'>
+                                    <div>
+                                        <p className="text-gray-600 text-md">Upload Media as proof</p>
+                                    </div>
+
+                                    <div className="">
+                                        {/* Hidden file input */}
+                                        <input
+                                            type="file"
+                                            accept="image/*,video/*"
+                                            id="media-upload"
+                                            className="hidden"
+                                        />
+                                        {/* Label acts as a button */}
+                                        <label
+                                            htmlFor="media-upload"
+                                            className="flex items-center gap-2 cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-md shadow hover:bg-blue-600 transition transform hover:scale-105 active:scale-95 focus:outline-none"
+                                        >
+                                            <span className="text-md">Upload</span>
+                                            <img
+                                                src="https://img.icons8.com/?size=100&id=5a1dAmxLxIS1&format=png&color=ffffff"
+                                                alt="Upload Media"
+                                                className="w-6 h-6"
+                                            />
+                                        </label>
+
+                                    </div>
+                                </div>
+                                {/* Actions */}
+                                <div className="flex space-x-4 mt-6">
+                                    <button
+                                        type="submit"
+                                        className="w-1/2 bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition focus:outline-none"
+                                    >
+                                        Submit
+                                    </button>
+                                    <button
+                                        onClick={() => setPopupOpen(false)}
+                                        type="button"
+                                        className="w-1/2 bg-gray-300 text-gray-800 py-2 rounded-md hover:bg-gray-400 transition focus:outline-none"
+                                    >
+                                        Cancel
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             )}
@@ -225,9 +358,6 @@ export const CEUserHomePage = () => {
                 </div>
 
             </div>
-
-
-
 
             {/* Complaint Reports Section */}
             <div className="py-16 bg-gray-50">
@@ -445,10 +575,24 @@ export const CEUserHomePage = () => {
                                 <span className='border-l-4 border-[#00B9FF]'> </span>
                                 Quick Links</h3>
                             <ul className="ml-4 mt-2 space-y-2">
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Home</span></a></li>
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Complaints</span></a></li>
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Register</span></a></li>
-                                <li><a href="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Login</span></a></li>
+                                <li>
+                                    <Link to="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
+                                        <span>Home</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
+                                        <span>Complaints</span></Link>
+                                </li>
+                                <li>
+                                    <Link to="/myprofile" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
+                                        <span>Profile</span></Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        onClick={() => logout()}
+                                        to="/signin" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
+                                        <span>Logout</span></Link>
+                                </li>
                             </ul>
                         </div>
                         {/* Phone Numbers */}

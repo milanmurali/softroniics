@@ -29,7 +29,7 @@ export const CELogin = () => {
             // console.log(localStorage.getItem("id"));
             toast.success(response.data.message);
             setTimeout(() => {
-                navigate('/userhome');
+                navigate('/home ');
             }, 1000);
         }
         catch (error) {

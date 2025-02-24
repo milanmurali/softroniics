@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import celogofullpng from '../assets/celogofull.png'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 
 export const CESignup = () => {
-
+  const navigate = useNavigate();
   const [signindata, setsignindata] = useState('')
 
   const change = (event) => {
@@ -20,18 +20,28 @@ export const CESignup = () => {
       let response = await axios.post('http://127.0.0.1:6969/user/register', signindata)
       console.log(response.data);
       toast.success(response.data.message);
+      setTimeout(() => {
+        navigate('/signin'); 
+      }, 1000);
+
     }
     catch (error) {
-      console.log("CL", error);
+      console.log("CL", error.response.data.message);
       toast.error(error.response.data.message)
     }
   }
   return (
 
     <div className="flex justify-center items-center h-screen bg-gray-100 px-10">
-
+      <Toaster />
       {/* the box  */}
       <div className="bg-white flex flex-col md:flex-row w-7xl shadow-lg rounded-lg py-10 px-4 md:py-10 md:px-0">
+        {/* <img
+          src="https://img.icons8.com/?size=100&id=40217&format=png&color=000000"
+          alt="Icon"
+          className="w-8 h-8"
+        /> */}
+
 
         {/* Left Section */}
         <div className="w-full md:w-1/2 flex flex-col justify-between items-center p-8 border-b-2 md:border-b-0 md:border-r-2 border-gray-500">
@@ -66,6 +76,7 @@ export const CESignup = () => {
               </label>
               <input
                 onChange={change}
+                required
                 id="name"
                 name="name"
                 type="text"
@@ -157,5 +168,3 @@ export const CESignup = () => {
     </div>
   );
 };
-
-// export default CESignup;

@@ -10,7 +10,6 @@ import { CESignup } from './CE/CESignup.jsx'
 import { CEGuestHomePage } from './CE/CEGuestHomePage.jsx'
 import { KHome } from './Testss/KHome.jsx'
 import { CEUserHomePage } from './CE/CEUserHomePage.jsx'
-import { CEComplaintRegisterPopup } from './CE/CEComplaintRegisterPopup.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -18,12 +17,11 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
       <Routes>
         
-        <Route path='/guesthome' element={<CEGuestHomePage />} />
-        <Route path='/userhome' element={<CEUserHomePage />} />
-        <Route path='/pop' element={<CEComplaintRegisterPopup />} />
-        <Route path="/login" element={<CELogin />} />
+        <Route path='/landing' element={<CEGuestHomePage />} />
+        <Route path='/home' element={<CEUserHomePage />} />
+        <Route path="/signin" element={<CELogin />} />
         <Route path="/signup" element={<CESignup />} />
-        <Route path='/userprofile' element={<CEUserProfile />} />
+        <Route path='/myprofile' element={<CEUserProfile />} />
 
 
         <Route path='/khome' element={<KHome />} />
