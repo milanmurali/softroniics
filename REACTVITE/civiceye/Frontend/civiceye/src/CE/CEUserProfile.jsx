@@ -76,6 +76,22 @@ export const CEUserProfile = () => {
             toast.error(error)
         }
     }
+
+    const deleteaccount = async () => {
+        try {
+            let response = await axios.delete(`http://127.0.0.1:6969/user/delete/${userid}`)
+            console.log(response.data);
+            toast.success(response.data.message);
+            localStorage.clear();
+            setTimeout(() => {
+                navigate('/landing ');
+            }, 1000);
+        }
+        catch (error) {
+            console.log("CL", error);
+            toast.error(error)
+        }
+    }
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-10">
             <Toaster />
@@ -221,10 +237,26 @@ export const CEUserProfile = () => {
                         </button>
                         <div className="w-full max-w-2xl p-4 md:p-8 bg-white rounded-lg shadow-2xl mx-auto">
                             <h2 className="text-2xl font-bold text-center text-gray-800">
-                                Report an Issue
+                                Confirm Account Deletion
                             </h2>
-                            
+                            <p className="text-center text-gray-600 mt-4">
+                                Are you sure you want to delete your account?
+                            </p>
+                            <p className="text-center text-gray-600 mt-4">
+                                This action cannot be undone.
+                            </p>
+                            <div className="flex justify-center gap-4 mt-6">
+                                <button className="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 transition">
+                                    Cancel
+                                </button>
+                                <button
+                                    onClick={deleteaccount}
+                                    className="px-6 py-2 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition">
+                                    Delete Account
+                                </button>
+                            </div>
                         </div>
+
                     </div>
                 </div>
             )}

@@ -1,13 +1,16 @@
 import express from "express";
-import userRouter from "./Routes/userRouter.js";
 import 'dotenv/config'
-import { connectdb } from "./utils/connectDB.js";
 import cors from "cors";
+import { connectdb } from "./utils/connectDB.js";
+import userRouter from "./Routes/userRouter.js";
+import complaintRouter from "./Routes/complaintRouter.js";
 const app = express()
 
 app.use(express.json())
 app.use(cors())
+
 app.use("/user", userRouter)
+app.use("/complaint", complaintRouter)
 
 const PORT = process.env.PORT || 4000
 

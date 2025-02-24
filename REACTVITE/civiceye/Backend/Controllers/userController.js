@@ -71,7 +71,7 @@ export async function deleteuser(req, res) {
         if (!response) {
             return res.status(404).json({ message: "User Not Found" });
         }
-        return res.status(200).json({ message: "User Deleted" });
+        return res.status(200).json({ message: "User AcountDeleted" });
     }
     catch (error) {
         console.error("Internal Server Error", error);
