@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useRef, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel'; // Import the Carousel Component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Carousel CSS
 import AOS from 'aos'; // Import the AOS Library
@@ -10,11 +10,22 @@ import porsche from '../assets/porsche.jpg' // Import the Porsche Image
 export const CEGuestHomePage = () => {
 
     AOS.init(); // Initialize AOS Library
+    const navigate = useNavigate();
 
     const [menuOpen, setMenuOpen] = useState(false); //  navbar hamburger state
-
     const [popupOpen, setPopupOpen] = useState(false); //  popup state
 
+    const userid = localStorage.getItem('id'); // Get the user id from local storage
+    // console.log(userid);
+
+    useEffect(() => {
+        if (userid) {
+            navigate('/home')
+        }
+    }, []);
+
+    const supportref = React.createRef(); // Create a reference for the support section
+    const scrollToSupport = () => window.scrollTo(0, supportref.current.offsetTop);
     return (
         <div className=''>
 
@@ -38,7 +49,7 @@ export const CEGuestHomePage = () => {
                 <div className="hidden md:flex space-x-6">
                     <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
                     <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
-                    <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
+                    <Link onClick={scrollToSupport} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
                     <Link to="/signin" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition">Login</Link>
                 </div>
 
@@ -277,7 +288,7 @@ export const CEGuestHomePage = () => {
             </div>
 
             {/* Support Section */}
-            <div className="py-12 bg-gray-50 flex flex-col items-center">
+            <div ref={supportref} className="py-12 bg-gray-50 flex flex-col items-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Need Help? Contact Us</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl w-full px-6">
@@ -324,7 +335,7 @@ export const CEGuestHomePage = () => {
                         <div className=''>
                             <h3 className="text-lg font-semibold pl-2">
                                 <span className='border-l-4 border-[#00B9FF]'> </span>
-                                Quick Links</h3> 
+                                Quick Links</h3>
                             <ul className="ml-4 mt-2 space-y-2">
                                 <li>
                                     <Link to="/landing" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Home</span></Link>

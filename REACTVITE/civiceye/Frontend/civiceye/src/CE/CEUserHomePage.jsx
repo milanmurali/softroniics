@@ -15,21 +15,59 @@ export const CEUserHomePage = () => {
     const navigate = useNavigate();
 
 
+    const userid = localStorage.getItem('id'); // Get the user id from local storage
 
     const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
-
-    const userid = localStorage.getItem('id'); // Get the user id from local storage
+    const [adddata, setadddata] = useState(''); // For complaint data
     // console.log(userid);
+
+    const compChange = (event) => {
+        setadddata({ ...adddata, [event.target.name]: event.target.value })
+    }
+
+    const compfile = (event) => {
+        setadddata({ ...adddata, image: event.target.files[0] });
+    };
+
+    const compSubmit = async (event) => {
+        event.preventDefault()
+        
+        const formData = new FormData();
+        formData.append("name", adddata.name);
+        formData.append("age", adddata.age);
+        formData.append("email", adddata.email);
+        formData.append("password", adddata.password);
+        formData.append("proof", adddata.image);
+
+        console.log("adddata", adddata);
+        console.log("formData.entries", [...formData.entries()]);
+
+        try {
+            const response = await axios.get(`http://127.0.0.1:6969/complaint/get/${userid}`, formData,
+                {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                }
+            )
+            compSubmit();
+        }
+        catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
 
     useEffect(() => {
         if (!userid) {
             navigate('/landing')
         }
     }, []);
-
 
     // Fetch the logged user data from the backend
     const fetchUserData = async () => {
@@ -53,7 +91,7 @@ export const CEUserHomePage = () => {
     // Logout function
     const logout = () => {
         localStorage.clear()
-        nav('/logout')
+        nav('/landing')
     }
 
     return (
@@ -222,13 +260,16 @@ export const CEUserHomePage = () => {
                             <p className="mt-2 text-center text-gray-600">
                                 Help us improve our community by reporting issues with detailed information.
                             </p>
-                            <form className="mt-6 space-y-4">
+                            <form className="mt-6 space-y-4" onSubmit={compSubmit}>
                                 {/* Description */}
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700">
                                         Description
                                     </label>
                                     <textarea
+                                        id='description'
+                                        name='description'
+                                        onChange={compChange}
                                         rows="3"
                                         placeholder="Enter a detailed description"
                                         className="mt-1 w-full border border-gray-300 rounded-md p-2 text-gray-800 focus:ring-blue-500 focus:outline-none"
@@ -240,10 +281,14 @@ export const CEUserHomePage = () => {
                                         Complaint Type
                                     </label>
                                     <select
+                                        id='type'
+                                        name='type'
+                                        onChange={compChange}
                                         className="mt-1 w-full border border-gray-300 rounded-md p-2 text-gray-800 focus:ring-blue-500 focus:outline-none"
                                     >
                                         <option>Select complaint type</option>
                                         <option>Waste Dumping</option>
+                                        <option>Infrastructure</option>
                                         <option>Public Nuisance</option>
                                         <option>Traffic Violations</option>
                                         <option>Water Leakage</option>
@@ -259,6 +304,9 @@ export const CEUserHomePage = () => {
                                         Location
                                     </label>
                                     <input
+                                        id='location'
+                                        name='location'
+                                        onChange={compChange}
                                         type="text"
                                         placeholder="Enter location"
                                         className="mt-1 w-full px-4 py-2 border border-gray-300 rounded-md text-gray-800 focus:ring-blue-500 focus:outline-none"
@@ -274,10 +322,12 @@ export const CEUserHomePage = () => {
                                     <div className="">
                                         {/* Hidden file input */}
                                         <input
+                                            onChange={compfile}
+                                            className="hidden"
                                             type="file"
                                             accept="image/*,video/*"
                                             id="media-upload"
-                                            className="hidden"
+                                            name='proof'
                                         />
                                         {/* Label acts as a button */}
                                         <label

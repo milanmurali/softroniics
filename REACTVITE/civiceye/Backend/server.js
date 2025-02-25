@@ -11,6 +11,8 @@ app.use(cors())
 
 app.use("/user", userRouter)
 app.use("/complaint", complaintRouter)
+app.use('/proofs', express.static('proofs'));
+
 
 const PORT = process.env.PORT || 4000
 

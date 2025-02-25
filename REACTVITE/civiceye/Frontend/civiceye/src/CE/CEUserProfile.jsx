@@ -246,7 +246,10 @@ export const CEUserProfile = () => {
                                 This action cannot be undone.
                             </p>
                             <div className="flex justify-center gap-4 mt-6">
-                                <button className="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 transition">
+                                <button
+                                    onClick={() => setPopupOpen(false)}
+
+                                    className="px-6 py-2 bg-gray-300 text-gray-800 rounded-lg shadow-md hover:bg-gray-400 transition">
                                     Cancel
                                 </button>
                                 <button
