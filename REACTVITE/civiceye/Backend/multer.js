@@ -6,7 +6,9 @@ import fs from "fs";
 const storageConfig = multer.diskStorage({
     destination: (req, file, cb) => {
         
-        const userId = req.body.userId; // Extract userId from the request body
+        const userId = req.body.userId;  // Extract userId from the request body
+        // console.log("User ID:", userId); // Debugging log
+        
         if (!userId) {
             return cb(new Error("User ID is required"), false);
         }

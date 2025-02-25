@@ -15,20 +15,21 @@ export const CEUserHomePage = () => {
     const navigate = useNavigate();
 
 
-    const userid = localStorage.getItem('id'); // Get the user id from local storage
+    const userId = localStorage.getItem('id'); // Get the user id from local storage 
 
     const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
+
     const [adddata, setadddata] = useState({
         description: "",
         location: "",
         type: "",
         proof: null,
-        userId : userid,
-        createdAt: new Date().toISOString(), // Adding timestamp
+        createdAt: new Date().toISOString(),
     });
+
 
     const compChange = (event) => {
         setadddata({ ...adddata, [event.target.name]: event.target.value })
@@ -42,17 +43,25 @@ export const CEUserHomePage = () => {
         event.preventDefault();
 
         const formData = new FormData();
-        formData.append("description", adddata.description);
-        formData.append("location", adddata.location);
-        formData.append("type", adddata.type);
+        formData.append("description", adddata.description || "");
+        formData.append("location", adddata.location || "");
+        formData.append("type", adddata.type || "");
         formData.append("createdAt", adddata.createdAt);
-        formData.append("proof", adddata.proof);
-        formData.append("userId", adddata.userId);
+        formData.append("userId", userId);
+
+        // Append file correctly
+        if (adddata.proof) {
+            formData.append("proof", adddata.proof, adddata.proof.name);
+        }
 
 
-        // console.log("Submitted Data:", adddata);
-        console.log("FormData Entries:", [...formData.entries()]);
+        console.log("Submitted Data:", adddata);
+        console.log("FormData", formData);
 
+        console.log("FormData Entries:");
+        for (let [key, value] of formData.entries()) {
+            console.log(key, value);
+        }
         try {
             const response = await axios.post(
                 `http://127.0.0.1:6969/complaint/add`,
@@ -72,7 +81,7 @@ export const CEUserHomePage = () => {
 
 
     useEffect(() => {
-        if (!userid) {
+        if (!userId) {
             navigate('/landing')
         }
     }, []);
@@ -80,8 +89,8 @@ export const CEUserHomePage = () => {
     // Fetch the logged user data from the backend
     const fetchUserData = async () => {
         try {
-            if (!userid) return;
-            const response = await axios.get(`http://127.0.0.1:6969/user/viewuser/${userid}`);
+            if (!userId) return;
+            const response = await axios.get(`http://127.0.0.1:6969/user/viewuser/${userId}`);
             if (response) {
                 setloggeduserdata(response.data);
             }
