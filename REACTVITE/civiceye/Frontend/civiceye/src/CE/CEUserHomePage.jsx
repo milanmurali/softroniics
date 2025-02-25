@@ -21,44 +21,52 @@ export const CEUserHomePage = () => {
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
-    const [adddata, setadddata] = useState(''); // For complaint data
-    // console.log(userid);
+    const [adddata, setadddata] = useState({
+        description: "",
+        location: "",
+        type: "",
+        proof: null,
+        userId : userid,
+        createdAt: new Date().toISOString(), // Adding timestamp
+    });
 
     const compChange = (event) => {
         setadddata({ ...adddata, [event.target.name]: event.target.value })
     }
 
     const compfile = (event) => {
-        setadddata({ ...adddata, image: event.target.files[0] });
+        setadddata({ ...adddata, proof: event.target.files[0] });
     };
 
     const compSubmit = async (event) => {
-        event.preventDefault()
-        
-        const formData = new FormData();
-        formData.append("name", adddata.name);
-        formData.append("age", adddata.age);
-        formData.append("email", adddata.email);
-        formData.append("password", adddata.password);
-        formData.append("proof", adddata.image);
+        event.preventDefault();
 
-        console.log("adddata", adddata);
-        console.log("formData.entries", [...formData.entries()]);
+        const formData = new FormData();
+        formData.append("description", adddata.description);
+        formData.append("location", adddata.location);
+        formData.append("type", adddata.type);
+        formData.append("createdAt", adddata.createdAt);
+        formData.append("proof", adddata.proof);
+        formData.append("userId", adddata.userId);
+
+
+        // console.log("Submitted Data:", adddata);
+        console.log("FormData Entries:", [...formData.entries()]);
 
         try {
-            const response = await axios.get(`http://127.0.0.1:6969/complaint/get/${userid}`, formData,
+            const response = await axios.post(
+                `http://127.0.0.1:6969/complaint/add`,
+                formData,
                 {
-                    headers: {
-                        'Content-Type': 'multipart/form-data'
-                    }
+                    headers: { "Content-Type": "multipart/form-data" },
                 }
-            )
-            compSubmit();
+            );
+
+            console.log("Response:", response.data);
+        } catch (error) {
+            console.error("Error submitting complaint:", error);
         }
-        catch (error) {
-            console.log(error);
-        }
-    }
+    };
 
 
 
