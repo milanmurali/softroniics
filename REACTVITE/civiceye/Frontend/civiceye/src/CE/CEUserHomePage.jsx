@@ -14,7 +14,6 @@ export const CEUserHomePage = () => {
     AOS.init(); // Initialize AOS Library
     const navigate = useNavigate();
 
-
     const userId = localStorage.getItem('id'); // Get the user id from local storage 
 
     const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
@@ -22,6 +21,7 @@ export const CEUserHomePage = () => {
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
 
+    // Complaint Data
     const [adddata, setadddata] = useState({
         description: "",
         location: "",
@@ -30,7 +30,7 @@ export const CEUserHomePage = () => {
         createdAt: new Date().toISOString(),
     });
 
-
+    // Complaint Form Functions
     const compChange = (event) => {
         setadddata({ ...adddata, [event.target.name]: event.target.value })
     }
@@ -54,32 +54,25 @@ export const CEUserHomePage = () => {
             formData.append("proof", adddata.proof, adddata.proof.name);
         }
 
+        // console.log("Submitted Data:", adddata);
+        // console.log("FormData", formData);
 
-        console.log("Submitted Data:", adddata);
-        console.log("FormData", formData);
-
-        console.log("FormData Entries:");
-        for (let [key, value] of formData.entries()) {
-            console.log(key, value);
-        }
         try {
-            const response = await axios.post(
-                `http://127.0.0.1:6969/complaint/add`,
-                formData,
+            const response = await axios.post(`http://127.0.0.1:6969/complaint/add`, formData,
                 {
                     headers: { "Content-Type": "multipart/form-data" },
                 }
             );
-
-            console.log("Response:", response.data);
+            toast.success(response.data);
+            setPopupOpen(false);
+            // console.log("Response:", response);
         } catch (error) {
+            toast.error(error.response.data);
             console.error("Error submitting complaint:", error);
         }
     };
 
-
-
-
+    // redirect to landing page if user is not logged in
     useEffect(() => {
         if (!userId) {
             navigate('/landing')
@@ -101,6 +94,7 @@ export const CEUserHomePage = () => {
         }
     }
 
+    // Fetch the user data when the component mounts
     useEffect(() => {
         fetchUserData();
     }, []);
@@ -110,6 +104,10 @@ export const CEUserHomePage = () => {
         localStorage.clear()
         nav('/landing')
     }
+    // Delete Account function
+    const handleDelete = () => {
+        navigate("/profile", { state: { showDelete: true } }); // Pass state
+    };
 
     return (
         <div>
@@ -180,7 +178,7 @@ export const CEUserHomePage = () => {
                                 <Link
                                     to="/myprofile"
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
-                                    onClick={() => setProfileOpen(false)}
+                                    onClick={() => { setProfileOpen(false), handleDelete() }}
                                 >
                                     Delete Account
                                 </Link>
@@ -206,26 +204,34 @@ export const CEUserHomePage = () => {
                 {/* Mobile Dropdown Menu */}
                 {menuOpen && (
                     <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden">
-                        <Link to="/home" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/home" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => setMenuOpen(false)}>
                             Home
                         </Link>
-                        <Link to="/mycomplaints" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/mycomplaints" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => setMenuOpen(false)}>
                             My Complaints
                         </Link>
-                        <Link to="/about" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/about" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => setMenuOpen(false)}>
                             About
                         </Link>
-                        <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => setMenuOpen(false)}>
                             Contact
                         </Link>
                         <hr className="w-full border-gray-200" />
-                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => setMenuOpen(false)}>
                             Profile
                         </Link>
-                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>
+                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => { setProfileOpen(false), handleDelete() }}
+                        >
                             Delete Account
                         </Link>
-                        <Link to="/signin" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setProfileOpen(false), logout() }}>
+                        <Link to="/signin" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => { setProfileOpen(false), logout() }}>
                             Logout
                         </Link>
                     </div>

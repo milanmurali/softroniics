@@ -14,19 +14,18 @@ export async function addComplaint(req, res) {
         if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
             return res.status(400).json({ message: "Invalid User ID format" });
         }
+        
         let userexists = await User.findOne({ _id: userId });
         if (!userexists) {
             return res.status(404).json({ message: "User Not Found" });
         }
-        // let proof = req.file.filename;
         let proof = req.file ? req.file.filename : null;
-        // console.log("Uploaded proof filename:", proof); // Debugging log
         const response = await complaint.create({ ...req.body, proof });
-        return res.status(200).json(response);
+        return res.status(200).json("Complaint Registered Successfully");
     }
     catch (error) {
         console.error("Internal Server Error", error);
-        return res.status(500).json({ message: "Internal Server Error" });
+        return res.status(500).json({ message: "Error Occured" });
     }
 }
 

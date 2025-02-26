@@ -3,12 +3,13 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import celogofullpng from '../assets/celogofull.png';
 import spinner from '../assets/spinner.gif'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 export const CEUserProfile = () => {
 
 
     const navigate = useNavigate();
+    const location = useLocation();
     const userid = localStorage.getItem('id'); // Get the user ID from local storage
     const [loading, setLoading] = useState(true); // Track loading state
     const [popupOpen, setPopupOpen] = useState(false)
@@ -53,15 +54,17 @@ export const CEUserProfile = () => {
         }
     }
 
+    // fetch user data when the component mounts
     useEffect(() => {
         fetchUserData();
     }, []);
 
-
+    // Handle form data change
     const change = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
+    // Update user data
     const submit = async (e) => {
         e.preventDefault();
         try {
@@ -77,6 +80,8 @@ export const CEUserProfile = () => {
         }
     }
 
+
+    // Delete account
     const deleteaccount = async () => {
         try {
             let response = await axios.delete(`http://127.0.0.1:6969/user/delete/${userid}`)
@@ -92,6 +97,13 @@ export const CEUserProfile = () => {
             toast.error(error)
         }
     }
+
+    useEffect(() => {
+        if (location.state?.showDelete) {
+            setShowDeletePopup(true);
+        }
+    }, [location.state, setShowDeletePopup]);
+
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-10">
             <Toaster />
