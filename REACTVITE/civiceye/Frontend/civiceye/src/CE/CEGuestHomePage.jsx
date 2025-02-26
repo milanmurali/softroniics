@@ -11,12 +11,22 @@ export const CEGuestHomePage = () => {
 
     AOS.init(); // Initialize AOS Library
     const navigate = useNavigate();
+    const userid = localStorage.getItem('id'); // Get the user id from local storage
+    // console.log(userid);
 
     const [menuOpen, setMenuOpen] = useState(false); //  navbar hamburger state
     const [popupOpen, setPopupOpen] = useState(false); //  popup state
 
-    const userid = localStorage.getItem('id'); // Get the user id from local storage
-    // console.log(userid);
+    const aboutRef = useRef(null); // Ref for About Section
+    const contactRef = useRef(null); // Ref for Contact Section
+
+    //scroll to refs
+    const scrollToAbout = () => {
+        aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    const scrollToContact = () => {
+        contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
 
     useEffect(() => {
         if (userid) {
@@ -24,14 +34,12 @@ export const CEGuestHomePage = () => {
         }
     }, []);
 
-    const supportref = React.createRef(); // Create a reference for the support section
-    const scrollToSupport = () => window.scrollTo(0, supportref.current.offsetTop);
     return (
         <div className=''>
 
 
             {/* the nav  */}
-            <div className=" flex justify-between items-center p-4 bg-white shadow-md sticky top-0 w-full z-50">
+            <div className=" flex justify-between items-center p-4 bg-white shadow-md fixed top-0 w-full z-50">
                 {/* Logo */}
                 <div className="flex items-center">
                     <Link to="/">
@@ -48,13 +56,13 @@ export const CEGuestHomePage = () => {
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6">
                     <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
-                    <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
-                    <Link onClick={scrollToSupport} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
+                    <Link onClick={() => { scrollToAbout() }} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
+                    <Link onClick={() => { scrollToContact() }} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
                     <Link to="/signin" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition">Login</Link>
                 </div>
 
                 {/* Mobile Login Button and Dropdown Menu */}
-                <div className="md:hidden">
+                <div className="md:hidden px-4">
                     <div className="space-x-6">
                         {/* Mobile Login Button */}
                         <Link to="/signin" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition" onClick={() => setMenuOpen(false)}>
@@ -71,8 +79,8 @@ export const CEGuestHomePage = () => {
                     {menuOpen && (
                         <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center">
                             <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Home</Link>
-                            <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>About</Link>
-                            <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Contact</Link>
+                            <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setMenuOpen(false), scrollToAbout() }}>About</Link>
+                            <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setMenuOpen(false), scrollToContact() }}>Contact</Link>
                         </div>
                     )}
                 </div>
@@ -113,11 +121,8 @@ export const CEGuestHomePage = () => {
                     </p>
 
                     {/* Call-to-Action Button */}
-                    <Link href='/signup'>
-
-                        <button className="mt-6 bg-[#00B9FF] px-8 py-3 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out">
+                    <Link to='/signup'className="mt-6 bg-[#00B9FF] px-8 py-3 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out">
                             Sign Up Now!
-                        </button>
                     </Link>
                 </div>
             </div>
@@ -183,7 +188,8 @@ export const CEGuestHomePage = () => {
             </div>
 
             {/* What We Do Section */}
-            <div className="text-center py-8 bg-gray-50">
+            <div 
+            ref={aboutRef} className="text-center py-8 bg-gray-50">
                 <div
                     className="text-3xl font-extrabold text-gray-800 mb-6"
                     data-aos="fade-down"
@@ -288,7 +294,7 @@ export const CEGuestHomePage = () => {
             </div>
 
             {/* Support Section */}
-            <div ref={supportref} className="py-12 bg-gray-50 flex flex-col items-center">
+            <div ref={contactRef} className="py-12 bg-gray-50 flex flex-col items-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Need Help? Contact Us</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl w-full px-6">

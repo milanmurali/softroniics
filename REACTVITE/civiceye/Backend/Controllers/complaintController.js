@@ -14,7 +14,7 @@ export async function addComplaint(req, res) {
         if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
             return res.status(400).json({ message: "Invalid User ID format" });
         }
-        
+
         let userexists = await User.findOne({ _id: userId });
         if (!userexists) {
             return res.status(404).json({ message: "User Not Found" });
@@ -71,11 +71,35 @@ export async function mycomplaints(req, res) {
             ...comp._doc,
             proof: comp.proof ? `http://localhost:${PORT}/proofs/${comp.userId}/${comp.proof}` : null,
         }));
-        
+
         if (!updatedComplaints) {
             return res.status(404).json({ message: "No Complaints Not Found" });
         }
         return res.status(200).json(updatedComplaints);
+    }
+    catch (error) {
+        console.error("Internal Server Error", error);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+
+export async function statusUpdate(req, res) {
+    try {
+        const id = req.params.id;
+        const status = req.body.status;
+        const complaint = await complaint.findById(id);
+        if (!complaint) {
+            return res.status(404).json({ message: "Complaint not found" });
+        }
+        if (status === "Resolved") {
+            complaint.status = status;
+            complaint.resolvedAt = new Date().toISOString();
+        }
+        else {
+            return res.status(400).json({ message: "Invalid Status" });
+        }
+        await complaint.save();
+        return res.status(200).json({ message: "Status Updated Successfully" });
     }
     catch (error) {
         console.error("Internal Server Error", error);

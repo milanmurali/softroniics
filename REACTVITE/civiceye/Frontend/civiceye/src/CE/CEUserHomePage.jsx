@@ -118,7 +118,7 @@ export const CEUserHomePage = () => {
             <Toaster />
 
             {/* Navbar */}
-            <div className="flex justify-between items-center p-4 bg-white shadow-md sticky top-0 w-full z-50">
+            <div className="flex justify-between items-center p-4 bg-white shadow-md fixed top-0 w-full z-50">
                 {/* Logo on the Left */}
                 <div>
                     <Link to="/">
@@ -142,10 +142,11 @@ export const CEUserHomePage = () => {
                         <Link to="/mycomplaints" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
                             My Complaints
                         </Link>
-                        <Link to="/about" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                        <Link onClick={scrollToAbout} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
                             About
                         </Link>
-                        <Link to="/contact" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                        <Link
+                            onClick={scrollToContact} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
                             Contact
                         </Link>
                     </div>
@@ -186,7 +187,6 @@ export const CEUserHomePage = () => {
                                     Delete Account
                                 </Link>
                                 <Link
-                                    to="/signin"
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                     onClick={() => { setProfileOpen(false), logout() }}
                                 >
@@ -215,12 +215,12 @@ export const CEUserHomePage = () => {
                             onClick={() => setMenuOpen(false)}>
                             My Complaints
                         </Link>
-                        <Link to="/about" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => setMenuOpen(false)}>
+                        <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => {setMenuOpen(false), scrollToAbout()}}>
                             About
                         </Link>
                         <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => setMenuOpen(false)}>
+                            onClick={() => {setMenuOpen(false), scrollToContact()}}>
                             Contact
                         </Link>
                         <hr className="w-full border-gray-200" />
@@ -499,7 +499,9 @@ export const CEUserHomePage = () => {
             </div>
 
             {/* What We Do Section */}
-            <div className="text-center py-8 bg-gray-50">
+            <div
+                ref={aboutRef}
+                className="text-center py-8 bg-gray-50">
                 <div
                     className="text-3xl font-extrabold text-gray-800 mb-6"
                     data-aos="fade-down"
@@ -604,7 +606,8 @@ export const CEUserHomePage = () => {
             </div>
 
             {/* Support Section */}
-            <div className="py-12 bg-gray-50 flex flex-col items-center">
+            <div
+                ref={contactRef} className="py-12 bg-gray-50 flex flex-col items-center">
                 <h2 className="text-3xl font-bold text-gray-800 mb-8">Need Help? Contact Us</h2>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl w-full px-6">

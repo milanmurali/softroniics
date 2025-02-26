@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import celogofullpng from '../assets/celogofull.png'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
@@ -9,6 +9,8 @@ export const CESignup = () => {
   const navigate = useNavigate();
   const [signindata, setsignindata] = useState('')
   const userId = localStorage.getItem('id'); // Get the user id from local storage 
+  
+  // Redirect to home page if user is already logged in
   useEffect(() => {
     if (userId) {
       navigate('/home')

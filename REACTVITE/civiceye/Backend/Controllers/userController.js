@@ -8,7 +8,7 @@ export async function initial(req, res) {
     res.send("YUPPPPPPP");
 }
 
-export async function login(req, res) {
+export async function login(req, res) { // Login Function
     try {
         let { email, password } = req.body;
         if (!email || !password) {
@@ -37,7 +37,7 @@ export async function login(req, res) {
     }
 }
 
-export async function register(req, res) {
+export async function register(req, res) { // Register Function
     try {
         let { name, email, password, mobile, dob, address } = req.body;
 
@@ -63,7 +63,7 @@ export async function register(req, res) {
     }
 }
 
-export async function deleteuser(req, res) {
+export async function deleteuser(req, res) { // Delete Function
     const id = req.params.id;
 
     try {
@@ -81,7 +81,7 @@ export async function deleteuser(req, res) {
 }
 
 
-export async function updateuser(req, res) {
+export async function updateuser(req, res) { // Update Function
     const id = req.params.id;
 
     try {
@@ -106,7 +106,7 @@ export async function updateuser(req, res) {
 }
 
 
-export async function viewuser(req, res) {
+export async function viewuser(req, res) {  // View by ID Function
     const id = req.params.id;
     try {
         const response = await user.findById(id);
