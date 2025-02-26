@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel'; // Import the Carousel Component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Carousel CSS
@@ -13,14 +13,22 @@ export const CEUserHomePage = () => {
 
     AOS.init(); // Initialize AOS Library
     const navigate = useNavigate();
-
     const userId = localStorage.getItem('id'); // Get the user id from local storage 
 
     const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
+    const aboutRef = useRef(null); // Ref for About Section
+    const contactRef = useRef(null); // Ref for Contact Section
 
+    //scroll to refs
+    const scrollToAbout = () => {
+        aboutRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    const scrollToContact = () => {
+        contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
     // Complaint Data
     const [adddata, setadddata] = useState({
         description: "",
@@ -104,11 +112,6 @@ export const CEUserHomePage = () => {
         localStorage.clear()
         nav('/landing')
     }
-    // Delete Account function
-    const handleDelete = () => {
-        navigate("/profile", { state: { showDelete: true } }); // Pass state
-    };
-
     return (
         <div>
             {/* Toast Notifications */}
@@ -176,7 +179,7 @@ export const CEUserHomePage = () => {
                                     Profile
                                 </Link>
                                 <Link
-                                    to="/myprofile"
+                                    to="/myprofile?showDelete=true"
                                     className="block px-4 py-2 text-gray-700 hover:bg-gray-100"
                                     onClick={() => { setProfileOpen(false), handleDelete() }}
                                 >
@@ -225,8 +228,10 @@ export const CEUserHomePage = () => {
                             onClick={() => setMenuOpen(false)}>
                             Profile
                         </Link>
-                        <Link to="/myprofile" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => { setProfileOpen(false), handleDelete() }}
+                        <Link
+                            to="/myprofile?showDelete=true"
+                            className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                            onClick={() => { setProfileOpen(false) }}
                         >
                             Delete Account
                         </Link>
@@ -264,7 +269,7 @@ export const CEUserHomePage = () => {
 
             {/* Register Complaints Full Screen Popup */}
             {popupOpen && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs bg-gray-950/80">
+                <div className="fixed inset-0 z-50 flex items-center justify-center backdrop-blur-xs bg-gray-950/80 px-6">
                     <div className="relative flex items-center justify-center">
                         <button
                             onClick={() => setPopupOpen(false)}

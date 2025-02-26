@@ -8,7 +8,12 @@ import toast, { Toaster } from 'react-hot-toast';
 export const CESignup = () => {
   const navigate = useNavigate();
   const [signindata, setsignindata] = useState('')
-
+  const userId = localStorage.getItem('id'); // Get the user id from local storage 
+  useEffect(() => {
+    if (userId) {
+      navigate('/home')
+    }
+  }, []);
   const change = (event) => {
     setsignindata({ ...signindata, [event.target.name]: event.target.value })
   }
@@ -21,7 +26,7 @@ export const CESignup = () => {
       console.log(response.data);
       toast.success(response.data.message);
       setTimeout(() => {
-        navigate('/signin'); 
+        navigate('/signin');
       }, 1000);
 
     }

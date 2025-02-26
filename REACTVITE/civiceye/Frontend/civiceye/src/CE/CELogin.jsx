@@ -1,13 +1,20 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import celogofullpng from '../assets/celogofull.png'
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
-
-
 export const CELogin = () => {
+
     const navigate = useNavigate();
+
+    const userId = localStorage.getItem('id'); // Get the user id from local storage 
+    useEffect(() => {
+            if (userId) {
+                navigate('/home')
+            }
+        }, []);
+
 
     const [logindata, setlogindata] = useState('')
 
@@ -21,7 +28,7 @@ export const CELogin = () => {
             console.table(logindata)
             const response = await axios.post('http://127.0.0.1:6969/user/login', logindata);
 
-            console.log(response);
+            // console.log(response);
             // console.log(response.data.token);
             localStorage.setItem("token", response.data.token);
             // console.log(localStorage.getItem("token"));

@@ -3,16 +3,26 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import celogofullpng from '../assets/celogofull.png';
 import spinner from '../assets/spinner.gif'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 export const CEUserProfile = () => {
 
 
     const navigate = useNavigate();
-    const location = useLocation();
+    const [searchParams] = useSearchParams(); // Hook to read URL params
     const userid = localStorage.getItem('id'); // Get the user ID from local storage
+
     const [loading, setLoading] = useState(true); // Track loading state
-    const [popupOpen, setPopupOpen] = useState(false)
+    const [popupOpen, setPopupOpen] = useState(false) // Track delete popup state
+
+    // delete func
+    useEffect(() => {
+        if (searchParams.get("showDelete") === "true") {
+            setPopupOpen(true);
+        }
+    }, [searchParams]); // Re-run when URL params change
+
+
     const [formData, setFormData] = useState({ // Form data state
         name: '',
         mobile: '',
@@ -87,6 +97,7 @@ export const CEUserProfile = () => {
             let response = await axios.delete(`http://127.0.0.1:6969/user/delete/${userid}`)
             console.log(response.data);
             toast.success(response.data.message);
+            setPopupOpen(false);
             localStorage.clear();
             setTimeout(() => {
                 navigate('/landing ');
@@ -98,11 +109,7 @@ export const CEUserProfile = () => {
         }
     }
 
-    useEffect(() => {
-        if (location.state?.showDelete) {
-            setShowDeletePopup(true);
-        }
-    }, [location.state, setShowDeletePopup]);
+
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 px-6 py-10">
