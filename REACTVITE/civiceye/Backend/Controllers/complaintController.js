@@ -6,7 +6,7 @@ import 'dotenv/config'
 const PORT = process.env.PORT || 4000
 
 
-export async function addComplaint(req, res) {
+export async function addComplaint(req, res) {  // Add Complaint
     try {
         // console.log(req.body);
         let userId = req.body.userId;
@@ -29,7 +29,7 @@ export async function addComplaint(req, res) {
     }
 }
 
-export async function getallComplaints(req, res) {
+export async function getallComplaints(req, res) {  // Get All Complaints
     try {
         const userId = req.params.id; // Get userId from request body
 
@@ -61,8 +61,7 @@ export async function getallComplaints(req, res) {
     }
 }
 
-
-export async function mycomplaints(req, res) {
+export async function mycomplaints(req, res) { // Get complaints by userId
     const id = req.params.id;
     try {
         const complaints = await complaint.find();
@@ -83,7 +82,7 @@ export async function mycomplaints(req, res) {
     }
 }
 
-export async function statusUpdate(req, res) {
+export async function statusUpdate(req, res) { // Update Complaint Status
     try {
         const id = req.params.id;
         const status = req.body.status;

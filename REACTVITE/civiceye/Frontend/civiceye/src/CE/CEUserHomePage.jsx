@@ -19,6 +19,8 @@ export const CEUserHomePage = () => {
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
+    const homeRef = useRef(null); // Ref for Home Section
+
     const aboutRef = useRef(null); // Ref for About Section
     const contactRef = useRef(null); // Ref for Contact Section
 
@@ -28,6 +30,9 @@ export const CEUserHomePage = () => {
     }
     const scrollToContact = () => {
         contactRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+    const scrollToHome = () => {
+        homeRef.current.scrollIntoView({ behavior: 'smooth' });
     }
     // Complaint Data
     const [adddata, setadddata] = useState({
@@ -113,7 +118,7 @@ export const CEUserHomePage = () => {
         nav('/landing')
     }
     return (
-        <div>
+        <div ref={homeRef}>
             {/* Toast Notifications */}
             <Toaster />
 
@@ -136,7 +141,7 @@ export const CEUserHomePage = () => {
                 <div className="hidden md:flex items-center space-x-4 ">
                     {/* Nav Links */}
                     <div className="flex space-x-4">
-                        <Link to="/home" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
+                        <Link onClick={scrollToHome} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
                             Home
                         </Link>
                         <Link to="/mycomplaints" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">
@@ -208,7 +213,7 @@ export const CEUserHomePage = () => {
                 {menuOpen && (
                     <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden">
                         <Link to="/home" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => setMenuOpen(false)}>
+                            onClick={() => {setMenuOpen(false), scrollToHome()}}>
                             Home
                         </Link>
                         <Link to="/mycomplaints" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
@@ -216,11 +221,11 @@ export const CEUserHomePage = () => {
                             My Complaints
                         </Link>
                         <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => {setMenuOpen(false), scrollToAbout()}}>
+                            onClick={() => { setMenuOpen(false), scrollToAbout() }}>
                             About
                         </Link>
                         <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => {setMenuOpen(false), scrollToContact()}}>
+                            onClick={() => { setMenuOpen(false), scrollToContact() }}>
                             Contact
                         </Link>
                         <hr className="w-full border-gray-200" />
@@ -458,7 +463,7 @@ export const CEUserHomePage = () => {
                     </p>
 
                     {/* Stats Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-6">
                         <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
@@ -486,14 +491,14 @@ export const CEUserHomePage = () => {
                             <p className="text-3xl font-bold text-yellow-600">886</p>
                         </div>
 
-                        <div
+                        {/* <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-red-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
                             data-aos-duration="1600"
                         >
                             <h3 className="text-lg font-semibold text-gray-700">Impact Made</h3>
                             <p className="text-3xl font-bold text-red-600">...</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

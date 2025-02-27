@@ -16,7 +16,7 @@ export const CEGuestHomePage = () => {
 
     const [menuOpen, setMenuOpen] = useState(false); //  navbar hamburger state
     const [popupOpen, setPopupOpen] = useState(false); //  popup state
-
+    const homeRef = useRef(null); // Ref for Home Section
     const aboutRef = useRef(null); // Ref for About Section
     const contactRef = useRef(null); // Ref for Contact Section
 
@@ -27,6 +27,9 @@ export const CEGuestHomePage = () => {
     const scrollToContact = () => {
         contactRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+    const scrollToHome = () => {
+        homeRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
 
     useEffect(() => {
         if (userid) {
@@ -35,8 +38,7 @@ export const CEGuestHomePage = () => {
     }, []);
 
     return (
-        <div className=''>
-
+        <div ref={homeRef}>
 
             {/* the nav  */}
             <div className=" flex justify-between items-center p-4 bg-white shadow-md fixed top-0 w-full z-50">
@@ -55,7 +57,7 @@ export const CEGuestHomePage = () => {
 
                 {/* Desktop Menu */}
                 <div className="hidden md:flex space-x-6">
-                    <Link to="/landing" className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
+                    <Link onClick={() => { scrollToHome() }} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Home</Link>
                     <Link onClick={() => { scrollToAbout() }} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">About</Link>
                     <Link onClick={() => { scrollToContact() }} className="px-3 py-2 rounded text-gray-700 hover:bg-gray-200 transition">Contact</Link>
                     <Link to="/signin" className="bg-[#00B9FF] text-white px-4 py-2 rounded hover:bg-[#0099dd] transition">Login</Link>
@@ -78,7 +80,7 @@ export const CEGuestHomePage = () => {
                     {/* Mobile Dropdown Menu */}
                     {menuOpen && (
                         <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center">
-                            <Link to="/landing" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => setMenuOpen(false)}>Home</Link>
+                            <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setMenuOpen(false), scrollToHome() }}>Home</Link>
                             <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setMenuOpen(false), scrollToAbout() }}>About</Link>
                             <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200" onClick={() => { setMenuOpen(false), scrollToContact() }}>Contact</Link>
                         </div>
@@ -121,14 +123,17 @@ export const CEGuestHomePage = () => {
                     </p>
 
                     {/* Call-to-Action Button */}
-                    <Link to='/signup'className="mt-6 bg-[#00B9FF] px-8 py-3 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out">
+                    <Link to='/signup' >
+                        <button to='/signup' className="mt-6 bg-[#00B9FF] px-8 py-3 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 transition-all duration-300 ease-in-out">
                             Sign Up Now!
+                        </button>
                     </Link>
                 </div>
             </div>
 
             {/* Complaint Reports Section */}
             <div className="py-16 bg-gray-50">
+
                 <div className="max-w-5xl mx-auto text-center">
                     {/* Section Heading */}
                     <h2
@@ -147,7 +152,7 @@ export const CEGuestHomePage = () => {
                     </p>
 
                     {/* Stats Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-6">
                         <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
@@ -175,21 +180,21 @@ export const CEGuestHomePage = () => {
                             <p className="text-3xl font-bold text-yellow-600">886</p>
                         </div>
 
-                        <div
+                        {/* <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-red-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
                             data-aos-duration="1600"
                         >
                             <h3 className="text-lg font-semibold text-gray-700">Impact Made</h3>
                             <p className="text-3xl font-bold text-red-600">...</p>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>
 
             {/* What We Do Section */}
-            <div 
-            ref={aboutRef} className="text-center py-8 bg-gray-50">
+            <div
+                ref={aboutRef} className="text-center py-8 bg-gray-50">
                 <div
                     className="text-3xl font-extrabold text-gray-800 mb-6"
                     data-aos="fade-down"
