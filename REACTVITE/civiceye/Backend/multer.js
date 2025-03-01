@@ -1,11 +1,13 @@
 import multer from 'multer';
 import path from "path";
 import fs from "fs";
+import { console } from 'inspector';
 
 // Multer storage configuration
 const storageConfig = multer.diskStorage({
     destination: (req, file, cb) => {
         
+        console.log(req.body)
         const userId = req.body.userId;  // Extract userId from the request body
         // console.log("User ID:", userId); // Debugging log
         

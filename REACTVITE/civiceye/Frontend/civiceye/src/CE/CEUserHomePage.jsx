@@ -213,7 +213,7 @@ export const CEUserHomePage = () => {
                 {menuOpen && (
                     <div className="absolute top-full left-0 w-full bg-white shadow-md flex flex-col items-center md:hidden">
                         <Link to="/home" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
-                            onClick={() => {setMenuOpen(false), scrollToHome()}}>
+                            onClick={() => { setMenuOpen(false), scrollToHome() }}>
                             Home
                         </Link>
                         <Link to="/mycomplaints" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
@@ -662,12 +662,12 @@ export const CEUserHomePage = () => {
                                 Quick Links</h3>
                             <ul className="ml-4 mt-2 space-y-2">
                                 <li>
-                                    <Link to="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
+                                    <Link to="/home" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
                                         <span>Home</span></Link>
                                 </li>
                                 <li>
-                                    <Link to="#" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
-                                        <span>Complaints</span></Link>
+                                    <Link to="/mycomplaints" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
+                                        <span>My Complaints</span></Link>
                                 </li>
                                 <li>
                                     <Link to="/myprofile" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span>
@@ -689,7 +689,6 @@ export const CEUserHomePage = () => {
                             <div className='ml-4'>
                                 <p className="mt-2">
                                     <span className="font-semibold">Military</span> <br />
-                                    (123) 456-7890 <br />
                                     (123) 456-7540
                                 </p>
                                 <p className="mt-4">

@@ -215,7 +215,8 @@ const CEMyComplaints = () => {
                                                         </a>
                                                         <a
                                                             href={complaint.proof}
-                                                            download="proof.jpg"
+                                                            download="proof-document.png"
+                                                            target="_blank"
                                                             className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-50 rounded-md hover:bg-gray-100 transition border border-gray-200"
                                                             title="Download Proof"
                                                         >
