@@ -8,16 +8,17 @@ import { CELogin } from './CE/CELogin.jsx'
 import { CEUserProfile } from './CE/CEUserProfile.jsx'
 import { CESignup } from './CE/CESignup.jsx'
 import { CEGuestHomePage } from './CE/CEGuestHomePage.jsx'
-import { KHome } from './Testss/KHome.jsx'
 import { CEUserHomePage } from './CE/CEUserHomePage.jsx'
 import CEMyComplaints from './CE/CEMyComplaints.jsx'
+import { CEAdminUserManagement } from './CE/CEAdminUserManagement.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
 
     <BrowserRouter>
+
       <Routes>
-        <Route path="/" element={<Navigate to="/landing" replace />} />   // Redirect to landing page
+        <Route path="/" element={<Navigate to="/landing" />} />   // Redirect to landing page
         <Route path='/landing' element={<CEGuestHomePage />} />
         <Route path='/home' element={<CEUserHomePage />} />
         <Route path="/signin" element={<CELogin />} />
@@ -25,11 +26,9 @@ createRoot(document.getElementById('root')).render(
         <Route path='/myprofile' element={<CEUserProfile />} />
         <Route path='/mycomplaints' element={<CEMyComplaints />} />
 
-
-        <Route path='/khome' element={<KHome />} />
-
-
+        <Route path='/userlist' element={<CEAdminUserManagement />} />
       </Routes>
+ 
     </BrowserRouter>
 
     {/* <App /> */}

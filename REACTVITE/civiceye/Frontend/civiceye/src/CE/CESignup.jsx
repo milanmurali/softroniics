@@ -34,7 +34,7 @@ export const CESignup = () => {
     }
     catch (error) {
       console.log("CL", error.response.data.message);
-      toast.error(error.message || error.response.data.message);
+      toast.error(error.response.data.message || error.message );
     }
   }
   return (

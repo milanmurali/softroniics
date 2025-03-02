@@ -9,13 +9,8 @@ export const CELogin = () => {
     const navigate = useNavigate();
 
     const userId = localStorage.getItem('id'); // Get the user id from local storage 
-    useEffect(() => {
-        if (userId) {
-            navigate('/home')
-        }
-    }, []);
 
-
+    
     const [logindata, setlogindata] = useState('')
 
     const change = (event) => {
@@ -28,22 +23,34 @@ export const CELogin = () => {
             console.table(logindata)
             const response = await axios.post('http://127.0.0.1:6969/user/login', logindata);
 
-            // console.log(response);
+            console.log(response);
             // console.log(response.data.token);
             localStorage.setItem("token", response.data.token);
             // console.log(localStorage.getItem("token"));
             localStorage.setItem("id", response.data.id);
             // console.log(localStorage.getItem("id"));
             toast.success(response.data.message);
-            setTimeout(() => {
-                navigate('/home ');
-            }, 1000);
+
+            if (response.data.role === 'admin') {
+                navigate('/home');
+            }
+            else if (response.data.role === 'user') {
+                navigate('/home');
+            }
         }
         catch (error) {
             console.log("Error Occured", error);
-            toast.error(error.message || error.response.data.message);
+            toast.error(error.response.data.message || error.message);
         }
     }
+
+
+    useEffect(() => {
+        if (userId) {
+            navigate('/home')
+        }
+    }, []);
+
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100 px-10">
             <Toaster />

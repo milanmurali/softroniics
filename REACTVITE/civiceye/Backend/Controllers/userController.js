@@ -27,9 +27,10 @@ export async function login(req, res) { // Login Function
             {
                 message: "Login Successful",
                 token,
-                id: userexists._id
-
-            });
+                id: userexists._id,
+                role: userexists.role
+            }
+        );
     }
     catch (error) {
         console.error("Internal Server Error", error);
