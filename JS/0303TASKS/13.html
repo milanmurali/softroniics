@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function check() {
+            let chck = document.getElementById("chck").value;
+            let string = chck.toString();
+            let rev = string.split('').reverse().join('')
+
+            if (string == rev) {
+                alert("Palindrome");
+            }
+            else {
+                alert("Not a Palindrome");
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+    <h1>PALINDROME CHECK</h1>
+    <input type="text" id="chck"> <br> <br>
+    <button onclick="check()">CHECK</button>
+</body>
+
+</html>

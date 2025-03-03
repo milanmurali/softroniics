@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function addArrays() {
+            var input1 = document.getElementById("input1").value;
+            var input2 = document.getElementById("input2").value;
+            var arr1 = JSON.parse(input1);
+            var arr2 = JSON.parse(input2);
+            var result = [];
+            for (var i = 0; i < arr1.length; i++) {
+                result[i] = [];
+                for (var j = 0; j < arr1[i].length; j++) {
+                    result[i][j] = arr1[i][j] + arr2[i][j];
+                }
+            }
+            document.getElementById("result").innerHTML = JSON.stringify(result);
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Add Two 2D Arrays</h1>
+    <input type="text" id="input1" />
+    <input type="text" id="input2" />
+    <button onclick="addArrays()">Add</button>
+    <p id="result"></p>
+</body>
+
+</html>

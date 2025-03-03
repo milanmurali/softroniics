@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+            let arr = document.getElementById("ip").value.split(",");
+            let op = 0
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] % 2 == 0) {
+                    op++;
+                }
+            }
+            document.getElementById("op").innerHTML = "Number of even numbers: " + op;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Count Even Numbers in an Array</h1>
+
+    <label>Enter array values (comma-separated):</label>
+    <input type="text" id="ip"> <br><br>
+
+    <button onclick="calc()">Count</button>
+
+    <p id="op"></p>
+</body>
+
+</html>

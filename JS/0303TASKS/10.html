@@ -1,12 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script></script>
+    <script>
+        function calc() {
+            let arr1 = document.getElementById("arr1").value.split(",");
+            let arr2 = document.getElementById("arr2").value.split(",");
+            [arr1, arr2] = [arr2, arr1];
+            document.getElementById("op").innerHTML = "Array 1: " + arr1 + "<br> Array 2: " + arr2;
+        }
+    </script>
 </head>
+
 <body>
-    
+    <h1>Enter Array 1:</h1>
+
+    <input type="text" id="arr1"> <br> <br>
+
+    <h1>Enter Array 2:</h1>
+
+    <input type="text" id="arr2"> <br> <br>
+
+    <button onclick="calc()">Print</button>
+
+    <p id="op"></p>
 </body>
+
 </html>
