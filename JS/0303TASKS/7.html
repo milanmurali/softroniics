@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+            let num = parseFloat(document.getElementById("num").value);
+            let op = "";
+            for (let i = 1; i <= 10; i++) {
+                op += num + " x " + i + " = " + num * i + "<br>";
+            }
+            document.getElementById("op").innerHTML = op;
+        }
+    </script>
+</head>
+<body>
+    <h1>Multiplication table</h1>
+    <input type="text" id="num"> <br> <br>
+    <button onclick="calc()">Print</button>
+    <p id="op"></p>
+</body>
+</html>

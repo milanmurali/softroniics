@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+
+            let m = document.getElementById("m").value;
+            if (m == "1") {
+                document.getElementById("op").innerHTML = "Monday";
+            } else if (m == "2") {
+                document.getElementById("op").innerHTML = "Tuesday";
+            } else if (m == "3") {
+                document.getElementById("op").innerHTML = "Wednesday";
+            } else if (m == "4") {
+                document.getElementById("op").innerHTML = "Thursday";
+            } else if (m == "5") {
+                document.getElementById("op").innerHTML = "Friday";
+            } else if (m == "6") {
+                document.getElementById("op").innerHTML = "Saturday";
+            } else if (m == "7") {
+                document.getElementById("op").innerHTML = "Sunday";
+            } else {
+                document.getElementById("op").innerHTML = "Invalid Input";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Enter the Day in No:</h1>
+    <input type="text" id="m"> <br> <br>
+    <button onclick="calc()">Print</button>
+    <p id="op"></p>
+</body>
+
+</html>

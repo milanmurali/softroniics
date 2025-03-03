@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        function calc() {
+
+            let m = parseFloat(document.getElementById("m").value);
+            if (m >= 90) {
+                document.getElementById("op").innerHTML = "Grade A";
+            } else if (m >= 80) {
+                document.getElementById("op").innerHTML = "Grade B";
+            } else if (m >= 70) {
+                document.getElementById("op").innerHTML = "Grade C";
+            } else if (m >= 60) {
+                document.getElementById("op").innerHTML = "Grade D";
+            } else if (m >= 50) {
+                document.getElementById("op").innerHTML = "Grade E";
+            } else {
+                document.getElementById("op").innerHTML = "Failed";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Enter your Mark:</h1>
+    <input type="text" id="m"> <br> <br>
+    <button onclick="calc()">Calculate</button>
+    <p id="op"></p>
+</body>
+
+</html>

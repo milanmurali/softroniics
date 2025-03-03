@@ -3,7 +3,6 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import './index.css'
 // import App from './App.jsx'
-
 import { CELogin } from './CE/CELogin.jsx'
 import { CEUserProfile } from './CE/CEUserProfile.jsx'
 import { CESignup } from './CE/CESignup.jsx'

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Enter First Number :
+    <input type="text" id="fir"> <br> <br>
+    Enter Second Number :
+    <input type="text" id="sec"> <br> <br>
+
+    <button onclick="calc()">Calculate</button>
+
+    <h1 type="text" id="r">
+
+        <script>
+            function calc() {
+                let fir = parseFloat(document.getElementById("fir").value)
+                let sec = parseFloat(document.getElementById("sec").value)
+                let r = fir + sec;
+                document.getElementById("r").innerHTML = "Sum = " + r;
+            }
+        </script>
+</body>
+
+</html>

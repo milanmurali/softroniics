@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function calc() {
+            let num = parseInt(document.getElementById("num").value);
+            let op = 0;
+            for (let i = 1; i <= num; i = (i + 2)) {
+                op = parseInt(op) + parseInt(i);
+            }
+            document.getElementById("op").innerHTML = op;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Enter a Limit</h1>
+    <input type="text" id="num"> <br> <br>
+    <button onclick="calc()">Print</button>
+    <p id="op"></p>
+</body>
+
+</html>
