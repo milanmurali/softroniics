@@ -32,7 +32,7 @@ export const CELogin = () => {
             toast.success(response.data.message);
 
             if (response.data.role === 'admin') {
-                navigate('/home');
+                navigate('/dashboard');
             }
             else if (response.data.role === 'user') {
                 navigate('/home');
@@ -43,13 +43,6 @@ export const CELogin = () => {
             toast.error(error.response.data.message || error.message);
         }
     }
-
-
-    useEffect(() => {
-        if (userId) {
-            navigate('/home')
-        }
-    }, []);
 
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100 px-10">

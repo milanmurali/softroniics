@@ -77,7 +77,7 @@ export async function mycomplaints(req, res) { // Get complaints by userId
         }
         return res.status(200).json(updatedComplaints);
     }
-    catch (error) {
+    catch (error) { 
         console.error("Internal Server Error", error);
         return res.status(500).json({ message: "Internal Server Error" });
     }

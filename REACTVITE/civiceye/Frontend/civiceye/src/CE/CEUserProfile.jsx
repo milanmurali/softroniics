@@ -87,7 +87,8 @@ export const CEUserProfile = () => {
             const response = await axios.delete(`http://127.0.0.1:6969/user/delete/${userid}`);
             toast.success(response.data.message);
             setPopupOpen(false);
-            localStorage.clear();
+            logout();
+            toast.success('Account deleted successfully');
             setTimeout(() => {
                 navigate('/landing');
             }, 1000);
@@ -96,7 +97,10 @@ export const CEUserProfile = () => {
             toast.error(error.response?.data?.message || 'Failed to delete account');
         }
     };
-
+    const logout = () => {
+        localStorage.clear()
+        nav('/landing')
+    }
     return (
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-12 px-4 sm:px-6">
             <Toaster position="top-right" />
@@ -255,7 +259,7 @@ export const CEUserProfile = () => {
                                         </label>
                                         <div className="relative">
                                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                            <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                <svg className="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                                                 </svg>
                                             </div>
