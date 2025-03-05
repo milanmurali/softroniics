@@ -260,6 +260,7 @@ export const CEUserHomePage = () => {
                 showIndicators={false}
                 stopOnHover={true}
                 interval={2000}>
+                    
                 <div>
                     <img src={porsche} className='object-contain h-[50vh]' />
                 </div>

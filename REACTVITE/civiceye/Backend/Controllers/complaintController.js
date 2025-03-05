@@ -63,8 +63,9 @@ export async function getallComplaints(req, res) {  // Get All Complaints
 
 export async function mycomplaints(req, res) { // Get complaints by userId
     const id = req.params.id;
+
     try {
-        const complaints = await complaint.find();
+        const complaints = await complaint.find({ userId: id });
 
         const updatedComplaints = complaints.map((comp) => ({
             ...comp._doc,
@@ -72,7 +73,7 @@ export async function mycomplaints(req, res) { // Get complaints by userId
         }));
 
         if (!updatedComplaints) {
-            return res.status(404).json({ message: "No Complaints Not Found" });
+            return res.status(404).json({ message: "No Complaints Found" });
         }
         return res.status(200).json(updatedComplaints);
     }

@@ -2,6 +2,7 @@ import bcrypt from "bcrypt";
 import "dotenv/config";
 import jwt from "jsonwebtoken";
 import user from "../Models/userSchema.js";
+import mongoose from "mongoose";
 
 
 export async function initial(req, res) {
@@ -122,3 +123,33 @@ export async function viewuser(req, res) {  // View by ID Function
     }
 
 }
+
+export async function viewAllUsers(req, res) {
+    try {
+
+        const { id } = req.params; // Extract admin ID from request params
+
+        if (!id) {        // Validate ID presence
+            return res.status(400).json({ message: "Admin ID not provided" });
+        }
+
+        if (!mongoose.Types.ObjectId.isValid(id)) {   // Validate if ID is a valid MongoDB ObjectId
+            return res.status(400).json({ message: "Invalid Admin ID format" });
+        }
+
+        const adminUser = await user.findById(id);   // Check if the user exists and has admin privileges
+        if (!adminUser || adminUser.role !== "admin") {
+            return res.status(403).json({ message: "Access Denied. Not an admin." });
+        }
+        // Fetch all users
+        const users = await user.find(); // Returns an array, even if empty
+        return res.status(200).json({
+            message: users.length > 0 ? "Users retrieved successfully" : "No users found",
+            users,
+        });
+    } catch (error) {
+        console.error("Internal Server Error:", error);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+}
+

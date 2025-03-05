@@ -10,6 +10,7 @@ import { CEGuestHomePage } from './CE/CEGuestHomePage.jsx'
 import { CEUserHomePage } from './CE/CEUserHomePage.jsx'
 import CEMyComplaints from './CE/CEMyComplaints.jsx'
 import { CEAdminUserManagement } from './CE/CEAdminUserManagement.jsx'
+import { KHome } from './Testss/KHome.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -26,6 +27,8 @@ createRoot(document.getElementById('root')).render(
         <Route path='/mycomplaints' element={<CEMyComplaints />} />
 
         <Route path='/userlist' element={<CEAdminUserManagement />} />
+
+        <Route path='test' element={<KHome/>} />
       </Routes>
  
     </BrowserRouter>

@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 4000
 
 connectdb().then(() => {
     app.listen(PORT, () => {
-        console.log("CE Backend Server Running on", PORT);
+        console.log("CE Backend Server Running on localhost PORT:",PORT);
     })
 })
 

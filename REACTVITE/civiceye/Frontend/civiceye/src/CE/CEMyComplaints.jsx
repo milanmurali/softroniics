@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import spinner from '../assets/spinner.gif';
 import celogofullpng from '../assets/celogofull.png'; // Import the CivicEye Logo
 
@@ -32,6 +32,7 @@ const CEMyComplaints = () => {
     useEffect(() => {
         fetchComplaints();
     }, []);
+
 
     // Filter complaints based on status
     const filterComplaints = (status) => {
@@ -68,7 +69,7 @@ const CEMyComplaints = () => {
     const getStatusBadgeClasses = (status) => {
         switch (status) {
             case "Pending":
-                return "bg-amber-100 text-amber-800 border border-amber-200";
+                return "";
             case "Resolved":
                 return "bg-emerald-100 text-emerald-800 border border-emerald-200";
             case "Rejected":
@@ -101,8 +102,18 @@ const CEMyComplaints = () => {
             ) : (
                 <div className="w-full max-w-6xl">
                     {/* Stats Bar and Filter Buttons */}
+
                     <div className="bg-white shadow-md rounded-xl mb-6 p-4">
+
                         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
+                            <div className="flex items-center justify-center hover:bg-gray-200 rounded-lg p-1 cursor-pointer">
+                                <Link to="/home" className="w-6 h-6 flex space-x-1">
+                                    <img
+                                        src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=000000"
+                                        alt="Icon"
+                                    />  
+                                </Link>
+                            </div>
                             {/* Filter Buttons */}
                             <div className="flex flex-wrap gap-2 mb-4 md:mb-0">
                                 <button

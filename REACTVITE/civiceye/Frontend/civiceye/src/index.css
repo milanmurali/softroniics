@@ -1,8 +1,18 @@
-
-html, body {
-    font-family: "Questrial";
-    overflow-x: hidden;
-}
+@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Questrial&display=swap');
+
+html,
+body {
+    font-family: "Roboto";   
+    /* font-family: "Questrial"; */
+    /* font-family: "Poppins"; */
+    /* font-family: 'Lobster'; */
+    /* font-family: 'Merriweather', serif; */
+    /* font-family: 'Montserrat', sans-serif; */
+    /* font-family: 'Playfair Display  '; */
+    /* font-family: 'Raleway', sans-serif; */
+    overflow-x: hidden;
+}
