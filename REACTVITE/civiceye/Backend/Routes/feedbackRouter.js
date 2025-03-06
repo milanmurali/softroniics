@@ -7,6 +7,6 @@ import { getallfeedbacks, postfeedback } from "../Controllers/feedbackController
 const feedbackRouter = express.Router()
 
 feedbackRouter.post("/post",postfeedback)
-feedbackRouter.get("/getall/:id",getallfeedbacks)
+feedbackRouter.get("/getall",getallfeedbacks)
 
 export default feedbackRouter

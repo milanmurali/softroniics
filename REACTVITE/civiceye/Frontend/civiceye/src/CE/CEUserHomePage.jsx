@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useSearchParams } from 'react-router-dom'
 import { Carousel } from 'react-responsive-carousel'; // Import the Carousel Component
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Carousel CSS
 import AOS from 'aos'; // Import the AOS Library
@@ -14,6 +14,13 @@ export const CEUserHomePage = () => {
     AOS.init(); // Initialize AOS Library
     const navigate = useNavigate();
     const userId = localStorage.getItem('id'); // Get the user id from local storage 
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        if (searchParams.get("showpopup") === "true") {
+            setPopupOpen(true);
+        }
+    }, [searchParams]);
 
     const [menuOpen, setMenuOpen] = useState(false);         // For mobile hamburger in navbar
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
