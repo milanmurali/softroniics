@@ -192,7 +192,7 @@ export const CEAdminComplaints = () => {
                 </div>
 
                 <div className="flex-1 p-10 bg-[#00B9FF]/50">
-                    <div className="bg-white backdrop-blur-lg rounded-xl shadow-md p-6">
+                    <div className="bg-white backdrop-blur-lg rounded-xl shadow-md p-6 h-full">
                         <h2 className="text-3xl font-bold mb-6 border-b pb-4 text-gray-800">Complaints</h2>
 
                         {/* Loading Spinner */}
@@ -224,7 +224,7 @@ export const CEAdminComplaints = () => {
 
                                 {/* Complaints Table */}
                                 <div className="overflow-x-auto">
-                                    <table className="w-full text-left border-collapse">
+                                    <table className="w-full text-left h-full">
                                         <thead>
                                             <tr className="text-gray-700 text-sm uppercase tracking-wider border-b border-gray-200">
                                                 {["Description", "Location", "Type", "Time Stamp", "Status", "Resolved Date", "Actions"].map((header, index) => (
@@ -323,7 +323,7 @@ export const CEAdminComplaints = () => {
                                                                                     {/* Buttons */}
                                                                                     <div className="flex justify-end gap-2">
                                                                                         <button
-                                                                                            onClick={() => setstatusdropdown(false)}
+                                                                                            onClick={() => {setstatusdropdown(false), setActiveRowId(null)} }
                                                                                             type="button"
                                                                                             className="px-3 py-1.5 text-xs bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
                                                                                         >
