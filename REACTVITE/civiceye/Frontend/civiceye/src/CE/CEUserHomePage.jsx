@@ -19,8 +19,8 @@ export const CEUserHomePage = () => {
     const [profileOpen, setProfileOpen] = useState(false);  // For desktop profile dropdown in navbar
     const [popupOpen, setPopupOpen] = useState(false);     // For complaint register popup
     const [loggeduserdata, setloggeduserdata] = useState(''); // For logged in user data
-    const homeRef = useRef(null); // Ref for Home Section
 
+    const homeRef = useRef(null); // Ref for Home Section
     const aboutRef = useRef(null); // Ref for About Section
     const contactRef = useRef(null); // Ref for Contact Section
 
@@ -34,6 +34,7 @@ export const CEUserHomePage = () => {
     const scrollToHome = () => {
         homeRef.current.scrollIntoView({ behavior: 'smooth' });
     }
+
     // Complaint Data
     const [adddata, setadddata] = useState({
         description: "",
@@ -42,16 +43,13 @@ export const CEUserHomePage = () => {
         proof: null,
         createdAt: new Date().toISOString(),
     });
-
     // Complaint Form Functions
     const compChange = (event) => {
         setadddata({ ...adddata, [event.target.name]: event.target.value })
     }
-
     const compfile = (event) => {
         setadddata({ ...adddata, proof: event.target.files[0] });
     };
-
     const compSubmit = async (event) => {
         event.preventDefault();
 
@@ -111,6 +109,52 @@ export const CEUserHomePage = () => {
     useEffect(() => {
         fetchUserData();
     }, []);
+
+    const [feedbacks, setfeedbacks] = useState('') // feedbacks state
+    const fetchfeedbacks = async () => {
+        try {
+            const response = await axios.get(`http://127.0.0.1:6969/feedback/getall`);
+            if (response) {
+                console.log("R", response.data);
+                setfeedbacks(response.data);
+                console.log("F", feedbacks);
+            }
+
+        }
+        catch (error) {
+            console.error('Error fetching feedbacks:', error);
+        }
+    }
+    // Fetch the user data when the component mounts
+    useEffect(() => {
+        fetchfeedbacks();
+    }, []);
+
+    // feedback input
+    const [feedbackData, setFeedbackData] = useState({ description: "" });
+    const feedbackchange = (event) => {
+        setFeedbackData({ ...feedbackData, [event.target.name]: event.target.value });
+    };
+    const feedbacksubmit = async (event) => {
+        event.preventDefault();
+        const feedbackPayload = {
+            userId: userId,
+            description: feedbackData.description,
+            timestamp: new Date().toISOString(), // Generate current timestamp
+        };
+
+        try {
+            console.table(feedbackPayload);
+            const response = await axios.post("http://127.0.0.1:6969/feedback/post", feedbackPayload);
+            console.log(response);
+            toast.success("Feedback submitted successfully!");
+            setFeedbackData({ description: "" }); // Clear input after submission
+            fetchfeedbacks();
+        } catch (error) {
+            console.error("Error submitting feedback:", error);
+            toast.error(error.response?.data?.message || "Failed to submit feedback");
+        }
+    };
 
     // Logout function
     const logout = () => {
@@ -260,7 +304,7 @@ export const CEUserHomePage = () => {
                 showIndicators={false}
                 stopOnHover={true}
                 interval={2000}>
-                    
+
                 <div>
                     <img src={porsche} className='object-contain h-[50vh]' />
                 </div>
@@ -576,38 +620,38 @@ export const CEUserHomePage = () => {
                     swipeable={true}
                     stopOnHover={true}
                 >
-                    <div className="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto my-2">
-                        <p className="text-gray-700 text-lg leading-relaxed italic">
-                            "This platform has been a game changer for addressing public concerns!"
-                        </p>
-                        <p className="text-blue-700 font-semibold text-base mt-3">- John Doe</p>
-                    </div>
+                    {feedbacks.length > 0 ? (
+                        feedbacks.map((feedback) => (
+                            <div key={feedback._id} className="bg-white p-6 rounded-xl shadow-md my-2">
+                                <p className="text-gray-700 text-lg leading-relaxed italic">
+                                    "{feedback.description}"
+                                </p>
+                                <p className="text-blue-700 font-semibold text-base mt-3">
+                                    - {feedback.userName}
+                                </p>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-gray-500 text-center">No feedbacks available.</p>
+                    )}
 
-                    <div className="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto my-2">
-                        <p className="text-gray-700 text-lg leading-relaxed italic">
-                            "This platform has been a game changer for addressing public concerns!"
-                        </p>
-                        <p className="text-blue-700 font-semibold text-base mt-3">- John Doe</p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto my-2">
-                        <p className="text-gray-700 text-lg leading-relaxed italic">
-                            "This platform has been a game changer for addressing public concerns!"
-                        </p>
-                        <p className="text-blue-700 font-semibold text-base mt-3">- John Doe</p>
-                    </div>
                 </Carousel>
 
                 {/* Feedback Input */}
                 <div className="mt-1 flex">
-                    <input
-                        type="text"
-                        placeholder="Write your feedback"
-                        className="border border-gray-300 p-2 rounded-lg"
-                    />
-                    <button className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
-                        Submit
-                    </button>
+                    <form onSubmit={feedbacksubmit}>
+                        <input
+                            type="text"
+                            name="description"
+                            id="description"
+                            onChange={feedbackchange}
+                            placeholder="Write your feedback"
+                            className="border border-gray-300 p-2 rounded-lg"
+                        />
+                        <button type='submit' className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
+                            Submit
+                        </button>
+                    </form>
                 </div>
             </div>
 

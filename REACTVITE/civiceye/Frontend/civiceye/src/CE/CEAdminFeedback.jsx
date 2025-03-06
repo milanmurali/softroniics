@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 
 
-export const CEAdminDashboard = () => {
+export const CEAdminFeedback = () => {
   const navigate = useNavigate();
   const userId = localStorage.getItem('id');
 
@@ -62,7 +62,7 @@ export const CEAdminDashboard = () => {
             <div className="space-y-2 ">
               <Link
                 to="/dashboard"
-                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 bg-[#00b9ff] text-white">
+                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
                 📊 Dashboard
               </Link>
               <Link
@@ -77,7 +77,7 @@ export const CEAdminDashboard = () => {
               </Link>
               <Link
                 to="/feedback"
-                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
+                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 bg-[#00b9ff] text-white">
                 📄 Feedback
               </Link>
               {/* <Link

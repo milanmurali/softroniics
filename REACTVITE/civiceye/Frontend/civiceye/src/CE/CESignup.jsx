@@ -34,7 +34,7 @@ export const CESignup = () => {
     }
     catch (error) {
       console.log("CL", error.response.data.message);
-      toast.error(error.response.data.message || error.message );
+      toast.error(error.response.data.message || error.message);
     }
   }
   return (
@@ -91,8 +91,7 @@ export const CESignup = () => {
                   name="name"
                   type="text"
                   placeholder="Full Name"
-                  className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-white placeholder-gray-500 
-         focus:outline-gray-500 active:outline-gray-500 active:shadow-lg"
+                  className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-white placeholder-gray-500 focus:outline-gray-500 active:outline-gray-500 active:shadow-lg"
                 />
               </div>
 
@@ -101,6 +100,7 @@ export const CESignup = () => {
                   Mobile Number
                 </label>
                 <input
+                  pattern="^[6-9]\d{9}$"
                   onChange={change}
                   id="mobile"
                   name="mobile"

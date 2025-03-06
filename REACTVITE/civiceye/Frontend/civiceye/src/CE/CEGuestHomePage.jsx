@@ -6,6 +6,7 @@ import AOS from 'aos'; // Import the AOS Library
 import 'aos/dist/aos.css'; // Import the AOS CSS
 import celogofullpng from '../assets/celogofull.png' // Import the CivicEye Logo
 import porsche from '../assets/porsche.jpg' // Import the Porsche Image
+import axios from 'axios';
 
 export const CEGuestHomePage = () => {
 
@@ -35,6 +36,27 @@ export const CEGuestHomePage = () => {
         if (userid) {
             navigate('/home')
         }
+    }, []);
+
+
+    const [feedbacks, setfeedbacks] = useState('') // feedbacks state
+    const fetchfeedbacks = async () => {
+        try {
+            const response = await axios.get(`http://127.0.0.1:6969/feedback/getall`);
+            if (response) {
+                console.log("R", response.data);
+                setfeedbacks(response.data);
+                console.log("F", feedbacks);
+            }
+
+        }
+        catch (error) {
+            console.error('Error fetching feedbacks:', error);
+        }
+    }
+    // Fetch the user data when the component mounts
+    useEffect(() => {
+        fetchfeedbacks();
     }, []);
 
     return (
@@ -263,39 +285,22 @@ export const CEGuestHomePage = () => {
                     swipeable={true}
                     stopOnHover={true}
                 >
-                    <div className="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto my-2">
-                        <p className="text-gray-700 text-lg leading-relaxed italic">
-                            "This platform has been a game changer for addressing public concerns!"
-                        </p>
-                        <p className="text-blue-700 font-semibold text-base mt-3">- John Doe</p>
-                    </div>
+                    {feedbacks.length > 0 ? (
+                        feedbacks.map((feedback) => (
+                            <div key={feedback._id} className="bg-white p-6 rounded-xl shadow-md my-2">
+                                <p className="text-gray-700 text-lg leading-relaxed italic">
+                                    "{feedback.description}"
+                                </p>
+                                <p className="text-blue-700 font-semibold text-base mt-3">
+                                    - {feedback.userName}
+                                </p>
+                            </div>
+                        ))
+                    ) : (
+                        <p className="text-gray-500 text-center">No feedbacks available.</p>
+                    )}
 
-                    <div className="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto my-2">
-                        <p className="text-gray-700 text-lg leading-relaxed italic">
-                            "This platform has been a game changer for addressing public concerns!"
-                        </p>
-                        <p className="text-blue-700 font-semibold text-base mt-3">- John Doe</p>
-                    </div>
-
-                    <div className="bg-white p-6 rounded-xl shadow-md max-w-md mx-auto my-2">
-                        <p className="text-gray-700 text-lg leading-relaxed italic">
-                            "This platform has been a game changer for addressing public concerns!"
-                        </p>
-                        <p className="text-blue-700 font-semibold text-base mt-3">- John Doe</p>
-                    </div>
                 </Carousel>
-
-                {/* Feedback Input */}
-                <div className="mt-1 flex">
-                    <input
-                        type="text"
-                        placeholder="Write your feedback"
-                        className="border border-gray-300 p-2 rounded-lg"
-                    />
-                    <button className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
-                        Submit
-                    </button>
-                </div>
             </div>
 
             {/* Support Section */}

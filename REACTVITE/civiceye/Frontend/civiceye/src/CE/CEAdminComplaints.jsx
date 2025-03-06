@@ -1,0 +1,282 @@
+import React, { useEffect, useState } from "react";
+import celogofullpng from '../assets/celogofull.png';
+import axios from "axios";
+import toast, { Toaster } from "react-hot-toast";
+import { Link, useNavigate } from "react-router-dom";
+import spinner from '../assets/spinner.gif';
+
+
+export const CEAdminComplaints = () => {
+    const navigate = useNavigate();
+    const userId = localStorage.getItem('id');
+
+    useEffect(() => {
+        if (!userId) {
+            navigate('/landing');
+        }
+    }, []);
+
+    const [loggedUserData, setLoggedUserData] = useState({}); // Loggedin user data
+    const fetchLoggedUserData = async () => {
+        try {
+            if (!userId) return;
+            const response = await axios.get(`http://127.0.0.1:6969/user/viewuser/${userId}`);
+            if (response) {
+                setLoggedUserData(response.data);
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    };
+
+    const [complaintlist, setcomplaintlist] = useState([])
+    const fetchComplaintData = async () => {
+        try {
+            if (!userId) return;
+            const response = await axios.get(`http://127.0.0.1:6969/complaint/getall/${userId}`);
+            if (response) {
+                // console.log(response.data);
+                setcomplaintlist(response.data);
+                setLoading(false)
+
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    };
+    useEffect(() => {
+        fetchLoggedUserData();
+        fetchComplaintData();
+    }, []);
+
+    useEffect(() => {
+        if (loggedUserData.role === 'user') {
+            toast.error("You are not authorized to view this page.");
+            navigate('/home');
+        }
+    }, [loggedUserData]);
+
+    const logout = () => {
+        localStorage.clear()
+        navigate('/signin')
+    }
+
+    const [loading, setLoading] = useState(true);
+    const [filteredComplaints, setFilteredComplaints] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [activeFilter, setActiveFilter] = useState("All");
+    const complaintsPerPage = 5;
+
+    const filterComplaints = (status) => {
+        setActiveFilter(status);
+        setCurrentPage(1);
+
+        if (status === "All") {
+            setFilteredComplaints(complaintlist);
+        } else {
+            setFilteredComplaints(complaintlist.filter(complaint => complaint.status === status));
+        }
+    };
+
+    useEffect(() => {
+        if (complaintlist.length > 0) {
+            filterComplaints("All"); // Populate list immediately after data is fetched
+        }
+    }, [complaintlist]);
+    // Pagination Logic
+    const indexOfLastComplaint = currentPage * complaintsPerPage;
+    const indexOfFirstComplaint = indexOfLastComplaint - complaintsPerPage;
+    const currentComplaints = filteredComplaints.slice(indexOfFirstComplaint, indexOfLastComplaint);
+    const totalPages = Math.ceil(filteredComplaints.length / complaintsPerPage);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
+    const goToNextPage = () => setCurrentPage(prev => Math.min(prev + 1, totalPages));
+    const goToPreviousPage = () => setCurrentPage(prev => Math.max(prev - 1, 1));
+
+    // Function for Filter Button Styles
+    const getFilterButtonClass = (status) => {
+        const baseClass = "px-4 py-2 text-sm font-medium rounded-md transition duration-150 ";
+        return activeFilter === status ? baseClass + "bg-blue-600 text-white" : baseClass + "bg-gray-100 text-gray-700 hover:bg-gray-200";
+    };
+    return (
+        <div className="w-full min-h-screen bg-gray-300 flex justify-center px-6 py-4">
+            <Toaster />
+
+            <div className="backdrop-blur-lg shadow-2xl rounded-2xl w-full max-w flex overflow-hidden">
+
+                {/* Sidebar */}
+                <div className="bg-white/50 w-72 p-6 flex flex-col justify-between shadow-lg">
+
+                    <div>
+                        <div className="flex justify-center items-center mb-8">
+                            <img src={celogofullpng} width="180" height="80" alt="Civic Eye Logo" className="drop-shadow-lg" />
+                        </div>
+
+                        <div className="space-y-2 ">
+                            <Link
+                                to="/dashboard"
+                                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
+                                📊 Dashboard
+                            </Link>
+                            <Link
+                                to="/complaints"
+                                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 bg-[#00b9ff] text-white">
+                                ⚖️ Complaints
+                            </Link>
+                            <Link
+                                to="/userlist"
+                                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
+                                👤 User Management
+                            </Link>
+                            <Link
+                                to="/feedback"
+                                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
+                                📄 Feedback
+                            </Link>
+                            {/* <Link
+                to=""
+                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
+                📄 Reports
+              </Link> */}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col items-center gap-2">
+
+                        {/* User Info & Logout */}
+                        <div className="w-full text-center pt-4">
+                            {/* User Name */}
+                            <p className="text-gray-700 font-semibold text-lg border-b border-gray-300">{loggedUserData.name || "Admin"}</p>
+
+                            {/* Logout Button */}
+                            <button
+                                className="mt-3 w-full px-4 py-2 text-red-600 font-medium rounded-lg border border-red-500 hover:bg-red-500 hover:text-white transition duration-300"
+                                onClick={logout}
+                            >
+                                🚪 Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex-1 p-10 bg-[#00B9FF]/50">
+                    <div className="bg-white backdrop-blur-lg rounded-xl shadow-md p-6">
+                        <h2 className="text-3xl font-bold mb-6 border-b pb-4 text-gray-800">Complaints</h2>
+
+                        {/* Loading Spinner */}
+                        {loading ? (
+                            <div className="flex justify-center items-center h-64">
+                                <img src={spinner} alt="Loading" className="w-16 h-16" />
+                            </div>
+                        ) : (
+                            <>
+                                {/* Filter Buttons */}
+                                <div className="mb-4 flex flex-wrap gap-2">
+                                    <button onClick={() => filterComplaints("All")} className={getFilterButtonClass("All")}>
+                                        All ({complaintlist.length})
+                                    </button>
+                                    <button onClick={() => filterComplaints("Pending")} className={getFilterButtonClass("Pending")}>
+                                        Pending ({complaintlist.filter(c => c.status === "Pending").length})
+                                    </button>
+                                    <button onClick={() => filterComplaints("Approved")} className={getFilterButtonClass("Approved")}>
+                                        Approved ({complaintlist.filter(c => c.status === "Approved").length})
+                                    </button>
+                                    <button onClick={() => filterComplaints("Resolved")} className={getFilterButtonClass("Resolved")}>
+                                        Resolved ({complaintlist.filter(c => c.status === "Resolved").length})
+                                    </button>
+                                    <button onClick={() => filterComplaints("Rejected")} className={getFilterButtonClass("Rejected")}>
+                                        Rejected ({complaintlist.filter(c => c.status === "Rejected").length})
+                                    </button>
+                                </div>
+
+
+                                {/* Complaints Table */}
+                                <div className="overflow-x-auto">
+                                    <table className="w-full text-left border-collapse">
+                                        <thead>
+                                            <tr className="text-gray-700 text-sm uppercase tracking-wider border-b border-gray-200">
+                                                {["Description", "Location", "Type", "Time Stamp", "Status", "Resolved Date", "Proof"].map((header, index) => (
+                                                    <th key={index} className="px-6 py-3 font-medium">{header}</th>
+                                                ))}
+                                            </tr>
+                                        </thead>
+                                        <tbody className="divide-y divide-gray-200">
+                                            {currentComplaints.length > 0 ? (
+                                                currentComplaints.map((com, index) => (
+                                                    <tr key={index} className="hover:bg-gray-50 transition duration-150">
+                                                        <td className="px-6 py-4 text-gray-800 font-medium">{com.description}</td>
+                                                        <td className="px-6 py-4 text-gray-600">{com.location}</td>
+                                                        <td className="px-6 py-4 text-gray-600">{com.type}</td>
+                                                        <td className="px-6 py-4 text-gray-600">{com.createdAt || "Not Provided"}</td>
+                                                        <td className="px-6 py-4 text-gray-600">{com.status || "Not Provided"}</td>
+                                                        <td className="px-6 py-4 text-gray-600">{com.resolvedAt || "Not Provided"}</td>
+
+                                                        <td className="px-6 py-4 text-center">
+                                                            {com.proof ? (
+                                                                <div className="flex gap-2">
+                                                                    <a
+                                                                        href={com.proof}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        className="inline-flex justify-center items-center w-10 h-10 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+                                                                    >
+                                                                        <img className="w-6 h-6" src="https://img.icons8.com/?size=100&id=84871&format=png&color=FFFFFF" />
+                                                                    </a>
+                                                                    <a
+                                                                        href={com.proof}
+                                                                        download={`proof_${com.id || "file"}.jpg`} // Give file a unique name
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
+                                                                        className="inline-flex justify-center items-center w-10 h-10 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
+                                                                    >
+                                                                        <img className="w-6 h-6" src="https://img.icons8.com/?size=100&id=82829&format=png&color=FFFFFF" />
+                                                                    </a>
+                                                                </div>
+
+                                                            ) : (
+                                                                <span className="text-gray-500">No Proof</span>
+                                                            )}
+                                                        </td>
+
+
+                                                    </tr>
+                                                ))
+                                            ) : (
+                                                <tr>
+                                                    <td colSpan="7" className="p-6 text-center text-lg font-medium text-gray-500">
+                                                        No complaints found.
+                                                    </td>
+                                                </tr>
+                                            )}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {/* Pagination */}
+                                {filteredComplaints.length > complaintsPerPage && (
+                                    <div className="flex justify-center py-4 border-t border-gray-100">
+                                        <nav className="flex items-center space-x-1">
+                                            <button onClick={goToPreviousPage} disabled={currentPage === 1} className={`px-3 py-1 rounded border ${currentPage === 1 ? 'bg-gray-50 text-gray-400 border-gray-200' : 'border-gray-300 text-gray-600 hover:bg-gray-50'}`}>
+                                                Previous
+                                            </button>
+
+                                            {[...Array(totalPages)].map((_, index) => (
+                                                <button key={index} onClick={() => paginate(index + 1)} className={`px-3 py-1 rounded border ${currentPage === index + 1 ? 'border-blue-600 bg-blue-600 text-white' : 'border-gray-300 text-gray-600 hover:bg-gray-50'}`}>
+                                                    {index + 1}
+                                                </button>
+                                            ))}
+
+                                            <button onClick={goToNextPage} disabled={currentPage === totalPages} className={`px-3 py-1 rounded border ${currentPage === totalPages ? 'bg-gray-50 text-gray-400 border-gray-200' : 'border-gray-300 text-gray-600 hover:bg-gray-50'}`}>
+                                                Next
+                                            </button>
+                                        </nav>
+                                    </div>
+                                )}
+                            </>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    )
+}

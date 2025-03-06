@@ -11,7 +11,9 @@ import { CEUserHomePage } from './CE/CEUserHomePage.jsx'
 import CEMyComplaints from './CE/CEMyComplaints.jsx'
 import { CEAdminUserManagement } from './CE/CEAdminUserManagement.jsx'
 import { KHome } from './Testss/KHome.jsx'
-import { CeAdminDashboard } from './CE/CeAdminDashboard.jsx'
+import { CEAdminDashboard } from './CE/CEAdminDashboard.jsx'
+import { CEAdminComplaints } from './CE/CEAdminComplaints.jsx'
+import { CEAdminFeedback } from './CE/CEAdminFeedback.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -27,8 +29,10 @@ createRoot(document.getElementById('root')).render(
         <Route path='/myprofile' element={<CEUserProfile />} />
         <Route path='/mycomplaints' element={<CEMyComplaints />} />
 
-        <Route path='/dashboard' element={<CeAdminDashboard />} />
+        <Route path='/dashboard' element={<CEAdminDashboard />} />
         <Route path='/userlist' element={<CEAdminUserManagement />} />
+        <Route path='/complaints' element={<CEAdminComplaints />} />
+        <Route path='/feedback' element={<CEAdminFeedback />} />
 
         <Route path='test' element={<KHome/>} />
       </Routes>
