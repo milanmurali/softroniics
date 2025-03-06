@@ -33,7 +33,7 @@ export async function getallComplaints(req, res) {  // Get All Complaints
     try {
         const userId = req.params.id; // Get userId from request body
         console.log(userId);
-        
+
         // Validate userId format
         if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
             return res.status(400).json({ message: "Invalid User ID format" });
@@ -78,7 +78,7 @@ export async function mycomplaints(req, res) { // Get complaints by userId
         }
         return res.status(200).json(updatedComplaints);
     }
-    catch (error) { 
+    catch (error) {
         console.error("Internal Server Error", error);
         return res.status(500).json({ message: "Internal Server Error" });
     }
@@ -88,21 +88,25 @@ export async function statusUpdate(req, res) { // Update Complaint Status
     try {
         const id = req.params.id;
         const status = req.body.status;
-        const complaint = await complaint.findById(id);
-        if (!complaint) {
+        const selectedcomplaint = await complaint.findById(id);
+
+        if (!selectedcomplaint) {
             return res.status(404).json({ message: "Complaint not found" });
         }
-        if (status === "Resolved") {
-            complaint.status = status;
-            complaint.resolvedAt = new Date().toISOString();
-        }
-        else {
+        if (status !== "Resolved" && status !== "Pending" && status !== "Rejected" && status !== "Approved") {
             return res.status(400).json({ message: "Invalid Status" });
         }
-        await complaint.save();
-        return res.status(200).json({ message: "Status Updated Successfully" });
-    }
-    catch (error) {
+
+        selectedcomplaint.status = status;
+        if (status === "Resolved") {
+            selectedcomplaint.resolvedAt = new Date().toISOString(); // Set resolved time
+        } else {
+            selectedcomplaint.resolvedAt = null; // Reset resolved time for other statuses
+        }
+        await selectedcomplaint.save();
+        return res.status(200).json({ message: "Status Updated Successfully", complaint: selectedcomplaint });
+
+    } catch (error) {
         console.error("Internal Server Error", error);
         return res.status(500).json({ message: "Internal Server Error" });
     }

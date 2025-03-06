@@ -85,7 +85,6 @@ export async function deleteuser(req, res) { // Delete Function
 
 export async function updateuser(req, res) { // Update Function
     const id = req.params.id;
-
     try {
         // Check if the request body contains a password field
         if (req.body.password) {

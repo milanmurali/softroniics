@@ -33,7 +33,7 @@ const complaintSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    resolvedaAt: {
+    resolvedAt: {
         type: String,
         required: false
     },

@@ -83,6 +83,38 @@ export const CEAdminComplaints = () => {
             filterComplaints("All"); // Populate list immediately after data is fetched
         }
     }, [complaintlist]);
+
+    // status update logic
+    const [activeRowId, setActiveRowId] = useState(null);
+    const [statusdropdown, setstatusdropdown] = useState(false);
+    const [updatedata, setupdatedata] = useState({ status: "" });
+
+    const statusupdatechange = (event) => {
+        setupdatedata({ ...updatedata, status: event.target.value });
+    };
+    const statusupdatesubmit = async (event, complaintId) => {
+        event.preventDefault();
+
+        if (!updatedata.status) {
+            return toast.error("Please select a status!");
+        }
+        try {
+            const response = await axios.put(`http://127.0.0.1:6969/complaint/update/${complaintId}`, {
+                status: updatedata.status,
+            });
+
+            toast.success(response.data.message);
+            setstatusdropdown(false); // Close dropdown
+            setActiveRowId(null); // Reset active row
+            fetchComplaintData(); // Refresh complaint data
+
+        } catch (error) {
+            console.error("Error updating status:", error);
+            toast.error(error.response?.data?.message || "Update failed");
+        }
+    };
+
+
     // Pagination Logic
     const indexOfLastComplaint = currentPage * complaintsPerPage;
     const indexOfFirstComplaint = indexOfLastComplaint - complaintsPerPage;
@@ -195,7 +227,7 @@ export const CEAdminComplaints = () => {
                                     <table className="w-full text-left border-collapse">
                                         <thead>
                                             <tr className="text-gray-700 text-sm uppercase tracking-wider border-b border-gray-200">
-                                                {["Description", "Location", "Type", "Time Stamp", "Status", "Resolved Date", "Proof"].map((header, index) => (
+                                                {["Description", "Location", "Type", "Time Stamp", "Status", "Resolved Date", "Actions"].map((header, index) => (
                                                     <th key={index} className="px-6 py-3 font-medium">{header}</th>
                                                 ))}
                                             </tr>
@@ -207,13 +239,26 @@ export const CEAdminComplaints = () => {
                                                         <td className="px-6 py-4 text-gray-800 font-medium">{com.description}</td>
                                                         <td className="px-6 py-4 text-gray-600">{com.location}</td>
                                                         <td className="px-6 py-4 text-gray-600">{com.type}</td>
-                                                        <td className="px-6 py-4 text-gray-600">{com.createdAt || "Not Provided"}</td>
-                                                        <td className="px-6 py-4 text-gray-600">{com.status || "Not Provided"}</td>
-                                                        <td className="px-6 py-4 text-gray-600">{com.resolvedAt || "Not Provided"}</td>
+                                                        <td className="px-6 py-4 text-gray-600">
+                                                            {com.createdAt ? new Date(com.createdAt).toLocaleString('en-US', {
+                                                                year: 'numeric', month: 'short', day: '2-digit',
+                                                                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                                                                hour12: true
+                                                            }) : "N/A"}
+                                                        </td>
+                                                        <td className="px-6 py-4 text-gray-600">{com.status}</td>
+                                                        <td className="px-6 py-4 text-gray-600">
+                                                            {com.resolvedAt ? new Date(com.resolvedAt).toLocaleString('en-US', {
+                                                                year: 'numeric', month: 'short', day: '2-digit',
+                                                                hour: '2-digit', minute: '2-digit', second: '2-digit',
+                                                                hour12: true
+                                                            }) : "Not Resolved"}
+                                                        </td>
 
                                                         <td className="px-6 py-4 text-center">
                                                             {com.proof ? (
                                                                 <div className="flex gap-2">
+                                                                    {/* View Proof Button */}
                                                                     <a
                                                                         href={com.proof}
                                                                         target="_blank"
@@ -222,17 +267,80 @@ export const CEAdminComplaints = () => {
                                                                     >
                                                                         <img className="w-6 h-6" src="https://img.icons8.com/?size=100&id=84871&format=png&color=FFFFFF" />
                                                                     </a>
+
+                                                                    {/* Download Proof Button */}
                                                                     <a
                                                                         href={com.proof}
-                                                                        download={`proof_${com.id || "file"}.jpg`} // Give file a unique name
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
+                                                                        download={`proof_${com._id || "file"}.jpg`}
                                                                         className="inline-flex justify-center items-center w-10 h-10 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
                                                                     >
                                                                         <img className="w-6 h-6" src="https://img.icons8.com/?size=100&id=82829&format=png&color=FFFFFF" />
                                                                     </a>
-                                                                </div>
 
+                                                                    {/* Update Status Button */}
+                                                                    <div
+                                                                        onClick={() => {
+                                                                            setActiveRowId(com._id);
+                                                                            setstatusdropdown(true);
+                                                                        }}
+                                                                        className="inline-flex justify-center items-center w-10 h-10 bg-blue-500 rounded-lg hover:bg-blue-600 transition cursor-pointer relative"
+                                                                    >
+                                                                        <img className="w-6 h-6" src="https://img.icons8.com/?size=100&id=82811&format=png&color=FFFFFF" />
+
+                                                                        {/* Popup Dropdown - Only shown if this is the active row */}
+                                                                        {statusdropdown && activeRowId === com._id && (
+                                                                            <>
+                                                                                {/* Lightweight overlay to capture clicks outside */}
+                                                                                <div
+                                                                                    className="fixed inset-0 z-40"
+                                                                                    onClick={() => setstatusdropdown(false)}
+                                                                                ></div>
+
+                                                                                {/* Popup - positioned below button */}
+                                                                                <form
+                                                                                    onSubmit={(e) => statusupdatesubmit(e, com._id)}
+                                                                                    className="absolute top-12 right-0 w-64 bg-white rounded-lg shadow-lg z-50 p-4 border border-gray-200 transform transition-all duration-150 origin-top-right"
+                                                                                >
+                                                                                    {/* Arrow pointing top */}
+                                                                                    <div className="absolute top-0 right-4 h-3 w-3 bg-white transform rotate-45 -translate-y-1.5 border-l border-t border-gray-200"></div>
+
+                                                                                    <h3 className="text-sm font-medium mb-2 text-gray-700">Update Complaint Status</h3>
+
+                                                                                    {/* Select Dropdown */}
+                                                                                    <select
+                                                                                        id="status"
+                                                                                        name="status"
+                                                                                        onChange={statusupdatechange}
+                                                                                        className="w-full p-2 border border-gray-300 rounded-lg mb-3 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none text-sm"
+                                                                                    >
+                                                                                        <option value="">Select Status</option>
+                                                                                        <option value="Pending">Pending</option>
+                                                                                        <option value="Approved">Approved</option>
+                                                                                        <option value="Resolved">Resolved</option>
+                                                                                        <option value="Rejected">Rejected</option>
+                                                                                    </select>
+
+                                                                                    {/* Buttons */}
+                                                                                    <div className="flex justify-end gap-2">
+                                                                                        <button
+                                                                                            onClick={() => setstatusdropdown(false)}
+                                                                                            type="button"
+                                                                                            className="px-3 py-1.5 text-xs bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
+                                                                                        >
+                                                                                            Cancel
+                                                                                        </button>
+                                                                                        <button
+                                                                                            type="submit"
+                                                                                            className="px-3 py-1.5 text-xs bg-blue-500 hover:bg-blue-600 text-white rounded-lg transition-colors"
+                                                                                        >
+                                                                                            Submit
+                                                                                        </button>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </>
+                                                                        )}
+                                                                    </div>
+                                                                </div>
                                                             ) : (
                                                                 <span className="text-gray-500">No Proof</span>
                                                             )}
