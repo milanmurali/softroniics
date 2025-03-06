@@ -7,6 +7,14 @@ import celogofullpng from '../assets/celogofull.png'; // Import the CivicEye Log
 const CEMyComplaints = () => {
     const navigate = useNavigate();
     const userid = localStorage.getItem('id'); // Get the user ID from local storage
+
+    useEffect(() => {
+        if (!userid) {
+            navigate('/landing')
+        }
+    }, []);
+
+
     const [complaints, setComplaints] = useState([]); // State to store complaints
     const [filteredComplaints, setFilteredComplaints] = useState([]); // State for filtered complaints
     const [loading, setLoading] = useState(true); // State to handle loading
@@ -58,9 +66,9 @@ const CEMyComplaints = () => {
 
     // Function to determine filter button styles
     const getFilterButtonClass = (status) => {
-        const baseClass = "px-4 py-2 text-sm font-medium rounded-md transition duration-150 ";
+        const baseClass = "px-4 py-2 text-md font-medium rounded-md transition duration-150 ";
         if (activeFilter === status) {
-            return baseClass + "bg-blue-600 text-white";
+            return baseClass + "bg-[#00b9ff] text-white";
         }
         return baseClass + "bg-gray-100 text-gray-700 hover:bg-gray-200";
     };
@@ -80,19 +88,31 @@ const CEMyComplaints = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 flex flex-col items-center px-4 py-8 md:px-6 md:py-10">
+        <div className="min-h-screen bg-gray-100 flex flex-col items-center px-4 py-8 md:px-6 md:py-10">
             {/* Header Section with Logo */}
-            <div className="flex flex-col items-center mb-8">
-                <img
-                    src={celogofullpng}
-                    alt="Civic Eye Logo"
-                    className="w-20 md:w-24 mb-6 drop-shadow-sm"
-                />
-                <h1 className="text-3xl md:text-4xl font-bold text-gray-800 text-center">
-                    Your Complaints
-                </h1>
-                <div className="h-1 w-20 bg-blue-600 mt-4 rounded-full"></div>
+            <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4 md:gap-8">
+                {/* Logo - Left on Desktop, Centered on Mobile */}
+                <div className="flex md:block justify-center md:ml-4">
+                    <img
+                        src={celogofullpng}
+                        alt="Civic Eye Logo"
+                        className="w-30 md:w-40 drop-shadow-sm"
+                    />
+                </div>
+
+                {/* Heading - Centered on All Screens */}
+                <div className="text-center md:flex-1">
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-800">
+                        Your Complaints
+                    </h1>
+                    <div className="h-1 w-full max-w-xs mx-auto bg-[#00b9ff] mt-4 rounded-full"></div>
+                </div>
+
+                {/* Empty Div for Spacing on Desktop */}
+                <div className="hidden md:block w-40"></div>
             </div>
+
+
 
             {/* Loading Spinner */}
             {loading ? (
@@ -101,21 +121,23 @@ const CEMyComplaints = () => {
                 </div>
             ) : (
                 <div className="w-full max-w-6xl">
-                    {/* Stats Bar and Filter Buttons */}
 
+                    {/* Stats Bar and Filter Buttons */}
                     <div className="bg-white shadow-md rounded-xl mb-6 p-4">
 
                         <div className="flex flex-col md:flex-row md:justify-between md:items-center">
                             <div className="flex items-center justify-center hover:bg-gray-200 rounded-lg p-1 cursor-pointer">
-                                <Link to="/home" className="w-6 h-6 flex space-x-1">
+                                <Link to="/home" className="w-6 h-6 space-x-1 hidden md:block">
                                     <img
-                                        src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=000000"
+                                        src="https://img.icons8.com/?size=100&id=84842&format=png&color=000000"
                                         alt="Icon"
                                     />
                                 </Link>
                             </div>
+
                             {/* Filter Buttons */}
-                            <div className="flex flex-wrap gap-2 mb-4 md:mb-0">
+                            <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-2 mb-4 md:mb-0">
+
                                 <button
                                     onClick={() => filterComplaints('All')}
                                     className={getFilterButtonClass('All')}
@@ -145,7 +167,7 @@ const CEMyComplaints = () => {
                             {/* New Complaint Button */}
                             <Link
                                 to="/home?showpopup=true"
-                                className="flex items-center px-4 py-2 bg-blue-600 text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition"
+                                className="flex items-center px-4 py-2 bg-[#00b9ff] text-white font-medium rounded-lg shadow-sm hover:bg-blue-700 transition"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 mr-2">
                                     <path fillRule="evenodd" d="M12 3.75a.75.75 0 01.75.75v6.75h6.75a.75.75 0 010 1.5h-6.75v6.75a.75.75 0 01-1.5 0v-6.75H4.5a.75.75 0 010-1.5h6.75V4.5a.75.75 0 01.75-.75z" clipRule="evenodd" />

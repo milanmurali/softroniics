@@ -105,40 +105,55 @@ export const CEUserProfile = () => {
         <div className="min-h-screen bg-gradient-to-br from-blue-50 to-gray-100 py-12 px-4 sm:px-6">
             <Toaster position="top-right" />
 
-            <div className="max-w-3xl mx-auto">
-                {/* Header with logo */}
-                <div className="flex flex-col items-center mb-8">
-                    <img src={celogofullpng} alt="Civic Eye Logo" className="w-40 mb-4 hover:opacity-90 transition-opacity" />
-                    <h1 className="text-3xl font-bold text-gray-800 tracking-tight">
-                        My <span className="text-blue-600">Profile</span>
-                    </h1>
-                    <div className="h-1 w-16 bg-blue-500 rounded mt-2"></div>
+            {/* Header with logo */}
+            <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4 md:gap-8">
+                {/* Logo - Left on Desktop, Centered on Mobile */}
+                <div className="flex md:block justify-center md:ml-4">
+                    <img
+                        src={celogofullpng}
+                        alt="Civic Eye Logo"
+                        className="w-30 md:w-40 drop-shadow-sm hover:opacity-90 transition-opacity"
+                    />
                 </div>
 
+                {/* Heading - Centered on All Screens */}
+                <div className="text-center md:flex-1">
+                    <h1 className="text-3xl md:text-4xl font-bold text-gray-800 tracking-tight">
+                        My Profile
+                    </h1>
+                    <div className="h-1 w-full max-w-xs mx-auto bg-[#00B9FF] mt-4 rounded-full"></div>
+                </div>
+
+                {/* Empty Div for Spacing on Desktop */}
+                <div className="hidden md:block w-40"></div>
+            </div>
+
+
+            <div className="max-w-3xl mx-auto px-4 sm:px-6 py-8">
                 {/* Main content card */}
                 <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                     {/* Card header */}
-                    <div className="bg-gradient-to-r from-blue-600 to-blue-500 px-6 py-4">
-                        <h2 className="text-xl font-semibold text-white">
+                    <div className="bg-[#00b9ff] shadow-md text-white px-6 py-5">
+                        <h2 className="text-xl md:text-2xl font-semibold">
                             Personal Information
                         </h2>
-                        <p className="text-blue-100 text-sm">
+                        <p className="text-sm md:text-base opacity-90 mt-1">
                             Update your profile details below
                         </p>
                     </div>
 
                     {/* Card body */}
-                    <div className="p-6">
+                    <div className="p-4 sm:p-6 md:p-8">
                         {loading ? (
-                            <div className="flex flex-col items-center justify-center py-8">
-                                <img src={spinner} alt="Loading..." className="w-12 h-12 mb-2" />
+                            <div className="flex flex-col items-center justify-center py-12">
+                                <img src={spinner} alt="Loading..." className="w-14 h-14 mb-3" />
                                 <p className="text-gray-600 font-medium animate-pulse">Loading your profile...</p>
                             </div>
                         ) : (
                             <form className="space-y-6" onSubmit={submit}>
                                 <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
                                     {/* Full Name */}
-                                    <div className="col-span-1">
+                                    <div>
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="name">
                                             Full Name
                                         </label>
@@ -155,13 +170,13 @@ export const CEUserProfile = () => {
                                                 value={formData.name || ''}
                                                 placeholder="Your full name"
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Mobile Number */}
-                                    <div className="col-span-1">
+                                    <div>
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="mobile">
                                             Mobile Number
                                         </label>
@@ -178,13 +193,13 @@ export const CEUserProfile = () => {
                                                 placeholder="Your mobile number"
                                                 value={formData.mobile || ''}
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Email */}
-                                    <div className="col-span-1">
+                                    <div>
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="email">
                                             Email Address
                                         </label>
@@ -202,13 +217,13 @@ export const CEUserProfile = () => {
                                                 placeholder="Your email address"
                                                 value={formData.email || ''}
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition"
                                             />
                                         </div>
                                     </div>
 
                                     {/* DOB */}
-                                    <div className="col-span-1">
+                                    <div>
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="dob">
                                             Date of Birth
                                         </label>
@@ -224,13 +239,13 @@ export const CEUserProfile = () => {
                                                 id="dob"
                                                 value={formData.dob || ''}
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Password */}
-                                    <div className="col-span-1">
+                                    <div>
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="password">
                                             Password
                                         </label>
@@ -247,13 +262,13 @@ export const CEUserProfile = () => {
                                                 placeholder="Update password"
                                                 value={formData.password}
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition"
                                             />
                                         </div>
                                     </div>
 
                                     {/* State */}
-                                    <div className="col-span-1">
+                                    <div>
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="state">
                                             State
                                         </label>
@@ -270,13 +285,13 @@ export const CEUserProfile = () => {
                                                 value={formData.state || ''}
                                                 placeholder="Your State"
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition"
                                             />
                                         </div>
                                     </div>
 
                                     {/* Address */}
-                                    <div className="col-span-2">
+                                    <div className="md:col-span-2">
                                         <label className="block text-gray-700 text-sm font-semibold mb-2" htmlFor="address">
                                             Address
                                         </label>
@@ -293,19 +308,18 @@ export const CEUserProfile = () => {
                                                 placeholder="Your full address"
                                                 value={formData.address || ''}
                                                 onChange={change}
-                                                className="pl-10 w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition resize-none"
+                                                className="pl-10 w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#00b9ff] focus:border-[#00b9ff] outline-none transition resize-none"
                                             ></textarea>
                                         </div>
                                     </div>
-
                                 </div>
 
                                 {/* Action Buttons */}
-                                <div className="flex flex-col sm:flex-row justify-center gap-4 mt-8 pt-4 border-t border-gray-100">
+                                <div className="flex flex-col sm:flex-row justify-center sm:justify-between gap-4 mt-8 pt-5 border-t border-gray-100">
                                     <button
                                         type="button"
                                         onClick={() => setPopupOpen(true)}
-                                        className="order-2 sm:order-1 px-6 py-2.5 bg-white border border-red-500 text-red-600 rounded-lg shadow-sm hover:bg-red-50 transition duration-200 focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 focus:outline-none flex items-center justify-center"
+                                        className="order-2 sm:order-1 px-6 py-3 bg-white border border-red-500 text-red-600 rounded-lg shadow-sm hover:bg-red-50 transition duration-200 focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 focus:outline-none flex items-center justify-center"
                                     >
                                         <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                                             <path fillRule="evenodd" d="M9 2a1 1 0 00-.894.553L7.382 4H4a1 1 0 000 2v10a2 2 0 002 2h8a2 2 0 002-2V6a1 1 0 100-2h-3.382l-.724-1.447A1 1 0 0011 2H9zM7 8a1 1 0 012 0v6a1 1 0 11-2 0V8zm5-1a1 1 0 00-1 1v6a1 1 0 102 0V8a1 1 0 00-1-1z" clipRule="evenodd" />
@@ -315,7 +329,7 @@ export const CEUserProfile = () => {
 
                                     <button
                                         type="submit"
-                                        className="order-1 sm:order-2 px-6 py-2.5 bg-blue-600 text-white rounded-lg shadow-md hover:bg-blue-700 transition duration-200 focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 focus:outline-none flex items-center justify-center"
+                                        className="order-1 sm:order-2 px-6 py-3 bg-[#00b9ff] text-white rounded-lg shadow-md hover:bg-[#00a6e6] transition duration-200 focus:ring-2 focus:ring-[#00b9ff] focus:ring-opacity-50 focus:outline-none flex items-center justify-center"
                                     >
                                         <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />

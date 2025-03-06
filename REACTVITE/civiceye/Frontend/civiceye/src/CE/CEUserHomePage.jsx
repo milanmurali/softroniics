@@ -122,9 +122,9 @@ export const CEUserHomePage = () => {
         try {
             const response = await axios.get(`http://127.0.0.1:6969/feedback/getall`);
             if (response) {
-                console.log("R", response.data);
+                // console.log("R", response.data);
                 setfeedbacks(response.data);
-                console.log("F", feedbacks);
+                // console.log("F", feedbacks);
             }
 
         }
@@ -275,7 +275,7 @@ export const CEUserHomePage = () => {
                             onClick={() => { setMenuOpen(false), scrollToAbout() }}>
                             About
                         </Link>
-                        <Link to="/contact" className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
+                        <Link className="w-full text-center py-3 text-gray-700 hover:bg-gray-200"
                             onClick={() => { setMenuOpen(false), scrollToContact() }}>
                             Contact
                         </Link>
@@ -401,7 +401,12 @@ export const CEUserHomePage = () => {
                                 {/* Media Upload */}
                                 <div className='flex justify-between px-2'>
                                     <div>
-                                        <p className="text-gray-600 text-md">Upload Media as proof</p>
+                                        <p className="flex-col text-gray-600 text-md">Upload Media as proof</p>
+                                        {adddata.proof && (
+                                            <p className="mt-2 text-xs text-gray-600 text-pretty">
+                                                Selected file: {adddata.proof.name}
+                                            </p>
+                                        )}
                                     </div>
 
                                     <div className="">
@@ -557,8 +562,7 @@ export const CEUserHomePage = () => {
 
             {/* What We Do Section */}
             <div
-                ref={aboutRef}
-                className="text-center py-8 bg-gray-50">
+                ref={aboutRef} className="text-center py-8 bg-gray-50">
                 <div
                     className="text-3xl font-extrabold text-gray-800 mb-6"
                     data-aos="fade-down"
@@ -577,7 +581,7 @@ export const CEUserHomePage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto px-6">
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-left"
                         data-aos-duration="1000"
                     >
@@ -585,7 +589,7 @@ export const CEUserHomePage = () => {
                     </div>
 
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-right"
                         data-aos-duration="1200"
                     >
@@ -593,7 +597,7 @@ export const CEUserHomePage = () => {
                     </div>
 
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-left"
                         data-aos-duration="1400"
                     >
@@ -601,7 +605,7 @@ export const CEUserHomePage = () => {
                     </div>
 
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-right"
                         data-aos-duration="1600"
                     >
@@ -633,7 +637,7 @@ export const CEUserHomePage = () => {
                                 <p className="text-gray-700 text-lg leading-relaxed italic">
                                     "{feedback.description || "User Friendly"}"
                                 </p>
-                                <p className="text-blue-700 font-semibold text-base mt-3">
+                                <p className="text-[#00B9FF] font-semibold text-base mt-3">
                                     - {feedback.userName || "Random User"}
                                 </p>
                             </div>

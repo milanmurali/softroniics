@@ -10,7 +10,7 @@ export const CELogin = () => {
 
     const userId = localStorage.getItem('id'); // Get the user id from local storage 
 
-    
+
     const [logindata, setlogindata] = useState('')
 
     const change = (event) => {
@@ -45,89 +45,97 @@ export const CELogin = () => {
     }
 
     return (
-        <div className="flex justify-center items-center h-screen bg-gray-100 px-10">
+        <div className="min-h-screen bg-gray-50 flex items-center justify-center p-4">
             <Toaster />
 
-            {/* the box  */}
-            <div className="bg-white w-7xl shadow-lg rounded-lg py-10 px-4 md:py-8 md:px-0">
+            <div className="w-full max-w-5xl bg-white rounded-xl shadow-lg overflow-hidden">
+                {/* Back button - visible on all screen sizes */}
+                <div className="p-4">
+                    <Link to="/landing">
+                        <div className="w-8 h-8 flex items-center justify-center hover:bg-gray-100 rounded-lg transition-colors">
+                            <img
+                                className="w-5 h-5"
+                                src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=000000"
+                                alt="Back"
+                            />
+                        </div>
+                    </Link>
+                </div>
 
+                <div className="flex flex-col md:flex-row">
+                    {/* Left Section - Branding */}
+                    <div className="w-full md:w-5/12 p-6 md:p-10 flex flex-col justify-center items-center border-b md:border-b-0 md:border-r border-gray-200">
+                        <div className="max-w-xs">
+                            <img className="w-48 md:w-56 mx-auto mb-8" src={celogofullpng} alt="Civic Eye Logo" />
 
-                <Link to="/landing" className='hidden md:block'>
-                    <img
-                        className="w-7 h-7 mx-6 hover:bg-gray-200 rounded-lg p-1 cursor-pointer"
-                        src="https://img.icons8.com/?size=100&id=i6fZC6wuprSu&format=png&color=000000"
-                        alt="Icon"
-                    />
-                </Link>
-                <div className='flex flex-col md:flex-row'>
-                    {/* Left Section */}
-                    <div className="w-full md:w-1/2 flex flex-col justify-between items-center p-8 border-b-2 md:border-b-0 md:border-r-2 border-gray-500">
+                            <h2 className="text-xl md:text-2xl font-medium text-gray-800 text-center mb-3">
+                                Welcome to CivicEye!
+                            </h2>
 
-                        <img width="200px" src={celogofullpng} alt="Civic Eye Logo" />
-
-                        <p className="text-gray-700 text-center text-xl">
-                            Welcome to CivicEye!
-                        </p>
-                        <div className='mb-4'>
-                            <p className=" text-gray-500 text-center text-lg">
-                                Your platform to report, track,
-                            </p>
-                            <p className="text-gray-500 text-center text-lg">
-                                and resolve public issues with ease.
+                            <p className="text-gray-600 text-center text-sm md:text-base">
+                                Your platform to report, track, and resolve public issues with ease.
                             </p>
                         </div>
                     </div>
 
-                    {/* Right Section */}
-                    <div className="w-full md:w-1/2 flex flex-col items-center p-8">
-                        <h2 className="text-4xl font-semibold text-gray-800 mb-6">SIGN <span className='text-[#00B9FF]'>IN</span></h2>
-                        <form className="w-full max-w-sm" onSubmit={submit}>
+                    {/* Right Section - Sign In Form */}
+                    <div className="w-full md:w-7/12 p-6 md:p-10">
+                        <div className="max-w-md mx-auto">
+                            <h2 className="text-2xl md:text-3xl font-bold text-center mb-8">
+                                SIGN <span className="text-[#00B9FF]">IN</span>
+                            </h2>
 
-                            <div className="mb-4">
-                                <label htmlFor="email" className="block text-gray-700 text-sm font-medium mb-2">
-                                    Email
-                                </label>
-                                <input
-                                    onChange={change}
-                                    id="email"
-                                    name='email'
-                                    type="email"
-                                    className="w-full px-4 py-2 border border-gray-700 rounded-lg bg-white placeholder-gray-500
-            focus:outline-gray-500  active:outline-gray-500 active:shadow-lg"
-                                    placeholder="Email"
-                                />
+                            <form className="space-y-5" onSubmit={submit}>
+                                {/* Email */}
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                                        Email
+                                    </label>
+                                    <input
+                                        id="email"
+                                        name="email"
+                                        type="email"
+                                        placeholder="Email"
+                                        onChange={change}
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    />
+                                </div>
 
-                            </div>
-                            <div className="mb-4">
-                                <label htmlFor="password" className="block text-gray-700 text-sm font-medium mb-2 focus:">
-                                    Password
-                                </label>
-                                <input
-                                    onChange={change}
-                                    id="password"
-                                    name='password'
-                                    type="password"
-                                    className="bg-white w-full px-4 py-2 border border-gray-700 rounded-lg  placeholder-gray-500"
-                                    placeholder="Password"
-                                />
-                            </div>
-                            <button
-                                type="submit"
-                                className="w-full bg-[#00B9FF] text-white font-medium py-2 rounded-lg hover:bg-blue-600 transition"
-                            >
-                                SIGN IN
-                            </button>
-                        </form>
-                        <p className="text-gray-600 text-sm mt-4">
-                            Don't Have an Account?{' '}
-                            <Link to="/signup" className="text-blue-500 hover:underline">
-                                Sign up
-                            </Link>
-                        </p>
+                                {/* Password */}
+                                <div>
+                                    <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+                                        Password
+                                    </label>
+                                    <input
+                                        id="password"
+                                        name="password"
+                                        type="password"
+                                        placeholder="Password"
+                                        onChange={change}
+                                        className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                                    />
+                                </div>
+
+                                {/* Sign In Button */}
+                                <button
+                                    type="submit"
+                                    className="w-full bg-[#00B9FF] text-white font-medium py-3 rounded-lg hover:bg-blue-600 transition-colors mt-6 focus:ring-4 focus:ring-blue-200"
+                                >
+                                    SIGN IN
+                                </button>
+                            </form>
+
+                            <p className="text-gray-600 text-center mt-6">
+                                Don't have an account?{" "}
+                                <Link to="/signup" className="text-[#00B9FF] font-medium hover:underline">
+                                    Sign up
+                                </Link>
+                            </p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
+
     )
 }

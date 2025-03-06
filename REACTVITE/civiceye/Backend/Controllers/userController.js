@@ -56,7 +56,7 @@ export async function register(req, res) { // Register Function
         password = await bcrypt.hash(password, PSALT);
         let response = await user.create({ name, email, password, mobile, dob });
         res.status(201).json({ message: "New User Created" });
-        console.log(response);
+        // console.log(response);
     }
     catch (error) {
         console.error("Internal Server Error", error);
@@ -97,7 +97,7 @@ export async function updateuser(req, res) { // Update Function
             return res.status(404).json({ message: "User Not Found" });
         }
 
-        console.log(response);
+        // console.log(response);
         return res.status(200).json({ message: "User Updated" });
 
     } catch (error) {

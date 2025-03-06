@@ -235,7 +235,7 @@ export const CEGuestHomePage = () => {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto px-6">
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-left"
                         data-aos-duration="1000"
                     >
@@ -243,7 +243,7 @@ export const CEGuestHomePage = () => {
                     </div>
 
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-right"
                         data-aos-duration="1200"
                     >
@@ -251,7 +251,7 @@ export const CEGuestHomePage = () => {
                     </div>
 
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-left"
                         data-aos-duration="1400"
                     >
@@ -259,7 +259,7 @@ export const CEGuestHomePage = () => {
                     </div>
 
                     <div
-                        className="border-2 border-blue-500 p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
+                        className="border-2 border-[#00B9FF] p-6 rounded-lg bg-white shadow-lg transform transition duration-300 hover:scale-105 hover:shadow-xl"
                         data-aos="flip-right"
                         data-aos-duration="1600"
                     >
@@ -291,7 +291,7 @@ export const CEGuestHomePage = () => {
                                 <p className="text-gray-700 text-lg leading-relaxed italic">
                                     "{feedback.description  || "User Friendly"}"
                                 </p>
-                                <p className="text-blue-700 font-semibold text-base mt-3">
+                                <p className="text-[#00B9FF] font-semibold text-base mt-3">
                                     - {feedback.userName || "Random User"}
                                 </p>
                             </div>

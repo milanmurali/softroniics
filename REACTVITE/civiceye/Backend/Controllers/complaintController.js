@@ -32,7 +32,7 @@ export async function addComplaint(req, res) {  // Add Complaint
 export async function getallComplaints(req, res) {  // Get All Complaints
     try {
         const userId = req.params.id; // Get userId from request body
-        console.log(userId);
+        // console.log(userId);
 
         // Validate userId format
         if (!userId || !mongoose.Types.ObjectId.isValid(userId)) {
