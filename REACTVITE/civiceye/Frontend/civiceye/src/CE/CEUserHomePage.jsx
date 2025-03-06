@@ -631,10 +631,10 @@ export const CEUserHomePage = () => {
                         feedbacks.map((feedback) => (
                             <div key={feedback._id} className="bg-white p-6 rounded-xl shadow-md my-2">
                                 <p className="text-gray-700 text-lg leading-relaxed italic">
-                                    "{feedback.description}"
+                                    "{feedback.description || "User Friendly"}"
                                 </p>
                                 <p className="text-blue-700 font-semibold text-base mt-3">
-                                    - {feedback.userName}
+                                    - {feedback.userName || "Random User"}
                                 </p>
                             </div>
                         ))

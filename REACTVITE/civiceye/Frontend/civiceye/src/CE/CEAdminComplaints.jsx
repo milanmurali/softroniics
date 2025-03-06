@@ -271,6 +271,8 @@ export const CEAdminComplaints = () => {
                                                                     {/* Download Proof Button */}
                                                                     <a
                                                                         href={com.proof}
+                                                                        target="_blank"
+                                                                        rel="noopener noreferrer"
                                                                         download={`proof_${com._id || "file"}.jpg`}
                                                                         className="inline-flex justify-center items-center w-10 h-10 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
                                                                     >
@@ -292,14 +294,19 @@ export const CEAdminComplaints = () => {
                                                                             <>
                                                                                 {/* Lightweight overlay to capture clicks outside */}
                                                                                 <div
-                                                                                    className="fixed inset-0 z-40"
-                                                                                    onClick={() => setstatusdropdown(false)}
+                                                                                    className="fixed inset-0 z-50"
+                                                                                    onClick={(e) => {
+                                                                                        e.stopPropagation(); // Prevents dropdown from closing when clicking inside
+                                                                                        setstatusdropdown(false);
+                                                                                        setActiveRowId(null);
+                                                                                    }}
                                                                                 ></div>
 
                                                                                 {/* Popup - positioned below button */}
                                                                                 <form
+
                                                                                     onSubmit={(e) => statusupdatesubmit(e, com._id)}
-                                                                                    className="absolute top-12 right-0 w-64 bg-white rounded-lg shadow-lg z-50 p-4 border border-gray-200 transform transition-all duration-150 origin-top-right"
+                                                                                    className="z-60  absolute top-12 right-0 w-64 bg-white rounded-lg shadow-lg p-4 border border-gray-200 transform transition-all duration-150 origin-top-right"
                                                                                 >
                                                                                     {/* Arrow pointing top */}
                                                                                     <div className="absolute top-0 right-4 h-3 w-3 bg-white transform rotate-45 -translate-y-1.5 border-l border-t border-gray-200"></div>
@@ -323,7 +330,11 @@ export const CEAdminComplaints = () => {
                                                                                     {/* Buttons */}
                                                                                     <div className="flex justify-end gap-2">
                                                                                         <button
-                                                                                            onClick={() => {setstatusdropdown(false), setActiveRowId(null)} }
+                                                                                            onClick={() => {
+                                                                                                setstatusdropdown(false);
+                                                                                                setActiveRowId(null);
+                                                                                            }}
+
                                                                                             type="button"
                                                                                             className="px-3 py-1.5 text-xs bg-gray-200 hover:bg-gray-300 rounded-lg transition-colors"
                                                                                         >
