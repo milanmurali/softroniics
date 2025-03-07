@@ -36,8 +36,10 @@ export const CEAdminComplaints = () => {
             const response = await axios.get(`http://127.0.0.1:6969/complaint/getall/${userId}`);
             if (response) {
                 // console.log(response.data);
-                setcomplaintlist(response.data);
+                // setcomplaintlist(response.data);
+                setcomplaintlist([...response.data].reverse());
                 setLoading(false)
+
 
             }
         } catch (error) {
@@ -48,6 +50,7 @@ export const CEAdminComplaints = () => {
         fetchLoggedUserData();
         fetchComplaintData();
     }, []);
+
 
     useEffect(() => {
         if (loggedUserData.role === 'user') {
@@ -113,6 +116,28 @@ export const CEAdminComplaints = () => {
             toast.error(error.response?.data?.message || "Update failed");
         }
     };
+
+    const downloadProof = async (fileUrl) => {
+        try {
+            const response = await fetch(fileUrl);
+            if (!response.ok) throw new Error("Failed to fetch file");
+
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = fileUrl.split("/").pop(); // Extract filename from URL
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error("Error downloading file:", error);
+            toast.error("Download failed. Try again.");
+        }
+    };
+
 
 
     // Pagination Logic
@@ -190,7 +215,7 @@ export const CEAdminComplaints = () => {
                         </div>
                     </div>
                 </div>
-
+                {/* Main */}
                 <div className="flex-1 p-10 bg-[#00B9FF]/50">
                     <div className="bg-white backdrop-blur-lg rounded-xl shadow-md p-6 h-full">
                         <h2 className="text-3xl font-bold mb-6 border-b pb-4 text-gray-800">Complaints</h2>
@@ -269,15 +294,13 @@ export const CEAdminComplaints = () => {
                                                                     </a>
 
                                                                     {/* Download Proof Button */}
-                                                                    <a
-                                                                        href={com.proof}
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
-                                                                        download={`proof_${com._id || "file"}.jpg`}
+                                                                    <button
+                                                                        onClick={() => downloadProof(com.proof)}
                                                                         className="inline-flex justify-center items-center w-10 h-10 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
                                                                     >
                                                                         <img className="w-6 h-6" src="https://img.icons8.com/?size=100&id=82829&format=png&color=FFFFFF" />
-                                                                    </a>
+                                                                    </button>
+
 
                                                                     {/* Update Status Button */}
                                                                     <div
@@ -296,7 +319,7 @@ export const CEAdminComplaints = () => {
                                                                                 <div
                                                                                     className="fixed inset-0 z-50"
                                                                                     onClick={(e) => {
-                                                                                        e.stopPropagation(); // Prevents dropdown from closing when clicking inside
+                                                                                        e.stopPropagation();    // Prevents dropdown from closing when clicking inside
                                                                                         setstatusdropdown(false);
                                                                                         setActiveRowId(null);
                                                                                     }}

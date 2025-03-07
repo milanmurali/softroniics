@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import celogofullpng from '../assets/celogofull.png';
 import spinner from '../assets/spinner.gif';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 
 export const CEUserProfile = () => {
@@ -47,8 +47,8 @@ export const CEUserProfile = () => {
                     mobile: response.data.mobile || '',
                     email: response.data.email || '',
                     dob: response.data.dob || '',
-                    password: 'AAAAAA',
-                    address: response.data.address || ''
+                    address: response.data.address || '',
+                    state: response.data.state
                 });
                 setLoading(false);
             }
@@ -108,13 +108,13 @@ export const CEUserProfile = () => {
             {/* Header with logo */}
             <div className="w-full flex flex-col md:flex-row md:items-center md:justify-between mb-8 gap-4 md:gap-8">
                 {/* Logo - Left on Desktop, Centered on Mobile */}
-                <div className="flex md:block justify-center md:ml-4">
+                <Link to="/home" className="flex md:block justify-center md:ml-4">
                     <img
                         src={celogofullpng}
                         alt="Civic Eye Logo"
                         className="w-30 md:w-40 drop-shadow-sm hover:opacity-90 transition-opacity"
                     />
-                </div>
+                </Link>
 
                 {/* Heading - Centered on All Screens */}
                 <div className="text-center md:flex-1">

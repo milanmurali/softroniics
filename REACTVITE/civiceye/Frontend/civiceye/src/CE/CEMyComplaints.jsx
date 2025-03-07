@@ -54,6 +54,32 @@ const CEMyComplaints = () => {
         }
     };
 
+
+    const downloadProof = async (fileUrl) => {
+        try {
+            const response = await fetch(fileUrl);
+            if (!response.ok) throw new Error("Failed to fetch file");
+
+            const blob = await response.blob();
+            const url = window.URL.createObjectURL(blob);
+
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = fileUrl.split("/").pop(); // Extract filename from URL
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            window.URL.revokeObjectURL(url);
+        } catch (error) {
+            console.error("Error downloading file:", error);
+            toast.error("Download failed. Try again.");
+        }
+    };
+
+
+
+
     // Pagination logic
     const indexOfLastComplaint = currentPage * complaintsPerPage;
     const indexOfFirstComplaint = indexOfLastComplaint - complaintsPerPage;
@@ -246,10 +272,8 @@ const CEMyComplaints = () => {
                                                             </svg>
                                                             View
                                                         </a>
-                                                        <a
-                                                            href={complaint.proof}
-                                                            download="proof-document.png"
-                                                            target="_blank"
+                                                        <button
+                                                            onClick={() => downloadProof(complaint.proof)}
                                                             className="inline-flex items-center px-3 py-1.5 text-sm font-medium text-gray-700 bg-gray-50 rounded-md hover:bg-gray-100 transition border border-gray-200"
                                                             title="Download Proof"
                                                         >
@@ -257,7 +281,7 @@ const CEMyComplaints = () => {
                                                                 <path fillRule="evenodd" d="M12 2.25a.75.75 0 01.75.75v11.69l3.22-3.22a.75.75 0 111.06 1.06l-4.5 4.5a.75.75 0 01-1.06 0l-4.5-4.5a.75.75 0 111.06-1.06l3.22 3.22V3a.75.75 0 01.75-.75zm-9 13.5a.75.75 0 01.75.75v2.25a1.5 1.5 0 001.5 1.5h13.5a1.5 1.5 0 001.5-1.5V16.5a.75.75 0 011.5 0v2.25a3 3 0 01-3 3H5.25a3 3 0 01-3-3V16.5a.75.75 0 01.75-.75z" clipRule="evenodd" />
                                                             </svg>
                                                             Download
-                                                        </a>
+                                                        </button>
                                                     </div>
                                                 </td>
                                             </tr>

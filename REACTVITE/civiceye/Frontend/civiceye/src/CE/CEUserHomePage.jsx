@@ -5,7 +5,9 @@ import "react-responsive-carousel/lib/styles/carousel.min.css"; // Import the Ca
 import AOS from 'aos'; // Import the AOS Library
 import 'aos/dist/aos.css'; // Import the AOS CSS
 import celogofullpng from '../assets/celogofull.png' // Import the CivicEye Logo
-import porsche from '../assets/porsche.jpg' // Import the Porsche Image
+import car1 from '../assets/carousel1.jpg' // Import the Carousel Image
+import car2 from '../assets/carousel2.jpg' // Import the Carousel Image
+import car3 from '../assets/carousel3.jpg' // Import the Carousel Image
 import toast, { Toaster } from 'react-hot-toast';
 import axios from 'axios';
 
@@ -302,24 +304,24 @@ export const CEUserHomePage = () => {
 
             {/* Carousel  */}
             <Carousel
-                className='h-[50vh] '
+                className='h-[50vh] md:mt-20'
                 autoPlay={true}
                 showThumbs={false}
                 showStatus={false}
                 infiniteLoop={true}
                 swipable={true}
                 showIndicators={false}
-                stopOnHover={true}
+                stopOnHover={false}
                 interval={2000}>
 
                 <div>
-                    <img src={porsche} className='object-contain h-[50vh]' />
+                    <img src={car1} className='object-contain h-[50vh]' />
                 </div>
                 <div>
-                    <img src={porsche} className='object-contain h-[50vh]' />
+                    <img src={car2} className='object-contain h-[50vh]' />
                 </div>
                 <div>
-                    <img src={porsche} className='object-contain h-[50vh]' />
+                    <img src={car3} className='object-contain h-[50vh]' />
                 </div>
 
             </Carousel>
@@ -544,7 +546,7 @@ export const CEUserHomePage = () => {
                             data-aos="fade-up"
                             data-aos-duration="1400"
                         >
-                            <h3 className="text-lg font-semibold text-gray-700">Rewards Distributed</h3>
+                            <h3 className="text-lg font-semibold text-gray-700">Resolved Complaints</h3>
                             <p className="text-3xl font-bold text-yellow-600">886</p>
                         </div>
 
@@ -620,20 +622,20 @@ export const CEUserHomePage = () => {
 
                 {/* Testimonial Carousel */}
                 <Carousel
-                    className="max-w-xl flex flex-col justify-center items-center py-2"
-                    autoPlay={true}
+                    className="max-w-xl flex flex-col justify-center items-center py-4"
+                    autoPlay
                     interval={3000}
-                    infiniteLoop={true}
+                    infiniteLoop
                     showIndicators={false}
                     showArrows={false}
                     showThumbs={false}
                     showStatus={false}
-                    swipeable={true}
-                    stopOnHover={true}
+                    swipeable
+                    stopOnHover={false}
                 >
                     {feedbacks.length > 0 ? (
-                        feedbacks.map((feedback) => (
-                            <div key={feedback._id} className="bg-white p-6 rounded-xl shadow-md my-2">
+                        feedbacks.slice().reverse().map((feedback) => (
+                            <div key={feedback._id} className="bg-white p-6 md:p-8 rounded-xl shadow-md my-2 mx-4 text-center">
                                 <p className="text-gray-700 text-lg leading-relaxed italic">
                                     "{feedback.description || "User Friendly"}"
                                 </p>
@@ -643,10 +645,12 @@ export const CEUserHomePage = () => {
                             </div>
                         ))
                     ) : (
-                        <p className="text-gray-500 text-center">No feedbacks available.</p>
+                        <div className="p-6 text-center text-gray-500">
+                            No feedback available.
+                        </div>
                     )}
-
                 </Carousel>
+
 
                 {/* Feedback Input */}
                 <div className="mt-1 flex">
