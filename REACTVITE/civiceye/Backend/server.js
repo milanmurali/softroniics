@@ -13,7 +13,7 @@ app.use(cors())
 app.use("/user", userRouter)
 app.use("/complaint", complaintRouter)
 app.use("/feedback",feedbackRouter)
-app.use('/proofs', express.static('proofs'));
+app.use('/proofs', express.static('proofs')); //  
 
 
 const PORT = process.env.PORT || 4000

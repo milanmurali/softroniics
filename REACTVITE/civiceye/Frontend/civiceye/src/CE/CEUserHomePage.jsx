@@ -44,7 +44,34 @@ export const CEUserHomePage = () => {
         homeRef.current.scrollIntoView({ behavior: 'smooth' });
     }
 
-    // Complaint Data
+
+    // redirect to landing page if user is not logged in
+    useEffect(() => {
+        if (!userId) {
+            navigate('/landing')
+        }
+    }, []);
+
+    // Fetch the logged user data from the backend
+    const fetchUserData = async () => {
+        try {
+            if (!userId) return;
+            const response = await axios.get(`http://127.0.0.1:6969/user/viewuser/${userId}`);
+            if (response) {
+                setloggeduserdata(response.data);
+            }
+            // if (response.data.role === 'admin') {
+            //     navigate('/dashboard');
+            // }
+
+        }
+        catch (error) {
+            console.error('Error fetching user data:', error);
+        }
+    }
+
+
+    // Complaint Data form state
     const [adddata, setadddata] = useState({
         description: "",
         location: "",
@@ -92,41 +119,34 @@ export const CEUserHomePage = () => {
         }
     };
 
-    // redirect to landing page if user is not logged in
-    useEffect(() => {
-        if (!userId) {
-            navigate('/landing')
-        }
-    }, []);
-
-    // Fetch the logged user data from the backend
-    const fetchUserData = async () => {
+    //complaint stats 
+    const [stats, setStats] = useState(null);
+    const fetchComplaintStats = async () => {
         try {
-            if (!userId) return;
-            const response = await axios.get(`http://127.0.0.1:6969/user/viewuser/${userId}`);
+            const response = await axios.get("http://127.0.0.1:6969/complaint/stats");
             if (response) {
-                setloggeduserdata(response.data);
+                console.log(response.data.stats);
+
+                setStats(response.data);
             }
-
+        } catch (error) {
+            console.error("Error fetching complaint stats:", error);
         }
-        catch (error) {
-            console.error('Error fetching user data:', error);
-        }
-    }
+    };
 
-    // Fetch the user data when the component mounts
-    useEffect(() => {
-        fetchUserData();
-    }, []);
 
-    const [feedbacks, setfeedbacks] = useState('') // feedbacks state
+
+    // feedback 
+    const [feedbacks, setfeedbacks] = useState('')
+    const [feedbackData, setFeedbackData] = useState({ description: "" });
+
+    //feedback fetch
     const fetchfeedbacks = async () => {
         try {
             const response = await axios.get(`http://127.0.0.1:6969/feedback/getall`);
             if (response) {
                 // console.log("R", response.data);
                 setfeedbacks(response.data);
-                // console.log("F", feedbacks);
             }
 
         }
@@ -134,16 +154,13 @@ export const CEUserHomePage = () => {
             console.error('Error fetching feedbacks:', error);
         }
     }
-    // Fetch the user data when the component mounts
-    useEffect(() => {
-        fetchfeedbacks();
-    }, []);
 
     // feedback input
-    const [feedbackData, setFeedbackData] = useState({ description: "" });
     const feedbackchange = (event) => {
         setFeedbackData({ ...feedbackData, [event.target.name]: event.target.value });
     };
+
+    // feedback submit
     const feedbacksubmit = async (event) => {
         event.preventDefault();
         const feedbackPayload = {
@@ -164,6 +181,15 @@ export const CEUserHomePage = () => {
             toast.error(error.response?.data?.message || "Failed to submit feedback");
         }
     };
+
+
+    // Fetch the  data when the component mounts
+    useEffect(() => {
+        fetchUserData();
+        fetchComplaintStats();
+        fetchfeedbacks();
+    }, []);
+
 
     // Logout function
     const logout = () => {
@@ -300,7 +326,6 @@ export const CEUserHomePage = () => {
                     </div>
                 )}
             </div>
-
 
             {/* Carousel  */}
             <Carousel
@@ -529,7 +554,7 @@ export const CEUserHomePage = () => {
                             data-aos-duration="1000"
                         >
                             <h3 className="text-lg font-semibold text-gray-700">Complaints Registered</h3>
-                            <p className="text-3xl font-bold text-blue-600">1,002</p>
+                            {/* <p className="text-3xl font-bold text-blue-600">{stats.totalComplaints}</p> */}
                         </div>
 
                         <div
@@ -537,8 +562,8 @@ export const CEUserHomePage = () => {
                             data-aos="fade-up"
                             data-aos-duration="1200"
                         >
-                            <h3 className="text-lg font-semibold text-gray-700">Reports Filed</h3>
-                            <p className="text-3xl font-bold text-green-600">992</p>
+                            <h3 className="text-lg font-semibold text-gray-700">Complaints Verified</h3>
+                            {/* <p className="text-3xl font-bold text-green-600">{stats.statusCounts.Approved}</p> */}
                         </div>
 
                         <div
@@ -546,7 +571,7 @@ export const CEUserHomePage = () => {
                             data-aos="fade-up"
                             data-aos-duration="1400"
                         >
-                            <h3 className="text-lg font-semibold text-gray-700">Resolved Complaints</h3>
+                            <h3 className="text-lg font-semibold text-gray-700">Complaints Resolved</h3>
                             <p className="text-3xl font-bold text-yellow-600">886</p>
                         </div>
 

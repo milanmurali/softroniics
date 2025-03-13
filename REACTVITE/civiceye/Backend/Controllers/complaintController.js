@@ -111,3 +111,51 @@ export async function statusUpdate(req, res) { // Update Complaint Status
         return res.status(500).json({ message: "Internal Server Error" });
     }
 }
+
+export async function getComplaintStats(req, res) {
+    try {
+        // Fetch all complaints
+        const complaints = await complaint.find();
+
+        if (!complaints.length) {
+            return res.status(200).json({ message: "No complaints found", stats: {} });
+        }
+
+        // Calculate total complaints
+        const totalComplaints = complaints.length;
+
+        // Count complaints by status
+        const statusCounts = complaints.reduce((acc, com) => {
+            acc[com.status] = (acc[com.status] || 0) + 1;
+            return acc;
+        }, { Pending: 0, Approved: 0, Rejected: 0, Resolved: 0 });
+
+        // Count complaints per category
+        const categoryCounts = complaints.reduce((acc, com) => {
+            acc[com.type] = (acc[com.type] || 0) + 1;
+            return acc;
+        }, {});
+
+        // Count complaints from the last 7 days
+        const last7DaysCount = complaints.filter(com => {
+            const complaintDate = new Date(com.createdAt);
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+            return complaintDate >= sevenDaysAgo;
+        }).length;
+
+        // Response object
+        const stats = {
+            totalComplaints,
+            statusCounts,
+            categoryCounts,
+            last7DaysCount
+        };
+
+        return res.status(200).json({ message: "Complaint stats fetched successfully", stats });
+
+    } catch (error) {
+        console.error("Error fetching complaint stats:", error);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+}

@@ -39,15 +39,43 @@ export async function getallfeedbacks(req, res) {
                     userName: user ? user.name : "Unknown", // Adding userName separately
                     description: fb.description,
                     timestamp: fb.timestamp,
+                    status: fb.status
                 };
             })
         );
 
         return res.status(200).json(feedbacksWithUserNames);
-    } 
+    }
     catch (error) {
         console.error("Internal Server Error", error);
         return res.status(500).json({ message: "Error Occurred" });
     }
 }
 
+export async function feedbackstatusupdate(req, res) { // Update Feedback Status
+    try {
+        const id = req.params.id;
+        const status = req.body.status;
+
+        // Validate status
+        if (status !== "Pending" && status !== "Rejected" && status !== "Accepted") {
+            return res.status(400).json({ message: "Invalid Status" });
+        }
+
+        // Update feedback
+        const updatedFeedback = await feedback.findByIdAndUpdate(
+            id,
+            { status }, // Corrected: Wrap status inside an object
+            { new: true } // Returns the updated document instead of the old one
+        );
+        if (!updatedFeedback) {
+            return res.status(404).json({ message: "Feedback not found" });
+        }
+
+        return res.status(200).json({ message: "Feedback Status Updated Successfully", feedback: updatedFeedback });
+
+    } catch (error) {
+        console.error("Internal Server Error", error);
+        return res.status(500).json({ message: "Internal Server Error" });
+    }
+}

@@ -13,6 +13,12 @@ const feedbackSchema = new mongoose.Schema({
     timestamp: {
         type: String,
         required: true
+    },
+    status: {
+        type: String,
+        enum: ["Pending", "Accepted","Rejected"],
+        default: "Pending"
+
     }
 })
 

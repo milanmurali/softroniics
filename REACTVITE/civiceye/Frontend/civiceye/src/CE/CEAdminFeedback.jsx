@@ -133,7 +133,7 @@ export const CEAdminFeedback = () => {
                             <table className="w-full text-left h-full">
                                 <thead>
                                     <tr className="text-gray-700 text-sm uppercase tracking-wider border-b border-gray-200">
-                                        {["User Name", "Description", "Time Stamp"].map((header, index) => (
+                                        {["User Name", "Description", "Time Stamp","Status","Actions"].map((header, index) => (
                                             <th key={index} className="px-6 py-3 font-medium">{header}</th>
                                         ))}
                                     </tr>
@@ -151,6 +151,7 @@ export const CEAdminFeedback = () => {
                                                         hour12: true
                                                     }) : "N/A"}
                                                 </td>
+                                                <td className="px-6 py-4 text-gray-600">{feedback.status}</td>
                                             </tr>
                                         ))
                                     ) : (
