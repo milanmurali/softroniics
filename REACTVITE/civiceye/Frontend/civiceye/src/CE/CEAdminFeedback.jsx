@@ -64,6 +64,30 @@ export const CEAdminFeedback = () => {
     useEffect(() => {
         fetchfeedbacks();
     }, []);
+
+
+    const [feedbackUpdate, setFeedbackUpdate] = useState({ status: "" });
+
+    const handleStatusChange = (event) => {
+        setFeedbackUpdate({ ...feedbackUpdate, status: event.target.value });
+    };
+
+    const handleStatusSubmit = async (feedbackId, newStatus) => {
+        try {
+            const response = await axios.put(`http://127.0.0.1:6969/feedback/update/${feedbackId}`, {
+                status: newStatus,
+            });
+
+            toast.success(`Feedback Status Updated`);
+            fetchfeedbacks(); // Refresh feedback list
+        } catch (error) {
+            console.error("Error updating status:", error);
+            toast.error(error.response?.data?.message || "Update failed");
+        }
+    };
+
+
+    
     return (
         <div className="w-full min-h-screen bg-gray-300 flex justify-center px-6 py-4">
             <Toaster />
@@ -100,10 +124,10 @@ export const CEAdminFeedback = () => {
                                 📄 Feedback
                             </Link>
                             {/* <Link
-                to=""
-                className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
-                📄 Reports
-              </Link> */}
+                    to=""
+                    className="flex items-center px-6 py-3 text-lg font-medium w-full rounded-lg transition duration-300 hover:bg-[#00b9ff] hover:text-white">
+                    📄 Reports
+                </Link> */}
                         </div>
                     </div>
 
@@ -133,7 +157,7 @@ export const CEAdminFeedback = () => {
                             <table className="w-full text-left h-full">
                                 <thead>
                                     <tr className="text-gray-700 text-sm uppercase tracking-wider border-b border-gray-200">
-                                        {["User Name", "Description", "Time Stamp","Status","Actions"].map((header, index) => (
+                                        {["User Name", "Description", "Time Stamp", "Status", "Actions"].map((header, index) => (
                                             <th key={index} className="px-6 py-3 font-medium">{header}</th>
                                         ))}
                                     </tr>
@@ -152,6 +176,24 @@ export const CEAdminFeedback = () => {
                                                     }) : "N/A"}
                                                 </td>
                                                 <td className="px-6 py-4 text-gray-600">{feedback.status}</td>
+                                                <td className="px-6 py-4 text-gray-600 flex gap-2">
+                                                    <button
+                                                        onClick={() => handleStatusSubmit(feedback._id, "Accepted")}
+                                                        className="px-3 py-1 bg-green-500 text-white rounded-lg hover:bg-green-600 transition"
+                                                    >
+                                                        Accept
+                                                    </button>
+
+                                                    <button
+                                                        onClick={() => handleStatusSubmit(feedback._id, "Rejected")}
+                                                        className="px-3 py-1 bg-red-500 text-white rounded-lg hover:bg-red-600 transition"
+                                                    >
+                                                        Reject
+                                                    </button>
+                                                </td>
+
+
+
                                             </tr>
                                         ))
                                     ) : (

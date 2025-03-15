@@ -46,9 +46,8 @@ export const CEGuestHomePage = () => {
         try {
             const response = await axios.get(`http://127.0.0.1:6969/feedback/getall`);
             if (response) {
-                console.log("R", response.data);
+                // console.log("R", response.data);
                 setfeedbacks(response.data);
-                console.log("F", feedbacks);
             }
 
         }
@@ -58,9 +57,29 @@ export const CEGuestHomePage = () => {
     }
     // Fetch the user data when the component mounts
     useEffect(() => {
-        fetchfeedbacks();
+        const fetchData = async () => {
+            await fetchComplaintStats();
+            await fetchfeedbacks();
+        };
+
+        fetchData();
     }, []);
 
+    //complaint stats 
+    const [stats, setStats] = useState(null); // Initially set to null
+    const fetchComplaintStats = async () => {
+        try {
+            const response = await axios.get("http://127.0.0.1:6969/complaint/stats");
+            if (response) {
+                // console.log(response.data.stats);
+                setStats(response.data.stats);
+                console.log(stats);
+
+            }
+        } catch (error) {
+            console.error("Error fetching complaint stats:", error);
+        }
+    };
     return (
         <div ref={homeRef}>
 
@@ -178,42 +197,43 @@ export const CEGuestHomePage = () => {
 
                     {/* Stats Grid */}
                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 px-6">
+                        {/* Complaints Registered */}
                         <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-blue-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
                             data-aos-duration="1000"
                         >
                             <h3 className="text-lg font-semibold text-gray-700">Complaints Registered</h3>
-                            <p className="text-3xl font-bold text-blue-600">1,002</p>
+                            <p className="text-3xl font-bold text-blue-600">
+                            {stats ? stats.totalComplaints : "Loading..."}
+                            </p>
                         </div>
 
+                        {/* Complaints Verified */}
                         <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-green-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
                             data-aos-duration="1200"
                         >
-                            <h3 className="text-lg font-semibold text-gray-700">Reports Filed</h3>
-                            <p className="text-3xl font-bold text-green-600">992</p>
+                            <h3 className="text-lg font-semibold text-gray-700">Complaints Verified</h3>
+                            <p className="text-3xl font-bold text-green-600">
+                            {stats ? stats.statusCounts?.Approved ?? 0 : "Loading..."}
+                            </p>
                         </div>
 
+                        {/* Complaints Resolved */}
                         <div
                             className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-yellow-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
                             data-aos="fade-up"
                             data-aos-duration="1400"
                         >
-                            <h3 className="text-lg font-semibold text-gray-700">Resolved Complaints</h3>
-                            <p className="text-3xl font-bold text-yellow-600">886</p>
+                            <h3 className="text-lg font-semibold text-gray-700">Complaints Resolved</h3>
+                            <p className="text-3xl font-bold text-yellow-600">
+                            {stats ? stats.statusCounts?.Resolved ?? 0 : "Loading..."}
+                            </p>
                         </div>
-
-                        {/* <div
-                            className="flex flex-col justify-center items-center bg-white p-8 rounded-lg shadow-lg border-t-4 border-red-500 transform transition duration-300 hover:scale-105 hover:shadow-xl"
-                            data-aos="fade-up"
-                            data-aos-duration="1600"
-                        >
-                            <h3 className="text-lg font-semibold text-gray-700">Impact Made</h3>
-                            <p className="text-3xl font-bold text-red-600">...</p>
-                        </div> */}
                     </div>
+
                 </div>
             </div>
 
@@ -289,16 +309,20 @@ export const CEGuestHomePage = () => {
                     stopOnHover={false}
                 >
                     {feedbacks.length > 0 ? (
-                        feedbacks.slice().reverse().map((feedback) => (
-                            <div key={feedback._id} className="bg-white p-6 md:p-8 rounded-xl shadow-md my-2 mx-4 text-center">
-                                <p className="text-gray-700 text-lg leading-relaxed italic">
-                                    "{feedback.description || "User Friendly"}"
-                                </p>
-                                <p className="text-[#00B9FF] font-semibold text-base mt-3">
-                                    - {feedback.userName || "Random User"}
-                                </p>
-                            </div>
-                        ))
+                        feedbacks
+                            .filter((feedback) => feedback.status === "Accepted") // Only show "Accepted" feedbacks
+                            .slice()
+                            .reverse()
+                            .map((feedback) => (
+                                <div key={feedback._id} className="bg-white p-6 md:p-8 rounded-xl shadow-md my-2 mx-4 text-center">
+                                    <p className="text-gray-700 text-lg leading-relaxed italic">
+                                        "{feedback.description || "User Friendly"}"
+                                    </p>
+                                    <p className="text-[#00B9FF] font-semibold text-base mt-3">
+                                        - {feedback.userName || "Random User"}
+                                    </p>
+                                </div>
+                            ))
                     ) : (
                         <div className="p-6 text-center text-gray-500">
                             No feedback available.
