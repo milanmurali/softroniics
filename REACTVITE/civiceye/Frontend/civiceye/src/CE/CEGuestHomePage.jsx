@@ -386,9 +386,6 @@ export const CEGuestHomePage = () => {
                                     <Link to="/landing" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Home</span></Link>
                                 </li>
                                 <li>
-                                    <Link to="/landing" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Complaints</span></Link>
-                                </li>
-                                <li>
                                     <Link to="/signup" className="flex items-center justify-center md:justify-start space-x-2 hover:text-[#00B9FF]"><span>▪</span> <span>Register</span></Link>
                                 </li>
                                 <li>

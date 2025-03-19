@@ -87,6 +87,7 @@ export const CEUserHomePage = () => {
         setadddata({ ...adddata, proof: event.target.files[0] });
     };
     const compSubmit = async (event) => {
+        setPopupOpen(false);
         event.preventDefault();
 
         const formData = new FormData();
@@ -111,7 +112,6 @@ export const CEUserHomePage = () => {
                 }
             );
             toast.success(response.data);
-            setPopupOpen(false);
             // console.log("Response:", response);
         } catch (error) {
             toast.error(error.response.data);
@@ -693,10 +693,11 @@ export const CEUserHomePage = () => {
                             type="text"
                             name="description"
                             id="description"
+                            value={feedbackData.description}
                             onChange={feedbackchange}
                             placeholder="Write your feedback"
                             className="border border-gray-300 p-2 rounded-lg"
-                        />
+                        />  
                         <button type='submit' className="ml-2 px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">
                             Submit
                         </button>

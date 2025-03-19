@@ -27,7 +27,7 @@ export const CEAdminDashboard = () => {
       console.error('Error fetching user data:', error);
     }
   };
-  
+
   useEffect(() => {
     fetchLoggedUserData();
     fetchComplaintStats();
@@ -47,21 +47,21 @@ export const CEAdminDashboard = () => {
 
   //complaint stats 
   const [stats, setStats] = useState({
-    totalComplaints: 13,
+    totalComplaints: 0,
     statusCounts: {
-      Pending: 4, 
-      Approved: 0, 
-      Rejected: 1, 
-      Resolved: 8
+      Pending: 0,
+      Approved: 0,
+      Rejected: 0,
+      Resolved: 0
     },
     categoryCounts: {
-      "Water Leakage": 2,
-      "Traffic Violations": 4,
-      "Power Outage": 1,
-      "Infrastructure": 1,
-      "Other": 1,
-      "Public Nuisance": 2,
-      "Waste Dumping": 2
+      "Water Leakage": 0,
+      "Traffic Violations": 0,
+      "Power Outage": 0,
+      "Infrastructure": 0,
+      "Other": 0,
+      "Public Nuisance": 0,
+      "Waste Dumping": 0
     },
     last7DaysCount: 0
   });
@@ -71,6 +71,7 @@ export const CEAdminDashboard = () => {
       const response = await axios.get("http://127.0.0.1:6969/complaint/stats");
       if (response) {
         setStats(response.data.stats);
+        console.log(response.data.stats);
       }
     } catch (error) {
       console.error("Error fetching complaint stats:", error);
@@ -98,11 +99,13 @@ export const CEAdminDashboard = () => {
 
   return (
     <div className="w-full min-h-screen bg-gray-300 flex justify-center px-6 py-4">
+
       <Toaster />
 
       <div className="backdrop-blur-lg shadow-2xl rounded-2xl w-full max-w flex overflow-hidden">
 
         {/* Sidebar */}
+
         <div className="bg-white/50 w-72 p-6 flex flex-col justify-between shadow-lg">
 
           <div>
@@ -155,7 +158,7 @@ export const CEAdminDashboard = () => {
         <div className="flex-1 p-10 bg-[#00B9FF]/50 overflow-y-auto">
           <div className="bg-white backdrop-blur-lg rounded-xl shadow-md p-6 mb-6">
             <h2 className="text-3xl font-bold mb-6 border-b pb-4 text-gray-800">Overview</h2>
-            
+
             {/* Stats Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
               <div className="bg-white p-4 rounded-lg shadow border-l-4 border-blue-500">
@@ -230,7 +233,7 @@ export const CEAdminDashboard = () => {
             </div>
 
             {/* Weekly Activity Chart */}
-            <div className="mt-6 bg-white p-6 rounded-lg shadow">
+            {/* <div className="mt-6 bg-white p-6 rounded-lg shadow">
               <h3 className="text-xl font-semibold mb-4">Weekly Activity</h3>
               <ResponsiveContainer width="100%" height={300}>
                 <BarChart
@@ -250,7 +253,7 @@ export const CEAdminDashboard = () => {
                   <Bar dataKey="complaints" fill="#00B9FF" />
                 </BarChart>
               </ResponsiveContainer>
-            </div>
+            </div> */}
 
             {/* Category Table */}
             <div className="mt-6 bg-white p-6 rounded-lg shadow">
@@ -278,6 +281,7 @@ export const CEAdminDashboard = () => {
                 </table>
               </div>
             </div>
+
           </div>
         </div>
       </div>
