@@ -7,8 +7,12 @@ import spinner from '../assets/spinner.gif';
 
 
 export const CEAdminComplaints = () => {
+
     const navigate = useNavigate();
     const userId = localStorage.getItem('id');
+
+    const [loading, setLoading] = useState(true); // Loading state
+    const [loggedUserData, setLoggedUserData] = useState({}); // Loggedin user data
 
     useEffect(() => {
         if (!userId) {
@@ -16,7 +20,6 @@ export const CEAdminComplaints = () => {
         }
     }, []);
 
-    const [loggedUserData, setLoggedUserData] = useState({}); // Loggedin user data
     const fetchLoggedUserData = async () => {
         try {
             if (!userId) return;
@@ -64,7 +67,6 @@ export const CEAdminComplaints = () => {
         navigate('/signin')
     }
 
-    const [loading, setLoading] = useState(true);
     const [filteredComplaints, setFilteredComplaints] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [activeFilter, setActiveFilter] = useState("All");
