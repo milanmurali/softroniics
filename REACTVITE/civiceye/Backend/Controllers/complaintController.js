@@ -112,7 +112,7 @@ export async function statusUpdate(req, res) { // Update Complaint Status
     }
 }
 
-export async function getComplaintStats(req, res) {
+export async function getComplaintStats(req, res) {  // Get Complaint Stats
     try {
         // Fetch all complaints
         const complaints = await complaint.find();

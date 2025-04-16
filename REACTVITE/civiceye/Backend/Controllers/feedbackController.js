@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 
 
 
-export async function postfeedback(req, res) {
+export async function postfeedback(req, res) { // Add Feedback
     try {
         let userId = req.body.userId;
         let { description, timestamp } = req.body;
@@ -25,7 +25,7 @@ export async function postfeedback(req, res) {
     }
 }
 
-export async function getallfeedbacks(req, res) {
+export async function getallfeedbacks(req, res) {  // Get All Feedbacks
     try {
         const feedbacks = await feedback.find(); // Get all feedbacks
 

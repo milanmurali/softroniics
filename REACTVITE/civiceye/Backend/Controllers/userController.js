@@ -83,7 +83,7 @@ export async function deleteuser(req, res) { // Delete Function
 }
 
 
-export async function updateuser(req, res) { // Update Function
+export async function updateuser(req, res) { // Update Function 
     const id = req.params.id;
     try {
         // Check if the request body contains a password field
@@ -123,7 +123,7 @@ export async function viewuser(req, res) {  // View by ID Function
 
 }
 
-export async function viewAllUsers(req, res) {
+export async function viewAllUsers(req, res) {  // View All Users Function
     try {
 
         const { id } = req.params; // Extract admin ID from request params
