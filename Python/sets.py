@@ -3,9 +3,11 @@ my_set = {1, 2, 3, 10}
 # 1. Add item
 my_set.add(4)
 print(my_set) 
+
 # # 2. Remove item
 # my_set.remove(2)
 # print(my_set)  # Output: {1, 3, 4}
+
 # # 3. Discard item (no error if not present)
 # my_set.discard(10)
 # print(my_set)  # Output: {1, 3, 4}
@@ -17,6 +19,7 @@ print(my_set)
 # # 5. Clear all items
 # my_set.clear()
 # print(my_set)  # Output: set()
+
 # # 6. Union of sets
 # a = {1, 2}
 # b = {2, 3}
