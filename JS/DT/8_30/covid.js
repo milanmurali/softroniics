@@ -14,7 +14,7 @@ covid_data = [
 let fir = covid_data.reduce((a, b) => a[2] > b[2] ? a : b)
 console.log("District having Highest +ve Case = " + fir[1]);
 
-//2. district having Highest 1st dose vaccine -
+// 1. district having Highest +ve case - 
 let sec = covid_data.reduce((a, b) => a[5] > b[5] ? a : b)
 console.log("District having Highest 1st dose Vaccine = " + sec[1]);
 
