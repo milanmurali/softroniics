@@ -7,6 +7,7 @@ C/.vscode/
 
 # Ignore specific folders
 Tests/
+works/
 # Ignore specific files
 .gitignore
 .env
