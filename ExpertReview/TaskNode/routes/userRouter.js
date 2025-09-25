@@ -1,0 +1,20 @@
+import express from "express"
+import { deletee, login, update, view, viewid, register } from "../controllers/usercontroller.js"
+// import { fileupload } from "../multer.js"
+
+const userRouter = express.Router()
+
+// userRouter.post("/add", add)
+userRouter.post("/login", login)
+userRouter.post("/register", register)
+
+// userRouter.post("/upload", fileupload.single("image"), uploadd)
+
+userRouter.get("/view", view)
+userRouter.get("/viewid/:id", viewid)
+
+userRouter.put("/update/:id", update)
+
+userRouter.delete("/delete/:id", deletee)
+
+export default userRouter
